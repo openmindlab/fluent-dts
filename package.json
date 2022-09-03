@@ -30,7 +30,6 @@
   },
   "scripts": {
     "build": "graphql-codegen --config graphql.yaml",
-    "prepare": "npm run build",
     "postversion": "git push && git push --tags",
     "codegen": "graphql-codegen --config graphql.yaml"
   }

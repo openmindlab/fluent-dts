@@ -1,7 +1,9 @@
 overwrite: true
 schema: "resources/fluent/schema.json"
-documents: null
 generates:
   "@types/fluent/index.d.ts":
     plugins:
       - "typescript"
+hooks:
+  afterAllFileWrite:
+    - node scripts/codegenhook.js

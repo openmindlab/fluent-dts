@@ -1,8 +1,3 @@
-export type Maybe<T> = T | null;
-export type InputMaybe<T> = Maybe<T>;
-export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -18,1713 +13,1713 @@ export type Scalars = {
 export type Query = {
   __typename?: 'Query';
   /**  Find a Article entity */
-  articleById?: Maybe<Article>;
+  articleById?: Article;
   /**  Search for ArticleItem entities */
-  articleItems?: Maybe<ArticleItemConnection>;
+  articleItems?: ArticleItemConnection;
   /**  Search for Article entities */
-  articles?: Maybe<ArticleConnection>;
+  articles?: ArticleConnection;
   /**  Returns the articles currently enroute to, or awaiting collection from, a given location or set of locations. Either 'fromLocation' or 'toLocation' should be provided. */
-  articlesByLocation?: Maybe<ArticleConnection>;
+  articlesByLocation?: ArticleConnection;
   /**  Find a BillingAccount entity */
-  billingAccount?: Maybe<BillingAccount>;
+  billingAccount?: BillingAccount;
   /**  Search for BillingAccount entities */
-  billingAccounts?: Maybe<BillingAccountConnection>;
+  billingAccounts?: BillingAccountConnection;
   /**  Find a Carrier entity */
-  carrier?: Maybe<Carrier>;
+  carrier?: Carrier;
   /**  Search for CarrierAttribute entities */
-  carrierAttributes?: Maybe<CarrierAttributeConnection>;
+  carrierAttributes?: CarrierAttributeConnection;
   /**  Find a Carrier entity */
-  carrierById?: Maybe<Carrier>;
+  carrierById?: Carrier;
   /**  Find a CarrierConsignment entity */
-  carrierConsignment?: Maybe<CarrierConsignment>;
+  carrierConsignment?: CarrierConsignment;
   /**  Find a CarrierConsignmentArticle entity */
-  carrierConsignmentArticleById?: Maybe<CarrierConsignmentArticle>;
+  carrierConsignmentArticleById?: CarrierConsignmentArticle;
   /**  Search for CarrierConsignmentArticle entities */
-  carrierConsignmentArticles?: Maybe<CarrierConsignmentArticleConnection>;
+  carrierConsignmentArticles?: CarrierConsignmentArticleConnection;
   /**  Search for CarrierConsignment entities */
-  carrierConsignments?: Maybe<CarrierConsignmentConnection>;
+  carrierConsignments?: CarrierConsignmentConnection;
   /**  Search for CarrierDetails entities */
-  carrierDetailses?: Maybe<CarrierDetailsConnection>;
+  carrierDetailses?: CarrierDetailsConnection;
   /**  Search for Carrier entities */
-  carriers?: Maybe<CarrierConnection>;
+  carriers?: CarrierConnection;
   /**  Search for Category entities */
-  categories?: Maybe<CategoryConnection>;
+  categories?: CategoryConnection;
   /**  Find a Category entity */
-  category?: Maybe<Category>;
+  category?: Category;
   /**  Find a Comment entity */
-  commentById?: Maybe<Comment>;
+  commentById?: Comment;
   /**  Search for Comment entities */
-  comments?: Maybe<CommentConnection>;
+  comments?: CommentConnection;
   /**  Find a ConsignmentArticle entity */
-  consignmentArticleById?: Maybe<ConsignmentArticle>;
+  consignmentArticleById?: ConsignmentArticle;
   /**  Search for ConsignmentArticle entities */
-  consignmentArticles?: Maybe<ConsignmentArticleConnection>;
+  consignmentArticles?: ConsignmentArticleConnection;
   /**  Find a Consignment entity */
-  consignmentById?: Maybe<Consignment>;
+  consignmentById?: Consignment;
   /**  Search for Consignment entities */
-  consignments?: Maybe<ConsignmentConnection>;
+  consignments?: ConsignmentConnection;
   /**  Find a Control entity */
-  control?: Maybe<Control>;
+  control?: Control;
   /**  Find a ControlGroup entity */
-  controlGroup?: Maybe<ControlGroup>;
+  controlGroup?: ControlGroup;
   /**  Search for ControlGroup entities */
-  controlGroups?: Maybe<ControlGroupConnection>;
+  controlGroups?: ControlGroupConnection;
   /**  Search for Control entities */
-  controls?: Maybe<ControlConnection>;
+  controls?: ControlConnection;
   /**  Find a CreditMemo entity */
-  creditMemo?: Maybe<CreditMemo>;
+  creditMemo?: CreditMemo;
   /**  Search for CreditMemo entities */
-  creditMemoes?: Maybe<CreditMemoConnection>;
+  creditMemoes?: CreditMemoConnection;
   /**  Find a CreditMemoItem entity */
-  creditMemoItem?: Maybe<CreditMemoItem>;
+  creditMemoItem?: CreditMemoItem;
   /**  Search for CreditMemoItem entities */
-  creditMemoItems?: Maybe<CreditMemoItemConnection>;
+  creditMemoItems?: CreditMemoItemConnection;
   /**  Search for Currency entities */
-  currencies?: Maybe<CurrencyConnection>;
+  currencies?: CurrencyConnection;
   /**  Find a Currency entity */
-  currency?: Maybe<Currency>;
+  currency?: Currency;
   /**  Find a Customer entity */
-  customer?: Maybe<Customer>;
+  customer?: Customer;
   /**  Find a CustomerAddress entity */
-  customerAddressById?: Maybe<CustomerAddress>;
+  customerAddressById?: CustomerAddress;
   /**  Search for CustomerAddress entities */
-  customerAddresses?: Maybe<CustomerAddressConnection>;
+  customerAddresses?: CustomerAddressConnection;
   /**  Find a Customer entity */
-  customerById?: Maybe<Customer>;
+  customerById?: Customer;
   /**  Search for Customer entities */
-  customers?: Maybe<CustomerConnection>;
+  customers?: CustomerConnection;
   /**
    *  _Disclaimer:  This query is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/>
    *  Find a `DecisionTable` entity
    */
-  decisionTable?: Maybe<DecisionTable>;
+  decisionTable?: DecisionTable;
   /**  Search for FinancialTransaction entities */
-  financialTransactions?: Maybe<FinancialTransactionConnection>;
+  financialTransactions?: FinancialTransactionConnection;
   /**  Find a Fulfilment entity */
-  fulfilmentById?: Maybe<Fulfilment>;
+  fulfilmentById?: Fulfilment;
   /**  Search for FulfilmentChoice entities */
-  fulfilmentChoices?: Maybe<FulfilmentChoiceConnection>;
+  fulfilmentChoices?: FulfilmentChoiceConnection;
   /**  Search for FulfilmentItem entities */
-  fulfilmentItems?: Maybe<FulfilmentItemConnection>;
+  fulfilmentItems?: FulfilmentItemConnection;
   /**  Find a FulfilmentOption entity */
-  fulfilmentOptionById?: Maybe<FulfilmentOption>;
+  fulfilmentOptionById?: FulfilmentOption;
   /**  Search for FulfilmentOption entities */
-  fulfilmentOptions?: Maybe<FulfilmentOptionConnection>;
+  fulfilmentOptions?: FulfilmentOptionConnection;
   /**  Find a FulfilmentPlan entity */
-  fulfilmentPlanById?: Maybe<FulfilmentPlan>;
+  fulfilmentPlanById?: FulfilmentPlan;
   /**  Search for FulfilmentPlan entities */
-  fulfilmentPlans?: Maybe<FulfilmentPlanConnection>;
+  fulfilmentPlans?: FulfilmentPlanConnection;
   /**  Search for Fulfilment entities */
-  fulfilments?: Maybe<FulfilmentConnection>;
+  fulfilments?: FulfilmentConnection;
   /**  Find a GroupProduct entity */
-  groupProduct?: Maybe<GroupProduct>;
+  groupProduct?: GroupProduct;
   /**  Search for GroupProduct entities */
-  groupProducts?: Maybe<GroupProductConnection>;
+  groupProducts?: GroupProductConnection;
   /**  Find a InventoryCatalogue entity */
-  inventoryCatalogue?: Maybe<InventoryCatalogue>;
+  inventoryCatalogue?: InventoryCatalogue;
   /**  Search for InventoryCatalogue entities */
-  inventoryCatalogues?: Maybe<InventoryCatalogueConnection>;
+  inventoryCatalogues?: InventoryCatalogueConnection;
   /**  Find a InventoryPosition entity */
-  inventoryPosition?: Maybe<InventoryPosition>;
+  inventoryPosition?: InventoryPosition;
   /**  Retrieve the aggregate onHand of Inventory Position for one Product */
-  inventoryPositionAggregate?: Maybe<InventoryPositionAggregateOutput>;
+  inventoryPositionAggregate?: InventoryPositionAggregateOutput;
   /**  Search for InventoryPosition entities */
-  inventoryPositions?: Maybe<InventoryPositionConnection>;
+  inventoryPositions?: InventoryPositionConnection;
   /**  Search for InventoryQuantity entities */
-  inventoryQuantities?: Maybe<InventoryQuantityConnection>;
+  inventoryQuantities?: InventoryQuantityConnection;
   /**  Find a InventoryQuantity entity */
-  inventoryQuantity?: Maybe<InventoryQuantity>;
+  inventoryQuantity?: InventoryQuantity;
   /**  Retrieve the aggregate qty of Inventory Quantity */
-  inventoryQuantityAggregate?: Maybe<InventoryQuantityAggregateOutput>;
+  inventoryQuantityAggregate?: InventoryQuantityAggregateOutput;
   /**  Find a Invoice entity */
-  invoice?: Maybe<Invoice>;
+  invoice?: Invoice;
   /**  Find a InvoiceItem entity */
-  invoiceItem?: Maybe<InvoiceItem>;
+  invoiceItem?: InvoiceItem;
   /**  Search for InvoiceItem entities */
-  invoiceItems?: Maybe<InvoiceItemConnection>;
+  invoiceItems?: InvoiceItemConnection;
   /**  Search for Invoice entities */
-  invoices?: Maybe<InvoiceConnection>;
+  invoices?: InvoiceConnection;
   /**  Find a Location entity */
-  location?: Maybe<Location>;
+  location?: Location;
   /**  Find a Location entity */
-  locationById?: Maybe<Location>;
+  locationById?: Location;
   /**  Search for Location entities */
-  locations?: Maybe<LocationConnection>;
+  locations?: LocationConnection;
   /**  Find a Manifest entity */
-  manifest?: Maybe<Manifest>;
+  manifest?: Manifest;
   /**  Search for Manifest entities */
-  manifests?: Maybe<ManifestConnection>;
+  manifests?: ManifestConnection;
   /**  Find a User entity */
-  me?: Maybe<User>;
+  me?: User;
   /**  Find a Network entity */
-  network?: Maybe<Network>;
+  network?: Network;
   /**  Find a Network entity */
-  networkById?: Maybe<Network>;
+  networkById?: Network;
   /**  Search for Network entities */
-  networks?: Maybe<NetworkConnection>;
+  networks?: NetworkConnection;
   /**  Search for OpeningSchedule entities */
-  openingSchedules?: Maybe<OpeningScheduleConnection>;
+  openingSchedules?: OpeningScheduleConnection;
   /**  Find a Order entity */
-  order?: Maybe<Order>;
+  order?: Order;
   /**  Find a Order entity */
-  orderById?: Maybe<Order>;
+  orderById?: Order;
   /**  Find a OrderItem entity */
-  orderItemById?: Maybe<OrderItem>;
+  orderItemById?: OrderItem;
   /**  Search for OrderItem entities */
-  orderItems?: Maybe<OrderItemConnection>;
+  orderItems?: OrderItemConnection;
   /**  Search for Order entities */
-  orders?: Maybe<OrderConnection>;
+  orders?: OrderConnection;
   /**  Find a Payment entity */
-  payment?: Maybe<Payment>;
+  payment?: Payment;
   /**  Search for Payment entities */
-  payments?: Maybe<PaymentConnection>;
+  payments?: PaymentConnection;
   /**  Find a PaymentServiceProvider entity */
-  paymentServiceProvider?: Maybe<PaymentServiceProvider>;
+  paymentServiceProvider?: PaymentServiceProvider;
   /**  Search for PaymentServiceProvider entities */
-  paymentServiceProviders?: Maybe<PaymentServiceProviderConnection>;
+  paymentServiceProviders?: PaymentServiceProviderConnection;
   /**  Search for PaymentTransaction entities */
-  paymentTransactions?: Maybe<PaymentTransactionConnection>;
+  paymentTransactions?: PaymentTransactionConnection;
   /**  Find a Permission entity */
-  permission?: Maybe<Permission>;
+  permission?: Permission;
   /**  Search for Permission entities */
-  permissions?: Maybe<PermissionConnection>;
+  permissions?: PermissionConnection;
   /**  Search for Price entities */
-  prices?: Maybe<PriceConnection>;
+  prices?: PriceConnection;
   /**  Find a ProductCatalogue entity */
-  productCatalogue?: Maybe<ProductCatalogue>;
+  productCatalogue?: ProductCatalogue;
   /**  Search for ProductCatalogue entities */
-  productCatalogues?: Maybe<ProductCatalogueConnection>;
+  productCatalogues?: ProductCatalogueConnection;
   /**  Find a Retailer entity */
-  retailerById?: Maybe<Retailer>;
+  retailerById?: Retailer;
   /**  Search for Retailer entities */
-  retailers?: Maybe<RetailerConnection>;
+  retailers?: RetailerConnection;
   /**  Find a ReturnFulfilment entity */
-  returnFulfilment?: Maybe<ReturnFulfilment>;
+  returnFulfilment?: ReturnFulfilment;
   /**  Find a ReturnFulfilmentItem entity */
-  returnFulfilmentItem?: Maybe<ReturnFulfilmentItem>;
+  returnFulfilmentItem?: ReturnFulfilmentItem;
   /**  Search for ReturnFulfilmentItem entities */
-  returnFulfilmentItems?: Maybe<ReturnFulfilmentItemConnection>;
+  returnFulfilmentItems?: ReturnFulfilmentItemConnection;
   /**  Search for ReturnFulfilment entities */
-  returnFulfilments?: Maybe<ReturnFulfilmentConnection>;
+  returnFulfilments?: ReturnFulfilmentConnection;
   /**  Find a ReturnOrder entity */
-  returnOrder?: Maybe<ReturnOrder>;
+  returnOrder?: ReturnOrder;
   /**  Find a ReturnOrderItem entity */
-  returnOrderItem?: Maybe<ReturnOrderItem>;
+  returnOrderItem?: ReturnOrderItem;
   /**  Search for ReturnOrderItem entities */
-  returnOrderItems?: Maybe<ReturnOrderItemConnection>;
+  returnOrderItems?: ReturnOrderItemConnection;
   /**  Search for ReturnOrder entities */
-  returnOrders?: Maybe<ReturnOrderConnection>;
+  returnOrders?: ReturnOrderConnection;
   /**  Search for ReturnVerification entities */
-  returnVerifications?: Maybe<ReturnVerificationConnection>;
+  returnVerifications?: ReturnVerificationConnection;
   /**  Find a Role entity */
-  role?: Maybe<Role>;
+  role?: Role;
   /**  Search for Role entities */
-  roles?: Maybe<RoleConnection>;
+  roles?: RoleConnection;
   /**  This query searches the virtual inventory to return locations and available-to-sell stock for the requested products and their given quantities. */
-  searchVirtualInventory?: Maybe<VirtualInventoryConnection>;
+  searchVirtualInventory?: VirtualInventoryConnection;
   /**  Find a Setting entity */
-  setting?: Maybe<Setting>;
+  setting?: Setting;
   /**  Search for Setting entities */
-  settings?: Maybe<SettingConnection>;
+  settings?: SettingConnection;
   /**  Find a StandardProduct entity */
-  standardProduct?: Maybe<StandardProduct>;
+  standardProduct?: StandardProduct;
   /**  Search for StandardProduct entities */
-  standardProducts?: Maybe<StandardProductConnection>;
+  standardProducts?: StandardProductConnection;
   /**  Find a StorageArea entity */
-  storageAreaById?: Maybe<StorageArea>;
+  storageAreaById?: StorageArea;
   /**  Search for StorageArea entities */
-  storageAreas?: Maybe<StorageAreaConnection>;
+  storageAreas?: StorageAreaConnection;
   /**  Find a StoreAddress entity */
-  storeAddressById?: Maybe<StoreAddress>;
+  storeAddressById?: StoreAddress;
   /**  Search for StoreAddress entities */
-  storeAddresses?: Maybe<StoreAddressConnection>;
+  storeAddresses?: StoreAddressConnection;
   /**  Find a User entity */
-  user?: Maybe<User>;
+  user?: User;
   /**  Find a User entity */
-  userById?: Maybe<User>;
+  userById?: User;
   /**  Search for User entities */
-  users?: Maybe<UserConnection>;
+  users?: UserConnection;
   /**  Find a VariantProduct entity */
-  variantProduct?: Maybe<VariantProduct>;
+  variantProduct?: VariantProduct;
   /**  Search for VariantProduct entities */
-  variantProducts?: Maybe<VariantProductConnection>;
+  variantProducts?: VariantProductConnection;
   /**  Find a VirtualCatalogue entity */
-  virtualCatalogue?: Maybe<VirtualCatalogue>;
+  virtualCatalogue?: VirtualCatalogue;
   /**  Search for VirtualCatalogue entities */
-  virtualCatalogues?: Maybe<VirtualCatalogueConnection>;
+  virtualCatalogues?: VirtualCatalogueConnection;
   /**  Find a VirtualPosition entity */
-  virtualPosition?: Maybe<VirtualPosition>;
+  virtualPosition?: VirtualPosition;
   /**  Search for VirtualPosition entities */
-  virtualPositions?: Maybe<VirtualPositionConnection>;
+  virtualPositions?: VirtualPositionConnection;
   /**
    *  _Disclaimer:  This query is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/>
    *  Find a `VirtualView` entity
    */
-  virtualView?: Maybe<VirtualView>;
+  virtualView?: VirtualView;
   /**
    *  _Disclaimer:  This query is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/>
    *  This query searches a Virtual View to find locations that contain the required stock of products and provide that data as available
    * inventory levels. The query looks into the buffered inventory of the locations. The maximum number of locations returned by this query is 100.
    */
-  virtualViewInventoryLevels?: Maybe<VirtualViewInventoryLevelsOutput>;
+  virtualViewInventoryLevels?: VirtualViewInventoryLevelsOutput;
   /**  Find a Wave entity */
-  waveById?: Maybe<Wave>;
+  waveById?: Wave;
   /**  Search for WaveItem entities */
-  waveItems?: Maybe<WaveItemConnection>;
+  waveItems?: WaveItemConnection;
   /**  Search for Wave entities */
-  waves?: Maybe<WaveConnection>;
+  waves?: WaveConnection;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryArticleByIdArgs = {
-  id: Scalars['ID'];
+  id: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryArticleItemsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  barcode?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  quantity?: InputMaybe<Array<Scalars['Int']>>;
-  updatedOn?: InputMaybe<DateRange>;
+  after?: string;
+  barcode?: string[];
+  before?: string;
+  createdOn?: DateRange;
+  first?: number;
+  last?: number;
+  quantity?: number[];
+  updatedOn?: DateRange;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryArticlesArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  description?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  first?: InputMaybe<Scalars['Int']>;
-  height?: InputMaybe<Array<Scalars['Float']>>;
-  last?: InputMaybe<Scalars['Int']>;
-  length?: InputMaybe<Array<Scalars['Float']>>;
-  name?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  quantity?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
-  ref?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  weight?: InputMaybe<Array<Scalars['Float']>>;
-  width?: InputMaybe<Array<Scalars['Float']>>;
-  workflowRef?: InputMaybe<Array<Scalars['String']>>;
-  workflowVersion?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  description?: string[];
+  first?: number;
+  height?: number[];
+  last?: number;
+  length?: number[];
+  name?: string[];
+  quantity?: number[];
+  ref?: string[];
+  status?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  weight?: number[];
+  width?: number[];
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryArticlesByLocationArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  carrierName?: InputMaybe<Scalars['String']>;
-  consignmentStatus?: InputMaybe<Array<Scalars['String']>>;
-  createdOn?: InputMaybe<DateRange>;
-  customerEmail?: InputMaybe<Scalars['String']>;
-  customerFirstName?: InputMaybe<Scalars['String']>;
-  customerLastName?: InputMaybe<Scalars['String']>;
-  customerPhone?: InputMaybe<Scalars['String']>;
-  first?: InputMaybe<Scalars['Int']>;
-  fromLocation?: InputMaybe<Array<LocationKey>>;
-  last?: InputMaybe<Scalars['Int']>;
-  orderRef?: InputMaybe<Array<Scalars['String']>>;
-  orderType?: InputMaybe<Array<Scalars['String']>>;
-  status?: InputMaybe<Array<Scalars['String']>>;
-  toLocation?: InputMaybe<Array<LocationKey>>;
+  after?: string;
+  before?: string;
+  carrierName?: string;
+  consignmentStatus?: string[];
+  createdOn?: DateRange;
+  customerEmail?: string;
+  customerFirstName?: string;
+  customerLastName?: string;
+  customerPhone?: string;
+  first?: number;
+  fromLocation?: LocationKey[];
+  last?: number;
+  orderRef?: string[];
+  orderType?: string[];
+  status?: string[];
+  toLocation?: LocationKey[];
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryBillingAccountArgs = {
-  ref: Scalars['String'];
+  ref: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryBillingAccountsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  customer?: InputMaybe<CustomerLinkInput>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  name?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  retailer?: InputMaybe<RetailerLinkInput>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflow?: InputMaybe<WorkflowLinkInput>;
-  workflowRef?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  workflowVersion?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  customer?: CustomerLinkInput;
+  first?: number;
+  last?: number;
+  name?: string[];
+  ref?: string[];
+  retailer?: RetailerLinkInput;
+  status?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflow?: WorkflowLinkInput;
+  workflowRef?: string[];
+  workflowVersion?: string[];
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryCarrierArgs = {
-  ref: Scalars['String'];
+  ref: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryCarrierAttributesArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  name?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  value?: InputMaybe<Array<Scalars['String']>>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  first?: number;
+  last?: number;
+  name?: string[];
+  updatedOn?: DateRange;
+  value?: string[];
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryCarrierByIdArgs = {
-  id: Scalars['ID'];
+  id: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryCarrierConsignmentArgs = {
-  ref: Scalars['String'];
+  ref: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryCarrierConsignmentArticleByIdArgs = {
-  article?: InputMaybe<ArticleId>;
-  carrierConsignment?: InputMaybe<CarrierConsignmentKey>;
+  article?: ArticleId;
+  carrierConsignment?: CarrierConsignmentKey;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryCarrierConsignmentArticlesArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
+  after?: string;
+  before?: string;
+  first?: number;
+  last?: number;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryCarrierConsignmentsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  consignmentReference?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  createdOn?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  labelUrl?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  last?: InputMaybe<Scalars['Int']>;
-  orderSummaryUrl?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  trackingLabel?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflowRef?: InputMaybe<Array<Scalars['String']>>;
-  workflowVersion?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  before?: string;
+  consignmentReference?: string[];
+  createdOn?: DateRange;
+  first?: number;
+  labelUrl?: string[];
+  last?: number;
+  orderSummaryUrl?: string[];
+  ref?: string[];
+  status?: string[];
+  trackingLabel?: string[];
+  updatedOn?: DateRange;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryCarrierDetailsesArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  agentId?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  before?: InputMaybe<Scalars['String']>;
-  carrierId?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  createdOn?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  retailerId?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  updatedOn?: InputMaybe<DateRange>;
+  after?: string;
+  agentId?: string[];
+  before?: string;
+  carrierId?: string[];
+  createdOn?: DateRange;
+  first?: number;
+  last?: number;
+  retailerId?: string[];
+  updatedOn?: DateRange;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryCarriersArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  name?: InputMaybe<Array<Scalars['String']>>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflowRef?: InputMaybe<Array<Scalars['String']>>;
-  workflowVersion?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  first?: number;
+  last?: number;
+  name?: string[];
+  ref?: string[];
+  status?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryCategoriesArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  catalogue?: InputMaybe<ProductCatalogueKey>;
-  createdOn?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  name?: InputMaybe<Array<Scalars['String']>>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  summary?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflowRef?: InputMaybe<Array<Scalars['String']>>;
-  workflowVersion?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  before?: string;
+  catalogue?: ProductCatalogueKey;
+  createdOn?: DateRange;
+  first?: number;
+  last?: number;
+  name?: string[];
+  ref?: string[];
+  status?: string[];
+  summary?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryCategoryArgs = {
   catalogue: ProductCatalogueKey;
-  ref: Scalars['String'];
+  ref: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryCommentByIdArgs = {
-  id: Scalars['ID'];
+  id: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryCommentsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  entityId?: InputMaybe<Array<Scalars['ID']>>;
-  entityType?: InputMaybe<Array<Scalars['String']>>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  text?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  entityId?: string[];
+  entityType?: string[];
+  first?: number;
+  last?: number;
+  text?: string[];
+  updatedOn?: DateRange;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryConsignmentArticleByIdArgs = {
-  article?: InputMaybe<ArticleId>;
-  consignment?: InputMaybe<ConsignmentId>;
+  article?: ArticleId;
+  consignment?: ConsignmentId;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryConsignmentArticlesArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
+  after?: string;
+  before?: string;
+  first?: number;
+  last?: number;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryConsignmentByIdArgs = {
-  id: Scalars['ID'];
+  id: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryConsignmentsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  consignmentReference?: InputMaybe<Array<Scalars['String']>>;
-  createdOn?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  labelUrl?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  last?: InputMaybe<Scalars['Int']>;
-  orderSummaryUrl?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  ref?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  trackingLabel?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflowRef?: InputMaybe<Array<Scalars['String']>>;
-  workflowVersion?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  before?: string;
+  consignmentReference?: string[];
+  createdOn?: DateRange;
+  first?: number;
+  labelUrl?: string[];
+  last?: number;
+  orderSummaryUrl?: string[];
+  ref?: string[];
+  status?: string[];
+  trackingLabel?: string[];
+  updatedOn?: DateRange;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryControlArgs = {
   controlGroup: ControlGroupKey;
-  ref: Scalars['String'];
+  ref: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryControlGroupArgs = {
-  ref: Scalars['String'];
+  ref: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryControlGroupsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  description?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  name?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  retailerRefs?: InputMaybe<Array<InputMaybe<Array<InputMaybe<Scalars['String']>>>>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflowRef?: InputMaybe<Array<Scalars['String']>>;
-  workflowVersion?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  description?: string[];
+  first?: number;
+  last?: number;
+  name?: string[];
+  ref?: string[];
+  retailerRefs?: Array<string>[];
+  status?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryControlsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  description?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  executionOrder?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  name?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflowRef?: InputMaybe<Array<Scalars['String']>>;
-  workflowVersion?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  description?: string[];
+  executionOrder?: number[];
+  first?: number;
+  last?: number;
+  name?: string[];
+  ref?: string[];
+  status?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryCreditMemoArgs = {
-  ref: Scalars['String'];
+  ref: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryCreditMemoesArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  currency?: InputMaybe<CurrencyLinkInput>;
-  first?: InputMaybe<Scalars['Int']>;
-  issueDate?: InputMaybe<DateRange>;
-  last?: InputMaybe<Scalars['Int']>;
-  order?: InputMaybe<OrderLinkInput>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  returnOrder?: InputMaybe<ReturnOrderLinkInput>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflow?: InputMaybe<WorkflowLinkInput>;
-  workflowRef?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  workflowVersion?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  currency?: CurrencyLinkInput;
+  first?: number;
+  issueDate?: DateRange;
+  last?: number;
+  order?: OrderLinkInput;
+  ref?: string[];
+  returnOrder?: ReturnOrderLinkInput;
+  status?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflow?: WorkflowLinkInput;
+  workflowRef?: string[];
+  workflowVersion?: string[];
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryCreditMemoItemArgs = {
-  ref: Scalars['String'];
+  ref: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryCreditMemoItemsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  description?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  orderItem?: InputMaybe<OrderItemLinkInput>;
-  product?: InputMaybe<ProductLinkInput>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  returnOrderItem?: InputMaybe<ReturnOrderItemLinkInput>;
-  type?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  updatedOn?: InputMaybe<DateRange>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  description?: string[];
+  first?: number;
+  last?: number;
+  orderItem?: OrderItemLinkInput;
+  product?: ProductLinkInput;
+  ref?: string[];
+  returnOrderItem?: ReturnOrderItemLinkInput;
+  type?: string[];
+  updatedOn?: DateRange;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryCurrenciesArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  alphabeticCode?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  before?: InputMaybe<Scalars['String']>;
-  first?: InputMaybe<Scalars['Int']>;
-  isISO4217?: InputMaybe<Array<InputMaybe<Scalars['Boolean']>>>;
-  last?: InputMaybe<Scalars['Int']>;
-  minorUnits?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
-  name?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  numericCode?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  after?: string;
+  alphabeticCode?: string[];
+  before?: string;
+  first?: number;
+  isISO4217?: Scalars['Boolean'][];
+  last?: number;
+  minorUnits?: number[];
+  name?: string[];
+  numericCode?: string[];
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryCurrencyArgs = {
-  alphabeticCode: Scalars['String'];
+  alphabeticCode: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryCustomerArgs = {
-  ref: Scalars['String'];
+  ref: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryCustomerAddressByIdArgs = {
-  id: Scalars['ID'];
+  id: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryCustomerAddressesArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  city?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  companyName?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  country?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  createdOn?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  latitude?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
-  longitude?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
-  name?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  postcode?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  ref?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  region?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  state?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  street?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  timeZone?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  updatedOn?: InputMaybe<DateRange>;
+  after?: string;
+  before?: string;
+  city?: string[];
+  companyName?: string[];
+  country?: string[];
+  createdOn?: DateRange;
+  first?: number;
+  last?: number;
+  latitude?: number[];
+  longitude?: number[];
+  name?: string[];
+  postcode?: string[];
+  ref?: string[];
+  region?: string[];
+  state?: string[];
+  street?: string[];
+  timeZone?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryCustomerByIdArgs = {
-  id: Scalars['ID'];
+  id: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryCustomersArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  country?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  createdOn?: InputMaybe<DateRange>;
-  department?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  first?: InputMaybe<Scalars['Int']>;
-  firstName?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  last?: InputMaybe<Scalars['Int']>;
-  lastName?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  primaryEmail?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  primaryPhone?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  promotionOptIn?: InputMaybe<Array<InputMaybe<Scalars['Boolean']>>>;
-  ref?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  timezone?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  title?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  updatedOn?: InputMaybe<DateRange>;
-  username?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  after?: string;
+  before?: string;
+  country?: string[];
+  createdOn?: DateRange;
+  department?: string[];
+  first?: number;
+  firstName?: string[];
+  last?: number;
+  lastName?: string[];
+  primaryEmail?: string[];
+  primaryPhone?: string[];
+  promotionOptIn?: Scalars['Boolean'][];
+  ref?: string[];
+  status?: string[];
+  timezone?: string[];
+  title?: string[];
+  updatedOn?: DateRange;
+  username?: string[];
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryDecisionTableArgs = {
-  id: Scalars['ID'];
+  id: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryFinancialTransactionsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  cardType?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  createdOn?: InputMaybe<DateRange>;
-  currency?: InputMaybe<Array<Scalars['String']>>;
-  externalTransactionCode?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  externalTransactionId?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  paymentMethod?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  paymentProviderName?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  ref?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  total?: InputMaybe<Array<Scalars['Float']>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflowRef?: InputMaybe<Array<Scalars['String']>>;
-  workflowVersion?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  before?: string;
+  cardType?: string[];
+  createdOn?: DateRange;
+  currency?: string[];
+  externalTransactionCode?: string[];
+  externalTransactionId?: string[];
+  first?: number;
+  last?: number;
+  paymentMethod?: string[];
+  paymentProviderName?: string[];
+  ref?: string[];
+  status?: string[];
+  total?: number[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryFulfilmentByIdArgs = {
-  id: Scalars['ID'];
+  id: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryFulfilmentChoicesArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  currency?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  deliveryInstruction?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  deliveryType?: InputMaybe<Array<Scalars['String']>>;
-  first?: InputMaybe<Scalars['Int']>;
-  fulfilmentPrice?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
-  fulfilmentTaxPrice?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
-  fulfilmentType?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  last?: InputMaybe<Scalars['Int']>;
-  pickupLocationRef?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  updatedOn?: InputMaybe<DateRange>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  currency?: string[];
+  deliveryInstruction?: string[];
+  deliveryType?: string[];
+  first?: number;
+  fulfilmentPrice?: number[];
+  fulfilmentTaxPrice?: number[];
+  fulfilmentType?: string[];
+  last?: number;
+  pickupLocationRef?: string[];
+  updatedOn?: DateRange;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryFulfilmentItemsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  filledQuantity?: InputMaybe<Array<Scalars['Int']>>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  ref?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  rejectedQuantity?: InputMaybe<Array<Scalars['Int']>>;
-  requestedQuantity?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
-  status?: InputMaybe<Array<Scalars['String']>>;
+  after?: string;
+  before?: string;
+  filledQuantity?: number[];
+  first?: number;
+  last?: number;
+  ref?: string[];
+  rejectedQuantity?: number[];
+  requestedQuantity?: number[];
+  status?: string[];
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryFulfilmentOptionByIdArgs = {
-  id: Scalars['ID'];
+  id: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryFulfilmentOptionsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  locationRef?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  orderType?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  ref?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  retailerId?: InputMaybe<Array<Scalars['Int']>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  trackingCode?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflowRef?: InputMaybe<Array<Scalars['String']>>;
-  workflowVersion?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  first?: number;
+  last?: number;
+  locationRef?: string[];
+  orderType?: string[];
+  ref?: string[];
+  retailerId?: number[];
+  status?: string[];
+  trackingCode?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryFulfilmentPlanByIdArgs = {
-  id: Scalars['ID'];
+  id: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryFulfilmentPlansArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  eta?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  ref?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  retailerId?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
-  splitCount?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflowRef?: InputMaybe<Array<Scalars['String']>>;
-  workflowVersion?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  eta?: string[];
+  first?: number;
+  last?: number;
+  ref?: string[];
+  retailerId?: number[];
+  splitCount?: number[];
+  status?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryFulfilmentsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  deliveryType?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  eta?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  expiryTime?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  fromLocation?: InputMaybe<LocationLinkInput>;
-  last?: InputMaybe<Scalars['Int']>;
-  ref?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflowRef?: InputMaybe<Array<Scalars['String']>>;
-  workflowVersion?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  deliveryType?: string[];
+  eta?: string[];
+  expiryTime?: DateRange;
+  first?: number;
+  fromLocation?: LocationLinkInput;
+  last?: number;
+  ref?: string[];
+  status?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryGroupProductArgs = {
   catalogue: ProductCatalogueKey;
-  ref: Scalars['String'];
+  ref: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryGroupProductsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  catalogue?: InputMaybe<ProductCatalogueKey>;
-  createdOn?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  name?: InputMaybe<Array<Scalars['String']>>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  summary?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflowRef?: InputMaybe<Array<Scalars['String']>>;
-  workflowVersion?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  before?: string;
+  catalogue?: ProductCatalogueKey;
+  createdOn?: DateRange;
+  first?: number;
+  last?: number;
+  name?: string[];
+  ref?: string[];
+  status?: string[];
+  summary?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryInventoryCatalogueArgs = {
-  ref: Scalars['String'];
+  ref: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryInventoryCataloguesArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  description?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  name?: InputMaybe<Array<Scalars['String']>>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  retailerRefs?: InputMaybe<Array<InputMaybe<Array<InputMaybe<Scalars['String']>>>>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflowRef?: InputMaybe<Array<Scalars['String']>>;
-  workflowVersion?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  description?: string[];
+  first?: number;
+  last?: number;
+  name?: string[];
+  ref?: string[];
+  retailerRefs?: Array<string>[];
+  status?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryInventoryPositionArgs = {
   catalogue: InventoryCatalogueKey;
-  ref: Scalars['String'];
+  ref: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryInventoryPositionAggregateArgs = {
   catalogue: InventoryCatalogueKey;
-  networkRef?: InputMaybe<Scalars['String']>;
-  productRef: Scalars['String'];
-  status?: InputMaybe<Array<Scalars['String']>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
+  networkRef?: string;
+  productRef: string;
+  status?: string[];
+  type?: string[];
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryInventoryPositionsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  catalogue?: InputMaybe<InventoryCatalogueKey>;
-  createdOn?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  locationRef?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  onHand?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
-  productRef?: InputMaybe<Array<Scalars['String']>>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflowRef?: InputMaybe<Array<Scalars['String']>>;
-  workflowVersion?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  before?: string;
+  catalogue?: InventoryCatalogueKey;
+  createdOn?: DateRange;
+  first?: number;
+  last?: number;
+  locationRef?: string[];
+  onHand?: number[];
+  productRef?: string[];
+  ref?: string[];
+  status?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryInventoryQuantitiesArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  catalogue?: InputMaybe<InventoryCatalogueKey>;
-  condition?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  createdOn?: InputMaybe<DateRange>;
-  expectedOn?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  quantity?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  storageAreaRef?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflowRef?: InputMaybe<Array<Scalars['String']>>;
-  workflowVersion?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  before?: string;
+  catalogue?: InventoryCatalogueKey;
+  condition?: string[];
+  createdOn?: DateRange;
+  expectedOn?: DateRange;
+  first?: number;
+  last?: number;
+  quantity?: number[];
+  ref?: string[];
+  status?: string[];
+  storageAreaRef?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryInventoryQuantityArgs = {
   catalogue: InventoryCatalogueKey;
-  ref: Scalars['String'];
+  ref: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryInventoryQuantityAggregateArgs = {
-  expectedOn?: InputMaybe<DateRange>;
+  expectedOn?: DateRange;
   position: InventoryPositionKey;
-  status?: InputMaybe<Array<Scalars['String']>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
+  status?: string[];
+  type?: string[];
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryInvoiceArgs = {
-  ref: Scalars['String'];
+  ref: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryInvoiceItemArgs = {
-  ref: Scalars['String'];
+  ref: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryInvoiceItemsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  description?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  product?: InputMaybe<ProductLinkInput>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  type?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  updatedOn?: InputMaybe<DateRange>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  description?: string[];
+  first?: number;
+  last?: number;
+  product?: ProductLinkInput;
+  ref?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryInvoicesArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  currency?: InputMaybe<CurrencyLinkInput>;
-  dueDate?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  fulfilment?: InputMaybe<FulfilmentLinkInput>;
-  issueDate?: InputMaybe<DateRange>;
-  last?: InputMaybe<Scalars['Int']>;
-  order?: InputMaybe<OrderLinkInput>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflow?: InputMaybe<WorkflowLinkInput>;
-  workflowRef?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  workflowVersion?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  currency?: CurrencyLinkInput;
+  dueDate?: DateRange;
+  first?: number;
+  fulfilment?: FulfilmentLinkInput;
+  issueDate?: DateRange;
+  last?: number;
+  order?: OrderLinkInput;
+  ref?: string[];
+  status?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflow?: WorkflowLinkInput;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryLocationArgs = {
-  id?: InputMaybe<Scalars['ID']>;
-  ref?: InputMaybe<Scalars['String']>;
+  id?: string;
+  ref?: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryLocationByIdArgs = {
-  id: Scalars['ID'];
+  id: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryLocationsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  defaultCarrier?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  defaultCarrierName?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  name?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  ref?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  supportPhoneNumber?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  updatedOn?: InputMaybe<DateRange>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  defaultCarrier?: string[];
+  defaultCarrierName?: string[];
+  first?: number;
+  last?: number;
+  name?: string[];
+  ref?: string[];
+  status?: string[];
+  supportPhoneNumber?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryManifestArgs = {
-  ref: Scalars['String'];
+  ref: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryManifestsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  carrierManifestLink?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  createdOn?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  name?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflowRef?: InputMaybe<Array<Scalars['String']>>;
-  workflowVersion?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  before?: string;
+  carrierManifestLink?: string[];
+  createdOn?: DateRange;
+  first?: number;
+  last?: number;
+  name?: string[];
+  ref?: string[];
+  status?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryNetworkArgs = {
-  id?: InputMaybe<Scalars['ID']>;
-  ref?: InputMaybe<Scalars['String']>;
+  id?: string;
+  ref?: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryNetworkByIdArgs = {
-  id: Scalars['ID'];
+  id: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryNetworksArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  ref?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  updatedOn?: InputMaybe<DateRange>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  first?: number;
+  last?: number;
+  ref?: string[];
+  status?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryOpeningSchedulesArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  allHours?: InputMaybe<Array<Scalars['Boolean']>>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  friEnd?: InputMaybe<Array<Scalars['Int']>>;
-  friStart?: InputMaybe<Array<Scalars['Int']>>;
-  last?: InputMaybe<Scalars['Int']>;
-  monEnd?: InputMaybe<Array<Scalars['Int']>>;
-  monStart?: InputMaybe<Array<Scalars['Int']>>;
-  satEnd?: InputMaybe<Array<Scalars['Int']>>;
-  satStart?: InputMaybe<Array<Scalars['Int']>>;
-  sunEnd?: InputMaybe<Array<Scalars['Int']>>;
-  sunStart?: InputMaybe<Array<Scalars['Int']>>;
-  thuEnd?: InputMaybe<Array<Scalars['Int']>>;
-  thuStart?: InputMaybe<Array<Scalars['Int']>>;
-  tueEnd?: InputMaybe<Array<Scalars['Int']>>;
-  tueStart?: InputMaybe<Array<Scalars['Int']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  wedEnd?: InputMaybe<Array<Scalars['Int']>>;
-  wedStart?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  allHours?: Scalars['Boolean'][];
+  before?: string;
+  createdOn?: DateRange;
+  first?: number;
+  friEnd?: number[];
+  friStart?: number[];
+  last?: number;
+  monEnd?: number[];
+  monStart?: number[];
+  satEnd?: number[];
+  satStart?: number[];
+  sunEnd?: number[];
+  sunStart?: number[];
+  thuEnd?: number[];
+  thuStart?: number[];
+  tueEnd?: number[];
+  tueStart?: number[];
+  updatedOn?: DateRange;
+  wedEnd?: number[];
+  wedStart?: number[];
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryOrderArgs = {
-  id?: InputMaybe<Scalars['ID']>;
-  ref?: InputMaybe<Scalars['String']>;
+  id?: string;
+  ref?: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryOrderByIdArgs = {
-  id: Scalars['ID'];
+  id: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryOrderItemByIdArgs = {
-  id: Scalars['ID'];
+  id: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryOrderItemsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  currency?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  paidPrice?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
-  price?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
-  quantity?: InputMaybe<Array<Scalars['Int']>>;
-  ref?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  status?: InputMaybe<Array<Scalars['String']>>;
-  taxPrice?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
-  taxType?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  totalPrice?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
-  totalTaxPrice?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
-  updatedOn?: InputMaybe<DateRange>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  currency?: string[];
+  first?: number;
+  last?: number;
+  paidPrice?: number[];
+  price?: number[];
+  quantity?: number[];
+  ref?: string[];
+  status?: string[];
+  taxPrice?: number[];
+  taxType?: string[];
+  totalPrice?: number[];
+  totalTaxPrice?: number[];
+  updatedOn?: DateRange;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryOrdersArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  customerLink?: InputMaybe<CustomerLinkInput>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  payment?: InputMaybe<PaymentLinkInput>;
-  ref?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  totalPrice?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
-  totalTaxPrice?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflowRef?: InputMaybe<Array<Scalars['String']>>;
-  workflowVersion?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  customerLink?: CustomerLinkInput;
+  first?: number;
+  last?: number;
+  payment?: PaymentLinkInput;
+  ref?: string[];
+  status?: string[];
+  totalPrice?: number[];
+  totalTaxPrice?: number[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryPaymentArgs = {
-  ref: Scalars['String'];
+  ref: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryPaymentsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  retailer?: InputMaybe<RetailerLinkInput>;
-  status?: InputMaybe<Array<Scalars['String']>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflow?: InputMaybe<WorkflowLinkInput>;
-  workflowRef?: InputMaybe<Array<Scalars['String']>>;
-  workflowVersion?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  first?: number;
+  last?: number;
+  ref?: string[];
+  retailer?: RetailerLinkInput;
+  status?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflow?: WorkflowLinkInput;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryPaymentServiceProviderArgs = {
-  ref: Scalars['String'];
+  ref: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryPaymentServiceProvidersArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  clientId?: InputMaybe<Array<Scalars['String']>>;
-  clientSecret?: InputMaybe<Array<Scalars['String']>>;
-  createdOn?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  host?: InputMaybe<Array<Scalars['String']>>;
-  last?: InputMaybe<Scalars['Int']>;
-  name?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  port?: InputMaybe<Array<Scalars['Int']>>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  retailer?: InputMaybe<RetailerLinkInput>;
-  serviceAuthToken?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
+  after?: string;
+  before?: string;
+  clientId?: string[];
+  clientSecret?: string[];
+  createdOn?: DateRange;
+  first?: number;
+  host?: string[];
+  last?: number;
+  name?: string[];
+  port?: number[];
+  ref?: string[];
+  retailer?: RetailerLinkInput;
+  serviceAuthToken?: string[];
+  updatedOn?: DateRange;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryPaymentTransactionsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  authorizationKey?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  before?: InputMaybe<Scalars['String']>;
-  cardType?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  createdOn?: InputMaybe<DateRange>;
-  currency?: InputMaybe<CurrencyLinkInput>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  paymentMethod?: InputMaybe<Array<Scalars['String']>>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  status?: InputMaybe<Array<Scalars['String']>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflow?: InputMaybe<WorkflowLinkInput>;
-  workflowRef?: InputMaybe<Array<Scalars['String']>>;
-  workflowVersion?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  authorizationKey?: string[];
+  before?: string;
+  cardType?: string[];
+  createdOn?: DateRange;
+  currency?: CurrencyLinkInput;
+  first?: number;
+  last?: number;
+  paymentMethod?: string[];
+  ref?: string[];
+  status?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflow?: WorkflowLinkInput;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryPermissionArgs = {
-  name: Scalars['String'];
+  name: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryPermissionsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  name?: InputMaybe<Array<Scalars['String']>>;
+  after?: string;
+  before?: string;
+  first?: number;
+  last?: number;
+  name?: string[];
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryPricesArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  currency?: InputMaybe<Array<Scalars['String']>>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  value?: InputMaybe<Array<Scalars['Float']>>;
+  after?: string;
+  before?: string;
+  currency?: string[];
+  first?: number;
+  last?: number;
+  type?: string[];
+  value?: number[];
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryProductCatalogueArgs = {
-  ref: Scalars['String'];
+  ref: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryProductCataloguesArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  description?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  name?: InputMaybe<Array<Scalars['String']>>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  retailerRefs?: InputMaybe<Array<InputMaybe<Array<InputMaybe<Scalars['String']>>>>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflowRef?: InputMaybe<Array<Scalars['String']>>;
-  workflowVersion?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  description?: string[];
+  first?: number;
+  last?: number;
+  name?: string[];
+  ref?: string[];
+  retailerRefs?: Array<string>[];
+  status?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryRetailerByIdArgs = {
-  id: Scalars['ID'];
+  id: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryRetailersArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  primaryEmail?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  summary?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  supportContactName?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  supportEmail?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  supportPhone?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  tradingName?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  updatedOn?: InputMaybe<DateRange>;
-  websiteUrl?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  websiteUrlName?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  first?: number;
+  last?: number;
+  primaryEmail?: string[];
+  ref?: string[];
+  status?: string[];
+  summary?: string[];
+  supportContactName?: string[];
+  supportEmail?: string[];
+  supportPhone?: string[];
+  tradingName?: string[];
+  updatedOn?: DateRange;
+  websiteUrl?: string[];
+  websiteUrlName?: string[];
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryReturnFulfilmentArgs = {
-  ref: Scalars['String'];
+  ref: string;
   returnOrder: ReturnOrderKey;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryReturnFulfilmentItemArgs = {
-  ref: Scalars['String'];
+  ref: string;
   returnFulfilment: ReturnFulfilmentKey;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryReturnFulfilmentItemsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  product?: InputMaybe<ProductLinkInput>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  first?: number;
+  last?: number;
+  product?: ProductLinkInput;
+  ref?: string[];
+  updatedOn?: DateRange;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryReturnFulfilmentsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  destinationLocation?: InputMaybe<LocationLinkInput>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  lodgedLocation?: InputMaybe<LocationLinkInput>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  status?: InputMaybe<Array<Scalars['String']>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflow?: InputMaybe<WorkflowLinkInput>;
-  workflowRef?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  workflowVersion?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  destinationLocation?: LocationLinkInput;
+  first?: number;
+  last?: number;
+  lodgedLocation?: LocationLinkInput;
+  ref?: string[];
+  status?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflow?: WorkflowLinkInput;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryReturnOrderArgs = {
-  ref: Scalars['String'];
+  ref: string;
   retailer: RetailerId;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryReturnOrderItemArgs = {
-  ref: Scalars['String'];
+  ref: string;
   returnOrder: ReturnOrderKey;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryReturnOrderItemsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  orderItem?: InputMaybe<OrderItemLinkInput>;
-  product?: InputMaybe<ProductLinkInput>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  returnConditionComment?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  returnReasonComment?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  status?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  first?: number;
+  last?: number;
+  orderItem?: OrderItemLinkInput;
+  product?: ProductLinkInput;
+  ref?: string[];
+  returnConditionComment?: string[];
+  returnReasonComment?: string[];
+  status?: string[];
+  updatedOn?: DateRange;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryReturnOrdersArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  creditMemo?: InputMaybe<CreditMemoLinkInput>;
-  currency?: InputMaybe<CurrencyLinkInput>;
-  customer?: InputMaybe<CustomerLinkInput>;
-  destinationLocation?: InputMaybe<LocationLinkInput>;
-  exchangeOrder?: InputMaybe<OrderLinkInput>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  lodgedLocation?: InputMaybe<LocationLinkInput>;
-  order?: InputMaybe<OrderLinkInput>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  retailer?: InputMaybe<RetailerLinkInput>;
-  returnAuthorisationKey?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  returnAuthorisationKeyExpiry?: InputMaybe<DateRange>;
-  status?: InputMaybe<Array<Scalars['String']>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflow?: InputMaybe<WorkflowLinkInput>;
-  workflowRef?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  workflowVersion?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  creditMemo?: CreditMemoLinkInput;
+  currency?: CurrencyLinkInput;
+  customer?: CustomerLinkInput;
+  destinationLocation?: LocationLinkInput;
+  exchangeOrder?: OrderLinkInput;
+  first?: number;
+  last?: number;
+  lodgedLocation?: LocationLinkInput;
+  order?: OrderLinkInput;
+  ref?: string[];
+  retailer?: RetailerLinkInput;
+  returnAuthorisationKey?: string[];
+  returnAuthorisationKeyExpiry?: DateRange;
+  status?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflow?: WorkflowLinkInput;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryReturnVerificationsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  verificationDetails?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  first?: number;
+  last?: number;
+  ref?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  verificationDetails?: string[];
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryRoleArgs = {
-  name: Scalars['String'];
+  name: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryRolesArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  name?: InputMaybe<Array<Scalars['String']>>;
+  after?: string;
+  before?: string;
+  first?: number;
+  last?: number;
+  name?: string[];
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QuerySearchVirtualInventoryArgs = {
-  excludedLocationRefs?: InputMaybe<Array<Scalars['String']>>;
-  first?: InputMaybe<Scalars['Int']>;
-  orderByProximity?: InputMaybe<GeoCoordinateInput>;
-  productQuantities: Array<ProductQuantityInput>;
+  excludedLocationRefs?: string[];
+  first?: number;
+  orderByProximity?: GeoCoordinateInput;
+  productQuantities: ProductQuantityInput[];
   virtualCatalogue: VirtualCatalogueKey;
-  virtualPosition?: InputMaybe<VirtualPositionInput>;
+  virtualPosition?: VirtualPositionInput;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QuerySettingArgs = {
-  id?: InputMaybe<Scalars['ID']>;
+  id?: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QuerySettingsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  context?: InputMaybe<Array<Scalars['String']>>;
-  contextId?: InputMaybe<Array<Scalars['Int']>>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  name?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  value?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  valueType?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  after?: string;
+  before?: string;
+  context?: string[];
+  contextId?: number[];
+  first?: number;
+  last?: number;
+  name?: string[];
+  value?: string[];
+  valueType?: string[];
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryStandardProductArgs = {
   catalogue: ProductCatalogueKey;
-  ref: Scalars['String'];
+  ref: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryStandardProductsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  catalogue?: InputMaybe<ProductCatalogueKey>;
-  createdOn?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  gtin?: InputMaybe<Array<Scalars['String']>>;
-  last?: InputMaybe<Scalars['Int']>;
-  name?: InputMaybe<Array<Scalars['String']>>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  summary?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflowRef?: InputMaybe<Array<Scalars['String']>>;
-  workflowVersion?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  before?: string;
+  catalogue?: ProductCatalogueKey;
+  createdOn?: DateRange;
+  first?: number;
+  gtin?: string[];
+  last?: number;
+  name?: string[];
+  ref?: string[];
+  status?: string[];
+  summary?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryStorageAreaByIdArgs = {
-  id: Scalars['ID'];
+  id: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryStorageAreasArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  name?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  updatedOn?: InputMaybe<DateRange>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  first?: number;
+  last?: number;
+  name?: string[];
+  status?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryStoreAddressByIdArgs = {
-  id: Scalars['ID'];
+  id: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryStoreAddressesArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  city?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  companyName?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  country?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  createdOn?: InputMaybe<DateRange>;
-  directions?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  latitude?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
-  longitude?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
-  name?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  postcode?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  ref?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  region?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  state?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  street?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  timeZone?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  updatedOn?: InputMaybe<DateRange>;
+  after?: string;
+  before?: string;
+  city?: string[];
+  companyName?: string[];
+  country?: string[];
+  createdOn?: DateRange;
+  directions?: string[];
+  first?: number;
+  last?: number;
+  latitude?: number[];
+  longitude?: number[];
+  name?: string[];
+  postcode?: string[];
+  ref?: string[];
+  region?: string[];
+  state?: string[];
+  street?: string[];
+  timeZone?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryUserArgs = {
-  id?: InputMaybe<Scalars['ID']>;
-  username?: InputMaybe<Scalars['String']>;
+  id?: string;
+  username?: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryUserByIdArgs = {
-  id: Scalars['ID'];
+  id: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryUsersArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  country?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  createdOn?: InputMaybe<DateRange>;
-  department?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  first?: InputMaybe<Scalars['Int']>;
-  firstName?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  last?: InputMaybe<Scalars['Int']>;
-  lastName?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  primaryEmail?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  primaryPhone?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  promotionOptIn?: InputMaybe<Array<InputMaybe<Scalars['Boolean']>>>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  timezone?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  title?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  username?: InputMaybe<Array<Scalars['String']>>;
+  after?: string;
+  before?: string;
+  country?: string[];
+  createdOn?: DateRange;
+  department?: string[];
+  first?: number;
+  firstName?: string[];
+  last?: number;
+  lastName?: string[];
+  primaryEmail?: string[];
+  primaryPhone?: string[];
+  promotionOptIn?: Scalars['Boolean'][];
+  ref?: string[];
+  status?: string[];
+  timezone?: string[];
+  title?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  username?: string[];
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryVariantProductArgs = {
   catalogue: ProductCatalogueKey;
-  ref: Scalars['String'];
+  ref: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryVariantProductsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  catalogue?: InputMaybe<ProductCatalogueKey>;
-  createdOn?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  gtin?: InputMaybe<Array<Scalars['String']>>;
-  last?: InputMaybe<Scalars['Int']>;
-  name?: InputMaybe<Array<Scalars['String']>>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  summary?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflowRef?: InputMaybe<Array<Scalars['String']>>;
-  workflowVersion?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  before?: string;
+  catalogue?: ProductCatalogueKey;
+  createdOn?: DateRange;
+  first?: number;
+  gtin?: string[];
+  last?: number;
+  name?: string[];
+  ref?: string[];
+  status?: string[];
+  summary?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryVirtualCatalogueArgs = {
-  ref: Scalars['String'];
+  ref: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryVirtualCataloguesArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  controlGroupRef?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  createdOn?: InputMaybe<DateRange>;
-  description?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  first?: InputMaybe<Scalars['Int']>;
-  inventoryCatalogueRef?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  last?: InputMaybe<Scalars['Int']>;
-  name?: InputMaybe<Array<Scalars['String']>>;
-  networkIds?: InputMaybe<Array<InputMaybe<Array<InputMaybe<Scalars['String']>>>>>;
-  productCatalogueRef?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  retailerRefs?: InputMaybe<Array<InputMaybe<Array<InputMaybe<Scalars['String']>>>>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflowRef?: InputMaybe<Array<Scalars['String']>>;
-  workflowVersion?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  before?: string;
+  controlGroupRef?: string[];
+  createdOn?: DateRange;
+  description?: string[];
+  first?: number;
+  inventoryCatalogueRef?: string[];
+  last?: number;
+  name?: string[];
+  networkIds?: Array<string>[];
+  productCatalogueRef?: string[];
+  ref?: string[];
+  retailerRefs?: Array<string>[];
+  status?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryVirtualPositionArgs = {
   catalogue: VirtualCatalogueKey;
-  ref: Scalars['String'];
+  ref: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryVirtualPositionsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  catalogue?: InputMaybe<VirtualCatalogueKey>;
-  createdOn?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  groupRef?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  last?: InputMaybe<Scalars['Int']>;
-  productRef?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  quantity?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflowRef?: InputMaybe<Array<Scalars['String']>>;
-  workflowVersion?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  before?: string;
+  catalogue?: VirtualCatalogueKey;
+  createdOn?: DateRange;
+  first?: number;
+  groupRef?: string[];
+  last?: number;
+  productRef?: string[];
+  quantity?: number[];
+  ref?: string[];
+  status?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 
@@ -1736,158 +1731,158 @@ export type QueryVirtualViewArgs = {
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryVirtualViewInventoryLevelsArgs = {
-  first?: InputMaybe<Scalars['Int']>;
+  first?: number;
   input: VirtualViewInventoryLevelsInput;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryWaveByIdArgs = {
-  id: Scalars['ID'];
+  id: string;
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryWaveItemsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  quantity?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  before?: string;
+  first?: number;
+  last?: number;
+  quantity?: number[];
 };
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryWavesArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  name?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  processingLocation?: InputMaybe<LocationLinkInput>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflowRef?: InputMaybe<Array<Scalars['String']>>;
-  workflowVersion?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  first?: number;
+  last?: number;
+  name?: string[];
+  processingLocation?: LocationLinkInput;
+  ref?: string[];
+  status?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 /**  An Article can be created when a fulfilment is fulfilled, or when a dispatch occurs. The Article represents the physical parcel that contains the customer order items. The Article is the entity received by the customer. */
 export type Article = Node & Orchestrateable & {
   __typename?: 'Article';
   /**  Attributes of article */
-  attributes?: Maybe<Array<Maybe<Attribute>>>;
+  attributes?: Attribute[];
   /**  Relationships between carrierConsignment and article */
-  carrierConsignmentArticles?: Maybe<CarrierConsignmentArticleConnection>;
+  carrierConsignmentArticles?: CarrierConsignmentArticleConnection;
   /**  Relationships between consignment and article */
-  consignmentArticles?: Maybe<ConsignmentArticleConnection>;
+  consignmentArticles?: ConsignmentArticleConnection;
   /**  Time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  Description */
-  description?: Maybe<Scalars['String']>;
+  description?: string;
   /**  Fulfilments associated with this article */
-  fulfilments?: Maybe<FulfilmentConnection>;
+  fulfilments?: FulfilmentConnection;
   /**  Height */
-  height: Scalars['Float'];
+  height: number;
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  Items within this article */
-  items?: Maybe<ArticleItemConnection>;
+  items?: ArticleItemConnection;
   /**  Length */
-  length: Scalars['Float'];
+  length: number;
   /**  Name */
-  name?: Maybe<Scalars['String']>;
+  name?: string;
   /**  Quantity */
-  quantity?: Maybe<Scalars['Int']>;
+  quantity?: number;
   /**  The unique article reference provided by the retailer */
-  ref?: Maybe<Scalars['String']>;
+  ref?: string;
   /**  The current status of the `Article`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/> */
-  status?: Maybe<Scalars['String']>;
+  status?: string;
   /**  The storage areas of the article */
-  storageArea?: Maybe<StorageArea>;
+  storageArea?: StorageArea;
   /**  Type of the `Article`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/> */
-  type: Scalars['String'];
+  type: string;
   /**  Time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
   /**  Weight */
-  weight: Scalars['Float'];
+  weight: number;
   /**  Width */
-  width: Scalars['Float'];
+  width: number;
   /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
-  workflowRef: Scalars['String'];
+  workflowRef: string;
   /**  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/> */
-  workflowVersion: Scalars['Int'];
+  workflowVersion: number;
 };
 
 
 /**  An Article can be created when a fulfilment is fulfilled, or when a dispatch occurs. The Article represents the physical parcel that contains the customer order items. The Article is the entity received by the customer. */
 export type ArticleCarrierConsignmentArticlesArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
+  after?: string;
+  before?: string;
+  first?: number;
+  last?: number;
 };
 
 
 /**  An Article can be created when a fulfilment is fulfilled, or when a dispatch occurs. The Article represents the physical parcel that contains the customer order items. The Article is the entity received by the customer. */
 export type ArticleConsignmentArticlesArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
+  after?: string;
+  before?: string;
+  first?: number;
+  last?: number;
 };
 
 
 /**  An Article can be created when a fulfilment is fulfilled, or when a dispatch occurs. The Article represents the physical parcel that contains the customer order items. The Article is the entity received by the customer. */
 export type ArticleFulfilmentsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  deliveryType?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  eta?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  expiryTime?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  fromLocation?: InputMaybe<LocationLinkInput>;
-  last?: InputMaybe<Scalars['Int']>;
-  ref?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflowRef?: InputMaybe<Array<Scalars['String']>>;
-  workflowVersion?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  deliveryType?: string[];
+  eta?: string[];
+  expiryTime?: DateRange;
+  first?: number;
+  fromLocation?: LocationLinkInput;
+  last?: number;
+  ref?: string[];
+  status?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 
 /**  An Article can be created when a fulfilment is fulfilled, or when a dispatch occurs. The Article represents the physical parcel that contains the customer order items. The Article is the entity received by the customer. */
 export type ArticleItemsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  barcode?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  quantity?: InputMaybe<Array<Scalars['Int']>>;
-  updatedOn?: InputMaybe<DateRange>;
+  after?: string;
+  barcode?: string[];
+  before?: string;
+  createdOn?: DateRange;
+  first?: number;
+  last?: number;
+  quantity?: number[];
+  updatedOn?: DateRange;
 };
 
 /**  Represents an object with `ID`. */
 export type Node = {
   /**  Time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  Time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
 };
 
 /**  Represents an object that can be orchestrated via a workflow */
 export type Orchestrateable = {
-  status?: Maybe<Scalars['String']>;
-  type: Scalars['String'];
-  workflowRef: Scalars['String'];
-  workflowVersion: Scalars['Int'];
+  status?: string;
+  type: string;
+  workflowRef: string;
+  workflowVersion: number;
 };
 
 /**
@@ -1898,9 +1893,9 @@ export type Orchestrateable = {
 export type Attribute = {
   __typename?: 'Attribute';
   /**  Name of the `attribute` */
-  name: Scalars['String'];
+  name: string;
   /**  Type of the attribute's `value`. This is a free string and can be used by the client to interpret and cast the `value` into the appropriate type. */
-  type: Scalars['String'];
+  type: string;
   /**  Value of the `attribute` */
   value: Scalars['Json'];
 };
@@ -1909,162 +1904,162 @@ export type Attribute = {
 export type CarrierConsignmentArticleConnection = {
   __typename?: 'CarrierConsignmentArticleConnection';
   /**  A list of edges that links to CarrierConsignmentArticle type node */
-  edges?: Maybe<Array<Maybe<CarrierConsignmentArticleEdge>>>;
+  edges?: CarrierConsignmentArticleEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a CarrierConsignmentArticle connection to the CarrierConsignmentArticle type */
 export type CarrierConsignmentArticleEdge = {
   __typename?: 'CarrierConsignmentArticleEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the CarrierConsignmentArticle edge */
-  node?: Maybe<CarrierConsignmentArticle>;
+  node?: CarrierConsignmentArticle;
 };
 
 /**  The relationship between carrierConsignment and article */
 export type CarrierConsignmentArticle = {
   __typename?: 'CarrierConsignmentArticle';
   /**  Article */
-  article?: Maybe<Article>;
+  article?: Article;
   /**  Consignment */
-  carrierConsignment?: Maybe<CarrierConsignment>;
+  carrierConsignment?: CarrierConsignment;
 };
 
 /**  A `Consignment` is the object representing the booking of an article for delivery. */
 export type CarrierConsignment = Extendable & Node & Referenceable & {
   __typename?: 'CarrierConsignment';
   /**  A list of attributes associated with this Consignment. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: Maybe<Array<Maybe<Attribute>>>;
+  attributes?: Attribute[];
   /**  Carrier used for the consignment */
-  carrier?: Maybe<Carrier>;
+  carrier?: Carrier;
   /**  Relationships between consignment and article */
-  carrierConsignmentArticles?: Maybe<CarrierConsignmentArticleConnection>;
+  carrierConsignmentArticles?: CarrierConsignmentArticleConnection;
   /**  The external consignment reference assigned by the carrier */
-  consignmentReference?: Maybe<Scalars['String']>;
+  consignmentReference?: string;
   /**  Time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  The URL used to retrieve the shipping label */
-  labelUrl?: Maybe<Scalars['String']>;
+  labelUrl?: string;
   /**  Manifests that contain the consignment */
-  manifests?: Maybe<ManifestConnection>;
+  manifests?: ManifestConnection;
   /**  A url to represent the order summary. Usually the manifest url from the service provider. */
-  orderSummaryUrl?: Maybe<Scalars['String']>;
+  orderSummaryUrl?: string;
   /**  External reference of the `Consignment`. Must be unique. */
-  ref: Scalars['String'];
+  ref: string;
   /**  Retailer who is booking the consignment */
-  retailer?: Maybe<Retailer>;
+  retailer?: Retailer;
   /**  The status of the consignment */
-  status?: Maybe<Scalars['String']>;
+  status?: string;
   /**  Tracking label of the consignment */
-  trackingLabel?: Maybe<Scalars['String']>;
+  trackingLabel?: string;
   /**  Time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
   /**  The reference used for workflow identification */
-  workflowRef: Scalars['String'];
+  workflowRef: string;
   /**   The version of the workflow */
-  workflowVersion: Scalars['Int'];
+  workflowVersion: number;
 };
 
 
 /**  A `Consignment` is the object representing the booking of an article for delivery. */
 export type CarrierConsignmentCarrierConsignmentArticlesArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
+  after?: string;
+  before?: string;
+  first?: number;
+  last?: number;
 };
 
 
 /**  A `Consignment` is the object representing the booking of an article for delivery. */
 export type CarrierConsignmentManifestsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  carrierManifestLink?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  createdOn?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  name?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflowRef?: InputMaybe<Array<Scalars['String']>>;
-  workflowVersion?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  before?: string;
+  carrierManifestLink?: string[];
+  createdOn?: DateRange;
+  first?: number;
+  last?: number;
+  name?: string[];
+  ref?: string[];
+  status?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 /**  Represents an object with `attribute`s */
 export type Extendable = {
   /**  Array of attributes */
-  attributes?: Maybe<Array<Maybe<Attribute>>>;
+  attributes?: Attribute[];
 };
 
 /**  Represents an object with an external reference */
 export type Referenceable = {
   /**  The reference key */
-  ref: Scalars['String'];
+  ref: string;
 };
 
 /**  The carrier information */
 export type Carrier = Extendable & Node & Orchestrateable & Referenceable & {
   __typename?: 'Carrier';
   /**  A list of attributes associated with this Carrier. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: Maybe<Array<Maybe<Attribute>>>;
+  attributes?: Attribute[];
   /**  A connection to associated Consignments */
-  carrierConsignments?: Maybe<CarrierConsignmentConnection>;
+  carrierConsignments?: CarrierConsignmentConnection;
   /**  Time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  A list of manifests associated with this Carrier. */
-  manifests?: Maybe<Array<Maybe<Manifest>>>;
+  manifests?: Manifest[];
   /**  The carrier name */
-  name: Scalars['String'];
+  name: string;
   /**  The reference identifier used to identify an entity */
-  ref: Scalars['String'];
+  ref: string;
   /**  The retailer */
-  retailer?: Maybe<Retailer>;
+  retailer?: Retailer;
   /**  The current status of the `Carrier`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/> */
-  status?: Maybe<Scalars['String']>;
+  status?: string;
   /**
    *  Type of the `Carrier`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
    *  The type field can be used to differentiate between Inventory Position workflows
    */
-  type: Scalars['String'];
+  type: string;
   /**  Time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
   /**
    *  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/>
    *  The reference used for workflow identification
    */
-  workflowRef: Scalars['String'];
+  workflowRef: string;
   /**
    *  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/>
    *   The version of the workflow
    */
-  workflowVersion: Scalars['Int'];
+  workflowVersion: number;
 };
 
 
 /**  The carrier information */
 export type CarrierCarrierConsignmentsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  consignmentReference?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  createdOn?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  labelUrl?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  last?: InputMaybe<Scalars['Int']>;
-  orderSummaryUrl?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  trackingLabel?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflowRef?: InputMaybe<Array<Scalars['String']>>;
-  workflowVersion?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  before?: string;
+  consignmentReference?: string[];
+  createdOn?: DateRange;
+  first?: number;
+  labelUrl?: string[];
+  last?: number;
+  orderSummaryUrl?: string[];
+  ref?: string[];
+  status?: string[];
+  trackingLabel?: string[];
+  updatedOn?: DateRange;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 /**
@@ -2083,86 +2078,86 @@ export type CarrierCarrierConsignmentsArgs = {
  */
 export type DateRange = {
   /**  `DateTime` in a valid ISO8601 format for identifying records _after_ or _at_ the given timestamp. If this field is not passed in the request, the response will contain all records from the beginning of time till the `to` date. */
-  from?: InputMaybe<Scalars['DateTime']>;
+  from?: Date;
   /**  `DateTime` in a valid ISO8601 format for identifying records _before_ or _at_ the given timestamp. If this field is not passed in the request, the response will contain all records after the `from` date. */
-  to?: InputMaybe<Scalars['DateTime']>;
+  to?: Date;
 };
 
 /**  A list of results that matched against a CarrierConsignment search query */
 export type CarrierConsignmentConnection = {
   __typename?: 'CarrierConsignmentConnection';
   /**  A list of edges that links to CarrierConsignment type node */
-  edges?: Maybe<Array<Maybe<CarrierConsignmentEdge>>>;
+  edges?: CarrierConsignmentEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a CarrierConsignment connection to the CarrierConsignment type */
 export type CarrierConsignmentEdge = {
   __typename?: 'CarrierConsignmentEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the CarrierConsignment edge */
-  node?: Maybe<CarrierConsignment>;
+  node?: CarrierConsignment;
 };
 
 /**  Information to aid in pagination */
 export type PageInfo = {
   __typename?: 'PageInfo';
   /**  true if there are one or more pages of items beyond the current page */
-  hasNextPage?: Maybe<Scalars['Boolean']>;
+  hasNextPage?: Scalars['Boolean'];
   /**  true if there are one or more pages of items before the current page */
-  hasPreviousPage?: Maybe<Scalars['Boolean']>;
+  hasPreviousPage?: Scalars['Boolean'];
 };
 
 export type Manifest = Extendable & Node & Referenceable & {
   __typename?: 'Manifest';
   /**  A list of attributes associated with the `Manifest`. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: Maybe<Array<Maybe<Attribute>>>;
+  attributes?: Attribute[];
   /**  The `Carrier` the `Manifest` is for */
   carrier: Carrier;
   /**  A list of the `CarrierConsignment`s contained by the manifest */
-  carrierConsignments?: Maybe<CarrierConsignmentConnection>;
+  carrierConsignments?: CarrierConsignmentConnection;
   /**  The link where the carrier's manifest is stored. Not all the carriers generates one, so this field is optional. */
-  carrierManifestLink?: Maybe<Scalars['String']>;
+  carrierManifestLink?: string;
   /**  The time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  The `Location` the `Manifest` is associated with */
-  location?: Maybe<Location>;
+  location?: Location;
   /**  The name of the `Manifest` */
-  name?: Maybe<Scalars['String']>;
+  name?: string;
   /**  External reference for the `Manifest`. Must be unique. */
-  ref: Scalars['String'];
+  ref: string;
   /**  The status of the `Manifest` */
-  status?: Maybe<Scalars['String']>;
+  status?: string;
   /**  The type of `Manifest` */
-  type: Scalars['String'];
+  type: string;
   /**  The time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
   /**  The reference used for workflow identification */
-  workflowRef: Scalars['String'];
+  workflowRef: string;
   /**  The version of the workflow */
-  workflowVersion: Scalars['Int'];
+  workflowVersion: number;
 };
 
 
 export type ManifestCarrierConsignmentsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  consignmentReference?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  createdOn?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  labelUrl?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  last?: InputMaybe<Scalars['Int']>;
-  orderSummaryUrl?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  trackingLabel?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflowRef?: InputMaybe<Array<Scalars['String']>>;
-  workflowVersion?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  before?: string;
+  consignmentReference?: string[];
+  createdOn?: DateRange;
+  first?: number;
+  labelUrl?: string[];
+  last?: number;
+  orderSummaryUrl?: string[];
+  ref?: string[];
+  status?: string[];
+  trackingLabel?: string[];
+  updatedOn?: DateRange;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 /**
@@ -2172,49 +2167,49 @@ export type ManifestCarrierConsignmentsArgs = {
 export type Location = Node & {
   __typename?: 'Location';
   /**  Attributes */
-  attributes?: Maybe<Array<Maybe<Attribute>>>;
+  attributes?: Attribute[];
   /**  Time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  Default carrier */
-  defaultCarrier?: Maybe<Scalars['String']>;
+  defaultCarrier?: string;
   /**  Default carrier of the location */
-  defaultCarrierName?: Maybe<Scalars['String']>;
+  defaultCarrierName?: string;
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  Manifests for this location */
-  manifests?: Maybe<ManifestConnection>;
+  manifests?: ManifestConnection;
   /**  Name of location */
-  name?: Maybe<Scalars['String']>;
+  name?: string;
   /**  Networks the location is assigned to */
-  networks?: Maybe<NetworkConnection>;
+  networks?: NetworkConnection;
   /**  Opening Schedule */
-  openingSchedule?: Maybe<OpeningSchedule>;
+  openingSchedule?: OpeningSchedule;
   /**  Store location of the the location */
-  primaryAddress?: Maybe<Address>;
+  primaryAddress?: Address;
   /**  The location (i.e. store) id provided by the retailer */
-  ref?: Maybe<Scalars['String']>;
+  ref?: string;
   /**  Retailer */
-  retailer?: Maybe<Retailer>;
+  retailer?: Retailer;
   /**  The location status. Possible values are 'ACTIVE', 'INACTIVE'. */
-  status?: Maybe<Scalars['String']>;
+  status?: string;
   /**  Storage areas at the location */
-  storageAreas?: Maybe<StorageAreaConnection>;
+  storageAreas?: StorageAreaConnection;
   /**  The location contact number */
-  supportPhoneNumber?: Maybe<Scalars['String']>;
+  supportPhoneNumber?: string;
   /**  Type */
-  type?: Maybe<Scalars['String']>;
+  type?: string;
   /**  Time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
   /**
    *  The reference used for workflow identification
    * @deprecated No longer supported
    */
-  workflowRef?: Maybe<Scalars['String']>;
+  workflowRef?: string;
   /**
    *  The version of the workflow
    * @deprecated No longer supported
    */
-  workflowVersion?: Maybe<Scalars['Int']>;
+  workflowVersion?: number;
 };
 
 
@@ -2223,19 +2218,19 @@ export type Location = Node & {
  *  Locations can include a store, warehouse, drop ship vendor, lockers or a third party collection point such as ParcelPoint.
  */
 export type LocationManifestsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  carrierManifestLink?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  createdOn?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  name?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflowRef?: InputMaybe<Array<Scalars['String']>>;
-  workflowVersion?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  before?: string;
+  carrierManifestLink?: string[];
+  createdOn?: DateRange;
+  first?: number;
+  last?: number;
+  name?: string[];
+  ref?: string[];
+  status?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 
@@ -2244,15 +2239,15 @@ export type LocationManifestsArgs = {
  *  Locations can include a store, warehouse, drop ship vendor, lockers or a third party collection point such as ParcelPoint.
  */
 export type LocationNetworksArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  ref?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  updatedOn?: InputMaybe<DateRange>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  first?: number;
+  last?: number;
+  ref?: string[];
+  status?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
 };
 
 
@@ -2261,196 +2256,196 @@ export type LocationNetworksArgs = {
  *  Locations can include a store, warehouse, drop ship vendor, lockers or a third party collection point such as ParcelPoint.
  */
 export type LocationStorageAreasArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  name?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  updatedOn?: InputMaybe<DateRange>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  first?: number;
+  last?: number;
+  name?: string[];
+  status?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
 };
 
 /**  A list of results that matched against a Manifest search query */
 export type ManifestConnection = {
   __typename?: 'ManifestConnection';
   /**  A list of edges that links to Manifest type node */
-  edges?: Maybe<Array<Maybe<ManifestEdge>>>;
+  edges?: ManifestEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a Manifest connection to the Manifest type */
 export type ManifestEdge = {
   __typename?: 'ManifestEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the Manifest edge */
-  node?: Maybe<Manifest>;
+  node?: Manifest;
 };
 
 /**  A list of results that matched against a Network search query */
 export type NetworkConnection = {
   __typename?: 'NetworkConnection';
   /**  A list of edges that links to Network type node */
-  edges?: Maybe<Array<Maybe<NetworkEdge>>>;
+  edges?: NetworkEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a Network connection to the Network type */
 export type NetworkEdge = {
   __typename?: 'NetworkEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the Network edge */
-  node?: Maybe<Network>;
+  node?: Network;
 };
 
 /**  A network is a collection of physical fulfilment or collection locations such as stores, warehouses, distribution centres. */
 export type Network = Node & {
   __typename?: 'Network';
   /**  Network attributes */
-  attributes?: Maybe<Array<Maybe<Attribute>>>;
+  attributes?: Attribute[];
   /**  Time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  Locations in the network */
-  locations?: Maybe<LocationConnection>;
+  locations?: LocationConnection;
   /**  Reference to the network. This is the name of the network you passed in while creating the network. Recommended to be unique. */
-  ref?: Maybe<Scalars['String']>;
+  ref?: string;
   /**  A list of retailers associated with this network */
-  retailers?: Maybe<RetailerConnection>;
+  retailers?: RetailerConnection;
   /**  Status of the network */
-  status?: Maybe<Scalars['String']>;
+  status?: string;
   /**  The type of network */
-  type?: Maybe<Scalars['String']>;
+  type?: string;
   /**  Time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
 };
 
 
 /**  A network is a collection of physical fulfilment or collection locations such as stores, warehouses, distribution centres. */
 export type NetworkLocationsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  defaultCarrier?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  defaultCarrierName?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  name?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  ref?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  supportPhoneNumber?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  updatedOn?: InputMaybe<DateRange>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  defaultCarrier?: string[];
+  defaultCarrierName?: string[];
+  first?: number;
+  last?: number;
+  name?: string[];
+  ref?: string[];
+  status?: string[];
+  supportPhoneNumber?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
 };
 
 
 /**  A network is a collection of physical fulfilment or collection locations such as stores, warehouses, distribution centres. */
 export type NetworkRetailersArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  primaryEmail?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  summary?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  supportContactName?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  supportEmail?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  supportPhone?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  tradingName?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  updatedOn?: InputMaybe<DateRange>;
-  websiteUrl?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  websiteUrlName?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  first?: number;
+  last?: number;
+  primaryEmail?: string[];
+  ref?: string[];
+  status?: string[];
+  summary?: string[];
+  supportContactName?: string[];
+  supportEmail?: string[];
+  supportPhone?: string[];
+  tradingName?: string[];
+  updatedOn?: DateRange;
+  websiteUrl?: string[];
+  websiteUrlName?: string[];
 };
 
 /**  A list of results that matched against a Location search query */
 export type LocationConnection = {
   __typename?: 'LocationConnection';
   /**  A list of edges that links to Location type node */
-  edges?: Maybe<Array<Maybe<LocationEdge>>>;
+  edges?: LocationEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a Location connection to the Location type */
 export type LocationEdge = {
   __typename?: 'LocationEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the Location edge */
-  node?: Maybe<Location>;
+  node?: Location;
 };
 
 /**  A list of results that matched against a Retailer search query */
 export type RetailerConnection = {
   __typename?: 'RetailerConnection';
   /**  A list of edges that links to Retailer type node */
-  edges?: Maybe<Array<Maybe<RetailerEdge>>>;
+  edges?: RetailerEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a Retailer connection to the Retailer type */
 export type RetailerEdge = {
   __typename?: 'RetailerEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the Retailer edge */
-  node?: Maybe<Retailer>;
+  node?: Retailer;
 };
 
 /**  A retailer is a business or person that sells goods to consumers */
 export type Retailer = Node & Referenceable & {
   __typename?: 'Retailer';
   /**  Time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  A list of retailer's network (stores, warehouses, distribution centers) */
-  networks?: Maybe<NetworkConnection>;
+  networks?: NetworkConnection;
   /**  Primary email of the retailer */
-  primaryEmail?: Maybe<Scalars['String']>;
+  primaryEmail?: string;
   /**  Reference for the retailer */
-  ref: Scalars['String'];
+  ref: string;
   /**  Status of the retailer */
-  status?: Maybe<Scalars['String']>;
+  status?: string;
   /**  Short description of the retailer */
-  summary?: Maybe<Scalars['String']>;
+  summary?: string;
   /**  Customer support contact name */
-  supportContactName?: Maybe<Scalars['String']>;
+  supportContactName?: string;
   /**  Customer support email used in customer notifications */
-  supportEmail?: Maybe<Scalars['String']>;
+  supportEmail?: string;
   /**  Customer support phone number used in customer notifications */
-  supportPhone?: Maybe<Scalars['String']>;
+  supportPhone?: string;
   /**  The retailer's trading name used in customer notifications */
-  tradingName?: Maybe<Scalars['String']>;
+  tradingName?: string;
   /**  Time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
   /**  Retailer's website URL used in customer notifications */
-  websiteUrl?: Maybe<Scalars['String']>;
+  websiteUrl?: string;
   /**  Friendly text to be shown for URL links in customer notifications */
-  websiteUrlName?: Maybe<Scalars['String']>;
+  websiteUrlName?: string;
 };
 
 
 /**  A retailer is a business or person that sells goods to consumers */
 export type RetailerNetworksArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  ref?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  updatedOn?: InputMaybe<DateRange>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  first?: number;
+  last?: number;
+  ref?: string[];
+  status?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
 };
 
 /**  Opening hours for a location */
@@ -2459,246 +2454,246 @@ export type OpeningSchedule = {
   /**  Is the location open 24hrs */
   allHours: Scalars['Boolean'];
   /**  Time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  Closing time on Friday (HHmm) */
-  friEnd: Scalars['Int'];
+  friEnd: number;
   /**  Opening time on Friday (HHmm) */
-  friStart: Scalars['Int'];
+  friStart: number;
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  Closing time on Monday (HHmm) */
-  monEnd: Scalars['Int'];
+  monEnd: number;
   /**  Opening time on Monday (HHmm). */
-  monStart: Scalars['Int'];
+  monStart: number;
   /**  Closing time on Saturday (HHmm) */
-  satEnd: Scalars['Int'];
+  satEnd: number;
   /**  Opening time on Saturday (HHmm) */
-  satStart: Scalars['Int'];
+  satStart: number;
   /**  Closing time on Sunday (HHmm) */
-  sunEnd: Scalars['Int'];
+  sunEnd: number;
   /**  Opening time on Sunday (HHmm) */
-  sunStart: Scalars['Int'];
+  sunStart: number;
   /**  Closing time on Thursday (HHmm) */
-  thuEnd: Scalars['Int'];
+  thuEnd: number;
   /**  Opening time on Thursday (HHmm) */
-  thuStart: Scalars['Int'];
+  thuStart: number;
   /**  Closing time on Tuesday (HHmm) */
-  tueEnd: Scalars['Int'];
+  tueEnd: number;
   /**  Opening time on Tuesday (HHmm) */
-  tueStart: Scalars['Int'];
+  tueStart: number;
   /**  Time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
   /**  Closing time on Wednesday (HHmm) */
-  wedEnd: Scalars['Int'];
+  wedEnd: number;
   /**  Opening time on Wednesday (HHmm) */
-  wedStart: Scalars['Int'];
+  wedStart: number;
 };
 
 export type Address = {
   /**  City */
-  city?: Maybe<Scalars['String']>;
+  city?: string;
   /**  Company name */
-  companyName?: Maybe<Scalars['String']>;
+  companyName?: string;
   /**  Country */
-  country?: Maybe<Scalars['String']>;
+  country?: string;
   /**  Time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  Latitude */
-  latitude?: Maybe<Scalars['Float']>;
+  latitude?: number;
   /**  Longitude */
-  longitude?: Maybe<Scalars['Float']>;
+  longitude?: number;
   /**  Name */
-  name?: Maybe<Scalars['String']>;
+  name?: string;
   /**  Postcode */
-  postcode?: Maybe<Scalars['String']>;
+  postcode?: string;
   /**  Location reference */
-  ref?: Maybe<Scalars['String']>;
+  ref?: string;
   /**  Region */
-  region?: Maybe<Scalars['String']>;
+  region?: string;
   /**  State */
-  state?: Maybe<Scalars['String']>;
+  state?: string;
   /**  Street */
-  street?: Maybe<Scalars['String']>;
+  street?: string;
   /**  Timezone */
-  timeZone?: Maybe<Scalars['String']>;
+  timeZone?: string;
   /**  Type of Address, to support legacy address, the value can be AGENT and ORDER */
-  type?: Maybe<Scalars['String']>;
+  type?: string;
   /**  Time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
 };
 
 /**  A list of results that matched against a StorageArea search query */
 export type StorageAreaConnection = {
   __typename?: 'StorageAreaConnection';
   /**  A list of edges that links to StorageArea type node */
-  edges?: Maybe<Array<Maybe<StorageAreaEdge>>>;
+  edges?: StorageAreaEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a StorageArea connection to the StorageArea type */
 export type StorageAreaEdge = {
   __typename?: 'StorageAreaEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the StorageArea edge */
-  node?: Maybe<StorageArea>;
+  node?: StorageArea;
 };
 
 /**  The location storage areas */
 export type StorageArea = {
   __typename?: 'StorageArea';
   /**  Articles in the storage area */
-  articles?: Maybe<ArticleConnection>;
+  articles?: ArticleConnection;
   /**  Time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  Location */
-  location?: Maybe<Location>;
+  location?: Location;
   /**  Name */
-  name?: Maybe<Scalars['String']>;
+  name?: string;
   /**  Status */
-  status?: Maybe<Scalars['String']>;
+  status?: string;
   /**  Type */
-  type?: Maybe<Scalars['String']>;
+  type?: string;
   /**  Time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
 };
 
 
 /**  The location storage areas */
 export type StorageAreaArticlesArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  description?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  first?: InputMaybe<Scalars['Int']>;
-  height?: InputMaybe<Array<Scalars['Float']>>;
-  last?: InputMaybe<Scalars['Int']>;
-  length?: InputMaybe<Array<Scalars['Float']>>;
-  name?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  quantity?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
-  ref?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  weight?: InputMaybe<Array<Scalars['Float']>>;
-  width?: InputMaybe<Array<Scalars['Float']>>;
-  workflowRef?: InputMaybe<Array<Scalars['String']>>;
-  workflowVersion?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  description?: string[];
+  first?: number;
+  height?: number[];
+  last?: number;
+  length?: number[];
+  name?: string[];
+  quantity?: number[];
+  ref?: string[];
+  status?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  weight?: number[];
+  width?: number[];
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 /**  A list of results that matched against a Article search query */
 export type ArticleConnection = {
   __typename?: 'ArticleConnection';
   /**  A list of edges that links to Article type node */
-  edges?: Maybe<Array<Maybe<ArticleEdge>>>;
+  edges?: ArticleEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a Article connection to the Article type */
 export type ArticleEdge = {
   __typename?: 'ArticleEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the Article edge */
-  node?: Maybe<Article>;
+  node?: Article;
 };
 
 /**  A list of results that matched against a ConsignmentArticle search query */
 export type ConsignmentArticleConnection = {
   __typename?: 'ConsignmentArticleConnection';
   /**  A list of edges that links to ConsignmentArticle type node */
-  edges?: Maybe<Array<Maybe<ConsignmentArticleEdge>>>;
+  edges?: ConsignmentArticleEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a ConsignmentArticle connection to the ConsignmentArticle type */
 export type ConsignmentArticleEdge = {
   __typename?: 'ConsignmentArticleEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the ConsignmentArticle edge */
-  node?: Maybe<ConsignmentArticle>;
+  node?: ConsignmentArticle;
 };
 
 /**  The relationship between consignment and article */
 export type ConsignmentArticle = {
   __typename?: 'ConsignmentArticle';
   /**  Article */
-  article?: Maybe<Article>;
+  article?: Article;
   /**  Consignment */
-  consignment?: Maybe<Consignment>;
+  consignment?: Consignment;
 };
 
 /**  A `Consignment` is the object representing the booking of an article for delivery. */
 export type Consignment = Node & {
   __typename?: 'Consignment';
   /**  Carrier used for the consignment */
-  carrier?: Maybe<Carrier>;
+  carrier?: Carrier;
   /**  Relationships between consignment and article */
-  consignmentArticles?: Maybe<ConsignmentArticleConnection>;
+  consignmentArticles?: ConsignmentArticleConnection;
   /**  The external consignment reference assigned by the carrier */
-  consignmentReference: Scalars['String'];
+  consignmentReference: string;
   /**  Time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  The URL used to retrieve the shipping label */
-  labelUrl?: Maybe<Scalars['String']>;
+  labelUrl?: string;
   /**  A url to represent the order summary. Usually the manifest url from the service provider. */
-  orderSummaryUrl?: Maybe<Scalars['String']>;
+  orderSummaryUrl?: string;
   /**  External reference of the object. Recommended to be unique. */
-  ref?: Maybe<Scalars['String']>;
+  ref?: string;
   /**  Retailer who is booking the consignment */
-  retailer?: Maybe<Retailer>;
+  retailer?: Retailer;
   /**  The status of the consignment */
-  status?: Maybe<Scalars['String']>;
+  status?: string;
   /**  Tracking label of the consignment */
-  trackingLabel?: Maybe<Scalars['String']>;
+  trackingLabel?: string;
   /**  Time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
   /**  The reference used for workflow identification */
-  workflowRef: Scalars['String'];
+  workflowRef: string;
   /**   The version of the workflow */
-  workflowVersion: Scalars['Int'];
+  workflowVersion: number;
 };
 
 
 /**  A `Consignment` is the object representing the booking of an article for delivery. */
 export type ConsignmentConsignmentArticlesArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
+  after?: string;
+  before?: string;
+  first?: number;
+  last?: number;
 };
 
 export type LocationLinkInput = {
   /**  Max character limit: 8. */
-  ref: Scalars['String'];
+  ref: string;
 };
 
 /**  A list of results that matched against a Fulfilment search query */
 export type FulfilmentConnection = {
   __typename?: 'FulfilmentConnection';
   /**  A list of edges that links to Fulfilment type node */
-  edges?: Maybe<Array<Maybe<FulfilmentEdge>>>;
+  edges?: FulfilmentEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a Fulfilment connection to the Fulfilment type */
 export type FulfilmentEdge = {
   __typename?: 'FulfilmentEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the Fulfilment edge */
-  node?: Maybe<Fulfilment>;
+  node?: Fulfilment;
 };
 
 /**
@@ -2709,33 +2704,33 @@ export type FulfilmentEdge = {
 export type Fulfilment = Node & Orchestrateable & {
   __typename?: 'Fulfilment';
   /**  Connection representing a list of `Article`s */
-  articles?: Maybe<ArticleConnection>;
+  articles?: ArticleConnection;
   /**  Attributes of fulfilment */
-  attributes?: Maybe<Array<Maybe<Attribute>>>;
+  attributes?: Attribute[];
   /**  Time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  Type of delivery. Supported values are _STANDARD_, _OVERNIGHT_ and _EXPRESS_. */
-  deliveryType?: Maybe<Scalars['String']>;
+  deliveryType?: string;
   /**  The estimated time of completing the fulfilment. */
-  eta?: Maybe<Scalars['String']>;
+  eta?: string;
   /**  Expiry time for the fulfilment */
-  expiryTime?: Maybe<Scalars['DateTime']>;
+  expiryTime?: Date;
   /**  `Address` of the fulfilment location */
-  fromAddress?: Maybe<Address>;
+  fromAddress?: Address;
   /**  The `Location` responsible for processing outbound `Fulfilment`s */
-  fromLocation?: Maybe<LocationLink>;
+  fromLocation?: LocationLink;
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  Connection representing a list of `FulfilmentItem`s */
-  items?: Maybe<FulfilmentItemConnection>;
+  items?: FulfilmentItemConnection;
   /**  The associated `Order` */
-  order?: Maybe<Order>;
+  order?: Order;
   /**  External reference of the object. Recommended to be unique. */
-  ref?: Maybe<Scalars['String']>;
+  ref?: string;
   /**  The current status of the `Fulfilment`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/> */
-  status?: Maybe<Scalars['String']>;
+  status?: string;
   /**  `Address` of the delivery location */
-  toAddress?: Maybe<Address>;
+  toAddress?: Address;
   /**
    *  Type of the `Fulfilment`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
    *  Type of fulfilment. Supported types are <br/>
@@ -2744,15 +2739,15 @@ export type Fulfilment = Node & Orchestrateable & {
    *  - *HD_PFS* for Home Delivery - Pick from Store
    *  - *HD_PFDC* for Home Delivery - Pick from DC
    */
-  type: Scalars['String'];
+  type: string;
   /**  Time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
   /**  The associated `Customer` */
-  user?: Maybe<Customer>;
+  user?: Customer;
   /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
-  workflowRef: Scalars['String'];
+  workflowRef: string;
   /**  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/> */
-  workflowVersion: Scalars['Int'];
+  workflowVersion: number;
 };
 
 
@@ -2762,24 +2757,24 @@ export type Fulfilment = Node & Orchestrateable & {
  *  A fulfilment will have an origin (from) and destination (to) associated with it.
  */
 export type FulfilmentArticlesArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  description?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  first?: InputMaybe<Scalars['Int']>;
-  height?: InputMaybe<Array<Scalars['Float']>>;
-  last?: InputMaybe<Scalars['Int']>;
-  length?: InputMaybe<Array<Scalars['Float']>>;
-  name?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  quantity?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
-  ref?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  weight?: InputMaybe<Array<Scalars['Float']>>;
-  width?: InputMaybe<Array<Scalars['Float']>>;
-  workflowRef?: InputMaybe<Array<Scalars['String']>>;
-  workflowVersion?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  description?: string[];
+  first?: number;
+  height?: number[];
+  last?: number;
+  length?: number[];
+  name?: string[];
+  quantity?: number[];
+  ref?: string[];
+  status?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  weight?: number[];
+  width?: number[];
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 
@@ -2789,361 +2784,361 @@ export type FulfilmentArticlesArgs = {
  *  A fulfilment will have an origin (from) and destination (to) associated with it.
  */
 export type FulfilmentItemsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  filledQuantity?: InputMaybe<Array<Scalars['Int']>>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  ref?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  rejectedQuantity?: InputMaybe<Array<Scalars['Int']>>;
-  requestedQuantity?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
-  status?: InputMaybe<Array<Scalars['String']>>;
+  after?: string;
+  before?: string;
+  filledQuantity?: number[];
+  first?: number;
+  last?: number;
+  ref?: string[];
+  rejectedQuantity?: number[];
+  requestedQuantity?: number[];
+  status?: string[];
 };
 
 export type LocationLink = {
   __typename?: 'LocationLink';
-  ref?: Maybe<Scalars['String']>;
+  ref?: string;
 };
 
 /**  A list of results that matched against a FulfilmentItem search query */
 export type FulfilmentItemConnection = {
   __typename?: 'FulfilmentItemConnection';
   /**  A list of edges that links to FulfilmentItem type node */
-  edges?: Maybe<Array<Maybe<FulfilmentItemEdge>>>;
+  edges?: FulfilmentItemEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a FulfilmentItem connection to the FulfilmentItem type */
 export type FulfilmentItemEdge = {
   __typename?: 'FulfilmentItemEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the FulfilmentItem edge */
-  node?: Maybe<FulfilmentItem>;
+  node?: FulfilmentItem;
 };
 
 /**  Represents fulfilment details corresponding to an `OrderItem`. */
 export type FulfilmentItem = {
   __typename?: 'FulfilmentItem';
   /**  Number of `OrderItem`s confirmed */
-  filledQuantity: Scalars['Int'];
+  filledQuantity: number;
   /**  The associated `Fulfilment` */
-  fulfilment?: Maybe<Fulfilment>;
+  fulfilment?: Fulfilment;
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  The associated `OrderItem` */
-  orderItem?: Maybe<OrderItem>;
+  orderItem?: OrderItem;
   /**  External reference of the object. Recommended to be unique. */
-  ref?: Maybe<Scalars['String']>;
+  ref?: string;
   /**  Number of `OrderItem`s rejected */
-  rejectedQuantity: Scalars['Int'];
+  rejectedQuantity: number;
   /**  Number of `OrderItem`s assigned to the fulfilment */
-  requestedQuantity?: Maybe<Scalars['Int']>;
+  requestedQuantity?: number;
   /**  Status */
-  status: Scalars['String'];
+  status: string;
 };
 
 /**  An `OrderItem` generally represents a SKU purchased by the customer. There can be one or more `OrderItem`s within an `Order` */
 export type OrderItem = Node & {
   __typename?: 'OrderItem';
   /**  List of `OrderItem` `attribute`s. */
-  attributes?: Maybe<Array<Maybe<Attribute>>>;
+  attributes?: Attribute[];
   /**  Time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  Currency. Should ideally be a 3 letter ISO currency code. For instance _AUD_. */
-  currency?: Maybe<Scalars['String']>;
+  currency?: string;
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  The associated `Order` */
-  order?: Maybe<Order>;
+  order?: Order;
   /**  Price paid. Excludes tax. */
-  paidPrice?: Maybe<Scalars['Float']>;
+  paidPrice?: number;
   /**  Price */
-  price?: Maybe<Scalars['Float']>;
+  price?: number;
   /**  Represents the `Product` corresponding to this object */
   product: Product;
   /**  Quantity ordered */
-  quantity: Scalars['Int'];
+  quantity: number;
   /**  External reference of the object. Recommended to be unique. */
-  ref?: Maybe<Scalars['String']>;
+  ref?: string;
   /**  Status of the OrderItem. Currently supported values are limited to _CREATED_, _NEW_, _COMPLETE_. */
-  status: Scalars['String'];
+  status: string;
   /**  Tax price */
-  taxPrice?: Maybe<Scalars['Float']>;
+  taxPrice?: number;
   /**  Tax type. Supported values are _GST_, _VAT_, _EXCLTAX_ */
-  taxType?: Maybe<Scalars['String']>;
+  taxType?: string;
   /**  Total price */
-  totalPrice?: Maybe<Scalars['Float']>;
+  totalPrice?: number;
   /**  Total tax price */
-  totalTaxPrice?: Maybe<Scalars['Float']>;
+  totalTaxPrice?: number;
   /**  Time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
 };
 
 /**  A customer's order. */
 export type Order = Node & Orchestrateable & {
   __typename?: 'Order';
   /**  List of order `attribute`s */
-  attributes?: Maybe<Array<Maybe<Attribute>>>;
+  attributes?: Attribute[];
   /**  Time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  `Customer` of the order */
-  customer?: Maybe<Customer>;
+  customer?: Customer;
   /**  Contains the reference of the customer. It can be used to fetch the `Customer` object. */
-  customerLink?: Maybe<CustomerLink>;
+  customerLink?: CustomerLink;
   /**  Connection representing a list of `FinancialTransaction`s */
-  financialTransactions?: Maybe<FinancialTransactionConnection>;
+  financialTransactions?: FinancialTransactionConnection;
   /**  The `FulfilmentChoice` specified when booking the order */
-  fulfilmentChoice?: Maybe<FulfilmentChoice>;
+  fulfilmentChoice?: FulfilmentChoice;
   /**  Connection representing a list of `Fulfilment`s */
-  fulfilments?: Maybe<FulfilmentConnection>;
+  fulfilments?: FulfilmentConnection;
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  Connection representing a list of `OrderItem`s */
-  items?: Maybe<OrderItemConnection>;
+  items?: OrderItemConnection;
   /**  `Payment` for the order */
-  payment?: Maybe<PaymentLink>;
+  payment?: PaymentLink;
   /**  External reference of the object. Must be unique. */
-  ref?: Maybe<Scalars['String']>;
+  ref?: string;
   /**  `Retailer` of the order */
-  retailer?: Maybe<Retailer>;
+  retailer?: Retailer;
   /**  The current status of the `Order`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/> */
-  status?: Maybe<Scalars['String']>;
+  status?: string;
   /**  Total price */
-  totalPrice?: Maybe<Scalars['Float']>;
+  totalPrice?: number;
   /**  Total tax price */
-  totalTaxPrice?: Maybe<Scalars['Float']>;
+  totalTaxPrice?: number;
   /**
    *  Type of the `Order`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
    *  Currently supports values _CC_, _SFS_, _HD_ for _Click and Collect_, _Ship from Store_ and _Home Delivery_ type orders respectively
    */
-  type: Scalars['String'];
+  type: string;
   /**  Time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
   /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
-  workflowRef: Scalars['String'];
+  workflowRef: string;
   /**  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/> */
-  workflowVersion: Scalars['Int'];
+  workflowVersion: number;
 };
 
 
 /**  A customer's order. */
 export type OrderFinancialTransactionsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  cardType?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  createdOn?: InputMaybe<DateRange>;
-  currency?: InputMaybe<Array<Scalars['String']>>;
-  externalTransactionCode?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  externalTransactionId?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  paymentMethod?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  paymentProviderName?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  ref?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  total?: InputMaybe<Array<Scalars['Float']>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflowRef?: InputMaybe<Array<Scalars['String']>>;
-  workflowVersion?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  before?: string;
+  cardType?: string[];
+  createdOn?: DateRange;
+  currency?: string[];
+  externalTransactionCode?: string[];
+  externalTransactionId?: string[];
+  first?: number;
+  last?: number;
+  paymentMethod?: string[];
+  paymentProviderName?: string[];
+  ref?: string[];
+  status?: string[];
+  total?: number[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 
 /**  A customer's order. */
 export type OrderFulfilmentsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  deliveryType?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  eta?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  expiryTime?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  fromLocation?: InputMaybe<LocationLinkInput>;
-  last?: InputMaybe<Scalars['Int']>;
-  ref?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflowRef?: InputMaybe<Array<Scalars['String']>>;
-  workflowVersion?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  deliveryType?: string[];
+  eta?: string[];
+  expiryTime?: DateRange;
+  first?: number;
+  fromLocation?: LocationLinkInput;
+  last?: number;
+  ref?: string[];
+  status?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 
 /**  A customer's order. */
 export type OrderItemsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  currency?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  paidPrice?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
-  price?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
-  quantity?: InputMaybe<Array<Scalars['Int']>>;
-  ref?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  status?: InputMaybe<Array<Scalars['String']>>;
-  taxPrice?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
-  taxType?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  totalPrice?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
-  totalTaxPrice?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
-  updatedOn?: InputMaybe<DateRange>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  currency?: string[];
+  first?: number;
+  last?: number;
+  paidPrice?: number[];
+  price?: number[];
+  quantity?: number[];
+  ref?: string[];
+  status?: string[];
+  taxPrice?: number[];
+  taxType?: string[];
+  totalPrice?: number[];
+  totalTaxPrice?: number[];
+  updatedOn?: DateRange;
 };
 
 /**  Represents the customer who places an order */
 export type Customer = Node & {
   __typename?: 'Customer';
   /**  Attributes */
-  attributes?: Maybe<Array<Maybe<Attribute>>>;
+  attributes?: Attribute[];
   /**  The country the customer is operating from */
-  country?: Maybe<Scalars['String']>;
+  country?: string;
   /**  Time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  The department/team that the customer belongs to */
-  department?: Maybe<Scalars['String']>;
+  department?: string;
   /**  The customer's first name */
-  firstName?: Maybe<Scalars['String']>;
+  firstName?: string;
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  The customer's last name */
-  lastName?: Maybe<Scalars['String']>;
+  lastName?: string;
   /**  Email */
-  primaryEmail?: Maybe<Scalars['String']>;
+  primaryEmail?: string;
   /**  Phone number */
-  primaryPhone?: Maybe<Scalars['String']>;
+  primaryPhone?: string;
   /**  Whether the customer has opted to receive promotions */
-  promotionOptIn?: Maybe<Scalars['Boolean']>;
+  promotionOptIn?: Scalars['Boolean'];
   /**  Username of the customer */
-  ref?: Maybe<Scalars['String']>;
+  ref?: string;
   /**  Retailer used by the customer */
-  retailer?: Maybe<Retailer>;
+  retailer?: Retailer;
   /**  Status */
-  status?: Maybe<Scalars['String']>;
+  status?: string;
   /**  Timezones */
-  timezone?: Maybe<Scalars['String']>;
+  timezone?: string;
   /**  The customer's title */
-  title?: Maybe<Scalars['String']>;
+  title?: string;
   /**  Time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
   /**  Username */
-  username?: Maybe<Scalars['String']>;
+  username?: string;
 };
 
 export type CustomerLink = {
   __typename?: 'CustomerLink';
-  ref?: Maybe<Scalars['String']>;
+  ref?: string;
 };
 
 /**  A list of results that matched against a FinancialTransaction search query */
 export type FinancialTransactionConnection = {
   __typename?: 'FinancialTransactionConnection';
   /**  A list of edges that links to FinancialTransaction type node */
-  edges?: Maybe<Array<Maybe<FinancialTransactionEdge>>>;
+  edges?: FinancialTransactionEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a FinancialTransaction connection to the FinancialTransaction type */
 export type FinancialTransactionEdge = {
   __typename?: 'FinancialTransactionEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the FinancialTransaction edge */
-  node?: Maybe<FinancialTransaction>;
+  node?: FinancialTransaction;
 };
 
 /**  An order transaction defines the payment or refund details associated with an order. */
 export type FinancialTransaction = Node & Orchestrateable & {
   __typename?: 'FinancialTransaction';
   /**  The card type used for the payment. Possible values are 'MASTERCARD', 'VISA', 'AMEX', 'DINERS', 'SPAN', 'DISCOVER', 'UNIONPAY', 'JCB', 'MAESTRO', 'INTERAC'. */
-  cardType?: Maybe<Scalars['String']>;
+  cardType?: string;
   /**  Time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  Currency used for the transaction. */
-  currency: Scalars['String'];
+  currency: string;
   /**  The unique transaction code or request code provided by the payment gateway */
-  externalTransactionCode?: Maybe<Scalars['String']>;
+  externalTransactionCode?: string;
   /**  The unique transaction ID or request ID provided by the payment gateway */
-  externalTransactionId?: Maybe<Scalars['String']>;
+  externalTransactionId?: string;
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  Order associated with the transaction */
-  order?: Maybe<Order>;
+  order?: Order;
   /**
    *  The way in which payment was made. Platform provides support for the following payment methods - 'CREDITCARD', 'PAYPAL', 'GIFTVOUCHER', 'CASH', 'AFTERPAY'. However, these
    *  can be overridden/configured per client as settings
    */
-  paymentMethod?: Maybe<Scalars['String']>;
+  paymentMethod?: string;
   /**  The name of the payment gateway. Platform provided values are 'CYBERSOURCE', 'GIVEX', 'PAYPAL', 'BRAINTREE', 'AFTERPAY'. However, these can be overridden/configured per client as settings using 'PAYMENT.PROVIDER' */
-  paymentProviderName?: Maybe<Scalars['String']>;
+  paymentProviderName?: string;
   /**  The unique transaction reference provided by the Retailer to the payment gateway */
-  ref?: Maybe<Scalars['String']>;
+  ref?: string;
   /**  The current status of the `FinancialTransaction`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/> */
-  status?: Maybe<Scalars['String']>;
+  status?: string;
   /**  The total transaction amount */
-  total: Scalars['Float'];
+  total: number;
   /**  Type of the `FinancialTransaction`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/> */
-  type: Scalars['String'];
+  type: string;
   /**  Time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
   /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
-  workflowRef: Scalars['String'];
+  workflowRef: string;
   /**  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/> */
-  workflowVersion: Scalars['Int'];
+  workflowVersion: number;
 };
 
 /**  The fulfilment choice specified when booking the order */
 export type FulfilmentChoice = {
   __typename?: 'FulfilmentChoice';
   /**  Time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  The type of currency, 3 letter ISO currency code */
-  currency?: Maybe<Scalars['String']>;
+  currency?: string;
   /**  Location of fulfilment choice */
-  deliveryAddress?: Maybe<Address>;
+  deliveryAddress?: Address;
   /**  Instruction provided by the customer (250 character limit) */
-  deliveryInstruction?: Maybe<Scalars['String']>;
+  deliveryInstruction?: string;
   /**  The type of delivey determined by retailers' shipping options. Example values are STANDARD, EXPRESS, OVERNIGHT, 3HOURS */
-  deliveryType: Scalars['String'];
+  deliveryType: string;
   /**  FulfilmentPrice refers to shipping fees if order type is Home Delivery HD and C&C fees for Click & Collect orders */
-  fulfilmentPrice?: Maybe<Scalars['Float']>;
+  fulfilmentPrice?: number;
   /**  This refers to the tax cost associated with the fulfilment price */
-  fulfilmentTaxPrice?: Maybe<Scalars['Float']>;
+  fulfilmentTaxPrice?: number;
   /**
    *  Indicates the type of fulfilment. Possible values are CC_PFS ( Click & Collect - Pick from Store), CC_PFDC ( Click & Collect - Pick from DC), HD_PFS (Home Delivery - Pick
    *  from Store), HD_PFDC ( Home Delivery - Pick from DC)
    */
-  fulfilmentType?: Maybe<Scalars['String']>;
+  fulfilmentType?: string;
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  Pickup location. This is required for click & collect orders */
-  pickupLocationRef?: Maybe<Scalars['String']>;
+  pickupLocationRef?: string;
   /**  Time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
 };
 
 /**  A list of results that matched against a OrderItem search query */
 export type OrderItemConnection = {
   __typename?: 'OrderItemConnection';
   /**  A list of edges that links to OrderItem type node */
-  edges?: Maybe<Array<Maybe<OrderItemEdge>>>;
+  edges?: OrderItemEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a OrderItem connection to the OrderItem type */
 export type OrderItemEdge = {
   __typename?: 'OrderItemEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the OrderItem edge */
-  node?: Maybe<OrderItem>;
+  node?: OrderItem;
 };
 
 export type PaymentLink = {
   __typename?: 'PaymentLink';
-  ref?: Maybe<Scalars['String']>;
+  ref?: string;
 };
 
 /**
@@ -3155,645 +3150,645 @@ export type PaymentLink = {
  */
 export type Product = {
   /**  The name of the product */
-  name: Scalars['String'];
+  name: string;
   /**  A list of prices for the product */
-  prices?: Maybe<Array<Maybe<Price>>>;
+  prices?: Price[];
   /**  A short description of the product (max 255 chars) */
-  summary?: Maybe<Scalars['String']>;
+  summary?: string;
   /**  Tax information for the product */
-  tax?: Maybe<TaxType>;
+  tax?: TaxType;
 };
 
 /**  The `Price` type is a structure to hold a Price value for Products. It is considered more like a complex value type, rather than an object. All fields are required, and the `type` and `currency` fields make up the unique key for the `value`. */
 export type Price = {
   __typename?: 'Price';
   /**  The currency of the Price, for example 'USD', 'GBP', 'AUD', etc. */
-  currency: Scalars['String'];
+  currency: string;
   /**  The type field is used to identify different types of prices, for example 'RRP', 'SALE', etc. No Price type values are enforced by the platform. */
-  type: Scalars['String'];
+  type: string;
   /**  The price value itself */
-  value: Scalars['Float'];
+  value: number;
 };
 
 /**  The `TaxType` type is a structure to hold Tax information for Products. It is considered more like a complex value type, rather than an object. All fields are required, and the `country` and `group` fields make up the unique key identifying the `tariff`. */
 export type TaxType = {
   __typename?: 'TaxType';
   /**  The country in which this Tax Type applies */
-  country: Scalars['String'];
+  country: string;
   /**  A group field which can be used to further identify the Tax Tariff applicable */
-  group: Scalars['String'];
+  group: string;
   /**  The tariff of the Tax Type */
-  tariff?: Maybe<Scalars['String']>;
+  tariff?: string;
 };
 
 /**  A list of results that matched against a ArticleItem search query */
 export type ArticleItemConnection = {
   __typename?: 'ArticleItemConnection';
   /**  A list of edges that links to ArticleItem type node */
-  edges?: Maybe<Array<Maybe<ArticleItemEdge>>>;
+  edges?: ArticleItemEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a ArticleItem connection to the ArticleItem type */
 export type ArticleItemEdge = {
   __typename?: 'ArticleItemEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the ArticleItem edge */
-  node?: Maybe<ArticleItem>;
+  node?: ArticleItem;
 };
 
 /**  The item within an article */
 export type ArticleItem = Node & {
   __typename?: 'ArticleItem';
   /**  Article associated with this item */
-  article?: Maybe<Article>;
+  article?: Article;
   /**  Barcode of article item */
-  barcode?: Maybe<Scalars['String']>;
+  barcode?: string;
   /**  Time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  Quantity of article item */
-  quantity: Scalars['Int'];
+  quantity: number;
   /**  Time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
 };
 
 /**  Input type to uniquely identify a `Location` object. We use all the fields present in the request to look for this object. */
 export type LocationKey = {
   /**  ID of the object */
-  id?: InputMaybe<Scalars['ID']>;
+  id?: string;
   /**
    *  The client's reference identifier for the object. <br/>
    *  Max character limit: 100.
    */
-  ref?: InputMaybe<Scalars['String']>;
+  ref?: string;
 };
 
 export type BillingAccount = Extendable & Node & Referenceable & {
   __typename?: 'BillingAccount';
   /**  Address associated to the `BillingAccount`. */
-  address?: Maybe<StreetAddress>;
+  address?: StreetAddress;
   /**  A list of attributes associated with the `BillingAccount`. This can be used to extend the existing data structure with additional data. */
-  attributes?: Maybe<Array<Maybe<Attribute>>>;
+  attributes?: Attribute[];
   /**  Date and time of creation. */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  Credit Memos associated to the `BillingAccount`. */
-  creditMemos?: Maybe<CreditMemoConnection>;
+  creditMemos?: CreditMemoConnection;
   /**  Customer associated to the `BillingAccount`. */
-  customer?: Maybe<CustomerLink>;
+  customer?: CustomerLink;
   /**  ID of the object. */
-  id: Scalars['ID'];
+  id: string;
   /**  Invoices associated to the `BillingAccount`. */
-  invoices?: Maybe<InvoiceConnection>;
+  invoices?: InvoiceConnection;
   /**  Name of the `BillingAccount`. */
-  name?: Maybe<Scalars['String']>;
+  name?: string;
   /**  Payments associated to the `BillingAccount`. */
-  payments?: Maybe<PaymentConnection>;
+  payments?: PaymentConnection;
   /**  External reference to the `BillingAccount`. Must be unique. */
-  ref: Scalars['String'];
+  ref: string;
   /**  Retailer associated to the `BillingAccount`. */
-  retailer?: Maybe<RetailerLink>;
+  retailer?: RetailerLink;
   /**  Status of the `BillingAccount`. */
-  status?: Maybe<Scalars['String']>;
+  status?: string;
   /**  Type of the `BillingAccount`, typically used by the Orchestration Engine to determine the workflow that should be applied. */
-  type?: Maybe<Scalars['String']>;
+  type?: string;
   /**  Date and time of last update. */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
   /**  The reference to the `workflow` associated. */
-  workflow?: Maybe<WorkflowLink>;
+  workflow?: WorkflowLink;
   /**
    *  DEPRECATED, please use the field `workflow` instead - The reference of the workflow.
    * @deprecated No longer supported
    */
-  workflowRef?: Maybe<Scalars['String']>;
+  workflowRef?: string;
   /**
    *  DEPRECATED, please use the field `workflow` instead - The version of the workflow.
    * @deprecated No longer supported
    */
-  workflowVersion?: Maybe<Scalars['String']>;
+  workflowVersion?: string;
 };
 
 
 export type BillingAccountCreditMemosArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  currency?: InputMaybe<CurrencyLinkInput>;
-  first?: InputMaybe<Scalars['Int']>;
-  issueDate?: InputMaybe<DateRange>;
-  last?: InputMaybe<Scalars['Int']>;
-  order?: InputMaybe<OrderLinkInput>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  returnOrder?: InputMaybe<ReturnOrderLinkInput>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflow?: InputMaybe<WorkflowLinkInput>;
-  workflowRef?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  workflowVersion?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  currency?: CurrencyLinkInput;
+  first?: number;
+  issueDate?: DateRange;
+  last?: number;
+  order?: OrderLinkInput;
+  ref?: string[];
+  returnOrder?: ReturnOrderLinkInput;
+  status?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflow?: WorkflowLinkInput;
+  workflowRef?: string[];
+  workflowVersion?: string[];
 };
 
 
 export type BillingAccountInvoicesArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  currency?: InputMaybe<CurrencyLinkInput>;
-  dueDate?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  fulfilment?: InputMaybe<FulfilmentLinkInput>;
-  issueDate?: InputMaybe<DateRange>;
-  last?: InputMaybe<Scalars['Int']>;
-  order?: InputMaybe<OrderLinkInput>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflow?: InputMaybe<WorkflowLinkInput>;
-  workflowRef?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  workflowVersion?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  currency?: CurrencyLinkInput;
+  dueDate?: DateRange;
+  first?: number;
+  fulfilment?: FulfilmentLinkInput;
+  issueDate?: DateRange;
+  last?: number;
+  order?: OrderLinkInput;
+  ref?: string[];
+  status?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflow?: WorkflowLinkInput;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 
 export type BillingAccountPaymentsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  retailer?: InputMaybe<RetailerLinkInput>;
-  status?: InputMaybe<Array<Scalars['String']>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflow?: InputMaybe<WorkflowLinkInput>;
-  workflowRef?: InputMaybe<Array<Scalars['String']>>;
-  workflowVersion?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  first?: number;
+  last?: number;
+  ref?: string[];
+  retailer?: RetailerLinkInput;
+  status?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflow?: WorkflowLinkInput;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 export type StreetAddress = {
   __typename?: 'StreetAddress';
   /**  City */
-  city?: Maybe<Scalars['String']>;
+  city?: string;
   /**  Company name */
-  companyName?: Maybe<Scalars['String']>;
+  companyName?: string;
   /**  Country */
-  country?: Maybe<Scalars['String']>;
+  country?: string;
   /**  Latitude */
-  latitude?: Maybe<Scalars['Float']>;
+  latitude?: number;
   /**  Longitude */
-  longitude?: Maybe<Scalars['Float']>;
+  longitude?: number;
   /**  Name */
-  name?: Maybe<Scalars['String']>;
+  name?: string;
   /**  Postcode */
-  postcode?: Maybe<Scalars['String']>;
+  postcode?: string;
   /**  Region */
-  region?: Maybe<Scalars['String']>;
+  region?: string;
   /**  State */
-  state?: Maybe<Scalars['String']>;
+  state?: string;
   /**  Street */
-  street?: Maybe<Scalars['String']>;
+  street?: string;
   /**  Timezone */
-  timeZone?: Maybe<Scalars['String']>;
+  timeZone?: string;
 };
 
 export type CurrencyLinkInput = {
   /**  Max character limit: 20. */
-  alphabeticCode: Scalars['String'];
+  alphabeticCode: string;
 };
 
 export type OrderLinkInput = {
-  ref: Scalars['String'];
+  ref: string;
   retailer: RetailerId;
 };
 
 export type RetailerId = {
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
 };
 
 export type ReturnOrderLinkInput = {
   /**  Max character limit: 100. */
-  ref: Scalars['String'];
+  ref: string;
   retailer: RetailerLinkInput;
 };
 
 export type RetailerLinkInput = {
-  id: Scalars['ID'];
+  id: string;
 };
 
 export type WorkflowLinkInput = {
   /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
-  ref: Scalars['String'];
+  ref: string;
   /**  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/> */
-  version: Scalars['Int'];
+  version: number;
 };
 
 /**  A list of results that matched against a CreditMemo search query */
 export type CreditMemoConnection = {
   __typename?: 'CreditMemoConnection';
   /**  A list of edges that links to CreditMemo type node */
-  edges?: Maybe<Array<Maybe<CreditMemoEdge>>>;
+  edges?: CreditMemoEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a CreditMemo connection to the CreditMemo type */
 export type CreditMemoEdge = {
   __typename?: 'CreditMemoEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the CreditMemo edge */
-  node?: Maybe<CreditMemo>;
+  node?: CreditMemo;
 };
 
 export type CreditMemo = Extendable & Node & Referenceable & {
   __typename?: 'CreditMemo';
   /**  A list of attributes associated with the `CreditMemo`. This can be used to extend the existing data structure with additional data. */
-  attributes?: Maybe<Array<Maybe<Attribute>>>;
+  attributes?: Attribute[];
   /**  `BillingAccount` associated with the `CreditMemo`. */
-  billingAccount?: Maybe<BillingAccount>;
+  billingAccount?: BillingAccount;
   /**  Date and time of creation. */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  Reference to the currency type. Generally, the standard ISO-4217 is used. */
-  currency?: Maybe<CurrencyLink>;
+  currency?: CurrencyLink;
   /**  Default tax type */
-  defaultTaxType?: Maybe<TaxType>;
+  defaultTaxType?: TaxType;
   /**  ID of the object. */
-  id: Scalars['ID'];
+  id: string;
   /**  `Invoice` associated with this `CreditMemo`. */
-  invoice?: Maybe<Invoice>;
+  invoice?: Invoice;
   /**  Issue date */
-  issueDate?: Maybe<Scalars['DateTime']>;
+  issueDate?: Date;
   /**  The `CreditMemoItem`s associated with this `CreditMemo`. */
-  items?: Maybe<CreditMemoItemConnection>;
+  items?: CreditMemoItemConnection;
   /**  Reference to an `Order` associated with the `CreditMemo`. */
-  order?: Maybe<OrderLink>;
+  order?: OrderLink;
   /**  External reference to the `CreditMemo`. Must be unique. */
-  ref: Scalars['String'];
+  ref: string;
   /**  Reference to a `ReturnOrder` associated with the `CreditMemo`. */
-  returnOrder?: Maybe<ReturnOrderLink>;
+  returnOrder?: ReturnOrderLink;
   /**  Status of the `CreditMemo`. */
-  status?: Maybe<Scalars['String']>;
+  status?: string;
   /**  Sub-total amount */
-  subTotalAmount?: Maybe<AmountType>;
+  subTotalAmount?: AmountType;
   /**  Total amount */
-  totalAmount?: Maybe<AmountType>;
+  totalAmount?: AmountType;
   /**  Total balance */
-  totalBalance?: Maybe<AmountType>;
+  totalBalance?: AmountType;
   /**  Total tax */
-  totalTax?: Maybe<AmountType>;
+  totalTax?: AmountType;
   /**  Type of the `CreditMemo`, typically used by the Orchestration Engine to determine the workflow that should be applied. */
-  type?: Maybe<Scalars['String']>;
+  type?: string;
   /**  Date and time of last update. */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
   /**  The reference to the `workflow` associated. */
-  workflow?: Maybe<WorkflowLink>;
+  workflow?: WorkflowLink;
   /**
    *  DEPRECATED, please use the field `workflow` instead - The reference of the workflow.
    * @deprecated No longer supported
    */
-  workflowRef?: Maybe<Scalars['String']>;
+  workflowRef?: string;
   /**
    *  DEPRECATED, please use the field `workflow` instead - The version of the workflow.
    * @deprecated No longer supported
    */
-  workflowVersion?: Maybe<Scalars['String']>;
+  workflowVersion?: string;
 };
 
 
 export type CreditMemoItemsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  description?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  orderItem?: InputMaybe<OrderItemLinkInput>;
-  product?: InputMaybe<ProductLinkInput>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  returnOrderItem?: InputMaybe<ReturnOrderItemLinkInput>;
-  type?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  updatedOn?: InputMaybe<DateRange>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  description?: string[];
+  first?: number;
+  last?: number;
+  orderItem?: OrderItemLinkInput;
+  product?: ProductLinkInput;
+  ref?: string[];
+  returnOrderItem?: ReturnOrderItemLinkInput;
+  type?: string[];
+  updatedOn?: DateRange;
 };
 
 export type CurrencyLink = {
   __typename?: 'CurrencyLink';
-  alphabeticCode?: Maybe<Scalars['String']>;
+  alphabeticCode?: string;
 };
 
 export type Invoice = Extendable & Node & Referenceable & {
   __typename?: 'Invoice';
   /**  A list of attributes associated with the `Invoice`. This can be used to extend the existing data structure with additional data. */
-  attributes?: Maybe<Array<Maybe<Attribute>>>;
+  attributes?: Attribute[];
   /**  The `BillingAccount` associated with the `Invoice`. */
-  billingAccount?: Maybe<BillingAccount>;
+  billingAccount?: BillingAccount;
   /**  Date and time of creation. */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  A list of associated credit memos that have been used to adjust this invoice in favour of the billing account */
-  creditMemos?: Maybe<Array<Maybe<CreditMemo>>>;
+  creditMemos?: CreditMemo[];
   /**  Reference to the currency type. Generally, the standard ISO-4217 is used. */
-  currency?: Maybe<CurrencyLink>;
+  currency?: CurrencyLink;
   /**  The default Tax Type for this invoice. Individual invoice items can override. */
-  defaultTaxType?: Maybe<TaxType>;
+  defaultTaxType?: TaxType;
   /**  The date on which this invoice is due for completion. */
-  dueDate?: Maybe<Scalars['DateTime']>;
+  dueDate?: Date;
   /**  Reference to the `Fulfilment` associated with this `Invoice`. */
-  fulfilment?: Maybe<FulfilmentLink>;
+  fulfilment?: FulfilmentLink;
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  The date on which this invoice was formally issued. */
-  issueDate?: Maybe<Scalars['DateTime']>;
+  issueDate?: Date;
   /**  The `InvoiceItem`s associated with this `Invoice`. */
-  items?: Maybe<InvoiceItemConnection>;
+  items?: InvoiceItemConnection;
   /**  Reference to the `Order` associated with this `Invoice`. */
-  order?: Maybe<OrderLink>;
+  order?: OrderLink;
   /**  External reference to the `Invoice`. Must be unique. */
-  ref: Scalars['String'];
+  ref: string;
   /**  Status of the `Invoice`. */
-  status?: Maybe<Scalars['String']>;
+  status?: string;
   /**  The total amount of this invoice excluding tax. */
-  subTotalAmount?: Maybe<AmountType>;
+  subTotalAmount?: AmountType;
   /**  The total amount of this invoice including tax */
-  totalAmount?: Maybe<AmountType>;
+  totalAmount?: AmountType;
   /**  The total amount of this invoice yet to be paid. (This caters for multi-part payments and payment milestones) */
-  totalBalance?: Maybe<AmountType>;
+  totalBalance?: AmountType;
   /**  The total amount of tax for this invoice */
-  totalTax?: Maybe<AmountType>;
+  totalTax?: AmountType;
   /**  Type of the `Invoice`, typically used by the Orchestration Engine to determine the workflow that should be applied. */
-  type?: Maybe<Scalars['String']>;
+  type?: string;
   /**  Date and time of last update. */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
   /**  The reference to the `workflow` associated. */
-  workflow?: Maybe<WorkflowLink>;
+  workflow?: WorkflowLink;
   /**
    *  DEPRECATED, please use the field `workflow` instead - The reference of the workflow.
    * @deprecated No longer supported
    */
-  workflowRef?: Maybe<Scalars['String']>;
+  workflowRef?: string;
   /**
    *  DEPRECATED, please use the field `workflow` instead - The version of the workflow.
    * @deprecated No longer supported
    */
-  workflowVersion?: Maybe<Scalars['Int']>;
+  workflowVersion?: number;
 };
 
 
 export type InvoiceItemsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  description?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  product?: InputMaybe<ProductLinkInput>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  type?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  updatedOn?: InputMaybe<DateRange>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  description?: string[];
+  first?: number;
+  last?: number;
+  product?: ProductLinkInput;
+  ref?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
 };
 
 export type FulfilmentLink = {
   __typename?: 'FulfilmentLink';
-  ref?: Maybe<Scalars['String']>;
+  ref?: string;
 };
 
 export type ProductLinkInput = {
   catalogue: ProductCatalogueLinkInput;
   /**  Max character limit: 100. */
-  ref: Scalars['String'];
+  ref: string;
 };
 
 export type ProductCatalogueLinkInput = {
   /**  Max character limit: 100. */
-  ref: Scalars['String'];
+  ref: string;
 };
 
 /**  A list of results that matched against a InvoiceItem search query */
 export type InvoiceItemConnection = {
   __typename?: 'InvoiceItemConnection';
   /**  A list of edges that links to InvoiceItem type node */
-  edges?: Maybe<Array<Maybe<InvoiceItemEdge>>>;
+  edges?: InvoiceItemEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a InvoiceItem connection to the InvoiceItem type */
 export type InvoiceItemEdge = {
   __typename?: 'InvoiceItemEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the InvoiceItem edge */
-  node?: Maybe<InvoiceItem>;
+  node?: InvoiceItem;
 };
 
 export type InvoiceItem = Node & Referenceable & {
   __typename?: 'InvoiceItem';
   /**  The item amount for this item excluding tax */
-  amount?: Maybe<AmountType>;
+  amount?: AmountType;
   /**  Date and time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  A description of the source item. In the case of product source items this can be the name. */
-  description?: Maybe<Scalars['String']>;
+  description?: string;
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  The `Invoice` this object is associated with */
-  invoice?: Maybe<Invoice>;
+  invoice?: Invoice;
   /**  Associated product for this invoice item. */
-  product?: Maybe<ProductLink>;
+  product?: ProductLink;
   /**  External reference to the `InvoiceItem`. Must be unique. */
-  ref: Scalars['String'];
+  ref: string;
   /**  The tax amount for this item. If not present at the item level, tax amount should be generated based on the tax type set at the invoice parent level. */
-  taxAmount?: Maybe<AmountType>;
+  taxAmount?: AmountType;
   /**  Type of the `InvoiceItem`, typically used by the Orchestration Engine to determine the workflow that should be applied. */
-  type?: Maybe<Scalars['String']>;
+  type?: string;
   /**  The unit price of the source item. */
-  unitAmount?: Maybe<AmountType>;
+  unitAmount?: AmountType;
   /**  `The total quantity of the source item. Should default to 0 */
-  unitQuantity?: Maybe<QuantityType>;
+  unitQuantity?: QuantityType;
   /**  The tax type of this item. Should only be provided if different to the default invoice tax type. */
-  unitTaxType?: Maybe<TaxType>;
+  unitTaxType?: TaxType;
   /**  Date and time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
 };
 
 export type AmountType = {
   __typename?: 'AmountType';
-  amount?: Maybe<Scalars['Float']>;
-  scale?: Maybe<Scalars['Int']>;
-  unscaledValue?: Maybe<Scalars['Int']>;
+  amount?: number;
+  scale?: number;
+  unscaledValue?: number;
 };
 
 export type ProductLink = {
   __typename?: 'ProductLink';
-  catalogue?: Maybe<CatalogueLink>;
-  ref?: Maybe<Scalars['String']>;
+  catalogue?: CatalogueLink;
+  ref?: string;
 };
 
 export type CatalogueLink = {
   __typename?: 'CatalogueLink';
-  ref?: Maybe<Scalars['String']>;
+  ref?: string;
 };
 
 /**  The `QuantityType` type, holds separately the amount (quantity) and the units associated. */
 export type QuantityType = {
   __typename?: 'QuantityType';
   /**  The quantity itself. */
-  quantity?: Maybe<Scalars['Int']>;
+  quantity?: number;
   /**  The unit associated. */
-  unit?: Maybe<Scalars['String']>;
+  unit?: string;
 };
 
 export type OrderLink = {
   __typename?: 'OrderLink';
-  ref?: Maybe<Scalars['String']>;
-  retailer?: Maybe<RetailerLink>;
+  ref?: string;
+  retailer?: RetailerLink;
 };
 
 export type RetailerLink = {
   __typename?: 'RetailerLink';
-  id?: Maybe<Scalars['ID']>;
+  id?: string;
 };
 
 export type WorkflowLink = {
   __typename?: 'WorkflowLink';
   /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
-  ref?: Maybe<Scalars['String']>;
+  ref?: string;
   /**  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/> */
-  version?: Maybe<Scalars['Int']>;
+  version?: number;
 };
 
 export type OrderItemLinkInput = {
   order: OrderLinkInput;
-  ref: Scalars['String'];
+  ref: string;
 };
 
 export type ReturnOrderItemLinkInput = {
   /**  Max character limit: 100. */
-  ref: Scalars['String'];
-  returnOrder?: InputMaybe<ReturnOrderLinkInput>;
+  ref: string;
+  returnOrder?: ReturnOrderLinkInput;
 };
 
 /**  A list of results that matched against a CreditMemoItem search query */
 export type CreditMemoItemConnection = {
   __typename?: 'CreditMemoItemConnection';
   /**  A list of edges that links to CreditMemoItem type node */
-  edges?: Maybe<Array<Maybe<CreditMemoItemEdge>>>;
+  edges?: CreditMemoItemEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a CreditMemoItem connection to the CreditMemoItem type */
 export type CreditMemoItemEdge = {
   __typename?: 'CreditMemoItemEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the CreditMemoItem edge */
-  node?: Maybe<CreditMemoItem>;
+  node?: CreditMemoItem;
 };
 
 export type CreditMemoItem = Node & Referenceable & {
   __typename?: 'CreditMemoItem';
   /**  The item amount for this item excluding tax. This is a calculated value based on business rules that does not necessarily have to take into account the unit quantity or amounts. */
-  amount?: Maybe<AmountType>;
+  amount?: AmountType;
   /**  Date and time of creation. */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  `CreditMemo` associated with the `CreditMemoItem`. */
-  creditMemo?: Maybe<CreditMemo>;
+  creditMemo?: CreditMemo;
   /**  Credit reason code of the `CreditMemoItem`. */
-  creditReasonCode?: Maybe<SettingValueType>;
+  creditReasonCode?: SettingValueType;
   /** # Description of the `CreditMemoItem`. */
-  description?: Maybe<Scalars['String']>;
+  description?: string;
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  Reference to an `OrderItem` associated with the `CreditMemoItem`. */
-  orderItem?: Maybe<OrderItemLink>;
+  orderItem?: OrderItemLink;
   /**  Reference to a `Product` associated with the `CreditMemoItem`. */
-  product?: Maybe<ProductLink>;
+  product?: ProductLink;
   /**  External reference to the `CreditMemoItem`. Must be unique. */
-  ref: Scalars['String'];
+  ref: string;
   /**  Reference to a `ReturnOrderItem` associated with the `CreditMemoItem`. */
-  returnOrderItem?: Maybe<ReturnOrderItemLink>;
+  returnOrderItem?: ReturnOrderItemLink;
   /**  The tax amount for this item. If not present at the item level, tax amount should be generated based on the tax type set at the invoice parent level. */
-  taxAmount?: Maybe<AmountType>;
+  taxAmount?: AmountType;
   /**  Type of the `CreditMemoItem`, typically used by the Orchestration Engine to determine the workflow that should be applied. */
-  type?: Maybe<Scalars['String']>;
+  type?: string;
   /**  The unit sale price at time of sale or exchange */
-  unitAmount?: Maybe<AmountType>;
+  unitAmount?: AmountType;
   /**  The unit cost price at time of sale or exchange. */
-  unitCostAmount?: Maybe<AmountType>;
+  unitCostAmount?: AmountType;
   /**  `unitQuantity` holds separately the amount and the unit associated. */
-  unitQuantity?: Maybe<QuantityType>;
+  unitQuantity?: QuantityType;
   /**  The tax type of this item. Should only be provided if different to the default credit memo tax type. */
-  unitTaxType?: Maybe<TaxType>;
+  unitTaxType?: TaxType;
   /**  Date and time of last update. */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
 };
 
 export type SettingValueType = {
   __typename?: 'SettingValueType';
-  label?: Maybe<Scalars['String']>;
-  value?: Maybe<Scalars['String']>;
+  label?: string;
+  value?: string;
 };
 
 export type OrderItemLink = {
   __typename?: 'OrderItemLink';
-  order?: Maybe<OrderLink>;
-  ref?: Maybe<Scalars['String']>;
+  order?: OrderLink;
+  ref?: string;
 };
 
 export type ReturnOrderItemLink = {
   __typename?: 'ReturnOrderItemLink';
-  ref?: Maybe<Scalars['String']>;
-  returnOrder?: Maybe<ReturnOrderLink>;
+  ref?: string;
+  returnOrder?: ReturnOrderLink;
 };
 
 export type ReturnOrderLink = {
   __typename?: 'ReturnOrderLink';
-  ref?: Maybe<Scalars['String']>;
-  retailer?: Maybe<RetailerLink>;
+  ref?: string;
+  retailer?: RetailerLink;
 };
 
 export type FulfilmentLinkInput = {
-  ref: Scalars['String'];
+  ref: string;
 };
 
 /**  A list of results that matched against a Invoice search query */
 export type InvoiceConnection = {
   __typename?: 'InvoiceConnection';
   /**  A list of edges that links to Invoice type node */
-  edges?: Maybe<Array<Maybe<InvoiceEdge>>>;
+  edges?: InvoiceEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a Invoice connection to the Invoice type */
 export type InvoiceEdge = {
   __typename?: 'InvoiceEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the Invoice edge */
-  node?: Maybe<Invoice>;
+  node?: Invoice;
 };
 
 /**  A list of results that matched against a Payment search query */
 export type PaymentConnection = {
   __typename?: 'PaymentConnection';
   /**  A list of edges that links to Payment type node */
-  edges?: Maybe<Array<Maybe<PaymentEdge>>>;
+  edges?: PaymentEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a Payment connection to the Payment type */
 export type PaymentEdge = {
   __typename?: 'PaymentEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the Payment edge */
-  node?: Maybe<Payment>;
+  node?: Payment;
 };
 
 /**  The Payment information */
@@ -3802,133 +3797,133 @@ export type Payment = Extendable & Node & Orchestrateable & Referenceable & {
   /**  The amount of the `Payment`. Usually for a Payment this will equal to the `Order`s' total amount that this Payment was created against. */
   amount: AmountType;
   /**  A list of attributes associated with the `Payment`. This can be used to extend the existing data structure with additional data. */
-  attributes?: Maybe<Array<Maybe<Attribute>>>;
+  attributes?: Attribute[];
   /**  Billing Account associated to the `Payment`. */
-  billingAccount?: Maybe<BillingAccount>;
+  billingAccount?: BillingAccount;
   /**  Time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  Orders associated with the `Payment`. */
-  orders?: Maybe<OrderConnection>;
+  orders?: OrderConnection;
   /**  Payment Transactions associated with the `Payment`. */
-  paymentTransactions?: Maybe<PaymentTransactionConnection>;
+  paymentTransactions?: PaymentTransactionConnection;
   /**  External reference of the object. Must be unique. */
-  ref: Scalars['String'];
+  ref: string;
   /**  Retailer associated to the `Payment`. */
-  retailer?: Maybe<RetailerLink>;
+  retailer?: RetailerLink;
   /**
    *  The current status of the `Payment`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/>
    *  Status of the `Payment`
    */
-  status: Scalars['String'];
+  status: string;
   /**
    *  Type of the `Payment`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
    *  Type of the `Payment`, typically used by the Orchestration Engine to determine the workflow that should be applied. For Payment a sample value for this is `DEFAULT`.
    */
-  type: Scalars['String'];
+  type: string;
   /**  Time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
   /**  The reference to the `workflow` associated. */
-  workflow?: Maybe<WorkflowLink>;
+  workflow?: WorkflowLink;
   /**
    *  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/>
    *  DEPRECATED, please use the field `workflow` instead - The reference of the workflow.
    * @deprecated No longer supported
    */
-  workflowRef: Scalars['String'];
+  workflowRef: string;
   /**
    *  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/>
    *  DEPRECATED, please use the field `workflow` instead - The version of the workflow.
    * @deprecated No longer supported
    */
-  workflowVersion: Scalars['Int'];
+  workflowVersion: number;
 };
 
 
 /**  The Payment information */
 export type PaymentOrdersArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  customerLink?: InputMaybe<CustomerLinkInput>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  payment?: InputMaybe<PaymentLinkInput>;
-  ref?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  totalPrice?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
-  totalTaxPrice?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflowRef?: InputMaybe<Array<Scalars['String']>>;
-  workflowVersion?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  customerLink?: CustomerLinkInput;
+  first?: number;
+  last?: number;
+  payment?: PaymentLinkInput;
+  ref?: string[];
+  status?: string[];
+  totalPrice?: number[];
+  totalTaxPrice?: number[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 
 /**  The Payment information */
 export type PaymentPaymentTransactionsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  authorizationKey?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  before?: InputMaybe<Scalars['String']>;
-  cardType?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  createdOn?: InputMaybe<DateRange>;
-  currency?: InputMaybe<CurrencyLinkInput>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  paymentMethod?: InputMaybe<Array<Scalars['String']>>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  status?: InputMaybe<Array<Scalars['String']>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflow?: InputMaybe<WorkflowLinkInput>;
-  workflowRef?: InputMaybe<Array<Scalars['String']>>;
-  workflowVersion?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  authorizationKey?: string[];
+  before?: string;
+  cardType?: string[];
+  createdOn?: DateRange;
+  currency?: CurrencyLinkInput;
+  first?: number;
+  last?: number;
+  paymentMethod?: string[];
+  ref?: string[];
+  status?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflow?: WorkflowLinkInput;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 export type CustomerLinkInput = {
-  ref: Scalars['String'];
+  ref: string;
 };
 
 export type PaymentLinkInput = {
   /**  Max character limit: 100. */
-  ref: Scalars['String'];
+  ref: string;
 };
 
 /**  A list of results that matched against a Order search query */
 export type OrderConnection = {
   __typename?: 'OrderConnection';
   /**  A list of edges that links to Order type node */
-  edges?: Maybe<Array<Maybe<OrderEdge>>>;
+  edges?: OrderEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a Order connection to the Order type */
 export type OrderEdge = {
   __typename?: 'OrderEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the Order edge */
-  node?: Maybe<Order>;
+  node?: Order;
 };
 
 /**  A list of results that matched against a PaymentTransaction search query */
 export type PaymentTransactionConnection = {
   __typename?: 'PaymentTransactionConnection';
   /**  A list of edges that links to PaymentTransaction type node */
-  edges?: Maybe<Array<Maybe<PaymentTransactionEdge>>>;
+  edges?: PaymentTransactionEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a PaymentTransaction connection to the PaymentTransaction type */
 export type PaymentTransactionEdge = {
   __typename?: 'PaymentTransactionEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the PaymentTransaction edge */
-  node?: Maybe<PaymentTransaction>;
+  node?: PaymentTransaction;
 };
 
 /**  The Payment Transaction information */
@@ -3937,210 +3932,210 @@ export type PaymentTransaction = Extendable & Node & Orchestrateable & Reference
   /**  The amount of the `PaymentTransaction`. */
   amount: AmountType;
   /**  A list of attributes associated with the `PaymentServiceProvider`. This can be used to extend the existing data structure with additional data. */
-  attributes?: Maybe<Array<Maybe<Attribute>>>;
+  attributes?: Attribute[];
   /**  The key received when executing a pre authorisation transaction. Typically used to perform a subsequent payment capture. */
-  authorizationKey?: Maybe<Scalars['String']>;
+  authorizationKey?: string;
   /**  Card type. Some sample values are 'MASTERCARD', 'VISA', 'AMEX', 'DINERS', 'SPAN', 'DISCOVER', 'UNIONPAY', 'JCB', 'MAESTRO', 'INTERAC' */
-  cardType?: Maybe<Scalars['String']>;
+  cardType?: string;
   /**  Time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  Reference to the currency type. Generally, the standard ISO-4217 is used. */
-  currency?: Maybe<CurrencyLink>;
+  currency?: CurrencyLink;
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  Reference to the parent Payment. */
-  payment?: Maybe<Payment>;
+  payment?: Payment;
   /**  Payment method. */
-  paymentMethod: Scalars['String'];
+  paymentMethod: string;
   /**  Associated Payment Service Provider. */
-  paymentServiceProvider?: Maybe<PaymentServiceProvider>;
+  paymentServiceProvider?: PaymentServiceProvider;
   /**  External reference of the object. Must be unique. */
-  ref: Scalars['String'];
+  ref: string;
   /**
    *  The current status of the `PaymentTransaction`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/>
    *  Status of the `PaymentTransaction`.
    */
-  status: Scalars['String'];
+  status: string;
   /**
    *  Type of the `PaymentTransaction`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
    *  Type of the `PaymentTransaction`, typically used by the Orchestration Engine to determine the workflow that should be applied. Common types that are used are: CAPTURE
    * REFUND, AUTHORIZATION
    */
-  type: Scalars['String'];
+  type: string;
   /**  Time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
   /**  The reference to the `workflow` associated. */
-  workflow?: Maybe<WorkflowLink>;
+  workflow?: WorkflowLink;
   /**
    *  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/>
    *  DEPRECATED, please use the field `workflow` instead - The reference of the workflow.
    * @deprecated No longer supported
    */
-  workflowRef: Scalars['String'];
+  workflowRef: string;
   /**
    *  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/>
    *  DEPRECATED, please use the field `workflow` instead - The version of the workflow.
    * @deprecated No longer supported
    */
-  workflowVersion: Scalars['Int'];
+  workflowVersion: number;
 };
 
 /**  The Payment Service Provider information */
 export type PaymentServiceProvider = Extendable & Referenceable & {
   __typename?: 'PaymentServiceProvider';
   /**  A list of attributes associated with the `PaymentServiceProvider`. This can be used to extend the existing data structure with additional data. */
-  attributes?: Maybe<Array<Maybe<Attribute>>>;
+  attributes?: Attribute[];
   /**  Client ID of the `PaymentServiceProvider` */
-  clientId: Scalars['String'];
+  clientId: string;
   /**  Client Secret of the `PaymentServiceProvider` */
-  clientSecret: Scalars['String'];
+  clientSecret: string;
   /**  Time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  Host of the `PaymentServiceProvider`. Sample value: 'api.sandbox.paypal.com'. */
-  host: Scalars['String'];
+  host: string;
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  name of the `PaymentServiceProvider` */
-  name?: Maybe<Scalars['String']>;
+  name?: string;
   /**  Port of the `PaymentServiceProvider` */
-  port: Scalars['Int'];
+  port: number;
   /**  External reference of the object. Must be unique. */
-  ref: Scalars['String'];
+  ref: string;
   /**  Retailer associated to the `PaymentServiceProvider`. */
   retailer: RetailerLink;
   /**  Auth Token of the `PaymentServiceProvider` */
-  serviceAuthToken: Scalars['String'];
+  serviceAuthToken: string;
   /**  Time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
 };
 
 /**  A list of results that matched against a BillingAccount search query */
 export type BillingAccountConnection = {
   __typename?: 'BillingAccountConnection';
   /**  A list of edges that links to BillingAccount type node */
-  edges?: Maybe<Array<Maybe<BillingAccountEdge>>>;
+  edges?: BillingAccountEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a BillingAccount connection to the BillingAccount type */
 export type BillingAccountEdge = {
   __typename?: 'BillingAccountEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the BillingAccount edge */
-  node?: Maybe<BillingAccount>;
+  node?: BillingAccount;
 };
 
 /**  A list of results that matched against a CarrierAttribute search query */
 export type CarrierAttributeConnection = {
   __typename?: 'CarrierAttributeConnection';
   /**  A list of edges that links to CarrierAttribute type node */
-  edges?: Maybe<Array<Maybe<CarrierAttributeEdge>>>;
+  edges?: CarrierAttributeEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a CarrierAttribute connection to the CarrierAttribute type */
 export type CarrierAttributeEdge = {
   __typename?: 'CarrierAttributeEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the CarrierAttribute edge */
-  node?: Maybe<CarrierAttribute>;
+  node?: CarrierAttribute;
 };
 
 /**  The attribute of carrier */
 export type CarrierAttribute = {
   __typename?: 'CarrierAttribute';
   /**  Carrier details */
-  carrierDetails?: Maybe<CarrierDetails>;
+  carrierDetails?: CarrierDetails;
   /**  Time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  ID of the object */
-  id: Scalars['ID'];
-  name: Scalars['String'];
+  id: string;
+  name: string;
   /**  Time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
-  value: Scalars['String'];
+  updatedOn?: Date;
+  value: string;
 };
 
 /**  The details of carrier */
 export type CarrierDetails = {
   __typename?: 'CarrierDetails';
   /**  Location ID of carrier details */
-  agentId?: Maybe<Scalars['String']>;
-  attributes?: Maybe<CarrierAttributeConnection>;
+  agentId?: string;
+  attributes?: CarrierAttributeConnection;
   /**  Carrier ID of carrier details */
-  carrierId?: Maybe<Scalars['String']>;
+  carrierId?: string;
   /**  Time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  Retailer ID of carrier details */
-  retailerId?: Maybe<Scalars['String']>;
+  retailerId?: string;
   /**  Time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
 };
 
 
 /**  The details of carrier */
 export type CarrierDetailsAttributesArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  name?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  value?: InputMaybe<Array<Scalars['String']>>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  first?: number;
+  last?: number;
+  name?: string[];
+  updatedOn?: DateRange;
+  value?: string[];
 };
 
 export type ArticleId = {
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
 };
 
 /**  The `CarrierConsignmentKey` input is the external_reference, for identifying a specific ConsignmentNoteEntity. */
 export type CarrierConsignmentKey = {
   /**  External reference of the `Consignment`. Must be unique. */
-  ref: Scalars['String'];
+  ref: string;
 };
 
 /**  A list of results that matched against a CarrierDetails search query */
 export type CarrierDetailsConnection = {
   __typename?: 'CarrierDetailsConnection';
   /**  A list of edges that links to CarrierDetails type node */
-  edges?: Maybe<Array<Maybe<CarrierDetailsEdge>>>;
+  edges?: CarrierDetailsEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a CarrierDetails connection to the CarrierDetails type */
 export type CarrierDetailsEdge = {
   __typename?: 'CarrierDetailsEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the CarrierDetails edge */
-  node?: Maybe<CarrierDetails>;
+  node?: CarrierDetails;
 };
 
 /**  A list of results that matched against a Carrier search query */
 export type CarrierConnection = {
   __typename?: 'CarrierConnection';
   /**  A list of edges that links to Carrier type node */
-  edges?: Maybe<Array<Maybe<CarrierEdge>>>;
+  edges?: CarrierEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a Carrier connection to the Carrier type */
 export type CarrierEdge = {
   __typename?: 'CarrierEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the Carrier edge */
-  node?: Maybe<Carrier>;
+  node?: Carrier;
 };
 
 /**  The `ProductCatalogueKey` input is the parameter for identifying a specific Product Catalogue. */
@@ -4149,25 +4144,25 @@ export type ProductCatalogueKey = {
    *  Product Catalogue reference identifier. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
 };
 
 /**  A list of results that matched against a Category search query */
 export type CategoryConnection = {
   __typename?: 'CategoryConnection';
   /**  A list of edges that links to Category type node */
-  edges?: Maybe<Array<Maybe<CategoryEdge>>>;
+  edges?: CategoryEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a Category connection to the Category type */
 export type CategoryEdge = {
   __typename?: 'CategoryEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the Category edge */
-  node?: Maybe<Category>;
+  node?: Category;
 };
 
 /**
@@ -4180,33 +4175,33 @@ export type CategoryEdge = {
 export type Category = Extendable & Node & Orchestrateable & Referenceable & {
   __typename?: 'Category';
   /**  A list of attributes associated with this Category. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: Maybe<Array<Maybe<Attribute>>>;
+  attributes?: Attribute[];
   /**  The Product Catalogue in which this Category is managed */
   catalogue: ProductCatalogue;
   /**  A connection to the immediate child Categories (NOTE: This currently does not traverse the entire tree) */
-  childCategories?: Maybe<CategoryConnection>;
+  childCategories?: CategoryConnection;
   /**  Time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  ID of the object. For internal use, should not be used externally or by any business logic */
-  id: Scalars['ID'];
+  id: string;
   /**  The name of the Category */
-  name: Scalars['String'];
+  name: string;
   /**  This Category's immediate parent Category */
-  parentCategory?: Maybe<Category>;
+  parentCategory?: Category;
   /**  The unique reference identifier for the Category */
-  ref: Scalars['String'];
+  ref: string;
   /**  The current status of the `Category`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/> */
-  status?: Maybe<Scalars['String']>;
+  status?: string;
   /**  A short description of the Category */
-  summary?: Maybe<Scalars['String']>;
+  summary?: string;
   /**  Type of the `Category`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/> */
-  type: Scalars['String'];
+  type: string;
   /**  Time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
   /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
-  workflowRef: Scalars['String'];
+  workflowRef: string;
   /**  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/> */
-  workflowVersion: Scalars['Int'];
+  workflowVersion: number;
 };
 
 
@@ -4218,20 +4213,20 @@ export type Category = Extendable & Node & Orchestrateable & Referenceable & {
  *  For more information, please refer to the <a href="https://lingo.fluentretail.com/display/LIN/Compatibility" target="_blank">Backward Compatibility Guide on Lingo</a>
  */
 export type CategoryChildCategoriesArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  catalogue?: InputMaybe<ProductCatalogueKey>;
-  createdOn?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  name?: InputMaybe<Array<Scalars['String']>>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  summary?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflowRef?: InputMaybe<Array<Scalars['String']>>;
-  workflowVersion?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  before?: string;
+  catalogue?: ProductCatalogueKey;
+  createdOn?: DateRange;
+  first?: number;
+  last?: number;
+  name?: string[];
+  ref?: string[];
+  status?: string[];
+  summary?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 /**
@@ -4244,31 +4239,31 @@ export type CategoryChildCategoriesArgs = {
 export type ProductCatalogue = Extendable & Node & Orchestrateable & Referenceable & {
   __typename?: 'ProductCatalogue';
   /**  A list of attributes associated with this Product Catalogue. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: Maybe<Array<Maybe<Attribute>>>;
+  attributes?: Attribute[];
   /**  A connection to associated Categories */
-  categories?: Maybe<CategoryConnection>;
+  categories?: CategoryConnection;
   /**  Time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  A short description of the Product Catalogue */
-  description?: Maybe<Scalars['String']>;
+  description?: string;
   /**  ID of the object. For internal use, should not be used externally or by any business logic */
-  id: Scalars['ID'];
+  id: string;
   /**  The name of the Product Catalogue */
-  name: Scalars['String'];
+  name: string;
   /**  The unique reference identifier for the Product Catalogue */
-  ref: Scalars['String'];
+  ref: string;
   /**  A list of Retailer references associated with this Product Catalogue */
-  retailerRefs?: Maybe<Array<Maybe<Scalars['String']>>>;
+  retailerRefs?: string[];
   /**  The current status of the `ProductCatalogue`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/> */
-  status?: Maybe<Scalars['String']>;
+  status?: string;
   /**  Type of the `ProductCatalogue`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/> */
-  type: Scalars['String'];
+  type: string;
   /**  Time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
   /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
-  workflowRef: Scalars['String'];
+  workflowRef: string;
   /**  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/> */
-  workflowVersion: Scalars['Int'];
+  workflowVersion: number;
 };
 
 
@@ -4280,20 +4275,20 @@ export type ProductCatalogue = Extendable & Node & Orchestrateable & Referenceab
  *  For more information, please refer to the <a href="https://lingo.fluentretail.com/display/LIN/Compatibility" target="_blank">Backward Compatibility Guide on Lingo</a>
  */
 export type ProductCatalogueCategoriesArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  catalogue?: InputMaybe<ProductCatalogueKey>;
-  createdOn?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  name?: InputMaybe<Array<Scalars['String']>>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  summary?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflowRef?: InputMaybe<Array<Scalars['String']>>;
-  workflowVersion?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  before?: string;
+  catalogue?: ProductCatalogueKey;
+  createdOn?: DateRange;
+  first?: number;
+  last?: number;
+  name?: string[];
+  ref?: string[];
+  status?: string[];
+  summary?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 /**
@@ -4304,59 +4299,59 @@ export type ProductCatalogueCategoriesArgs = {
 export type Comment = Node & {
   __typename?: 'Comment';
   /**  Time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  ID of the entity */
-  entityId: Scalars['ID'];
+  entityId: string;
   /**  Type of the entity. For example `ORDER`, `FULFILMENT`, `ORDERITEM`, `PRODUCTCATALOGUE` etc. */
-  entityType: Scalars['String'];
+  entityType: string;
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  Comment text */
-  text: Scalars['String'];
+  text: string;
   /**  Time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
 };
 
 /**  A list of results that matched against a Comment search query */
 export type CommentConnection = {
   __typename?: 'CommentConnection';
   /**  A list of edges that links to Comment type node */
-  edges?: Maybe<Array<Maybe<CommentEdge>>>;
+  edges?: CommentEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a Comment connection to the Comment type */
 export type CommentEdge = {
   __typename?: 'CommentEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the Comment edge */
-  node?: Maybe<Comment>;
+  node?: Comment;
 };
 
 /**  The `ConsignmentId` input is the generated id. */
 export type ConsignmentId = {
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
 };
 
 /**  A list of results that matched against a Consignment search query */
 export type ConsignmentConnection = {
   __typename?: 'ConsignmentConnection';
   /**  A list of edges that links to Consignment type node */
-  edges?: Maybe<Array<Maybe<ConsignmentEdge>>>;
+  edges?: ConsignmentEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a Consignment connection to the Consignment type */
 export type ConsignmentEdge = {
   __typename?: 'ConsignmentEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the Consignment edge */
-  node?: Maybe<Consignment>;
+  node?: Consignment;
 };
 
 /**  The `ControlGroupKey` input is the parameter for identifying a specific Catalogue Control Group */
@@ -4365,141 +4360,141 @@ export type ControlGroupKey = {
    *  Control Group reference identifier. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
 };
 
 export type Control = Extendable & Node & Orchestrateable & Referenceable & {
   __typename?: 'Control';
   /**  List of Attribute containing meta data information for an entity */
-  attributes?: Maybe<Array<Maybe<Attribute>>>;
+  attributes?: Attribute[];
   /**  Control Group */
-  controlGroup?: Maybe<ControlGroup>;
+  controlGroup?: ControlGroup;
   /**  Time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  Description */
-  description?: Maybe<Scalars['String']>;
+  description?: string;
   /**  Order that this control is applied */
-  executionOrder?: Maybe<Scalars['Int']>;
+  executionOrder?: number;
   /**  ID of the object. For internal use, should not be used externally or by any business logic */
-  id: Scalars['ID'];
+  id: string;
   /**  Name */
-  name?: Maybe<Scalars['String']>;
+  name?: string;
   /**  The reference identifier used to identify an entity */
-  ref: Scalars['String'];
+  ref: string;
   /**  The current status of the `Control`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/> */
-  status?: Maybe<Scalars['String']>;
+  status?: string;
   /**  Type of the `Control`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/> */
-  type: Scalars['String'];
+  type: string;
   /**  Time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
   /**  values */
-  values?: Maybe<Array<Maybe<Attribute>>>;
+  values?: Attribute[];
   /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
-  workflowRef: Scalars['String'];
+  workflowRef: string;
   /**  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/> */
-  workflowVersion: Scalars['Int'];
+  workflowVersion: number;
 };
 
 export type ControlGroup = Extendable & Node & Orchestrateable & Referenceable & {
   __typename?: 'ControlGroup';
   /**  List of Attribute containing meta data information for an entity */
-  attributes?: Maybe<Array<Maybe<Attribute>>>;
+  attributes?: Attribute[];
   /**  Controls */
-  controls?: Maybe<ControlConnection>;
+  controls?: ControlConnection;
   /**  Time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  Description */
-  description?: Maybe<Scalars['String']>;
+  description?: string;
   /**  ID of the object. For internal use, should not be used externally or by any business logic */
-  id: Scalars['ID'];
+  id: string;
   /**  Name */
-  name?: Maybe<Scalars['String']>;
+  name?: string;
   /**  The reference identifier used to identify an entity */
-  ref: Scalars['String'];
+  ref: string;
   /**  Retailer refs */
-  retailerRefs?: Maybe<Array<Maybe<Scalars['String']>>>;
+  retailerRefs?: string[];
   /**  The current status of the `ControlGroup`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/> */
-  status?: Maybe<Scalars['String']>;
+  status?: string;
   /**  Type of the `ControlGroup`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/> */
-  type: Scalars['String'];
+  type: string;
   /**  Time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
   /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
-  workflowRef: Scalars['String'];
+  workflowRef: string;
   /**  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/> */
-  workflowVersion: Scalars['Int'];
+  workflowVersion: number;
 };
 
 
 export type ControlGroupControlsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  description?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  executionOrder?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  name?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflowRef?: InputMaybe<Array<Scalars['String']>>;
-  workflowVersion?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  description?: string[];
+  executionOrder?: number[];
+  first?: number;
+  last?: number;
+  name?: string[];
+  ref?: string[];
+  status?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 /**  A list of results that matched against a Control search query */
 export type ControlConnection = {
   __typename?: 'ControlConnection';
   /**  A list of edges that links to Control type node */
-  edges?: Maybe<Array<Maybe<ControlEdge>>>;
+  edges?: ControlEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a Control connection to the Control type */
 export type ControlEdge = {
   __typename?: 'ControlEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the Control edge */
-  node?: Maybe<Control>;
+  node?: Control;
 };
 
 /**  A list of results that matched against a ControlGroup search query */
 export type ControlGroupConnection = {
   __typename?: 'ControlGroupConnection';
   /**  A list of edges that links to ControlGroup type node */
-  edges?: Maybe<Array<Maybe<ControlGroupEdge>>>;
+  edges?: ControlGroupEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a ControlGroup connection to the ControlGroup type */
 export type ControlGroupEdge = {
   __typename?: 'ControlGroupEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the ControlGroup edge */
-  node?: Maybe<ControlGroup>;
+  node?: ControlGroup;
 };
 
 /**  A list of results that matched against a Currency search query */
 export type CurrencyConnection = {
   __typename?: 'CurrencyConnection';
   /**  A list of edges that links to Currency type node */
-  edges?: Maybe<Array<Maybe<CurrencyEdge>>>;
+  edges?: CurrencyEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a Currency connection to the Currency type */
 export type CurrencyEdge = {
   __typename?: 'CurrencyEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the Currency edge */
-  node?: Maybe<Currency>;
+  node?: Currency;
 };
 
 export type Currency = {
@@ -4508,17 +4503,17 @@ export type Currency = {
    *  External reference to the `Currency`. Must be unique.
    *  For the standard currency types, this field is the three-letters-code used internationally (ISO-4217). eg: AUD, EUR, USD.
    */
-  alphabeticCode?: Maybe<Scalars['String']>;
+  alphabeticCode?: string;
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  Currencies which are defined as part of the ISO-4217 standard cannot be deleted or modified. */
-  isISO4217?: Maybe<Scalars['Boolean']>;
+  isISO4217?: Scalars['Boolean'];
   /**  The number of minor units that make up a major unit of the `Currency` */
-  minorUnits?: Maybe<Scalars['Int']>;
+  minorUnits?: number;
   /**  The name of the `Currency`. */
-  name?: Maybe<Scalars['String']>;
+  name?: string;
   /**  The numeric code of the `Currency`. */
-  numericCode?: Maybe<Scalars['String']>;
+  numericCode?: string;
 };
 
 /**
@@ -4528,73 +4523,73 @@ export type Currency = {
 export type CustomerAddress = Address & {
   __typename?: 'CustomerAddress';
   /**  City */
-  city?: Maybe<Scalars['String']>;
+  city?: string;
   /**  Company name */
-  companyName?: Maybe<Scalars['String']>;
+  companyName?: string;
   /**  Country */
-  country?: Maybe<Scalars['String']>;
+  country?: string;
   /**  Time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  Latitude */
-  latitude?: Maybe<Scalars['Float']>;
+  latitude?: number;
   /**  Longitude */
-  longitude?: Maybe<Scalars['Float']>;
+  longitude?: number;
   /**  Name */
-  name?: Maybe<Scalars['String']>;
+  name?: string;
   /**  Postcode */
-  postcode?: Maybe<Scalars['String']>;
+  postcode?: string;
   /**  Location reference */
-  ref?: Maybe<Scalars['String']>;
+  ref?: string;
   /**  Region */
-  region?: Maybe<Scalars['String']>;
+  region?: string;
   /**  State */
-  state?: Maybe<Scalars['String']>;
+  state?: string;
   /**  Street */
-  street?: Maybe<Scalars['String']>;
+  street?: string;
   /**  Timezone */
-  timeZone?: Maybe<Scalars['String']>;
+  timeZone?: string;
   /**  Type of Address, to support legacy address, the value can be AGENT and ORDER */
-  type?: Maybe<Scalars['String']>;
+  type?: string;
   /**  Time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
 };
 
 /**  A list of results that matched against a CustomerAddress search query */
 export type CustomerAddressConnection = {
   __typename?: 'CustomerAddressConnection';
   /**  A list of edges that links to CustomerAddress type node */
-  edges?: Maybe<Array<Maybe<CustomerAddressEdge>>>;
+  edges?: CustomerAddressEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a CustomerAddress connection to the CustomerAddress type */
 export type CustomerAddressEdge = {
   __typename?: 'CustomerAddressEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the CustomerAddress edge */
-  node?: Maybe<CustomerAddress>;
+  node?: CustomerAddress;
 };
 
 /**  A list of results that matched against a Customer search query */
 export type CustomerConnection = {
   __typename?: 'CustomerConnection';
   /**  A list of edges that links to Customer type node */
-  edges?: Maybe<Array<Maybe<CustomerEdge>>>;
+  edges?: CustomerEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a Customer connection to the Customer type */
 export type CustomerEdge = {
   __typename?: 'CustomerEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the Customer edge */
-  node?: Maybe<Customer>;
+  node?: Customer;
 };
 
 /**
@@ -4604,13 +4599,13 @@ export type CustomerEdge = {
 export type DecisionTable = {
   __typename?: 'DecisionTable';
   /**  Description of the decision table */
-  description?: Maybe<Scalars['String']>;
+  description?: string;
   /**  Id of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  Name of the table */
-  name: Scalars['String'];
+  name: string;
   /**  A connection of `Rule`s. A decision rule is a set of conditions with corresponding actions that must be performed if the conditions evaluate to true. */
-  rules?: Maybe<DecisionRuleConnection>;
+  rules?: DecisionRuleConnection;
 };
 
 
@@ -4619,28 +4614,28 @@ export type DecisionTable = {
  *  A DecisionTable is a structure that defines which actions to perform for a given set of conditions.
  */
 export type DecisionTableRulesArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
+  after?: string;
+  before?: string;
+  first?: number;
+  last?: number;
 };
 
 /**  A list of results that matched against a DecisionRule search query */
 export type DecisionRuleConnection = {
   __typename?: 'DecisionRuleConnection';
   /**  A list of edges that link to DecisionRule type node */
-  edges?: Maybe<Array<Maybe<DecisionRuleEdge>>>;
+  edges?: DecisionRuleEdge[];
   /**  An object containing information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a DecisionRule connection to the DecisionRule type */
 export type DecisionRuleEdge = {
   __typename?: 'DecisionRuleEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the DecisionRule edge */
-  node?: Maybe<DecisionRule>;
+  node?: DecisionRule;
 };
 
 /**
@@ -4650,15 +4645,15 @@ export type DecisionRuleEdge = {
 export type DecisionRule = {
   __typename?: 'DecisionRule';
   /**  A short description of the rule. Helpful to understand the behaviour when the rule itself is complicated. */
-  description?: Maybe<Scalars['String']>;
+  description?: string;
   /**  Id of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  A set of conditions that ALL need to be true for the input to evaluate to true. */
-  inputs: Array<DecisionRuleInput>;
+  inputs: DecisionRuleInput[];
   /**  A set of actions to be taken when the input evaluates to true. <br/> Note: Currently we support only one action. The type is list for future support. */
-  outputs: Array<DecisionRuleOutput>;
+  outputs: DecisionRuleOutput[];
   /**  The priority decides which rule to execute in case of conflict between multiple rules. The rule with the highest priority (represented by lowest number) will be selected. If no priority is provided, each rule will get a priority of 100 by default. */
-  priority?: Maybe<Scalars['Int']>;
+  priority?: number;
 };
 
 /**
@@ -4668,11 +4663,11 @@ export type DecisionRule = {
 export type DecisionRuleInput = {
   __typename?: 'DecisionRuleInput';
   /**  Id of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  This represents the right hand side of the condition equation. It includes the input values. */
-  inputEntries?: Maybe<DecisionRuleInputEntries>;
+  inputEntries?: DecisionRuleInputEntries;
   /**  The left hand side of a condition equation. At the moment, the actions are executed only when the `inputExpression` evaluates to true. So, it should be designed such that the true value should lead to the execution of the action. */
-  inputExpression?: Maybe<DecisionRuleInputExpression>;
+  inputExpression?: DecisionRuleInputExpression;
 };
 
 /**
@@ -4682,7 +4677,7 @@ export type DecisionRuleInput = {
 export type DecisionRuleInputEntries = {
   __typename?: 'DecisionRuleInputEntries';
   /**  Values that the input expression will be compared to. This field should be used when values of the corresponding fields are strings. For example, value of Product.Ref will be string or a value that can be parsed or converted into a string. */
-  stringEntries?: Maybe<Array<Maybe<Scalars['String']>>>;
+  stringEntries?: string[];
 };
 
 /**
@@ -4693,9 +4688,9 @@ export type DecisionRuleInputEntries = {
 export type DecisionRuleInputExpression = {
   __typename?: 'DecisionRuleInputExpression';
   /**  The `fieldName` for this input expression */
-  fieldName?: Maybe<DecisionRuleInputFieldName>;
+  fieldName?: DecisionRuleInputFieldName;
   /**  The comparison operator */
-  operator?: Maybe<DecisionRuleComparisionOperator>;
+  operator?: DecisionRuleComparisionOperator;
 };
 
 /**
@@ -4737,11 +4732,11 @@ export enum DecisionRuleComparisionOperator {
 export type DecisionRuleOutput = {
   __typename?: 'DecisionRuleOutput';
   /**  Id of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  This represents the values that the output expression will be compared to. */
-  outputEntries?: Maybe<DecisionRuleOutputEntries>;
+  outputEntries?: DecisionRuleOutputEntries;
   /**  The output expression. At the moment, we execute actions/outputs when DecisionRuleInputExpression evaluates to true. So, this should be designed such that this will always be executed when the input evaluates to true. Also note that even though we don't support logical expressions as outputs at the moment, the schema type is designed this way to be future proof. */
-  outputExpression?: Maybe<DecisionRuleOutputExpression>;
+  outputExpression?: DecisionRuleOutputExpression;
 };
 
 /**
@@ -4751,7 +4746,7 @@ export type DecisionRuleOutput = {
 export type DecisionRuleOutputEntries = {
   __typename?: 'DecisionRuleOutputEntries';
   /**  Values that the output expression will be compared to. To be used when the values are a single Int. For example, for the Output "Apply a quantity buffer of 10, this is the `10` part.” */
-  intEntry?: Maybe<Scalars['Int']>;
+  intEntry?: number;
 };
 
 /**
@@ -4761,7 +4756,7 @@ export type DecisionRuleOutputEntries = {
 export type DecisionRuleOutputExpression = {
   __typename?: 'DecisionRuleOutputExpression';
   /**  The action to be executed */
-  action?: Maybe<DecisionRuleOutputAction>;
+  action?: DecisionRuleOutputAction;
 };
 
 /**
@@ -4781,18 +4776,18 @@ export enum DecisionRuleOutputAction {
 export type FulfilmentChoiceConnection = {
   __typename?: 'FulfilmentChoiceConnection';
   /**  A list of edges that links to FulfilmentChoice type node */
-  edges?: Maybe<Array<Maybe<FulfilmentChoiceEdge>>>;
+  edges?: FulfilmentChoiceEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a FulfilmentChoice connection to the FulfilmentChoice type */
 export type FulfilmentChoiceEdge = {
   __typename?: 'FulfilmentChoiceEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the FulfilmentChoice edge */
-  node?: Maybe<FulfilmentChoice>;
+  node?: FulfilmentChoice;
 };
 
 /**
@@ -4802,40 +4797,40 @@ export type FulfilmentChoiceEdge = {
 export type FulfilmentOption = Node & Orchestrateable & {
   __typename?: 'FulfilmentOption';
   /**  A type for passing address. Can be used as an input in creating Fulfilment Plans. */
-  address?: Maybe<FulfilmentOptionAddress>;
+  address?: FulfilmentOptionAddress;
   /**  A list of attributes associated with this object. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: Maybe<Array<Maybe<Attribute>>>;
+  attributes?: Attribute[];
   /**  Time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**
    *  The reference identifier for a location. May be used in orchestration rules to drive custom business logic. For example, you can have a rule to return plans only from this
    *   location or a rule to return plans from all locations but excluding this one.
    */
-  locationRef?: Maybe<Scalars['String']>;
+  locationRef?: string;
   /**  Type of order. For example _click & collect (CC)_ or _home delivery (HD)_ */
-  orderType?: Maybe<Scalars['String']>;
+  orderType?: string;
   /**  A list of `FulfilmentPlan` objects. */
-  plans?: Maybe<FulfilmentPlanConnection>;
+  plans?: FulfilmentPlanConnection;
   /**  Products being queried for availability */
-  products?: Maybe<Array<Maybe<FulfilmentOptionProduct>>>;
+  products?: FulfilmentOptionProduct[];
   /**  External reference. Recommended to be unique. */
-  ref?: Maybe<Scalars['String']>;
+  ref?: string;
   /**  ID of the `Retailer`, typically used by the Orchestration Engine to determine the workflow that should be applied. */
-  retailerId: Scalars['Int'];
+  retailerId: number;
   /**  The current status of the `FulfilmentOption`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/> */
-  status?: Maybe<Scalars['String']>;
+  status?: string;
   /**  A unique identifier for the clients to group related Fulfilment Plans. */
-  trackingCode?: Maybe<Scalars['String']>;
+  trackingCode?: string;
   /**  Type of the `FulfilmentOption`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/> */
-  type: Scalars['String'];
+  type: string;
   /**  Time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
   /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
-  workflowRef: Scalars['String'];
+  workflowRef: string;
   /**  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/> */
-  workflowVersion: Scalars['Int'];
+  workflowVersion: number;
 };
 
 
@@ -4844,164 +4839,164 @@ export type FulfilmentOption = Node & Orchestrateable & {
  *  to provide personalised fulfilment options to the customers directly from the product details pages, cart pages or checkout pages.
  */
 export type FulfilmentOptionPlansArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  eta?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  ref?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  retailerId?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
-  splitCount?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflowRef?: InputMaybe<Array<Scalars['String']>>;
-  workflowVersion?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  eta?: string[];
+  first?: number;
+  last?: number;
+  ref?: string[];
+  retailerId?: number[];
+  splitCount?: number[];
+  status?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 /**  Address type to be used in `FulfilmentOption` */
 export type FulfilmentOptionAddress = {
   __typename?: 'FulfilmentOptionAddress';
   /**  Address Line */
-  addressLine1?: Maybe<Scalars['String']>;
+  addressLine1?: string;
   /**  Address Line */
-  addressLine2?: Maybe<Scalars['String']>;
+  addressLine2?: string;
   /**  City or Town */
-  city?: Maybe<Scalars['String']>;
+  city?: string;
   /**  Company Name */
-  companyName?: Maybe<Scalars['String']>;
+  companyName?: string;
   /**  Country */
-  country?: Maybe<Scalars['String']>;
+  country?: string;
   /**  Geographical coordinate that specifies the north–south position of a point on the Earth's surface */
-  latitude?: Maybe<Scalars['Float']>;
+  latitude?: number;
   /**  Geographical coordinate that specifies the east–west position of a point on the Earth's surface */
-  longitude?: Maybe<Scalars['Float']>;
+  longitude?: number;
   /**  Name */
-  name?: Maybe<Scalars['String']>;
+  name?: string;
   /**  Postcode or Zipcode */
-  postcode?: Maybe<Scalars['String']>;
+  postcode?: string;
   /**  State or County */
-  state?: Maybe<Scalars['String']>;
+  state?: string;
 };
 
 /**  A list of results that matched against a FulfilmentPlan search query */
 export type FulfilmentPlanConnection = {
   __typename?: 'FulfilmentPlanConnection';
   /**  A list of edges that links to FulfilmentPlan type node */
-  edges?: Maybe<Array<Maybe<FulfilmentPlanEdge>>>;
+  edges?: FulfilmentPlanEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a FulfilmentPlan connection to the FulfilmentPlan type */
 export type FulfilmentPlanEdge = {
   __typename?: 'FulfilmentPlanEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the FulfilmentPlan edge */
-  node?: Maybe<FulfilmentPlan>;
+  node?: FulfilmentPlan;
 };
 
 /**  Fulfilment Plans represents fulfilment strategy for requested products based on client specific logic that lives in their orchestration rules. */
 export type FulfilmentPlan = Node & Orchestrateable & {
   __typename?: 'FulfilmentPlan';
   /**  A list of attributes associated with this object. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: Maybe<Array<Maybe<Attribute>>>;
+  attributes?: Attribute[];
   /**  Time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  ETA of the `FulfilmentPlan`. Although this can be set explicitly, we recommend that this be determined and set in the workflow. */
-  eta?: Maybe<Scalars['String']>;
+  eta?: string;
   /**  Exceptions can be used to augment the existing object with any useful information in case of exceptions. */
-  exceptions?: Maybe<Array<Maybe<FulfilmentPlanException>>>;
+  exceptions?: FulfilmentPlanException[];
   /**  Represents the associated `FulfilmentOption` object */
-  fulfilmentOption?: Maybe<FulfilmentOption>;
+  fulfilmentOption?: FulfilmentOption;
   /**  Represents fulfilments under this Fulfilment Plan */
-  fulfilments?: Maybe<Array<Maybe<FulfilmentPlanFulfilment>>>;
+  fulfilments?: FulfilmentPlanFulfilment[];
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  External reference. Recommended to be unique. */
-  ref?: Maybe<Scalars['String']>;
+  ref?: string;
   /**  ID of the retailer */
-  retailerId?: Maybe<Scalars['Int']>;
+  retailerId?: number;
   /**  Order split limits */
-  splitCount?: Maybe<Scalars['Int']>;
+  splitCount?: number;
   /**  The current status of the `FulfilmentPlan`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/> */
-  status?: Maybe<Scalars['String']>;
+  status?: string;
   /**  Type of the `FulfilmentPlan`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/> */
-  type: Scalars['String'];
+  type: string;
   /**  Time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
   /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
-  workflowRef: Scalars['String'];
+  workflowRef: string;
   /**  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/> */
-  workflowVersion: Scalars['Int'];
+  workflowVersion: number;
 };
 
 /**  Exception type can be used to augment objects with useful information in case of exceptions. */
 export type FulfilmentPlanException = {
   __typename?: 'FulfilmentPlanException';
   /**  Attributes may contain useful information about the exception */
-  attributes?: Maybe<Array<Maybe<Attribute>>>;
+  attributes?: Attribute[];
   /**  The exception code */
-  code?: Maybe<Scalars['String']>;
+  code?: string;
   /**  The english like description of the exception */
-  message?: Maybe<Scalars['String']>;
+  message?: string;
 };
 
 /**  Represents fulfilment information for a `FulfilmentPlan` */
 export type FulfilmentPlanFulfilment = {
   __typename?: 'FulfilmentPlanFulfilment';
   /**  ETA of the `FulfilmentPlan` as configured in the workflow */
-  eta?: Maybe<Scalars['String']>;
+  eta?: string;
   /**  Type of fulfilment. */
-  fulfilmentType?: Maybe<Scalars['String']>;
+  fulfilmentType?: string;
   /**  List of products with their requested and available quantities */
-  items?: Maybe<Array<Maybe<FulfilmentPlanFulfilmentItem>>>;
+  items?: FulfilmentPlanFulfilmentItem[];
   /**  Reference to identify the fulfilment location for this fulfilment. */
-  locationRef?: Maybe<Scalars['String']>;
+  locationRef?: string;
 };
 
 /**  Represents products with their requested and available quantities */
 export type FulfilmentPlanFulfilmentItem = {
   __typename?: 'FulfilmentPlanFulfilmentItem';
   /**  Quantity of the product available as per the plan */
-  availableQuantity: Scalars['Int'];
+  availableQuantity: number;
   /**  A reference to identify the Catalogue */
-  catalogueRef?: Maybe<Scalars['String']>;
+  catalogueRef?: string;
   /**  External reference of the product. */
-  productRef: Scalars['String'];
+  productRef: string;
   /**  Requested quantity of the product. */
-  requestedQuantity: Scalars['Int'];
+  requestedQuantity: number;
 };
 
 /**  Type to represent products being queried for availability in a Fulfilment Option request */
 export type FulfilmentOptionProduct = {
   __typename?: 'FulfilmentOptionProduct';
   /**  A reference to identify the Catalogue */
-  catalogueRef?: Maybe<Scalars['String']>;
+  catalogueRef?: string;
   /**  A reference to identify a Product */
-  productRef: Scalars['String'];
+  productRef: string;
   /**  The requested quantity for the product */
-  requestedQuantity: Scalars['Int'];
+  requestedQuantity: number;
 };
 
 /**  A list of results that matched against a FulfilmentOption search query */
 export type FulfilmentOptionConnection = {
   __typename?: 'FulfilmentOptionConnection';
   /**  A list of edges that links to FulfilmentOption type node */
-  edges?: Maybe<Array<Maybe<FulfilmentOptionEdge>>>;
+  edges?: FulfilmentOptionEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a FulfilmentOption connection to the FulfilmentOption type */
 export type FulfilmentOptionEdge = {
   __typename?: 'FulfilmentOptionEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the FulfilmentOption edge */
-  node?: Maybe<FulfilmentOption>;
+  node?: FulfilmentOption;
 };
 
 /**
@@ -5014,35 +5009,35 @@ export type FulfilmentOptionEdge = {
 export type GroupProduct = Extendable & Node & Orchestrateable & Product & Referenceable & {
   __typename?: 'GroupProduct';
   /**  A list of attributes associated with this Product. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: Maybe<Array<Maybe<Attribute>>>;
+  attributes?: Attribute[];
   /**  The Product Catalogue in which this Product is managed */
   catalogue: ProductCatalogue;
   /**  A connection to the associated Categories of this Product */
-  categories?: Maybe<CategoryConnection>;
+  categories?: CategoryConnection;
   /**  Time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  ID of the object. For internal use, should not be used externally or by any business logic */
-  id: Scalars['ID'];
+  id: string;
   /**  The name of the Product */
-  name: Scalars['String'];
+  name: string;
   /**  A list of Prices for this Product */
-  prices?: Maybe<Array<Maybe<Price>>>;
+  prices?: Price[];
   /**  The unique reference identifier for the Product */
-  ref: Scalars['String'];
+  ref: string;
   /**  The current status of the `GroupProduct`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/> */
-  status?: Maybe<Scalars['String']>;
+  status?: string;
   /**  A short description of the Product (max 255 chars) */
-  summary?: Maybe<Scalars['String']>;
+  summary?: string;
   /**  The tax information for this Product */
-  tax?: Maybe<TaxType>;
+  tax?: TaxType;
   /**  Type of the `GroupProduct`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/> */
-  type: Scalars['String'];
+  type: string;
   /**  Time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
   /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
-  workflowRef: Scalars['String'];
+  workflowRef: string;
   /**  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/> */
-  workflowVersion: Scalars['Int'];
+  workflowVersion: number;
 };
 
 
@@ -5054,38 +5049,38 @@ export type GroupProduct = Extendable & Node & Orchestrateable & Product & Refer
  *  For more information, please refer to the <a href="https://lingo.fluentretail.com/display/LIN/Compatibility" target="_blank">Backward Compatibility Guide on Lingo</a>
  */
 export type GroupProductCategoriesArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  catalogue?: InputMaybe<ProductCatalogueKey>;
-  createdOn?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  name?: InputMaybe<Array<Scalars['String']>>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  summary?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflowRef?: InputMaybe<Array<Scalars['String']>>;
-  workflowVersion?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  before?: string;
+  catalogue?: ProductCatalogueKey;
+  createdOn?: DateRange;
+  first?: number;
+  last?: number;
+  name?: string[];
+  ref?: string[];
+  status?: string[];
+  summary?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 /**  A list of results that matched against a GroupProduct search query */
 export type GroupProductConnection = {
   __typename?: 'GroupProductConnection';
   /**  A list of edges that links to GroupProduct type node */
-  edges?: Maybe<Array<Maybe<GroupProductEdge>>>;
+  edges?: GroupProductEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a GroupProduct connection to the GroupProduct type */
 export type GroupProductEdge = {
   __typename?: 'GroupProductEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the GroupProduct edge */
-  node?: Maybe<GroupProduct>;
+  node?: GroupProduct;
 };
 
 /**
@@ -5098,31 +5093,31 @@ export type GroupProductEdge = {
 export type InventoryCatalogue = Extendable & Node & Orchestrateable & Referenceable & {
   __typename?: 'InventoryCatalogue';
   /**  A list of attributes associated with this Inventory Catalogue. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: Maybe<Array<Maybe<Attribute>>>;
+  attributes?: Attribute[];
   /**  Time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  A short description of the Inventory Catalogue */
-  description?: Maybe<Scalars['String']>;
+  description?: string;
   /**  ID of the object. For internal use, should not be used externally or by any business logic */
-  id: Scalars['ID'];
+  id: string;
   /**  A connection to associated Inventory Positions */
-  inventoryPositions?: Maybe<InventoryPositionConnection>;
+  inventoryPositions?: InventoryPositionConnection;
   /**  The name of the Inventory Catalogue */
-  name: Scalars['String'];
+  name: string;
   /**  The unique reference identifier for the Inventory Catalogue */
-  ref: Scalars['String'];
+  ref: string;
   /**  A list of Retailer references associated with this Inventory Catalogue */
-  retailerRefs?: Maybe<Array<Maybe<Scalars['String']>>>;
+  retailerRefs?: string[];
   /**  The current status of the `InventoryCatalogue`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/> */
-  status?: Maybe<Scalars['String']>;
+  status?: string;
   /**  Type of the `InventoryCatalogue`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/> */
-  type: Scalars['String'];
+  type: string;
   /**  Time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
   /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
-  workflowRef: Scalars['String'];
+  workflowRef: string;
   /**  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/> */
-  workflowVersion: Scalars['Int'];
+  workflowVersion: number;
 };
 
 
@@ -5134,21 +5129,21 @@ export type InventoryCatalogue = Extendable & Node & Orchestrateable & Reference
  *  For more information, please refer to the <a href="https://lingo.fluentretail.com/display/LIN/Compatibility" target="_blank">Backward Compatibility Guide on Lingo</a>
  */
 export type InventoryCatalogueInventoryPositionsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  catalogue?: InputMaybe<InventoryCatalogueKey>;
-  createdOn?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  locationRef?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  onHand?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
-  productRef?: InputMaybe<Array<Scalars['String']>>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflowRef?: InputMaybe<Array<Scalars['String']>>;
-  workflowVersion?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  before?: string;
+  catalogue?: InventoryCatalogueKey;
+  createdOn?: DateRange;
+  first?: number;
+  last?: number;
+  locationRef?: string[];
+  onHand?: number[];
+  productRef?: string[];
+  ref?: string[];
+  status?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 /**  The `InventoryCatalogueKey` input is the parameter for identifying a specific Inventory Catalogue. */
@@ -5157,25 +5152,25 @@ export type InventoryCatalogueKey = {
    *  Inventory Catalogue reference identifier. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
 };
 
 /**  A list of results that matched against a InventoryPosition search query */
 export type InventoryPositionConnection = {
   __typename?: 'InventoryPositionConnection';
   /**  A list of edges that links to InventoryPosition type node */
-  edges?: Maybe<Array<Maybe<InventoryPositionEdge>>>;
+  edges?: InventoryPositionEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a InventoryPosition connection to the InventoryPosition type */
 export type InventoryPositionEdge = {
   __typename?: 'InventoryPositionEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the InventoryPosition edge */
-  node?: Maybe<InventoryPosition>;
+  node?: InventoryPosition;
 };
 
 /**
@@ -5188,33 +5183,33 @@ export type InventoryPositionEdge = {
 export type InventoryPosition = Extendable & Node & Orchestrateable & Referenceable & {
   __typename?: 'InventoryPosition';
   /**  A list of attributes associated with this Inventory Position. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: Maybe<Array<Maybe<Attribute>>>;
+  attributes?: Attribute[];
   /**  The Inventory Catalogue in which this Position is managed */
-  catalogue?: Maybe<InventoryCatalogue>;
+  catalogue?: InventoryCatalogue;
   /**  Time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  ID of the object. For internal use, should not be used externally or by any business logic */
-  id: Scalars['ID'];
+  id: string;
   /**  A reference identifying the Location where this inventory exists. This is a loosely coupled association. */
-  locationRef?: Maybe<Scalars['String']>;
+  locationRef?: string;
   /**  The calculated on hand quantity based on the associated quantities, and rules in the orchestration workflow */
-  onHand?: Maybe<Scalars['Int']>;
+  onHand?: number;
   /**  A reference identifying a Product. The referenced product may or may not exist within one or more Product Catalogues. This is a loosely coupled association, since Product and Inventory are separate domains. */
-  productRef: Scalars['String'];
+  productRef: string;
   /**  A connection to the Inventory Quantities associated with this Position */
-  quantities?: Maybe<InventoryQuantityConnection>;
+  quantities?: InventoryQuantityConnection;
   /**  The unique reference identifier for the Inventory Position */
-  ref: Scalars['String'];
+  ref: string;
   /**  The current status of the `InventoryPosition`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/> */
-  status?: Maybe<Scalars['String']>;
+  status?: string;
   /**  Type of the `InventoryPosition`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/> */
-  type: Scalars['String'];
+  type: string;
   /**  Time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
   /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
-  workflowRef: Scalars['String'];
+  workflowRef: string;
   /**  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/> */
-  workflowVersion: Scalars['Int'];
+  workflowVersion: number;
 };
 
 
@@ -5226,40 +5221,40 @@ export type InventoryPosition = Extendable & Node & Orchestrateable & Referencea
  *  For more information, please refer to the <a href="https://lingo.fluentretail.com/display/LIN/Compatibility" target="_blank">Backward Compatibility Guide on Lingo</a>
  */
 export type InventoryPositionQuantitiesArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  catalogue?: InputMaybe<InventoryCatalogueKey>;
-  condition?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  createdOn?: InputMaybe<DateRange>;
-  expectedOn?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  quantity?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  storageAreaRef?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflowRef?: InputMaybe<Array<Scalars['String']>>;
-  workflowVersion?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  before?: string;
+  catalogue?: InventoryCatalogueKey;
+  condition?: string[];
+  createdOn?: DateRange;
+  expectedOn?: DateRange;
+  first?: number;
+  last?: number;
+  quantity?: number[];
+  ref?: string[];
+  status?: string[];
+  storageAreaRef?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 /**  A list of results that matched against a InventoryQuantity search query */
 export type InventoryQuantityConnection = {
   __typename?: 'InventoryQuantityConnection';
   /**  A list of edges that links to InventoryQuantity type node */
-  edges?: Maybe<Array<Maybe<InventoryQuantityEdge>>>;
+  edges?: InventoryQuantityEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a InventoryQuantity connection to the InventoryQuantity type */
 export type InventoryQuantityEdge = {
   __typename?: 'InventoryQuantityEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the InventoryQuantity edge */
-  node?: Maybe<InventoryQuantity>;
+  node?: InventoryQuantity;
 };
 
 /**
@@ -5272,65 +5267,65 @@ export type InventoryQuantityEdge = {
 export type InventoryQuantity = Extendable & Node & Orchestrateable & Referenceable & {
   __typename?: 'InventoryQuantity';
   /**  A list of attributes associated with this Inventory Quantity. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: Maybe<Array<Maybe<Attribute>>>;
+  attributes?: Attribute[];
   /**  The Inventory Catalogue in which this Quantity is managed */
-  catalogue?: Maybe<InventoryCatalogue>;
+  catalogue?: InventoryCatalogue;
   /**  The condition of the Inventory Quantity value. The platform does not enforce any values here. Examples could include `NEW`, `USED`, or `DAMAGED` */
-  condition?: Maybe<Scalars['String']>;
+  condition?: string;
   /**  Time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  The date and time the quantity is expected to arrive */
-  expectedOn?: Maybe<Scalars['DateTime']>;
+  expectedOn?: Date;
   /**  ID of the object. For internal use, should not be used externally or by any business logic */
-  id: Scalars['ID'];
+  id: string;
   /**  The associated parent Inventory Position of which this Quantity applies */
-  position?: Maybe<InventoryPosition>;
+  position?: InventoryPosition;
   /**  The actual amount of this specific Quantity record */
-  quantity?: Maybe<Scalars['Int']>;
+  quantity?: number;
   /**  The unique reference identifier for the Inventory Quantity */
-  ref: Scalars['String'];
+  ref: string;
   /**  The current status of the `InventoryQuantity`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/> */
-  status?: Maybe<Scalars['String']>;
+  status?: string;
   /**  A reference to the Storage Area where this inventory is kept */
-  storageAreaRef?: Maybe<Scalars['String']>;
+  storageAreaRef?: string;
   /**
    *  Type of the `InventoryQuantity`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
    *  The type field can be used to differentiate between Inventory Quantity workflows. Example types include `LAST_ON_HAND`, `RESERVED`, `EXPECTED`, and `ADJUSTMENT`.
    */
-  type: Scalars['String'];
+  type: string;
   /**  Time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
   /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
-  workflowRef: Scalars['String'];
+  workflowRef: string;
   /**  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/> */
-  workflowVersion: Scalars['Int'];
+  workflowVersion: number;
 };
 
 /**  A list of results that matched against a InventoryCatalogue search query */
 export type InventoryCatalogueConnection = {
   __typename?: 'InventoryCatalogueConnection';
   /**  A list of edges that links to InventoryCatalogue type node */
-  edges?: Maybe<Array<Maybe<InventoryCatalogueEdge>>>;
+  edges?: InventoryCatalogueEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a InventoryCatalogue connection to the InventoryCatalogue type */
 export type InventoryCatalogueEdge = {
   __typename?: 'InventoryCatalogueEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the InventoryCatalogue edge */
-  node?: Maybe<InventoryCatalogue>;
+  node?: InventoryCatalogue;
 };
 
 /**  Output type for aggregate inventory positions */
 export type InventoryPositionAggregateOutput = {
   __typename?: 'InventoryPositionAggregateOutput';
   /**  the count of data entries */
-  count?: Maybe<Scalars['Int']>;
+  count?: number;
   /**  the sum of inventory entries */
-  sum?: Maybe<Scalars['Int']>;
+  sum?: number;
 };
 
 /**  The `InventoryPositionKey` input is the parameter for identifying a specific Inventory Position. */
@@ -5341,80 +5336,80 @@ export type InventoryPositionKey = {
    *  Inventory Position reference identifier. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
 };
 
 /**  Output type for inventory position aggregate */
 export type InventoryQuantityAggregateOutput = {
   __typename?: 'InventoryQuantityAggregateOutput';
   /**  the count of inventory position entries */
-  count?: Maybe<Scalars['Int']>;
+  count?: number;
   /**  the sum of inventory position entries */
-  sum?: Maybe<Scalars['Int']>;
+  sum?: number;
 };
 
 /**  Represents a `User` */
 export type User = Node & {
   __typename?: 'User';
   /**  Active apps for the Fluent Account to which the User belongs */
-  apps?: Maybe<Array<Maybe<App>>>;
+  apps?: App[];
   /**  A list of attributes associated with this object. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: Maybe<Array<Maybe<Attribute>>>;
+  attributes?: Attribute[];
   /**  Country */
-  country?: Maybe<Scalars['String']>;
+  country?: string;
   /**  Time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  Department */
-  department?: Maybe<Scalars['String']>;
+  department?: string;
   /**  User's first name */
-  firstName?: Maybe<Scalars['String']>;
+  firstName?: string;
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  User language (leave null to allow users to self-select their language preference) */
-  language?: Maybe<SettingValueType>;
+  language?: SettingValueType;
   /**  User's last name */
-  lastName?: Maybe<Scalars['String']>;
+  lastName?: string;
   /**  User's primary email */
-  primaryEmail?: Maybe<Scalars['String']>;
+  primaryEmail?: string;
   /**  User's location context */
-  primaryLocation?: Maybe<Location>;
+  primaryLocation?: Location;
   /**  User's primary phone number */
-  primaryPhone?: Maybe<Scalars['String']>;
+  primaryPhone?: string;
   /**  User's retailer context */
-  primaryRetailer?: Maybe<Retailer>;
+  primaryRetailer?: Retailer;
   /**  Determines if the user has opted to receive promotions */
-  promotionOptIn?: Maybe<Scalars['Boolean']>;
+  promotionOptIn?: Scalars['Boolean'];
   /**  External reference of the object. Recommended to be unique. */
-  ref: Scalars['String'];
+  ref: string;
   /**  Roles assigned to the user */
-  roles?: Maybe<Array<Maybe<UserRole>>>;
+  roles?: UserRole[];
   /**  Status */
-  status?: Maybe<Scalars['String']>;
+  status?: string;
   /**  Timezone */
-  timezone?: Maybe<Scalars['String']>;
+  timezone?: string;
   /**  The user's title. For example _Mr._, _Miss_, _Dr._, _Ms._ etc */
-  title?: Maybe<Scalars['String']>;
+  title?: string;
   /**  Type of the user */
-  type: Scalars['String'];
+  type: string;
   /**  Time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
   /**  Unique name for the user used for identification and logging purposes. */
-  username: Scalars['String'];
+  username: string;
 };
 
 /**  Represents packaged set of functionality within the Fluent Platform */
 export type App = {
   __typename?: 'App';
   /**  The `App` creation time */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  UUID */
-  id: Scalars['ID'];
+  id: string;
   /**  The name of the `App` */
-  name: Scalars['String'];
+  name: string;
   /**  The `App` type enum. Accepted Values: REFERENCE, CUSTOM */
   type: AppType;
   /**  The `App` modification time */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
   /**  Specifies the version of the `App` */
   version: AppVersion;
 };
@@ -5431,11 +5426,11 @@ export enum AppType {
 export type AppVersion = {
   __typename?: 'AppVersion';
   /**  Major version */
-  major: Scalars['Int'];
+  major: number;
   /**  Minor version */
-  minor: Scalars['Int'];
+  minor: number;
   /**  Patch version */
-  patch: Scalars['Int'];
+  patch: number;
 };
 
 /**
@@ -5445,7 +5440,7 @@ export type AppVersion = {
 export type UserRole = {
   __typename?: 'UserRole';
   /**  A list of `RoleContext` objects. It represents the boundaries of the user's role validity. */
-  contexts: Array<Maybe<RoleContext>>;
+  contexts: RoleContext[];
   /**  Represents the `Role` */
   role: Role;
 };
@@ -5457,9 +5452,9 @@ export type UserRole = {
 export type RoleContext = {
   __typename?: 'RoleContext';
   /**  Represents the identity of the context object. */
-  contextId: Scalars['ID'];
+  contextId: string;
   /**  Represents the type of context. For more information on contexts and how they relate to user and roles, please visit <a href="https://lingo.fluentretail.com/display/LIN/Flex+Academy+Users" target="_blank">User's section on Lingo</a>. */
-  contextType: Scalars['String'];
+  contextType: string;
 };
 
 /**
@@ -5469,114 +5464,114 @@ export type RoleContext = {
 export type Role = {
   __typename?: 'Role';
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  Name of the role. Must be unique. */
-  name: Scalars['String'];
+  name: string;
   /**  A list of permissions within the role */
-  permissions?: Maybe<Array<Maybe<Permission>>>;
+  permissions?: Permission[];
 };
 
 /**  A `permission` represents a single access right. It implies the authorization to carry out a certain function within the system. */
 export type Permission = {
   __typename?: 'Permission';
   /**  Name of the permission. Must be unique. */
-  name: Scalars['String'];
+  name: string;
 };
 
 /**  A list of results that matched against a OpeningSchedule search query */
 export type OpeningScheduleConnection = {
   __typename?: 'OpeningScheduleConnection';
   /**  A list of edges that links to OpeningSchedule type node */
-  edges?: Maybe<Array<Maybe<OpeningScheduleEdge>>>;
+  edges?: OpeningScheduleEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a OpeningSchedule connection to the OpeningSchedule type */
 export type OpeningScheduleEdge = {
   __typename?: 'OpeningScheduleEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the OpeningSchedule edge */
-  node?: Maybe<OpeningSchedule>;
+  node?: OpeningSchedule;
 };
 
 /**  A list of results that matched against a PaymentServiceProvider search query */
 export type PaymentServiceProviderConnection = {
   __typename?: 'PaymentServiceProviderConnection';
   /**  A list of edges that links to PaymentServiceProvider type node */
-  edges?: Maybe<Array<Maybe<PaymentServiceProviderEdge>>>;
+  edges?: PaymentServiceProviderEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a PaymentServiceProvider connection to the PaymentServiceProvider type */
 export type PaymentServiceProviderEdge = {
   __typename?: 'PaymentServiceProviderEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the PaymentServiceProvider edge */
-  node?: Maybe<PaymentServiceProvider>;
+  node?: PaymentServiceProvider;
 };
 
 /**  A list of results that matched against a Permission search query */
 export type PermissionConnection = {
   __typename?: 'PermissionConnection';
   /**  A list of edges that links to Permission type node */
-  edges?: Maybe<Array<Maybe<PermissionEdge>>>;
+  edges?: PermissionEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a Permission connection to the Permission type */
 export type PermissionEdge = {
   __typename?: 'PermissionEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the Permission edge */
-  node?: Maybe<Permission>;
+  node?: Permission;
 };
 
 /**  A list of results that matched against a Price search query */
 export type PriceConnection = {
   __typename?: 'PriceConnection';
   /**  A list of edges that links to Price type node */
-  edges?: Maybe<Array<Maybe<PriceEdge>>>;
+  edges?: PriceEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a Price connection to the Price type */
 export type PriceEdge = {
   __typename?: 'PriceEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the Price edge */
-  node?: Maybe<Price>;
+  node?: Price;
 };
 
 /**  A list of results that matched against a ProductCatalogue search query */
 export type ProductCatalogueConnection = {
   __typename?: 'ProductCatalogueConnection';
   /**  A list of edges that links to ProductCatalogue type node */
-  edges?: Maybe<Array<Maybe<ProductCatalogueEdge>>>;
+  edges?: ProductCatalogueEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a ProductCatalogue connection to the ProductCatalogue type */
 export type ProductCatalogueEdge = {
   __typename?: 'ProductCatalogueEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the ProductCatalogue edge */
-  node?: Maybe<ProductCatalogue>;
+  node?: ProductCatalogue;
 };
 
 /**  Input type to uniquely identify a `ReturnOrder` object. We use all the fields present in the request to look for this object. */
 export type ReturnOrderKey = {
   /**  The client's reference identifier for the object */
-  ref: Scalars['String'];
+  ref: string;
   /**  The associated retailer for this return order */
   retailer: RetailerId;
 };
@@ -5584,393 +5579,393 @@ export type ReturnOrderKey = {
 export type ReturnFulfilment = Node & Referenceable & {
   __typename?: 'ReturnFulfilment';
   /**  List of attributes associated with the return fulfilment */
-  attributes?: Maybe<Array<Maybe<Attribute>>>;
+  attributes?: Attribute[];
   /**  Date and time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  The destination of the return order items. */
-  destinationLocation?: Maybe<LocationLink>;
+  destinationLocation?: LocationLink;
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  The lodged location in cases where the return order was directly returned to a store or DC. */
-  lodgedLocation?: Maybe<LocationLink>;
+  lodgedLocation?: LocationLink;
   /**  The pickup address in the cases of return orders that are being picked up by a carrier. */
-  pickupAddress?: Maybe<StreetAddress>;
+  pickupAddress?: StreetAddress;
   /**  External reference for `Return Fulfilment`. Must be unique. */
-  ref: Scalars['String'];
+  ref: string;
   /**  List of return fulfilment item associated with the return fulfilment */
-  returnFulfilmentItems?: Maybe<ReturnFulfilmentItemConnection>;
+  returnFulfilmentItems?: ReturnFulfilmentItemConnection;
   /**  Return order associated with the return fulfilment */
-  returnOrder?: Maybe<ReturnOrder>;
+  returnOrder?: ReturnOrder;
   /**  Status of the `Return Fulfilment` */
-  status: Scalars['String'];
+  status: string;
   /**  Type of the return fulfilment */
-  type: Scalars['String'];
+  type: string;
   /**  Date and time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
   /**  Workflow associated with the return fulfilment */
-  workflow?: Maybe<WorkflowLink>;
+  workflow?: WorkflowLink;
   /**
    *  DEPRECATED, please use the field `workflow` instead - The reference of the workflow.
    * @deprecated No longer supported
    */
-  workflowRef?: Maybe<Scalars['String']>;
+  workflowRef?: string;
   /**
    *  DEPRECATED, please use the field `workflow` instead - The version of the workflow.
    * @deprecated No longer supported
    */
-  workflowVersion?: Maybe<Scalars['Int']>;
+  workflowVersion?: number;
 };
 
 
 export type ReturnFulfilmentReturnFulfilmentItemsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  product?: InputMaybe<ProductLinkInput>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  first?: number;
+  last?: number;
+  product?: ProductLinkInput;
+  ref?: string[];
+  updatedOn?: DateRange;
 };
 
 /**  A list of results that matched against a ReturnFulfilmentItem search query */
 export type ReturnFulfilmentItemConnection = {
   __typename?: 'ReturnFulfilmentItemConnection';
   /**  A list of edges that links to ReturnFulfilmentItem type node */
-  edges?: Maybe<Array<Maybe<ReturnFulfilmentItemEdge>>>;
+  edges?: ReturnFulfilmentItemEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a ReturnFulfilmentItem connection to the ReturnFulfilmentItem type */
 export type ReturnFulfilmentItemEdge = {
   __typename?: 'ReturnFulfilmentItemEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the ReturnFulfilmentItem edge */
-  node?: Maybe<ReturnFulfilmentItem>;
+  node?: ReturnFulfilmentItem;
 };
 
 export type ReturnFulfilmentItem = Node & Referenceable & {
   __typename?: 'ReturnFulfilmentItem';
   /**  List of attributes */
-  attributes?: Maybe<Array<Maybe<Attribute>>>;
+  attributes?: Attribute[];
   /**  Date and time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /** Product associated with the fulfilment item */
-  product?: Maybe<ProductLink>;
+  product?: ProductLink;
   /**  External reference for `Return Order`. Must be unique. */
-  ref: Scalars['String'];
+  ref: string;
   /**  Fulfilment this item associated with */
-  returnOrderFulfilment?: Maybe<ReturnFulfilment>;
+  returnOrderFulfilment?: ReturnFulfilment;
   /** Return order item associated with the fulfilment item */
-  returnOrderItem?: Maybe<ReturnOrderItem>;
+  returnOrderItem?: ReturnOrderItem;
   /**  Quantity of return fulfilment item */
-  unitQuantity?: Maybe<QuantityType>;
+  unitQuantity?: QuantityType;
   /**  Date and time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
 };
 
 export type ReturnOrderItem = Node & Referenceable & {
   __typename?: 'ReturnOrderItem';
   /**  List of attributes associated with the return order */
-  attributes?: Maybe<Array<Maybe<Attribute>>>;
+  attributes?: Attribute[];
   /**  Date and time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  Item TaxAmount */
-  itemAmount?: Maybe<AmountType>;
+  itemAmount?: AmountType;
   /**  Item Amount */
-  itemTaxAmount?: Maybe<AmountType>;
+  itemTaxAmount?: AmountType;
   /**  Associated order item of the return order */
-  orderItem?: Maybe<OrderItemLink>;
+  orderItem?: OrderItemLink;
   /**  Associated product with the return order */
-  product?: Maybe<ProductLink>;
+  product?: ProductLink;
   /**  External reference for `Return Order`. Must be unique. */
-  ref: Scalars['String'];
+  ref: string;
   /**  The condition in which the return item was received. */
-  returnCondition?: Maybe<SettingValueType>;
+  returnCondition?: SettingValueType;
   /**  An optional comment. Required if the condition code required further information such as 'Other'. */
-  returnConditionComment?: Maybe<Scalars['String']>;
+  returnConditionComment?: string;
   /**  The actual payment action taken for this return item. */
-  returnDispositionAction?: Maybe<SettingValueType>;
+  returnDispositionAction?: SettingValueType;
   /**  Return order associated with the order item */
-  returnOrder?: Maybe<ReturnOrder>;
+  returnOrder?: ReturnOrder;
   /**  The actual payment action taken for this return item. */
-  returnPaymentAction?: Maybe<SettingValueType>;
+  returnPaymentAction?: SettingValueType;
   /**  The reason for returning this return order item. */
-  returnReason?: Maybe<SettingValueType>;
+  returnReason?: SettingValueType;
   /**  An optional comment. Required if the reason code required further information such as 'Other'. */
-  returnReasonComment?: Maybe<Scalars['String']>;
+  returnReasonComment?: string;
   /**  Status of the return order */
-  status: Scalars['String'];
+  status: string;
   /**  Unit Amount */
-  unitAmount?: Maybe<AmountType>;
+  unitAmount?: AmountType;
   /**  Unit Quantity */
-  unitQuantity?: Maybe<QuantityType>;
+  unitQuantity?: QuantityType;
   /**  Unit TaxType */
-  unitTaxType?: Maybe<TaxType>;
+  unitTaxType?: TaxType;
   /**  Date and time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
 };
 
 export type ReturnOrder = Node & Referenceable & {
   __typename?: 'ReturnOrder';
   /**  List of attributes. */
-  attributes?: Maybe<Array<Maybe<Attribute>>>;
+  attributes?: Attribute[];
   /**  Date and time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  The associated credit memo for this return order. */
-  creditMemo?: Maybe<CreditMemoLink>;
+  creditMemo?: CreditMemoLink;
   /**  Reference to the currency type. Generally, the standard ISO-4217 is used. */
-  currency?: Maybe<CurrencyLink>;
+  currency?: CurrencyLink;
   /**  The associated customer for this return order. */
-  customer?: Maybe<CustomerLink>;
+  customer?: CustomerLink;
   /**  The default Tax Type for this return order. Individual return order items can override. */
-  defaultTaxType?: Maybe<TaxType>;
+  defaultTaxType?: TaxType;
   /**  The destination of the return order items. */
-  destinationLocation?: Maybe<LocationLink>;
+  destinationLocation?: LocationLink;
   /**  The associated exchange order managed the exchange item. */
-  exchangeOrder?: Maybe<OrderLink>;
+  exchangeOrder?: OrderLink;
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  The lodged location in cases where the return order was directly returned to a store or DC. */
-  lodgedLocation?: Maybe<LocationLink>;
+  lodgedLocation?: LocationLink;
   /**  The associated order for this return order. */
-  order?: Maybe<OrderLink>;
+  order?: OrderLink;
   /**  The pickup address in the cases of return orders that are being picked up by a carrier. */
-  pickupAddress?: Maybe<StreetAddress>;
+  pickupAddress?: StreetAddress;
   /**  External reference for `ReturnOrder`. Must be unique. */
-  ref: Scalars['String'];
+  ref: string;
   /**  The associated retailer for this return order */
-  retailer?: Maybe<RetailerLink>;
+  retailer?: RetailerLink;
   /**  The authorised disposition for this return order. This can be different to the return disposition action which reflects the actual action once an item has been inspected. */
-  returnAuthorisationDisposition?: Maybe<SettingValueType>;
+  returnAuthorisationDisposition?: SettingValueType;
   /**  The generated key representing an authorised return order which the customer can use to progress through the return order process. */
-  returnAuthorisationKey?: Maybe<Scalars['String']>;
+  returnAuthorisationKey?: string;
   /**  The time at which the return authorisation expires. */
-  returnAuthorisationKeyExpiry?: Maybe<Scalars['DateTime']>;
+  returnAuthorisationKeyExpiry?: Date;
   /**  The list of associated return fulfilments. */
-  returnOrderFulfilments?: Maybe<ReturnFulfilmentConnection>;
+  returnOrderFulfilments?: ReturnFulfilmentConnection;
   /**  The list of associated return order items. */
-  returnOrderItems?: Maybe<ReturnOrderItemConnection>;
+  returnOrderItems?: ReturnOrderItemConnection;
   /**  A list of return verifications for this return order. */
-  returnVerifications?: Maybe<ReturnVerificationConnection>;
+  returnVerifications?: ReturnVerificationConnection;
   /**  Status of the `Return Order` */
-  status: Scalars['String'];
+  status: string;
   /**  The total amount of this return order excluding tax. */
-  subTotalAmount?: Maybe<AmountType>;
+  subTotalAmount?: AmountType;
   /**  The total amount of this return order including tax */
-  totalAmount?: Maybe<AmountType>;
+  totalAmount?: AmountType;
   /**  The total amount of tax for this return order. */
-  totalTax?: Maybe<AmountType>;
+  totalTax?: AmountType;
   /**  Type of the return order */
-  type: Scalars['String'];
+  type: string;
   /**  Date and time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
   /**  Workflow version of the return order */
-  workflow?: Maybe<WorkflowLink>;
+  workflow?: WorkflowLink;
   /**
    *  DEPRECATED, please use the field `workflow` instead - The reference of the workflow.
    * @deprecated No longer supported
    */
-  workflowRef?: Maybe<Scalars['String']>;
+  workflowRef?: string;
   /**
    *  DEPRECATED, please use the field `workflow` instead - The version of the workflow.
    * @deprecated No longer supported
    */
-  workflowVersion?: Maybe<Scalars['Int']>;
+  workflowVersion?: number;
 };
 
 
 export type ReturnOrderReturnOrderFulfilmentsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  destinationLocation?: InputMaybe<LocationLinkInput>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  lodgedLocation?: InputMaybe<LocationLinkInput>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  status?: InputMaybe<Array<Scalars['String']>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflow?: InputMaybe<WorkflowLinkInput>;
-  workflowRef?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  workflowVersion?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  destinationLocation?: LocationLinkInput;
+  first?: number;
+  last?: number;
+  lodgedLocation?: LocationLinkInput;
+  ref?: string[];
+  status?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflow?: WorkflowLinkInput;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 
 export type ReturnOrderReturnOrderItemsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  orderItem?: InputMaybe<OrderItemLinkInput>;
-  product?: InputMaybe<ProductLinkInput>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  returnConditionComment?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  returnReasonComment?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  status?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  first?: number;
+  last?: number;
+  orderItem?: OrderItemLinkInput;
+  product?: ProductLinkInput;
+  ref?: string[];
+  returnConditionComment?: string[];
+  returnReasonComment?: string[];
+  status?: string[];
+  updatedOn?: DateRange;
 };
 
 
 export type ReturnOrderReturnVerificationsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  verificationDetails?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  first?: number;
+  last?: number;
+  ref?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  verificationDetails?: string[];
 };
 
 export type CreditMemoLink = {
   __typename?: 'CreditMemoLink';
-  ref?: Maybe<Scalars['String']>;
+  ref?: string;
 };
 
 /**  A list of results that matched against a ReturnFulfilment search query */
 export type ReturnFulfilmentConnection = {
   __typename?: 'ReturnFulfilmentConnection';
   /**  A list of edges that links to ReturnFulfilment type node */
-  edges?: Maybe<Array<Maybe<ReturnFulfilmentEdge>>>;
+  edges?: ReturnFulfilmentEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a ReturnFulfilment connection to the ReturnFulfilment type */
 export type ReturnFulfilmentEdge = {
   __typename?: 'ReturnFulfilmentEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the ReturnFulfilment edge */
-  node?: Maybe<ReturnFulfilment>;
+  node?: ReturnFulfilment;
 };
 
 /**  A list of results that matched against a ReturnOrderItem search query */
 export type ReturnOrderItemConnection = {
   __typename?: 'ReturnOrderItemConnection';
   /**  A list of edges that links to ReturnOrderItem type node */
-  edges?: Maybe<Array<Maybe<ReturnOrderItemEdge>>>;
+  edges?: ReturnOrderItemEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a ReturnOrderItem connection to the ReturnOrderItem type */
 export type ReturnOrderItemEdge = {
   __typename?: 'ReturnOrderItemEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the ReturnOrderItem edge */
-  node?: Maybe<ReturnOrderItem>;
+  node?: ReturnOrderItem;
 };
 
 /**  A list of results that matched against a ReturnVerification search query */
 export type ReturnVerificationConnection = {
   __typename?: 'ReturnVerificationConnection';
   /**  A list of edges that links to ReturnVerification type node */
-  edges?: Maybe<Array<Maybe<ReturnVerificationEdge>>>;
+  edges?: ReturnVerificationEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a ReturnVerification connection to the ReturnVerification type */
 export type ReturnVerificationEdge = {
   __typename?: 'ReturnVerificationEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the ReturnVerification edge */
-  node?: Maybe<ReturnVerification>;
+  node?: ReturnVerification;
 };
 
 export type ReturnVerification = Node & Referenceable & {
   __typename?: 'ReturnVerification';
   /**  Date and time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  External reference for `Return Order`. Must be unique. */
-  ref: Scalars['String'];
+  ref: string;
   /** return order */
-  returnOrder?: Maybe<ReturnOrder>;
-  type: Scalars['String'];
+  returnOrder?: ReturnOrder;
+  type: string;
   /**  Date and time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
   /** verification details */
-  verificationDetails?: Maybe<Scalars['String']>;
+  verificationDetails?: string;
 };
 
 /**  Input type to uniquely identify a `ReturnFulfilment` object. We use all the fields present in the request to look for this object. */
 export type ReturnFulfilmentKey = {
   /**  The client's reference identifier for the object */
-  ref: Scalars['String'];
+  ref: string;
   /**  Return order associated with the return fulfilment */
   returnOrder: ReturnOrderKey;
 };
 
 export type CreditMemoLinkInput = {
   /**  Max character limit: 100. */
-  ref: Scalars['String'];
+  ref: string;
 };
 
 /**  A list of results that matched against a ReturnOrder search query */
 export type ReturnOrderConnection = {
   __typename?: 'ReturnOrderConnection';
   /**  A list of edges that links to ReturnOrder type node */
-  edges?: Maybe<Array<Maybe<ReturnOrderEdge>>>;
+  edges?: ReturnOrderEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a ReturnOrder connection to the ReturnOrder type */
 export type ReturnOrderEdge = {
   __typename?: 'ReturnOrderEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the ReturnOrder edge */
-  node?: Maybe<ReturnOrder>;
+  node?: ReturnOrder;
 };
 
 /**  A list of results that matched against a Role search query */
 export type RoleConnection = {
   __typename?: 'RoleConnection';
   /**  A list of edges that links to Role type node */
-  edges?: Maybe<Array<Maybe<RoleEdge>>>;
+  edges?: RoleEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a Role connection to the Role type */
 export type RoleEdge = {
   __typename?: 'RoleEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the Role edge */
-  node?: Maybe<Role>;
+  node?: Role;
 };
 
 /**  Information required to identify a geographical location. For instance Sydney has latitude, longitude values of _-33.868820_ and _151.209296_ respectively. */
 export type GeoCoordinateInput = {
   /**  Geographical coordinate that specifies the north–south position of a point on the Earth's surface */
-  latitude: Scalars['Float'];
+  latitude: number;
   /**  Geographical coordinate that specifies the east–west position of a point on the Earth's surface */
-  longitude: Scalars['Float'];
+  longitude: number;
 };
 
 /**  Type to encapsulate a product and its requested quantity */
 export type ProductQuantityInput = {
   /**  Reference identifier for the `Product` */
-  productRef: Scalars['String'];
+  productRef: string;
   /**  Requested quantity of the associated `Product` */
-  quantity: Scalars['Int'];
+  quantity: number;
 };
 
 /**  The `VirtualCatalogueKey` input is the parameter for identifying a specific Virtual Catalogue */
@@ -5979,145 +5974,145 @@ export type VirtualCatalogueKey = {
    *  Virtual Catalogue reference identifier. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
 };
 
 /**  Input type used to identify a specific Virtual Position */
 export type VirtualPositionInput = {
   /**  Represents the current status of the Virtual Position entity */
-  status?: InputMaybe<Scalars['String']>;
+  status?: string;
 };
 
 /**  A list of results that matched against a VirtualInventory search query */
 export type VirtualInventoryConnection = {
   __typename?: 'VirtualInventoryConnection';
   /**  A list of edges that links to VirtualInventory type node */
-  edges?: Maybe<Array<Maybe<VirtualInventoryEdge>>>;
+  edges?: VirtualInventoryEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a VirtualInventory connection to the VirtualInventory type */
 export type VirtualInventoryEdge = {
   __typename?: 'VirtualInventoryEdge';
   /**  A cursor for use in pagination (not yet implemented) */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the VirtualInventory edge */
-  node?: Maybe<VirtualInventory>;
+  node?: VirtualInventory;
 };
 
 /**  Response type for the `searchVirtualInventory` query. The response may be empty if no stock is found for the request products in any of the configured locations. */
 export type VirtualInventory = {
   __typename?: 'VirtualInventory';
   /**  `Location` of the stock */
-  location?: Maybe<Location>;
+  location?: Location;
   /**  An array of `VirtualPositions`. This will contain all necessary information pertaining to products and corresponding available-to-sell stock. */
-  virtualPositions?: Maybe<Array<Maybe<VirtualPosition>>>;
+  virtualPositions?: VirtualPosition[];
 };
 
 export type VirtualPosition = Extendable & Node & Orchestrateable & Referenceable & {
   __typename?: 'VirtualPosition';
   /**  List of Attribute containing meta data information for an entity */
-  attributes?: Maybe<Array<Maybe<Attribute>>>;
+  attributes?: Attribute[];
   /**  Catalogue */
-  catalogue?: Maybe<VirtualCatalogue>;
+  catalogue?: VirtualCatalogue;
   /**  Time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  Group - reference to Location or Category */
-  groupRef?: Maybe<Scalars['String']>;
+  groupRef?: string;
   /**  ID of the object. For internal use, should not be used externally or by any business logic */
-  id: Scalars['ID'];
+  id: string;
   /**  Product reference */
-  productRef?: Maybe<Scalars['String']>;
+  productRef?: string;
   /**  On hand quantity */
-  quantity?: Maybe<Scalars['Int']>;
+  quantity?: number;
   /**  The reference identifier used to identify an entity */
-  ref: Scalars['String'];
+  ref: string;
   /**  The current status of the `VirtualPosition`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/> */
-  status?: Maybe<Scalars['String']>;
+  status?: string;
   /**  Type of the `VirtualPosition`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/> */
-  type: Scalars['String'];
+  type: string;
   /**  Time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
   /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
-  workflowRef: Scalars['String'];
+  workflowRef: string;
   /**  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/> */
-  workflowVersion: Scalars['Int'];
+  workflowVersion: number;
 };
 
 export type VirtualCatalogue = Extendable & Node & Orchestrateable & Referenceable & {
   __typename?: 'VirtualCatalogue';
   /**  List of Attribute containing meta data information for an entity */
-  attributes?: Maybe<Array<Maybe<Attribute>>>;
+  attributes?: Attribute[];
   /**  Control group Ref */
-  controlGroupRef?: Maybe<Scalars['String']>;
+  controlGroupRef?: string;
   /**  Time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  Description */
-  description?: Maybe<Scalars['String']>;
+  description?: string;
   /**  ID of the object. For internal use, should not be used externally or by any business logic */
-  id: Scalars['ID'];
+  id: string;
   /**  Inventory Catalogue used for this virtual catalogue */
-  inventoryCatalogueRef?: Maybe<Scalars['String']>;
+  inventoryCatalogueRef?: string;
   /**  Name of the inventory catalogue */
-  name: Scalars['String'];
+  name: string;
   /**  Networks used for this catalogue */
-  networkIds?: Maybe<Array<Maybe<Scalars['String']>>>;
+  networkIds?: string[];
   /**  Product Catalogue used for this virtual catalogue */
-  productCatalogueRef?: Maybe<Scalars['String']>;
+  productCatalogueRef?: string;
   /**  The reference identifier used to identify an entity */
-  ref: Scalars['String'];
+  ref: string;
   /**  Retailer refs */
-  retailerRefs?: Maybe<Array<Maybe<Scalars['String']>>>;
+  retailerRefs?: string[];
   /**  The current status of the `VirtualCatalogue`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/> */
-  status?: Maybe<Scalars['String']>;
+  status?: string;
   /**  Type of the `VirtualCatalogue`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/> */
-  type: Scalars['String'];
+  type: string;
   /**  Time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
   /**  Virtual positions */
-  virtualPositions?: Maybe<VirtualPositionConnection>;
+  virtualPositions?: VirtualPositionConnection;
   /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
-  workflowRef: Scalars['String'];
+  workflowRef: string;
   /**  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/> */
-  workflowVersion: Scalars['Int'];
+  workflowVersion: number;
 };
 
 
 export type VirtualCatalogueVirtualPositionsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  catalogue?: InputMaybe<VirtualCatalogueKey>;
-  createdOn?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  groupRef?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  last?: InputMaybe<Scalars['Int']>;
-  productRef?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  quantity?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflowRef?: InputMaybe<Array<Scalars['String']>>;
-  workflowVersion?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  before?: string;
+  catalogue?: VirtualCatalogueKey;
+  createdOn?: DateRange;
+  first?: number;
+  groupRef?: string[];
+  last?: number;
+  productRef?: string[];
+  quantity?: number[];
+  ref?: string[];
+  status?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 /**  A list of results that matched against a VirtualPosition search query */
 export type VirtualPositionConnection = {
   __typename?: 'VirtualPositionConnection';
   /**  A list of edges that links to VirtualPosition type node */
-  edges?: Maybe<Array<Maybe<VirtualPositionEdge>>>;
+  edges?: VirtualPositionEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a VirtualPosition connection to the VirtualPosition type */
 export type VirtualPositionEdge = {
   __typename?: 'VirtualPositionEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the VirtualPosition edge */
-  node?: Maybe<VirtualPosition>;
+  node?: VirtualPosition;
 };
 
 /**
@@ -6133,37 +6128,37 @@ export type VirtualPositionEdge = {
 export type Setting = {
   __typename?: 'Setting';
   /**  The context of the setting. Supported values are ACCOUNT, RETAILER, AGENT or CUSTOMER */
-  context: Scalars['String'];
+  context: string;
   /**  `ID` of the context. For instance, use a retailer's ID when using _RETAILER_ context. */
-  contextId: Scalars['Int'];
+  contextId: number;
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  Value of the setting. Use this if the value is a JSON. */
-  lobValue?: Maybe<Scalars['Json']>;
+  lobValue?: Scalars['Json'];
   /**  Name of the setting. */
-  name?: Maybe<Scalars['String']>;
+  name?: string;
   /**  Value of the setting. Use this if the value is NOT a JSON. */
-  value?: Maybe<Scalars['String']>;
+  value?: string;
   /**  Data type of the setting's value. Supported types are _LOB_, _STRING_, _INTEGER_, _BOOLEAN_ and _JSON_. */
-  valueType?: Maybe<Scalars['String']>;
+  valueType?: string;
 };
 
 /**  A list of results that matched against a Setting search query */
 export type SettingConnection = {
   __typename?: 'SettingConnection';
   /**  A list of edges that links to Setting type node */
-  edges?: Maybe<Array<Maybe<SettingEdge>>>;
+  edges?: SettingEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a Setting connection to the Setting type */
 export type SettingEdge = {
   __typename?: 'SettingEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the Setting edge */
-  node?: Maybe<Setting>;
+  node?: Setting;
 };
 
 /**
@@ -6176,39 +6171,39 @@ export type SettingEdge = {
 export type StandardProduct = Extendable & Node & Orchestrateable & Product & Referenceable & {
   __typename?: 'StandardProduct';
   /**  A list of attributes associated with this Product. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: Maybe<Array<Maybe<Attribute>>>;
+  attributes?: Attribute[];
   /**  The Product Catalogue in which this Product is managed */
   catalogue: ProductCatalogue;
   /**  A connection to the associated Categories of this Product */
-  categories?: Maybe<CategoryConnection>;
+  categories?: CategoryConnection;
   /**  Time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  The Global Trade Item Number (GTIN) for this Product */
-  gtin: Scalars['String'];
+  gtin: string;
   /**  ID of the object. For internal use, should not be used externally or by any business logic */
-  id: Scalars['ID'];
+  id: string;
   /**  The name of the Product */
-  name: Scalars['String'];
+  name: string;
   /**  A list of Prices for this Product */
-  prices?: Maybe<Array<Maybe<Price>>>;
+  prices?: Price[];
   /**  The unique reference identifier for the Product */
-  ref: Scalars['String'];
+  ref: string;
   /**  The current status of the `StandardProduct`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/> */
-  status?: Maybe<Scalars['String']>;
+  status?: string;
   /**  A short description of the Product (max 255 chars) */
-  summary?: Maybe<Scalars['String']>;
+  summary?: string;
   /**  The tax information for this Product */
-  tax?: Maybe<TaxType>;
+  tax?: TaxType;
   /**  Type of the `StandardProduct`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/> */
-  type: Scalars['String'];
+  type: string;
   /**  Time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
   /**  A connection to the associated Variant Products for this Product. This is useful if you use the Standard Product as a base record for all Variants, which helps ensure a consistent relationship between them */
-  variants?: Maybe<VariantProductConnection>;
+  variants?: VariantProductConnection;
   /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
-  workflowRef: Scalars['String'];
+  workflowRef: string;
   /**  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/> */
-  workflowVersion: Scalars['Int'];
+  workflowVersion: number;
 };
 
 
@@ -6220,20 +6215,20 @@ export type StandardProduct = Extendable & Node & Orchestrateable & Product & Re
  *  For more information, please refer to the <a href="https://lingo.fluentretail.com/display/LIN/Compatibility" target="_blank">Backward Compatibility Guide on Lingo</a>
  */
 export type StandardProductCategoriesArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  catalogue?: InputMaybe<ProductCatalogueKey>;
-  createdOn?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  name?: InputMaybe<Array<Scalars['String']>>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  summary?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflowRef?: InputMaybe<Array<Scalars['String']>>;
-  workflowVersion?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  before?: string;
+  catalogue?: ProductCatalogueKey;
+  createdOn?: DateRange;
+  first?: number;
+  last?: number;
+  name?: string[];
+  ref?: string[];
+  status?: string[];
+  summary?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 
@@ -6245,39 +6240,39 @@ export type StandardProductCategoriesArgs = {
  *  For more information, please refer to the <a href="https://lingo.fluentretail.com/display/LIN/Compatibility" target="_blank">Backward Compatibility Guide on Lingo</a>
  */
 export type StandardProductVariantsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  catalogue?: InputMaybe<ProductCatalogueKey>;
-  createdOn?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  gtin?: InputMaybe<Array<Scalars['String']>>;
-  last?: InputMaybe<Scalars['Int']>;
-  name?: InputMaybe<Array<Scalars['String']>>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  summary?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflowRef?: InputMaybe<Array<Scalars['String']>>;
-  workflowVersion?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  before?: string;
+  catalogue?: ProductCatalogueKey;
+  createdOn?: DateRange;
+  first?: number;
+  gtin?: string[];
+  last?: number;
+  name?: string[];
+  ref?: string[];
+  status?: string[];
+  summary?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 /**  A list of results that matched against a VariantProduct search query */
 export type VariantProductConnection = {
   __typename?: 'VariantProductConnection';
   /**  A list of edges that links to VariantProduct type node */
-  edges?: Maybe<Array<Maybe<VariantProductEdge>>>;
+  edges?: VariantProductEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a VariantProduct connection to the VariantProduct type */
 export type VariantProductEdge = {
   __typename?: 'VariantProductEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the VariantProduct edge */
-  node?: Maybe<VariantProduct>;
+  node?: VariantProduct;
 };
 
 /**
@@ -6290,39 +6285,39 @@ export type VariantProductEdge = {
 export type VariantProduct = Extendable & Node & Orchestrateable & Product & Referenceable & {
   __typename?: 'VariantProduct';
   /**  A list of attributes associated with this Product. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: Maybe<Array<Maybe<Attribute>>>;
+  attributes?: Attribute[];
   /**  The Product Catalogue in which this Product is managed */
   catalogue: ProductCatalogue;
   /**  A connection to the associated Categories of this Product */
-  categories?: Maybe<CategoryConnection>;
+  categories?: CategoryConnection;
   /**  Time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  The Global Trade Item Number (GTIN) for this Product */
-  gtin: Scalars['String'];
+  gtin: string;
   /**  ID of the object. For internal use, should not be used externally or by any business logic */
-  id: Scalars['ID'];
+  id: string;
   /**  The name of the Product */
-  name: Scalars['String'];
+  name: string;
   /**  A list of Prices for this Product */
-  prices?: Maybe<Array<Maybe<Price>>>;
+  prices?: Price[];
   /**  The associated Standard Product for this Variant Product */
   product: StandardProduct;
   /**  The unique reference identifier for the Product */
-  ref: Scalars['String'];
+  ref: string;
   /**  The current status of the `VariantProduct`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/> */
-  status?: Maybe<Scalars['String']>;
+  status?: string;
   /**  A short description of the Product (max 255 chars) */
-  summary?: Maybe<Scalars['String']>;
+  summary?: string;
   /**  The tax information for this Product */
-  tax?: Maybe<TaxType>;
+  tax?: TaxType;
   /**  Type of the `VariantProduct`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/> */
-  type: Scalars['String'];
+  type: string;
   /**  Time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
   /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
-  workflowRef: Scalars['String'];
+  workflowRef: string;
   /**  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/> */
-  workflowVersion: Scalars['Int'];
+  workflowVersion: number;
 };
 
 
@@ -6334,133 +6329,133 @@ export type VariantProduct = Extendable & Node & Orchestrateable & Product & Ref
  *  For more information, please refer to the <a href="https://lingo.fluentretail.com/display/LIN/Compatibility" target="_blank">Backward Compatibility Guide on Lingo</a>
  */
 export type VariantProductCategoriesArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  catalogue?: InputMaybe<ProductCatalogueKey>;
-  createdOn?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  name?: InputMaybe<Array<Scalars['String']>>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  summary?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflowRef?: InputMaybe<Array<Scalars['String']>>;
-  workflowVersion?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  before?: string;
+  catalogue?: ProductCatalogueKey;
+  createdOn?: DateRange;
+  first?: number;
+  last?: number;
+  name?: string[];
+  ref?: string[];
+  status?: string[];
+  summary?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 /**  A list of results that matched against a StandardProduct search query */
 export type StandardProductConnection = {
   __typename?: 'StandardProductConnection';
   /**  A list of edges that links to StandardProduct type node */
-  edges?: Maybe<Array<Maybe<StandardProductEdge>>>;
+  edges?: StandardProductEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a StandardProduct connection to the StandardProduct type */
 export type StandardProductEdge = {
   __typename?: 'StandardProductEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the StandardProduct edge */
-  node?: Maybe<StandardProduct>;
+  node?: StandardProduct;
 };
 
 /**  Store location information */
 export type StoreAddress = Address & {
   __typename?: 'StoreAddress';
   /**  City */
-  city?: Maybe<Scalars['String']>;
+  city?: string;
   /**  Company name */
-  companyName?: Maybe<Scalars['String']>;
+  companyName?: string;
   /**  Country */
-  country?: Maybe<Scalars['String']>;
+  country?: string;
   /**  Time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  Directions to store location (may be used for landmarks) */
-  directions?: Maybe<Scalars['String']>;
+  directions?: string;
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  Latitude */
-  latitude?: Maybe<Scalars['Float']>;
+  latitude?: number;
   /**  Location */
-  location?: Maybe<Location>;
+  location?: Location;
   /**  Longitude */
-  longitude?: Maybe<Scalars['Float']>;
+  longitude?: number;
   /**  Name */
-  name?: Maybe<Scalars['String']>;
+  name?: string;
   /**  Postcode */
-  postcode?: Maybe<Scalars['String']>;
+  postcode?: string;
   /**  Location reference */
-  ref?: Maybe<Scalars['String']>;
+  ref?: string;
   /**  Region */
-  region?: Maybe<Scalars['String']>;
+  region?: string;
   /**  State */
-  state?: Maybe<Scalars['String']>;
+  state?: string;
   /**  Street */
-  street?: Maybe<Scalars['String']>;
+  street?: string;
   /**  Timezone */
-  timeZone?: Maybe<Scalars['String']>;
+  timeZone?: string;
   /**  Type of Address, to support legacy address, the value can be AGENT and ORDER */
-  type?: Maybe<Scalars['String']>;
+  type?: string;
   /**  Time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
 };
 
 /**  A list of results that matched against a StoreAddress search query */
 export type StoreAddressConnection = {
   __typename?: 'StoreAddressConnection';
   /**  A list of edges that links to StoreAddress type node */
-  edges?: Maybe<Array<Maybe<StoreAddressEdge>>>;
+  edges?: StoreAddressEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a StoreAddress connection to the StoreAddress type */
 export type StoreAddressEdge = {
   __typename?: 'StoreAddressEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the StoreAddress edge */
-  node?: Maybe<StoreAddress>;
+  node?: StoreAddress;
 };
 
 /**  A list of results that matched against a User search query */
 export type UserConnection = {
   __typename?: 'UserConnection';
   /**  A list of edges that links to User type node */
-  edges?: Maybe<Array<Maybe<UserEdge>>>;
+  edges?: UserEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a User connection to the User type */
 export type UserEdge = {
   __typename?: 'UserEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the User edge */
-  node?: Maybe<User>;
+  node?: User;
 };
 
 /**  A list of results that matched against a VirtualCatalogue search query */
 export type VirtualCatalogueConnection = {
   __typename?: 'VirtualCatalogueConnection';
   /**  A list of edges that links to VirtualCatalogue type node */
-  edges?: Maybe<Array<Maybe<VirtualCatalogueEdge>>>;
+  edges?: VirtualCatalogueEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a VirtualCatalogue connection to the VirtualCatalogue type */
 export type VirtualCatalogueEdge = {
   __typename?: 'VirtualCatalogueEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the VirtualCatalogue edge */
-  node?: Maybe<VirtualCatalogue>;
+  node?: VirtualCatalogue;
 };
 
 /**
@@ -6469,7 +6464,7 @@ export type VirtualCatalogueEdge = {
  */
 export type VirtualViewInput = {
   /**  Unique reference of the Virtual View */
-  ref: Scalars['String'];
+  ref: string;
 };
 
 /**
@@ -6479,29 +6474,29 @@ export type VirtualViewInput = {
 export type VirtualView = Node & Referenceable & {
   __typename?: 'VirtualView';
   /**  Time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  Description */
-  description?: Maybe<Scalars['String']>;
+  description?: string;
   /**  ID of the object. */
-  id: Scalars['ID'];
+  id: string;
   /**  `InventoryCatalogue` associated with the Virtual View. */
-  inventoryCatalogueRef: Scalars['String'];
+  inventoryCatalogueRef: string;
   /**  The identifier for the DecisionTable that contains the inventory controls for this VirtualView. */
-  inventoryControlsId: Scalars['ID'];
+  inventoryControlsId: string;
   /**  Name of the VirtualView. */
-  name: Scalars['String'];
+  name: string;
   /**  `Network` associated with the Virtual View. */
-  networkRef: Scalars['String'];
+  networkRef: string;
   /**  `ProductCatalogue` associated with the Virtual View. */
-  productCatalogueRef: Scalars['String'];
+  productCatalogueRef: string;
   /**  A unique reference. Note: Virtual View refs do not support the hash (#) character. */
-  ref: Scalars['String'];
+  ref: string;
   /**  Represents the current status of the Virtual View. Please see user guide to learn about the status lifecycle of a Virtual View. */
-  status?: Maybe<VirtualViewStatus>;
+  status?: VirtualViewStatus;
   /**  Time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
   /**  A list of `VirtualProducts` within this Virtual View. A Virtual View returns `VirtualProducts` only when it is in the 'ACTIVE' status. */
-  virtualProducts?: Maybe<VirtualProductConnection>;
+  virtualProducts?: VirtualProductConnection;
 };
 
 
@@ -6510,12 +6505,12 @@ export type VirtualView = Node & Referenceable & {
  *  A `VirtualView` object provides on-hand and buffered view of the inventory. The buffers are calculated based on a specific set of inventory controls which are associated with the Virtual View at the time of creation.
  */
 export type VirtualViewVirtualProductsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  type?: InputMaybe<Array<ProductType>>;
+  after?: string;
+  before?: string;
+  first?: number;
+  last?: number;
+  ref?: string[];
+  type?: ProductType[];
 };
 
 /**
@@ -6548,18 +6543,18 @@ export enum ProductType {
 export type VirtualProductConnection = {
   __typename?: 'VirtualProductConnection';
   /**  A list of edges that links to VirtualProduct type node */
-  edges?: Maybe<Array<Maybe<VirtualProductEdge>>>;
+  edges?: VirtualProductEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a VirtualProduct connection to the VirtualProduct type */
 export type VirtualProductEdge = {
   __typename?: 'VirtualProductEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the VirtualProduct edge */
-  node?: Maybe<VirtualProduct>;
+  node?: VirtualProduct;
 };
 
 /**
@@ -6569,26 +6564,26 @@ export type VirtualProductEdge = {
 export type VirtualProduct = {
   __typename?: 'VirtualProduct';
   /**  Represents number of items in the inventory with the buffers applied */
-  available: Scalars['Int'];
+  available: number;
   /**  Represents the total buffer calculated as per the inventory controls. Please note that buffers are always subtracted from the on-hand quantities. So a negative buffer will result in addition. */
-  buffer: Scalars['Int'];
+  buffer: number;
   /**
    *  Global trade item number: Globally unique 14 digit number to uniquely identify an item. We allow 20 characters as support for legacy clients. If you are not a legacy client, we recommend not exceeding the standard 14 digits. </br>
    *  Max character limit: 20.
    */
-  gtin?: Maybe<Scalars['String']>;
+  gtin?: string;
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  Represents number of items in the inventory without the buffer applied */
-  onHand: Scalars['Int'];
+  onHand: number;
   /**  Reference of the product */
-  ref: Scalars['String'];
+  ref: string;
   /**  Type of the product */
-  type?: Maybe<ProductType>;
+  type?: ProductType;
   /**  A list of `VirtualInventoryPosition` for this product. */
-  virtualInventoryPositions?: Maybe<VirtualInventoryPositionConnection>;
+  virtualInventoryPositions?: VirtualInventoryPositionConnection;
   /**  Child products of this VirtualProduct. This field is applicable for products that have children. For instance, if this product is a StandardProduct with variants, this field represents the variants. */
-  virtualProducts?: Maybe<VirtualProductConnection>;
+  virtualProducts?: VirtualProductConnection;
 };
 
 
@@ -6597,11 +6592,11 @@ export type VirtualProduct = {
  *  A `VirtualProduct` object provides aggregated as well as location based `onHand` and `available` inventory for a given product.
  */
 export type VirtualProductVirtualInventoryPositionsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  locationRef?: InputMaybe<Array<Scalars['String']>>;
+  after?: string;
+  before?: string;
+  first?: number;
+  last?: number;
+  locationRef?: string[];
 };
 
 
@@ -6610,30 +6605,30 @@ export type VirtualProductVirtualInventoryPositionsArgs = {
  *  A `VirtualProduct` object provides aggregated as well as location based `onHand` and `available` inventory for a given product.
  */
 export type VirtualProductVirtualProductsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  ref?: InputMaybe<Array<Scalars['String']>>;
-  type?: InputMaybe<Array<ProductType>>;
+  after?: string;
+  before?: string;
+  first?: number;
+  last?: number;
+  ref?: string[];
+  type?: ProductType[];
 };
 
 /**  A list of results that matched against a VirtualInventoryPosition search query */
 export type VirtualInventoryPositionConnection = {
   __typename?: 'VirtualInventoryPositionConnection';
   /**  A list of edges that links to VirtualInventoryPosition type node */
-  edges?: Maybe<Array<Maybe<VirtualInventoryPositionEdge>>>;
+  edges?: VirtualInventoryPositionEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a VirtualInventoryPosition connection to the VirtualInventoryPosition type */
 export type VirtualInventoryPositionEdge = {
   __typename?: 'VirtualInventoryPositionEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the VirtualInventoryPosition edge */
-  node?: Maybe<VirtualInventoryPosition>;
+  node?: VirtualInventoryPosition;
 };
 
 /**
@@ -6643,13 +6638,13 @@ export type VirtualInventoryPositionEdge = {
 export type VirtualInventoryPosition = {
   __typename?: 'VirtualInventoryPosition';
   /**  Represents number of items in the inventory with the buffer applied */
-  available: Scalars['Int'];
+  available: number;
   /**  Represents the buffer, calculated as per the inventory controls. Please note that buffers are always subtracted from the on-hand quantities. So a negative buffer will result in addition. */
-  buffer: Scalars['Int'];
+  buffer: number;
   /**  Reference for the location */
-  locationRef: Scalars['String'];
+  locationRef: string;
   /**  Represents number of items in the inventory without the buffer applied */
-  onHand: Scalars['Int'];
+  onHand: number;
 };
 
 /**
@@ -6658,16 +6653,16 @@ export type VirtualInventoryPosition = {
  */
 export type VirtualViewInventoryLevelsInput = {
   /**  A list of locations within the Virtual View's network. The search will be confined to these locations. */
-  includedLocationRefs?: InputMaybe<Array<Scalars['String']>>;
+  includedLocationRefs?: string[];
   /**
    *  GeoCoordinates to order results by. Closest locations are returned first. If this parameter is not passed, results will be in no specific order.
    *  Please note that we use the great-circle distance for this sorting and these distances are calculated based on an implementation of the Haversine formula.
    */
-  orderByProximity?: InputMaybe<GeoCoordinateInput>;
+  orderByProximity?: GeoCoordinateInput;
   /**  An object containing requested products along with the quantities required. */
-  productQuantities: Array<ProductQuantityInput>;
+  productQuantities: ProductQuantityInput[];
   /**  Reference of the Virtual View that will be searched. */
-  virtualViewRef: Scalars['String'];
+  virtualViewRef: string;
 };
 
 /**
@@ -6677,7 +6672,7 @@ export type VirtualViewInventoryLevelsInput = {
 export type VirtualViewInventoryLevelsOutput = {
   __typename?: 'VirtualViewInventoryLevelsOutput';
   /**  List of `VirtualViewInventoryLevels` objects. The number of objects in this array is currently capped at 100. This limit is subject to incremental change. */
-  virtualViewInventoryLevels?: Maybe<Array<Maybe<VirtualViewInventoryLevels>>>;
+  virtualViewInventoryLevels?: VirtualViewInventoryLevels[];
 };
 
 /**
@@ -6687,9 +6682,9 @@ export type VirtualViewInventoryLevelsOutput = {
 export type VirtualViewInventoryLevels = {
   __typename?: 'VirtualViewInventoryLevels';
   /**  Location that can fulfil the requested stock */
-  locationRef: Scalars['String'];
+  locationRef: string;
   /**  Products along with their inventory levels */
-  productInventoryLevels: Array<VirtualViewProductInventoryLevels>;
+  productInventoryLevels: VirtualViewProductInventoryLevels[];
 };
 
 /**
@@ -6699,98 +6694,98 @@ export type VirtualViewInventoryLevels = {
 export type VirtualViewProductInventoryLevels = {
   __typename?: 'VirtualViewProductInventoryLevels';
   /**  Represents a count of this product with the buffers applied */
-  available: Scalars['Int'];
+  available: number;
   /**  Represents the total buffer applied to this product as per the inventory controls. Please note that buffers are always subtracted from the on-hand quantities. So a negative buffer will result in addition. */
-  buffer: Scalars['Int'];
+  buffer: number;
   /**  Represents a count of this product without the buffer applied */
-  onHand: Scalars['Int'];
+  onHand: number;
   /**  Reference of the product */
-  productRef: Scalars['String'];
+  productRef: string;
 };
 
 /**  `Wave` represents the pick and pack process that gets carried out in a store or a warehouse. */
 export type Wave = Extendable & Node & Orchestrateable & Referenceable & {
   __typename?: 'Wave';
   /**  `User` who the wave is assigned to */
-  allocatedTo?: Maybe<User>;
+  allocatedTo?: User;
   /**  A list of attributes associated with this `Wave`. Attributes can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: Maybe<Array<Maybe<Attribute>>>;
+  attributes?: Attribute[];
   /**  Time of creation */
-  createdOn?: Maybe<Scalars['DateTime']>;
+  createdOn?: Date;
   /**  Fulfilments associated with this `Wave` */
-  fulfilments?: Maybe<FulfilmentConnection>;
+  fulfilments?: FulfilmentConnection;
   /**  ID of the `Wave` */
-  id: Scalars['ID'];
+  id: string;
   /**  Items associated with this `Wave` */
   items: WaveItemConnection;
   /**  Location of the `Wave` operation */
   location: Location;
   /**  Name of the `Wave` */
-  name?: Maybe<Scalars['String']>;
+  name?: string;
   /**  The `Location` where the `Wave` is processed */
-  processingLocation?: Maybe<LocationLink>;
+  processingLocation?: LocationLink;
   /**  External reference of the `Wave`. Must be unique. */
-  ref: Scalars['String'];
+  ref: string;
   /**  The associated retailer */
   retailer: Retailer;
   /**  The current status of the `Wave`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/> */
-  status?: Maybe<Scalars['String']>;
+  status?: string;
   /**  Type of the `Wave`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/> */
-  type: Scalars['String'];
+  type: string;
   /**  Time of last update */
-  updatedOn?: Maybe<Scalars['DateTime']>;
+  updatedOn?: Date;
   /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
-  workflowRef: Scalars['String'];
+  workflowRef: string;
   /**  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/> */
-  workflowVersion: Scalars['Int'];
+  workflowVersion: number;
 };
 
 
 /**  `Wave` represents the pick and pack process that gets carried out in a store or a warehouse. */
 export type WaveFulfilmentsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  createdOn?: InputMaybe<DateRange>;
-  deliveryType?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  eta?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  expiryTime?: InputMaybe<DateRange>;
-  first?: InputMaybe<Scalars['Int']>;
-  fromLocation?: InputMaybe<LocationLinkInput>;
-  last?: InputMaybe<Scalars['Int']>;
-  ref?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  status?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  type?: InputMaybe<Array<Scalars['String']>>;
-  updatedOn?: InputMaybe<DateRange>;
-  workflowRef?: InputMaybe<Array<Scalars['String']>>;
-  workflowVersion?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  deliveryType?: string[];
+  eta?: string[];
+  expiryTime?: DateRange;
+  first?: number;
+  fromLocation?: LocationLinkInput;
+  last?: number;
+  ref?: string[];
+  status?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 
 /**  `Wave` represents the pick and pack process that gets carried out in a store or a warehouse. */
 export type WaveItemsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  quantity?: InputMaybe<Array<Scalars['Int']>>;
+  after?: string;
+  before?: string;
+  first?: number;
+  last?: number;
+  quantity?: number[];
 };
 
 /**  A list of results that matched against a WaveItem search query */
 export type WaveItemConnection = {
   __typename?: 'WaveItemConnection';
   /**  A list of edges that links to WaveItem type node */
-  edges?: Maybe<Array<Maybe<WaveItemEdge>>>;
+  edges?: WaveItemEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a WaveItem connection to the WaveItem type */
 export type WaveItemEdge = {
   __typename?: 'WaveItemEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the WaveItem edge */
-  node?: Maybe<WaveItem>;
+  node?: WaveItem;
 };
 
 /**  `WaveItem` represents an item of the `Wave`. */
@@ -6799,276 +6794,276 @@ export type WaveItem = {
   /**  Represents the `Product` corresponding to this `WaveItem` */
   product: Product;
   /**  Aggregated quantity of a product in the `Wave` */
-  quantity: Scalars['Int'];
+  quantity: number;
 };
 
 /**  A list of results that matched against a Wave search query */
 export type WaveConnection = {
   __typename?: 'WaveConnection';
   /**  A list of edges that links to Wave type node */
-  edges?: Maybe<Array<Maybe<WaveEdge>>>;
+  edges?: WaveEdge[];
   /**  Information to aid in pagination */
-  pageInfo?: Maybe<PageInfo>;
+  pageInfo?: PageInfo;
 };
 
 /**  The edge in a Wave connection to the Wave type */
 export type WaveEdge = {
   __typename?: 'WaveEdge';
   /**  A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']>;
+  cursor?: string;
   /**  The item at the end of the Wave edge */
-  node?: Maybe<Wave>;
+  node?: Wave;
 };
 
 export type Mutation = {
   __typename?: 'Mutation';
   /**  This mutation creates an `Article`, an orchestratable entity inside the Fluent ecosystem. If the `Article` is successfully created, a CREATE event will be generate associated with the mutation.<br/>A sample of the event generated:<br/>{<br/>&nbsp;&nbsp;&nbsp;&nbsp;"name": "CREATE",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"type": "NORMAL",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityRef": "ARTICLE-001",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityType": "ARTICLE",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"retailerId": "1",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"accountId": "ACCOUNT_ID"<br/>}<br/> */
-  createArticle?: Maybe<Article>;
+  createArticle?: Article;
   /** Creates a new 'Billing account' */
-  createBillingAccount?: Maybe<BillingAccount>;
+  createBillingAccount?: BillingAccount;
   /**  This mutation creates a `Carrier`, an orchestratable entity inside the Fluent ecosystem. If the `Carrier` is successfully created, a CREATE event will be generate associated with the mutation.<br/>A sample of the event generated:<br/>{<br/>&nbsp;&nbsp;&nbsp;&nbsp;"name": "CREATE",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"type": "NORMAL",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityRef": "CARRIER-001",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityType": "CARRIER",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"retailerId": "1",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"accountId": "ACCOUNT_ID"<br/>}<br/> */
-  createCarrier?: Maybe<Carrier>;
+  createCarrier?: Carrier;
   /**  Creates a `CarrierConsignment` */
-  createCarrierConsignment?: Maybe<CarrierConsignment>;
+  createCarrierConsignment?: CarrierConsignment;
   /**  This mutation creates a `Category`, an orchestratable entity inside the Fluent ecosystem. If the `Category` is successfully created, a CREATE event will be generate associated with the mutation.<br/>A sample of the event generated:<br/>{<br/>&nbsp;&nbsp;&nbsp;&nbsp;"name": "CREATE",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"type": "NORMAL",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityRef": "CATEGORY-001",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityType": "CATEGORY",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"retailerId": "1",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"accountId": "ACCOUNT_ID"<br/>}<br/> */
-  createCategory?: Maybe<Category>;
+  createCategory?: Category;
   /**  Creates a `Comment` against a known entity */
-  createComment?: Maybe<Comment>;
-  createConsignment?: Maybe<Consignment>;
+  createComment?: Comment;
+  createConsignment?: Consignment;
   /**  This mutation creates a `Control`, an orchestratable entity inside the Fluent ecosystem. If the `Control` is successfully created, a CREATE event will be generate associated with the mutation.<br/>A sample of the event generated:<br/>{<br/>&nbsp;&nbsp;&nbsp;&nbsp;"name": "CREATE",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"type": "NORMAL",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityRef": "CONTROL-001",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityType": "CONTROL",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"retailerId": "1",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"accountId": "ACCOUNT_ID"<br/>}<br/> */
-  createControl?: Maybe<Control>;
+  createControl?: Control;
   /**  This mutation creates a `ControlGroup`, an orchestratable entity inside the Fluent ecosystem. If the `ControlGroup` is successfully created, a CREATE event will be generate associated with the mutation.<br/>A sample of the event generated:<br/>{<br/>&nbsp;&nbsp;&nbsp;&nbsp;"name": "CREATE",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"type": "NORMAL",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityRef": "CONTROLGROUP-001",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityType": "CONTROLGROUP",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"retailerId": "1",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"accountId": "ACCOUNT_ID"<br/>}<br/> */
-  createControlGroup?: Maybe<ControlGroup>;
+  createControlGroup?: ControlGroup;
   /** Creates a 'Credit memo' */
-  createCreditMemo?: Maybe<CreditMemo>;
+  createCreditMemo?: CreditMemo;
   /** Creates a 'Credit memo item' */
-  createCreditMemoItem?: Maybe<CreditMemoItem>;
-  createCustomer?: Maybe<Customer>;
-  createCustomerAddress?: Maybe<CustomerAddress>;
+  createCreditMemoItem?: CreditMemoItem;
+  createCustomer?: Customer;
+  createCustomerAddress?: CustomerAddress;
   /**
    *  _Disclaimer:  This mutation is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/>
    *  Mutation to create a decision rule and associate it with a decision table
    */
-  createDecisionRule?: Maybe<DecisionRule>;
+  createDecisionRule?: DecisionRule;
   /**  This mutation creates a `FinancialTransaction`, an orchestratable entity inside the Fluent ecosystem. If the `FinancialTransaction` is successfully created, a CREATE event will be generate associated with the mutation.<br/>A sample of the event generated:<br/>{<br/>&nbsp;&nbsp;&nbsp;&nbsp;"name": "CREATE",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"type": "NORMAL",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityRef": "FINANCIALTRANSACTION-001",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityType": "FINANCIALTRANSACTION",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"retailerId": "1",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"accountId": "ACCOUNT_ID"<br/>}<br/> */
-  createFinancialTransaction?: Maybe<FinancialTransaction>;
+  createFinancialTransaction?: FinancialTransaction;
   /**  This mutation creates a `Fulfilment`, an orchestratable entity inside the Fluent ecosystem. If the `Fulfilment` is successfully created, a CREATE event will be generate associated with the mutation.<br/>A sample of the event generated:<br/>{<br/>&nbsp;&nbsp;&nbsp;&nbsp;"name": "CREATE",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"type": "NORMAL",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityRef": "FULFILMENT-001",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityType": "FULFILMENT",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"retailerId": "1",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"accountId": "ACCOUNT_ID"<br/>}<br/> */
-  createFulfilment?: Maybe<Fulfilment>;
+  createFulfilment?: Fulfilment;
   /**  This mutation creates a `FulfilmentOption`, an orchestratable entity inside the Fluent ecosystem. If the `FulfilmentOption` is successfully created, a CREATE event will be generate associated with the mutation.<br/>A sample of the event generated:<br/>{<br/>&nbsp;&nbsp;&nbsp;&nbsp;"name": "CREATE",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"type": "NORMAL",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityRef": "FULFILMENTOPTION-001",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityType": "FULFILMENTOPTION",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"retailerId": "1",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"accountId": "ACCOUNT_ID"<br/>}<br/> */
-  createFulfilmentOption?: Maybe<FulfilmentOption>;
+  createFulfilmentOption?: FulfilmentOption;
   /**  This mutation creates a `FulfilmentPlan`, an orchestratable entity inside the Fluent ecosystem. If the `FulfilmentPlan` is successfully created, a CREATE event will be generate associated with the mutation.<br/>A sample of the event generated:<br/>{<br/>&nbsp;&nbsp;&nbsp;&nbsp;"name": "CREATE",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"type": "NORMAL",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityRef": "FULFILMENTPLAN-001",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityType": "FULFILMENTPLAN",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"retailerId": "1",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"accountId": "ACCOUNT_ID"<br/>}<br/> */
-  createFulfilmentPlan?: Maybe<FulfilmentPlan>;
+  createFulfilmentPlan?: FulfilmentPlan;
   /**  This mutation creates a `GroupProduct`, an orchestratable entity inside the Fluent ecosystem. If the `GroupProduct` is successfully created, a CREATE event will be generate associated with the mutation.<br/>A sample of the event generated:<br/>{<br/>&nbsp;&nbsp;&nbsp;&nbsp;"name": "CREATE",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"type": "NORMAL",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityRef": "GROUPPRODUCT-001",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityType": "GROUPPRODUCT",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"retailerId": "1",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"accountId": "ACCOUNT_ID"<br/>}<br/> */
-  createGroupProduct?: Maybe<GroupProduct>;
+  createGroupProduct?: GroupProduct;
   /**  This mutation creates an `InventoryCatalogue`, an orchestratable entity inside the Fluent ecosystem. If the `InventoryCatalogue` is successfully created, a CREATE event will be generate associated with the mutation.<br/>A sample of the event generated:<br/>{<br/>&nbsp;&nbsp;&nbsp;&nbsp;"name": "CREATE",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"type": "NORMAL",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityRef": "INVENTORYCATALOGUE-001",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityType": "INVENTORYCATALOGUE",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"retailerId": "1",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"accountId": "ACCOUNT_ID"<br/>}<br/> */
-  createInventoryCatalogue?: Maybe<InventoryCatalogue>;
+  createInventoryCatalogue?: InventoryCatalogue;
   /**  This mutation creates an `InventoryPosition`, an orchestratable entity inside the Fluent ecosystem. If the `InventoryPosition` is successfully created, a CREATE event will be generate associated with the mutation.<br/>A sample of the event generated:<br/>{<br/>&nbsp;&nbsp;&nbsp;&nbsp;"name": "CREATE",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"type": "NORMAL",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityRef": "INVENTORYPOSITION-001",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityType": "INVENTORYPOSITION",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"retailerId": "1",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"accountId": "ACCOUNT_ID"<br/>}<br/> */
-  createInventoryPosition?: Maybe<InventoryPosition>;
+  createInventoryPosition?: InventoryPosition;
   /**  This mutation creates an `InventoryQuantity`, an orchestratable entity inside the Fluent ecosystem. If the `InventoryQuantity` is successfully created, a CREATE event will be generate associated with the mutation.<br/>A sample of the event generated:<br/>{<br/>&nbsp;&nbsp;&nbsp;&nbsp;"name": "CREATE",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"type": "NORMAL",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityRef": "INVENTORYQUANTITY-001",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityType": "INVENTORYQUANTITY",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"retailerId": "1",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"accountId": "ACCOUNT_ID"<br/>}<br/> */
-  createInventoryQuantity?: Maybe<InventoryQuantity>;
+  createInventoryQuantity?: InventoryQuantity;
   /** Creates an 'Invoice' */
-  createInvoice?: Maybe<Invoice>;
+  createInvoice?: Invoice;
   /** Creates an 'Invoice item' */
-  createInvoiceItem?: Maybe<InvoiceItem>;
-  createLocation?: Maybe<Location>;
+  createInvoiceItem?: InvoiceItem;
+  createLocation?: Location;
   /**  Creates a `Manifest` */
-  createManifest?: Maybe<Manifest>;
-  createNetwork?: Maybe<Network>;
+  createManifest?: Manifest;
+  createNetwork?: Network;
   /**  This mutation creates an `Order`, an orchestratable entity inside the Fluent ecosystem. If the `Order` is successfully created, a CREATE event will be generate associated with the mutation.<br/>A sample of the event generated:<br/>{<br/>&nbsp;&nbsp;&nbsp;&nbsp;"name": "CREATE",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"type": "NORMAL",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityRef": "ORDER-001",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityType": "ORDER",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"retailerId": "1",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"accountId": "ACCOUNT_ID"<br/>}<br/> */
-  createOrder?: Maybe<Order>;
+  createOrder?: Order;
   /**  This mutation creates an `Order`, an orchestratable entity inside the Fluent ecosystem. If the `Order` is successfully created, a CREATE event will be generate associated with the mutation.<br/>A sample of the event generated:<br/>{<br/>&nbsp;&nbsp;&nbsp;&nbsp;"name": "CREATE",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"type": "NORMAL",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityRef": "ORDER-001",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityType": "ORDER",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"retailerId": "1",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"accountId": "ACCOUNT_ID"<br/>}<br/> */
-  createOrderAndCustomer?: Maybe<Order>;
-  createOrderItem?: Maybe<OrderItem>;
+  createOrderAndCustomer?: Order;
+  createOrderItem?: OrderItem;
   /**
    *  This mutation creates a `Payment`, an orchestratable entity inside the Fluent ecosystem. If the `Payment` is successfully created, a CREATE event will be generate associated with the mutation.<br/>A sample of the event generated:<br/>{<br/>&nbsp;&nbsp;&nbsp;&nbsp;"name": "CREATE",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"type": "NORMAL",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityRef": "PAYMENT-001",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityType": "PAYMENT",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"retailerId": "1",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"accountId": "ACCOUNT_ID"<br/>}<br/>
    * Creates a new 'Payment'
    */
-  createPayment?: Maybe<Payment>;
+  createPayment?: Payment;
   /** Creates a new 'PaymentServiceProvider' */
-  createPaymentServiceProvider?: Maybe<PaymentServiceProvider>;
+  createPaymentServiceProvider?: PaymentServiceProvider;
   /**
    *  This mutation creates a `PaymentTransaction`, an orchestratable entity inside the Fluent ecosystem. If the `PaymentTransaction` is successfully created, a CREATE event will be generate associated with the mutation.<br/>A sample of the event generated:<br/>{<br/>&nbsp;&nbsp;&nbsp;&nbsp;"name": "CREATE",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"type": "NORMAL",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityRef": "PAYMENTTRANSACTION-001",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityType": "PAYMENTTRANSACTION",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"retailerId": "1",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"accountId": "ACCOUNT_ID"<br/>}<br/>
    * Creates a new 'PaymentTransaction'
    */
-  createPaymentTransaction?: Maybe<PaymentTransaction>;
+  createPaymentTransaction?: PaymentTransaction;
   /**  This mutation creates a `ProductCatalogue`, an orchestratable entity inside the Fluent ecosystem. If the `ProductCatalogue` is successfully created, a CREATE event will be generate associated with the mutation.<br/>A sample of the event generated:<br/>{<br/>&nbsp;&nbsp;&nbsp;&nbsp;"name": "CREATE",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"type": "NORMAL",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityRef": "PRODUCTCATALOGUE-001",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityType": "PRODUCTCATALOGUE",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"retailerId": "1",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"accountId": "ACCOUNT_ID"<br/>}<br/> */
-  createProductCatalogue?: Maybe<ProductCatalogue>;
-  createRetailer?: Maybe<Retailer>;
+  createProductCatalogue?: ProductCatalogue;
+  createRetailer?: Retailer;
   /** Creates a 'Return fulfilment' */
-  createReturnFulfilment?: Maybe<ReturnFulfilment>;
+  createReturnFulfilment?: ReturnFulfilment;
   /** Creates a 'Return fulfilment item' */
-  createReturnFulfilmentItem?: Maybe<ReturnFulfilmentItem>;
+  createReturnFulfilmentItem?: ReturnFulfilmentItem;
   /** Creates a 'Return order' */
-  createReturnOrder?: Maybe<ReturnOrder>;
+  createReturnOrder?: ReturnOrder;
   /** Creates a 'Return order item' */
-  createReturnOrderItem?: Maybe<ReturnOrderItem>;
+  createReturnOrderItem?: ReturnOrderItem;
   /**  Creates a `Role` */
-  createRole?: Maybe<Role>;
+  createRole?: Role;
   /**  Creates a `Setting` */
-  createSetting?: Maybe<Setting>;
+  createSetting?: Setting;
   /**  This mutation creates a `StandardProduct`, an orchestratable entity inside the Fluent ecosystem. If the `StandardProduct` is successfully created, a CREATE event will be generate associated with the mutation.<br/>A sample of the event generated:<br/>{<br/>&nbsp;&nbsp;&nbsp;&nbsp;"name": "CREATE",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"type": "NORMAL",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityRef": "STANDARDPRODUCT-001",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityType": "STANDARDPRODUCT",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"retailerId": "1",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"accountId": "ACCOUNT_ID"<br/>}<br/> */
-  createStandardProduct?: Maybe<StandardProduct>;
-  createStorageArea?: Maybe<StorageArea>;
-  createStoreAddress?: Maybe<StoreAddress>;
+  createStandardProduct?: StandardProduct;
+  createStorageArea?: StorageArea;
+  createStoreAddress?: StoreAddress;
   /**  Creates a `User` */
-  createUser?: Maybe<User>;
+  createUser?: User;
   /**  This mutation creates a `VariantProduct`, an orchestratable entity inside the Fluent ecosystem. If the `VariantProduct` is successfully created, a CREATE event will be generate associated with the mutation.<br/>A sample of the event generated:<br/>{<br/>&nbsp;&nbsp;&nbsp;&nbsp;"name": "CREATE",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"type": "NORMAL",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityRef": "VARIANTPRODUCT-001",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityType": "VARIANTPRODUCT",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"retailerId": "1",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"accountId": "ACCOUNT_ID"<br/>}<br/> */
-  createVariantProduct?: Maybe<VariantProduct>;
+  createVariantProduct?: VariantProduct;
   /**  This mutation creates a `VirtualCatalogue`, an orchestratable entity inside the Fluent ecosystem. If the `VirtualCatalogue` is successfully created, a CREATE event will be generate associated with the mutation.<br/>A sample of the event generated:<br/>{<br/>&nbsp;&nbsp;&nbsp;&nbsp;"name": "CREATE",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"type": "NORMAL",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityRef": "VIRTUALCATALOGUE-001",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityType": "VIRTUALCATALOGUE",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"retailerId": "1",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"accountId": "ACCOUNT_ID"<br/>}<br/> */
-  createVirtualCatalogue?: Maybe<VirtualCatalogue>;
+  createVirtualCatalogue?: VirtualCatalogue;
   /**  This mutation creates a `VirtualPosition`, an orchestratable entity inside the Fluent ecosystem. If the `VirtualPosition` is successfully created, a CREATE event will be generate associated with the mutation.<br/>A sample of the event generated:<br/>{<br/>&nbsp;&nbsp;&nbsp;&nbsp;"name": "CREATE",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"type": "NORMAL",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityRef": "VIRTUALPOSITION-001",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityType": "VIRTUALPOSITION",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"retailerId": "1",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"accountId": "ACCOUNT_ID"<br/>}<br/> */
-  createVirtualPosition?: Maybe<VirtualPosition>;
+  createVirtualPosition?: VirtualPosition;
   /**
    *  _Disclaimer:  This mutation is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/>
    *  Creates a new `Virtual View`
    */
-  createVirtualView?: Maybe<CreateVirtualViewOutput>;
+  createVirtualView?: CreateVirtualViewOutput;
   /**  This mutation creates a `Wave`, an orchestratable entity inside the Fluent ecosystem. If the `Wave` is successfully created, a CREATE event will be generate associated with the mutation.<br/>A sample of the event generated:<br/>{<br/>&nbsp;&nbsp;&nbsp;&nbsp;"name": "CREATE",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"type": "NORMAL",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityRef": "WAVE-001",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityType": "WAVE",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"retailerId": "1",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"accountId": "ACCOUNT_ID"<br/>}<br/> */
-  createWave?: Maybe<Wave>;
+  createWave?: Wave;
   /**  Removes one or more `Category`s from a `GroupProduct` */
-  removeCategoriesFromGroupProduct?: Maybe<RemoveCategoriesFromGroupProductOutput>;
+  removeCategoriesFromGroupProduct?: RemoveCategoriesFromGroupProductOutput;
   /**  Removes one or more `Category`s from a `StandardProduct` */
-  removeCategoriesFromStandardProduct?: Maybe<RemoveCategoriesFromStandardProductOutput>;
+  removeCategoriesFromStandardProduct?: RemoveCategoriesFromStandardProductOutput;
   /**  Removes one or more `Category`s from a `VariantProduct` */
-  removeCategoriesFromVariantProduct?: Maybe<RemoveCategoriesFromVariantProductOutput>;
+  removeCategoriesFromVariantProduct?: RemoveCategoriesFromVariantProductOutput;
   /**
    *  _Disclaimer:  This mutation is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/>
    *  Mutation to remove a decision rule.
    */
-  removeDecisionRule?: Maybe<RemoveDecisionRuleOutput>;
+  removeDecisionRule?: RemoveDecisionRuleOutput;
   /**  Removes one or more `Location`s from a `Network` */
-  removeLocationsFromNetwork?: Maybe<RemoveLocationsFromNetworkOutput>;
+  removeLocationsFromNetwork?: RemoveLocationsFromNetworkOutput;
   /**  Removes one or more `Network`s from a `Location` */
-  removeNetworksFromLocation?: Maybe<RemoveNetworksFromLocationOutput>;
+  removeNetworksFromLocation?: RemoveNetworksFromLocationOutput;
   /**  Removes one or more `Permission`s from a `Role` */
-  removePermissionsFromRole?: Maybe<RemovePermissionsFromRoleOutput>;
+  removePermissionsFromRole?: RemovePermissionsFromRoleOutput;
   /**  Removes one or more `UserRole`s from an `User` */
-  removeUserRolesFromUser?: Maybe<RemoveUserRolesFromUserOutput>;
-  updateArticle?: Maybe<Article>;
+  removeUserRolesFromUser?: RemoveUserRolesFromUserOutput;
+  updateArticle?: Article;
   /** Updates a new 'Billing account' */
-  updateBillingAccount?: Maybe<BillingAccount>;
-  updateCarrier?: Maybe<Carrier>;
+  updateBillingAccount?: BillingAccount;
+  updateCarrier?: Carrier;
   /**  Updates a `CarrierConsignment` */
-  updateCarrierConsignment?: Maybe<CarrierConsignment>;
-  updateCategory?: Maybe<Category>;
+  updateCarrierConsignment?: CarrierConsignment;
+  updateCategory?: Category;
   /**  Updates a `Comment` */
-  updateComment?: Maybe<Comment>;
-  updateConsignment?: Maybe<Consignment>;
-  updateControl?: Maybe<Control>;
-  updateControlGroup?: Maybe<ControlGroup>;
+  updateComment?: Comment;
+  updateConsignment?: Consignment;
+  updateControl?: Control;
+  updateControlGroup?: ControlGroup;
   /** Updates a 'Credit memo' */
-  updateCreditMemo?: Maybe<CreditMemo>;
-  updateCustomer?: Maybe<Customer>;
-  updateCustomerAddress?: Maybe<CustomerAddress>;
-  updateFulfilment?: Maybe<Fulfilment>;
-  updateFulfilmentOption?: Maybe<FulfilmentOption>;
-  updateFulfilmentPlan?: Maybe<FulfilmentPlan>;
-  updateGroupProduct?: Maybe<GroupProduct>;
-  updateInventoryCatalogue?: Maybe<InventoryCatalogue>;
-  updateInventoryPosition?: Maybe<InventoryPosition>;
+  updateCreditMemo?: CreditMemo;
+  updateCustomer?: Customer;
+  updateCustomerAddress?: CustomerAddress;
+  updateFulfilment?: Fulfilment;
+  updateFulfilmentOption?: FulfilmentOption;
+  updateFulfilmentPlan?: FulfilmentPlan;
+  updateGroupProduct?: GroupProduct;
+  updateInventoryCatalogue?: InventoryCatalogue;
+  updateInventoryPosition?: InventoryPosition;
   /**  Used to bulk update the statuses of a list of Inventory Positions */
-  updateInventoryPositionsStatusByLocation?: Maybe<UpdateStatusOutput>;
+  updateInventoryPositionsStatusByLocation?: UpdateStatusOutput;
   /**  Used to bulk update the statuses of a list of Inventory Quantities */
-  updateInventoryQuantitiesStatus?: Maybe<UpdateStatusOutput>;
-  updateInventoryQuantity?: Maybe<InventoryQuantity>;
+  updateInventoryQuantitiesStatus?: UpdateStatusOutput;
+  updateInventoryQuantity?: InventoryQuantity;
   /** Updates an 'Invoice' */
-  updateInvoice?: Maybe<Invoice>;
-  updateLocation?: Maybe<Location>;
+  updateInvoice?: Invoice;
+  updateLocation?: Location;
   /**  Updates a `Manifest` */
-  updateManifest?: Maybe<Manifest>;
-  updateNetwork?: Maybe<Network>;
-  updateOpeningSchedule?: Maybe<OpeningSchedule>;
-  updateOrder?: Maybe<Order>;
+  updateManifest?: Manifest;
+  updateNetwork?: Network;
+  updateOpeningSchedule?: OpeningSchedule;
+  updateOrder?: Order;
   /** Updates an existing 'Payment' */
-  updatePayment?: Maybe<Payment>;
+  updatePayment?: Payment;
   /** Updates an existing 'PaymentServiceProvider' */
-  updatePaymentServiceProvider?: Maybe<PaymentServiceProvider>;
-  updateProductCatalogue?: Maybe<ProductCatalogue>;
-  updateRetailer?: Maybe<Retailer>;
+  updatePaymentServiceProvider?: PaymentServiceProvider;
+  updateProductCatalogue?: ProductCatalogue;
+  updateRetailer?: Retailer;
   /** Updates a 'Return fulfilment' */
-  updateReturnFulfilment?: Maybe<ReturnFulfilment>;
+  updateReturnFulfilment?: ReturnFulfilment;
   /** Updates a 'Return order' */
-  updateReturnOrder?: Maybe<ReturnOrder>;
+  updateReturnOrder?: ReturnOrder;
   /**  Updates a `Role` */
-  updateRole?: Maybe<Role>;
+  updateRole?: Role;
   /**  Updates a `Setting` */
-  updateSetting?: Maybe<Setting>;
-  updateStandardProduct?: Maybe<StandardProduct>;
-  updateStorageArea?: Maybe<StorageArea>;
-  updateStoreAddress?: Maybe<StoreAddress>;
+  updateSetting?: Setting;
+  updateStandardProduct?: StandardProduct;
+  updateStorageArea?: StorageArea;
+  updateStoreAddress?: StoreAddress;
   /**  Updates a `User` */
-  updateUser?: Maybe<User>;
-  updateVariantProduct?: Maybe<VariantProduct>;
-  updateVirtualCatalogue?: Maybe<VirtualCatalogue>;
-  updateVirtualPosition?: Maybe<VirtualPosition>;
+  updateUser?: User;
+  updateVariantProduct?: VariantProduct;
+  updateVirtualCatalogue?: VirtualCatalogue;
+  updateVirtualPosition?: VirtualPosition;
   /**  Used to bulk update the statuses of a list of Virtual Positions */
-  updateVirtualPositionsStatusByGroup?: Maybe<UpdateStatusOutput>;
-  updateWave?: Maybe<Wave>;
+  updateVirtualPositionsStatusByGroup?: UpdateStatusOutput;
+  updateWave?: Wave;
 };
 
 
 export type MutationCreateArticleArgs = {
-  input?: InputMaybe<CreateArticleInput>;
+  input?: CreateArticleInput;
 };
 
 
 export type MutationCreateBillingAccountArgs = {
-  input?: InputMaybe<CreateBillingAccountInput>;
+  input?: CreateBillingAccountInput;
 };
 
 
 export type MutationCreateCarrierArgs = {
-  input?: InputMaybe<CreateCarrierInput>;
+  input?: CreateCarrierInput;
 };
 
 
 export type MutationCreateCarrierConsignmentArgs = {
-  input?: InputMaybe<CreateCarrierConsignmentInput>;
+  input?: CreateCarrierConsignmentInput;
 };
 
 
 export type MutationCreateCategoryArgs = {
-  input?: InputMaybe<CreateCategoryInput>;
+  input?: CreateCategoryInput;
 };
 
 
 export type MutationCreateCommentArgs = {
-  input?: InputMaybe<CreateCommentInput>;
+  input?: CreateCommentInput;
 };
 
 
 export type MutationCreateConsignmentArgs = {
-  input?: InputMaybe<CreateConsignmentInput>;
+  input?: CreateConsignmentInput;
 };
 
 
 export type MutationCreateControlArgs = {
-  input?: InputMaybe<CreateControlInput>;
+  input?: CreateControlInput;
 };
 
 
 export type MutationCreateControlGroupArgs = {
-  input?: InputMaybe<CreateControlGroupInput>;
+  input?: CreateControlGroupInput;
 };
 
 
 export type MutationCreateCreditMemoArgs = {
-  input?: InputMaybe<CreateCreditMemoInput>;
+  input?: CreateCreditMemoInput;
 };
 
 
 export type MutationCreateCreditMemoItemArgs = {
-  input?: InputMaybe<CreateCreditMemoItemInput>;
+  input?: CreateCreditMemoItemInput;
 };
 
 
 export type MutationCreateCustomerArgs = {
-  input?: InputMaybe<CreateCustomerInput>;
+  input?: CreateCustomerInput;
 };
 
 
 export type MutationCreateCustomerAddressArgs = {
-  input?: InputMaybe<CreateCustomerAddressInput>;
+  input?: CreateCustomerAddressInput;
 };
 
 
@@ -7078,198 +7073,198 @@ export type MutationCreateDecisionRuleArgs = {
 
 
 export type MutationCreateFinancialTransactionArgs = {
-  input?: InputMaybe<CreateFinancialTransactionInput>;
+  input?: CreateFinancialTransactionInput;
 };
 
 
 export type MutationCreateFulfilmentArgs = {
-  input?: InputMaybe<CreateFulfilmentInput>;
+  input?: CreateFulfilmentInput;
 };
 
 
 export type MutationCreateFulfilmentOptionArgs = {
-  executionMode?: InputMaybe<ExecutionMode>;
-  input?: InputMaybe<CreateFulfilmentOptionInput>;
+  executionMode?: ExecutionMode;
+  input?: CreateFulfilmentOptionInput;
 };
 
 
 export type MutationCreateFulfilmentPlanArgs = {
-  input?: InputMaybe<CreateFulfilmentPlanInput>;
+  input?: CreateFulfilmentPlanInput;
 };
 
 
 export type MutationCreateGroupProductArgs = {
-  input?: InputMaybe<CreateGroupProductInput>;
+  input?: CreateGroupProductInput;
 };
 
 
 export type MutationCreateInventoryCatalogueArgs = {
-  input?: InputMaybe<CreateInventoryCatalogueInput>;
+  input?: CreateInventoryCatalogueInput;
 };
 
 
 export type MutationCreateInventoryPositionArgs = {
-  input?: InputMaybe<CreateInventoryPositionInput>;
+  input?: CreateInventoryPositionInput;
 };
 
 
 export type MutationCreateInventoryQuantityArgs = {
-  input?: InputMaybe<CreateInventoryQuantityInput>;
+  input?: CreateInventoryQuantityInput;
 };
 
 
 export type MutationCreateInvoiceArgs = {
-  input?: InputMaybe<CreateInvoiceInput>;
+  input?: CreateInvoiceInput;
 };
 
 
 export type MutationCreateInvoiceItemArgs = {
-  input?: InputMaybe<CreateInvoiceItemInput>;
+  input?: CreateInvoiceItemInput;
 };
 
 
 export type MutationCreateLocationArgs = {
-  input?: InputMaybe<CreateLocationInput>;
+  input?: CreateLocationInput;
 };
 
 
 export type MutationCreateManifestArgs = {
-  input?: InputMaybe<CreateManifestInput>;
+  input?: CreateManifestInput;
 };
 
 
 export type MutationCreateNetworkArgs = {
-  input?: InputMaybe<CreateNetworkInput>;
+  input?: CreateNetworkInput;
 };
 
 
 export type MutationCreateOrderArgs = {
-  input?: InputMaybe<CreateOrderInput>;
+  input?: CreateOrderInput;
 };
 
 
 export type MutationCreateOrderAndCustomerArgs = {
-  input?: InputMaybe<CreateOrderAndCustomerInput>;
+  input?: CreateOrderAndCustomerInput;
 };
 
 
 export type MutationCreateOrderItemArgs = {
-  input?: InputMaybe<CreateOrderItemInput>;
+  input?: CreateOrderItemInput;
 };
 
 
 export type MutationCreatePaymentArgs = {
-  input?: InputMaybe<CreatePaymentInput>;
+  input?: CreatePaymentInput;
 };
 
 
 export type MutationCreatePaymentServiceProviderArgs = {
-  input?: InputMaybe<CreatePaymentServiceProviderInput>;
+  input?: CreatePaymentServiceProviderInput;
 };
 
 
 export type MutationCreatePaymentTransactionArgs = {
-  input?: InputMaybe<CreatePaymentTransactionInput>;
+  input?: CreatePaymentTransactionInput;
 };
 
 
 export type MutationCreateProductCatalogueArgs = {
-  input?: InputMaybe<CreateProductCatalogueInput>;
+  input?: CreateProductCatalogueInput;
 };
 
 
 export type MutationCreateRetailerArgs = {
-  input?: InputMaybe<CreateRetailerInput>;
+  input?: CreateRetailerInput;
 };
 
 
 export type MutationCreateReturnFulfilmentArgs = {
-  input?: InputMaybe<CreateReturnFulfilmentInput>;
+  input?: CreateReturnFulfilmentInput;
 };
 
 
 export type MutationCreateReturnFulfilmentItemArgs = {
-  input?: InputMaybe<CreateReturnFulfilmentItemInput>;
+  input?: CreateReturnFulfilmentItemInput;
 };
 
 
 export type MutationCreateReturnOrderArgs = {
-  input?: InputMaybe<CreateReturnOrderInput>;
+  input?: CreateReturnOrderInput;
 };
 
 
 export type MutationCreateReturnOrderItemArgs = {
-  input?: InputMaybe<CreateReturnOrderItemInput>;
+  input?: CreateReturnOrderItemInput;
 };
 
 
 export type MutationCreateRoleArgs = {
-  input?: InputMaybe<CreateRoleInput>;
+  input?: CreateRoleInput;
 };
 
 
 export type MutationCreateSettingArgs = {
-  input?: InputMaybe<CreateSettingInput>;
+  input?: CreateSettingInput;
 };
 
 
 export type MutationCreateStandardProductArgs = {
-  input?: InputMaybe<CreateStandardProductInput>;
+  input?: CreateStandardProductInput;
 };
 
 
 export type MutationCreateStorageAreaArgs = {
-  input?: InputMaybe<CreateStorageAreaInput>;
+  input?: CreateStorageAreaInput;
 };
 
 
 export type MutationCreateStoreAddressArgs = {
-  input?: InputMaybe<CreateStoreAddressInput>;
+  input?: CreateStoreAddressInput;
 };
 
 
 export type MutationCreateUserArgs = {
-  input?: InputMaybe<CreateUserInput>;
+  input?: CreateUserInput;
 };
 
 
 export type MutationCreateVariantProductArgs = {
-  input?: InputMaybe<CreateVariantProductInput>;
+  input?: CreateVariantProductInput;
 };
 
 
 export type MutationCreateVirtualCatalogueArgs = {
-  input?: InputMaybe<CreateVirtualCatalogueInput>;
+  input?: CreateVirtualCatalogueInput;
 };
 
 
 export type MutationCreateVirtualPositionArgs = {
-  input?: InputMaybe<CreateVirtualPositionInput>;
+  input?: CreateVirtualPositionInput;
 };
 
 
 export type MutationCreateVirtualViewArgs = {
-  input?: InputMaybe<CreateVirtualViewInput>;
+  input?: CreateVirtualViewInput;
 };
 
 
 export type MutationCreateWaveArgs = {
-  input?: InputMaybe<CreateWaveInput>;
+  input?: CreateWaveInput;
 };
 
 
 export type MutationRemoveCategoriesFromGroupProductArgs = {
-  input?: InputMaybe<RemoveCategoriesFromGroupProductInput>;
+  input?: RemoveCategoriesFromGroupProductInput;
 };
 
 
 export type MutationRemoveCategoriesFromStandardProductArgs = {
-  input?: InputMaybe<RemoveCategoriesFromStandardProductInput>;
+  input?: RemoveCategoriesFromStandardProductInput;
 };
 
 
 export type MutationRemoveCategoriesFromVariantProductArgs = {
-  input?: InputMaybe<RemoveCategoriesFromVariantProductInput>;
+  input?: RemoveCategoriesFromVariantProductInput;
 };
 
 
@@ -7279,112 +7274,112 @@ export type MutationRemoveDecisionRuleArgs = {
 
 
 export type MutationRemoveLocationsFromNetworkArgs = {
-  input?: InputMaybe<RemoveLocationsFromNetworkInput>;
+  input?: RemoveLocationsFromNetworkInput;
 };
 
 
 export type MutationRemoveNetworksFromLocationArgs = {
-  input?: InputMaybe<RemoveNetworksFromLocationInput>;
+  input?: RemoveNetworksFromLocationInput;
 };
 
 
 export type MutationRemovePermissionsFromRoleArgs = {
-  input?: InputMaybe<RemovePermissionsFromRoleInput>;
+  input?: RemovePermissionsFromRoleInput;
 };
 
 
 export type MutationRemoveUserRolesFromUserArgs = {
-  input?: InputMaybe<RemoveUserRolesFromUserInput>;
+  input?: RemoveUserRolesFromUserInput;
 };
 
 
 export type MutationUpdateArticleArgs = {
-  input?: InputMaybe<UpdateArticleInput>;
+  input?: UpdateArticleInput;
 };
 
 
 export type MutationUpdateBillingAccountArgs = {
-  input?: InputMaybe<UpdateBillingAccountInput>;
+  input?: UpdateBillingAccountInput;
 };
 
 
 export type MutationUpdateCarrierArgs = {
-  input?: InputMaybe<UpdateCarrierInput>;
+  input?: UpdateCarrierInput;
 };
 
 
 export type MutationUpdateCarrierConsignmentArgs = {
-  input?: InputMaybe<UpdateCarrierConsignmentInput>;
+  input?: UpdateCarrierConsignmentInput;
 };
 
 
 export type MutationUpdateCategoryArgs = {
-  input?: InputMaybe<UpdateCategoryInput>;
+  input?: UpdateCategoryInput;
 };
 
 
 export type MutationUpdateCommentArgs = {
-  input?: InputMaybe<UpdateCommentInput>;
+  input?: UpdateCommentInput;
 };
 
 
 export type MutationUpdateConsignmentArgs = {
-  input?: InputMaybe<UpdateConsignmentInput>;
+  input?: UpdateConsignmentInput;
 };
 
 
 export type MutationUpdateControlArgs = {
-  input?: InputMaybe<UpdateControlInput>;
+  input?: UpdateControlInput;
 };
 
 
 export type MutationUpdateControlGroupArgs = {
-  input?: InputMaybe<UpdateControlGroupInput>;
+  input?: UpdateControlGroupInput;
 };
 
 
 export type MutationUpdateCreditMemoArgs = {
-  input?: InputMaybe<UpdateCreditMemoInput>;
+  input?: UpdateCreditMemoInput;
 };
 
 
 export type MutationUpdateCustomerArgs = {
-  input?: InputMaybe<UpdateCustomerInput>;
+  input?: UpdateCustomerInput;
 };
 
 
 export type MutationUpdateCustomerAddressArgs = {
-  input?: InputMaybe<UpdateCustomerAddressInput>;
+  input?: UpdateCustomerAddressInput;
 };
 
 
 export type MutationUpdateFulfilmentArgs = {
-  input?: InputMaybe<UpdateFulfilmentInput>;
+  input?: UpdateFulfilmentInput;
 };
 
 
 export type MutationUpdateFulfilmentOptionArgs = {
-  input?: InputMaybe<UpdateFulfilmentOptionInput>;
+  input?: UpdateFulfilmentOptionInput;
 };
 
 
 export type MutationUpdateFulfilmentPlanArgs = {
-  input?: InputMaybe<UpdateFulfilmentPlanInput>;
+  input?: UpdateFulfilmentPlanInput;
 };
 
 
 export type MutationUpdateGroupProductArgs = {
-  input?: InputMaybe<UpdateGroupProductInput>;
+  input?: UpdateGroupProductInput;
 };
 
 
 export type MutationUpdateInventoryCatalogueArgs = {
-  input?: InputMaybe<UpdateInventoryCatalogueInput>;
+  input?: UpdateInventoryCatalogueInput;
 };
 
 
 export type MutationUpdateInventoryPositionArgs = {
-  input?: InputMaybe<UpdateInventoryPositionInput>;
+  input?: UpdateInventoryPositionInput;
 };
 
 
@@ -7401,112 +7396,112 @@ export type MutationUpdateInventoryQuantitiesStatusArgs = {
 
 
 export type MutationUpdateInventoryQuantityArgs = {
-  input?: InputMaybe<UpdateInventoryQuantityInput>;
+  input?: UpdateInventoryQuantityInput;
 };
 
 
 export type MutationUpdateInvoiceArgs = {
-  input?: InputMaybe<UpdateInvoiceInput>;
+  input?: UpdateInvoiceInput;
 };
 
 
 export type MutationUpdateLocationArgs = {
-  input?: InputMaybe<UpdateLocationInput>;
+  input?: UpdateLocationInput;
 };
 
 
 export type MutationUpdateManifestArgs = {
-  input?: InputMaybe<UpdateManifestInput>;
+  input?: UpdateManifestInput;
 };
 
 
 export type MutationUpdateNetworkArgs = {
-  input?: InputMaybe<UpdateNetworkInput>;
+  input?: UpdateNetworkInput;
 };
 
 
 export type MutationUpdateOpeningScheduleArgs = {
-  input?: InputMaybe<UpdateOpeningScheduleInput>;
+  input?: UpdateOpeningScheduleInput;
 };
 
 
 export type MutationUpdateOrderArgs = {
-  input?: InputMaybe<UpdateOrderInput>;
+  input?: UpdateOrderInput;
 };
 
 
 export type MutationUpdatePaymentArgs = {
-  input?: InputMaybe<UpdatePaymentInput>;
+  input?: UpdatePaymentInput;
 };
 
 
 export type MutationUpdatePaymentServiceProviderArgs = {
-  input?: InputMaybe<UpdatePaymentServiceProviderInput>;
+  input?: UpdatePaymentServiceProviderInput;
 };
 
 
 export type MutationUpdateProductCatalogueArgs = {
-  input?: InputMaybe<UpdateProductCatalogueInput>;
+  input?: UpdateProductCatalogueInput;
 };
 
 
 export type MutationUpdateRetailerArgs = {
-  input?: InputMaybe<UpdateRetailerInput>;
+  input?: UpdateRetailerInput;
 };
 
 
 export type MutationUpdateReturnFulfilmentArgs = {
-  input?: InputMaybe<UpdateReturnFulfilmentInput>;
+  input?: UpdateReturnFulfilmentInput;
 };
 
 
 export type MutationUpdateReturnOrderArgs = {
-  input?: InputMaybe<UpdateReturnOrderInput>;
+  input?: UpdateReturnOrderInput;
 };
 
 
 export type MutationUpdateRoleArgs = {
-  input?: InputMaybe<UpdateRoleInput>;
+  input?: UpdateRoleInput;
 };
 
 
 export type MutationUpdateSettingArgs = {
-  input?: InputMaybe<UpdateSettingInput>;
+  input?: UpdateSettingInput;
 };
 
 
 export type MutationUpdateStandardProductArgs = {
-  input?: InputMaybe<UpdateStandardProductInput>;
+  input?: UpdateStandardProductInput;
 };
 
 
 export type MutationUpdateStorageAreaArgs = {
-  input?: InputMaybe<UpdateStorageAreaInput>;
+  input?: UpdateStorageAreaInput;
 };
 
 
 export type MutationUpdateStoreAddressArgs = {
-  input?: InputMaybe<UpdateStoreAddressInput>;
+  input?: UpdateStoreAddressInput;
 };
 
 
 export type MutationUpdateUserArgs = {
-  input?: InputMaybe<UpdateUserInput>;
+  input?: UpdateUserInput;
 };
 
 
 export type MutationUpdateVariantProductArgs = {
-  input?: InputMaybe<UpdateVariantProductInput>;
+  input?: UpdateVariantProductInput;
 };
 
 
 export type MutationUpdateVirtualCatalogueArgs = {
-  input?: InputMaybe<UpdateVirtualCatalogueInput>;
+  input?: UpdateVirtualCatalogueInput;
 };
 
 
 export type MutationUpdateVirtualPositionArgs = {
-  input?: InputMaybe<UpdateVirtualPositionInput>;
+  input?: UpdateVirtualPositionInput;
 };
 
 
@@ -7517,87 +7512,87 @@ export type MutationUpdateVirtualPositionsStatusByGroupArgs = {
 
 
 export type MutationUpdateWaveArgs = {
-  input?: InputMaybe<UpdateWaveInput>;
+  input?: UpdateWaveInput;
 };
 
 /** Article */
 export type CreateArticleInput = {
   /**  Max character limit: 30. */
-  articleNumber?: InputMaybe<Scalars['String']>;
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  articleNumber?: string;
+  attributes?: AttributeInput[];
   /**  Max character limit: 50. */
-  barcodeArticleNumber?: InputMaybe<Scalars['String']>;
+  barcodeArticleNumber?: string;
   /**  Max character limit: 256. */
-  description?: InputMaybe<Scalars['String']>;
-  expiryDate?: InputMaybe<Scalars['DateTime']>;
-  fulfilments: Array<InputMaybe<FulfilmentId>>;
-  height: Scalars['Float'];
-  items?: InputMaybe<Array<InputMaybe<CreateArticleItemWithArticleInput>>>;
-  length: Scalars['Float'];
+  description?: string;
+  expiryDate?: Date;
+  fulfilments: FulfilmentId[];
+  height: number;
+  items?: CreateArticleItemWithArticleInput[];
+  length: number;
   /**  Max character limit: 256. */
-  name?: InputMaybe<Scalars['String']>;
+  name?: string;
   /**  Max character limit: 100. */
-  purchaseValue?: InputMaybe<Scalars['String']>;
-  quantity?: InputMaybe<Scalars['Int']>;
-  ref: Scalars['String'];
-  storageArea?: InputMaybe<StorageAreaId>;
+  purchaseValue?: string;
+  quantity?: number;
+  ref: string;
+  storageArea?: StorageAreaId;
   /**
    *  Type of the `Article`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
    *  Max character limit: 50.
    */
-  type: Scalars['String'];
-  weight: Scalars['Float'];
-  width: Scalars['Float'];
+  type: string;
+  weight: number;
+  width: number;
 };
 
 /**  Input type for `attribute`s. Attributes should be unique by `name`. If an attribute with a matching `name` already exists, then the `type` and `value` fields will be updated, else they will be inserted. */
 export type AttributeInput = {
-  name: Scalars['String'];
-  type: Scalars['String'];
+  name: string;
+  type: string;
   value: Scalars['Json'];
 };
 
 export type FulfilmentId = {
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
 };
 
 /** ArticleItem */
 export type CreateArticleItemWithArticleInput = {
-  barcode?: InputMaybe<Scalars['String']>;
+  barcode?: string;
   /**  Max quantity of an Article item allowed is "32767" */
-  quantity: Scalars['Int'];
+  quantity: number;
 };
 
 export type StorageAreaId = {
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
 };
 
 export type CreateBillingAccountInput = {
   /**  Address associated to the `BillingAccount`. */
-  address?: InputMaybe<StreetAddressInput>;
+  address?: StreetAddressInput;
   /**  A list of attributes associated with the `BillingAccount`. This can be used to extend the existing data structure with additional data. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  Customer associated to the `BillingAccount`. */
-  customer?: InputMaybe<CustomerKey>;
+  customer?: CustomerKey;
   /**
    *  Name of the `BillingAccount`. <br/>
    *  Max character limit: 100.
    */
-  name: Scalars['String'];
+  name: string;
   /**
    *  External reference to the `BillingAccount`. Must be unique. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**  Retailer associated to the `BillingAccount`. */
   retailer: RetailerId;
   /**
    *  Type of the `BillingAccount`, typically used by the Orchestration Engine to determine the workflow that should be applied. <br/>
    *  Max character limit: 50.
    */
-  type: Scalars['String'];
+  type: string;
 };
 
 export type StreetAddressInput = {
@@ -7605,116 +7600,116 @@ export type StreetAddressInput = {
    *  City. <br/>
    *  Max character limit: 45.
    */
-  city?: InputMaybe<Scalars['String']>;
+  city?: string;
   /**
    *  Company Name. <br/>
    *  Max character limit: 45.
    */
-  companyName?: InputMaybe<Scalars['String']>;
+  companyName?: string;
   /**
    *  Country. <br/>
    *  Max character limit: 100.
    */
-  country?: InputMaybe<Scalars['String']>;
+  country?: string;
   /**  Latitude */
-  latitude?: InputMaybe<Scalars['Float']>;
+  latitude?: number;
   /**  Longitude */
-  longitude?: InputMaybe<Scalars['Float']>;
+  longitude?: number;
   /**  Name */
-  name?: InputMaybe<Scalars['String']>;
+  name?: string;
   /**
    *  Postcode. <br/>
    *  Max character limit: 100.
    */
-  postcode?: InputMaybe<Scalars['String']>;
+  postcode?: string;
   /**
    *  Region. <br/>
    *  Max character limit: 250.
    */
-  region?: InputMaybe<Scalars['String']>;
+  region?: string;
   /**
    *  State. <br/>
    *  Max character limit: 200.
    */
-  state?: InputMaybe<Scalars['String']>;
+  state?: string;
   /**
    *  Street. <br/>
    *  Max character limit: 100.
    */
-  street?: InputMaybe<Scalars['String']>;
+  street?: string;
   /**
    *  Timezone. <br/>
    *  Max character limit: 32.
    */
-  timeZone?: InputMaybe<Scalars['String']>;
+  timeZone?: string;
 };
 
 /**  Input type to uniquely identify a `Customer` object. We use all the fields present in the request to look for this object. */
 export type CustomerKey = {
   /**  The client's reference identifier for the object */
-  ref: Scalars['String'];
+  ref: string;
 };
 
 /**  Input type to create a `Carrier` */
 export type CreateCarrierInput = {
   /**  A list of attributes associated with this Carrier. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**
    *  Name of the carrier. <br/>
    *  Max character limit: 45.
    */
-  name: Scalars['String'];
+  name: string;
   /**
    *  The unique reference identifier for the `Carrier`. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**  ID of the retailer */
   retailer: RetailerId;
   /**
    *  Type of the `Carrier`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
    *  Max character limit: 50.
    */
-  type: Scalars['String'];
+  type: string;
 };
 
 /**  Input for creating a `CarrierConsignment` object. */
 export type CreateCarrierConsignmentInput = {
   /**  A list of attributes associated with this Consignment. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  Carrier used for the consignment */
   carrier: CarrierId;
   /**  Input for creating `ConsignmentArticle`s for this consignment */
-  carrierConsignmentArticles: Array<InputMaybe<CreateConsignmentArticleWithConsignmentInput>>;
+  carrierConsignmentArticles: CreateConsignmentArticleWithConsignmentInput[];
   /**
    *  The external consignment reference assigned by the carrier. <br/>
    *  Max character limit: 100.
    */
-  consignmentReference?: InputMaybe<Scalars['String']>;
+  consignmentReference?: string;
   /**  The URL used to retrieve the shipping label */
-  labelUrl?: InputMaybe<Scalars['String']>;
+  labelUrl?: string;
   /**  A url to represent the order summary. Usually the manifest url from the service provider. */
-  orderSummaryUrl?: InputMaybe<Scalars['String']>;
+  orderSummaryUrl?: string;
   /**  External reference of the object. Must be unique. */
-  ref: Scalars['String'];
+  ref: string;
   /**  Retailer who is booking the consignment */
   retailer: RetailerId;
   /**
    *  Tracking label of the consignment. <br/>
    *  Max character limit: 100.
    */
-  trackingLabel?: InputMaybe<Scalars['String']>;
+  trackingLabel?: string;
 };
 
 /**  Input type to uniquely identify a `Carrier` */
 export type CarrierId = {
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
 };
 
 /**  Input for creating `ConsignmentArticle`s with the `CreateConsignment` request. */
 export type CreateConsignmentArticleWithConsignmentInput = {
-  article?: InputMaybe<ArticleId>;
+  article?: ArticleId;
 };
 
 /**
@@ -7730,30 +7725,30 @@ export type CreateConsignmentArticleWithConsignmentInput = {
  */
 export type CreateCategoryInput = {
   /**  A list of attributes associated with this Category. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  The reference of the `ProductCatalogue` in which this `Category` will reside. The `ProductCatalogue` must already exist. */
   catalogue: ProductCatalogueKey;
   /**  List of child `Category` references, if any. Child categories must be a part of the same `ProductCatalogue` (see `catalogue` field). The child `Category` must already exist. */
-  childCategories?: InputMaybe<Array<InputMaybe<CategoryKey>>>;
+  childCategories?: CategoryKey[];
   /**  The name of the Category */
-  name: Scalars['String'];
+  name: string;
   /**
    *  The reference to the parent of this `Category`, if any. The parent `Category` must be a part of the same `ProductCatalogue` (see `catalogue` field). The parent `Category` must already exist. <br/>
    *  Max character limit: 36.
    */
-  parentCategory?: InputMaybe<CategoryKey>;
+  parentCategory?: CategoryKey;
   /**
    *  The reference identifier used to identify an single `Category` within a `ProductCatalogue`. The `ref` must be unique within a `ProductCatalogue`. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**  A short description of the Category */
-  summary?: InputMaybe<Scalars['String']>;
+  summary?: string;
   /**
    *  Type of the `Category`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
    *  Max character limit: 50.
    */
-  type: Scalars['String'];
+  type: string;
 };
 
 /**  The `CategoryKey` input is the parameter for identifying a specific Category. */
@@ -7764,7 +7759,7 @@ export type CategoryKey = {
    *  Category reference identifier. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
 };
 
 /**  Input for creating a `comment` against a known entity */
@@ -7773,14 +7768,14 @@ export type CreateCommentInput = {
    *  ID of the entity <br/>
    *  Note: Please note that while the type of this field is `ID`, currently it only supports _Integer_ values.
    */
-  entityId: Scalars['ID'];
+  entityId: string;
   /**  Type of the entity. For example `ORDER`, `FULFILMENT`, `ORDERITEM`, `PRODUCTCATALOGUE` etc. */
-  entityType: Scalars['String'];
+  entityType: string;
   /**
    *  Comment text. <br/>
    *  Max character limit: 200.
    */
-  text: Scalars['String'];
+  text: string;
 };
 
 /**  Input for creating a `Consignment` object. */
@@ -7788,25 +7783,25 @@ export type CreateConsignmentInput = {
   /**  Carrier used for the consignment */
   carrier: CarrierId;
   /**  Input for creating `ConsignmentArticle`s for this consignment */
-  consignmentArticles: Array<InputMaybe<CreateConsignmentArticleWithConsignmentInput>>;
+  consignmentArticles: CreateConsignmentArticleWithConsignmentInput[];
   /**
    *  The external consignment reference assigned by the carrier. <br/>
    *  Max character limit: 100.
    */
-  consignmentReference: Scalars['String'];
+  consignmentReference: string;
   /**  The URL used to retrieve the shipping label */
-  labelUrl?: InputMaybe<Scalars['String']>;
+  labelUrl?: string;
   /**  A url to represent the order summary. Usually the manifest url from the service provider. */
-  orderSummaryUrl?: InputMaybe<Scalars['String']>;
+  orderSummaryUrl?: string;
   /**  External reference of the object. Recommended to be unique. */
-  ref: Scalars['String'];
+  ref: string;
   /**  Retailer who is booking the consignment */
   retailer: RetailerId;
   /**
    *  Tracking label of the consignment. <br/>
    *  Max character limit: 100.
    */
-  trackingLabel?: InputMaybe<Scalars['String']>;
+  trackingLabel?: string;
 };
 
 /**
@@ -7819,27 +7814,27 @@ export type CreateConsignmentInput = {
  */
 export type CreateControlInput = {
   /**  List of Attribute containing meta data information for this entity */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  Control Group */
   controlGroup: ControlGroupKey;
   /**  Description */
-  description?: InputMaybe<Scalars['String']>;
+  description?: string;
   /**  Order that this control is applied */
-  executionOrder?: InputMaybe<Scalars['Int']>;
+  executionOrder?: number;
   /**  Name */
-  name: Scalars['String'];
+  name: string;
   /**
    *  The reference identifier used to identify an entity. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**
    *  Type of the `Control`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
    *  Max character limit: 50.
    */
-  type: Scalars['String'];
+  type: string;
   /**  values */
-  values?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  values?: AttributeInput[];
 };
 
 /**
@@ -7852,28 +7847,28 @@ export type CreateControlInput = {
  */
 export type CreateControlGroupInput = {
   /**  List of Attribute containing meta data information for this entity */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  Description */
-  description?: InputMaybe<Scalars['String']>;
+  description?: string;
   /**  Name */
-  name: Scalars['String'];
+  name: string;
   /**
    *  The reference identifier used to identify an entity. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**  Retailer refs */
-  retailerRefs?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  retailerRefs?: string[];
   /**
    *  Type of the `ControlGroup`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
    *  Max character limit: 50.
    */
-  type: Scalars['String'];
+  type: string;
 };
 
 export type CreateCreditMemoInput = {
   /**  A list of attributes associated with the `CreditMemo`. This can be used to extend the existing data structure with additional data. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  `BillingAccount` associated with the `CreditMemo`. */
   billingAccount: BillingAccountKey;
   /**  Reference to the `Currency`. */
@@ -7881,20 +7876,20 @@ export type CreateCreditMemoInput = {
   /**  The default Tax Type for this credit memo. Individual credit memo items can override */
   defaultTaxType: TaxTypeInput;
   /**  `Invoice` associated with this `CreditMemo`. */
-  invoice?: InputMaybe<InvoiceKey>;
+  invoice?: InvoiceKey;
   /**  Issue date */
-  issueDate: Scalars['DateTime'];
+  issueDate: Date;
   /**  The `CreditMemoItem`s associated with this `CreditMemo`. */
-  items?: InputMaybe<Array<InputMaybe<CreateCreditMemoItemWithCreditMemoInput>>>;
+  items?: CreateCreditMemoItemWithCreditMemoInput[];
   /**  Reference to an `Order` associated with the `CreditMemo`. */
-  order?: InputMaybe<OrderLinkInput>;
+  order?: OrderLinkInput;
   /**
    *  External reference to the `CreditMemo`. Must be unique. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**  Reference to a `ReturnOrder` associated with the `CreditMemo`. */
-  returnOrder?: InputMaybe<ReturnOrderKey>;
+  returnOrder?: ReturnOrderKey;
   /**  The total amount of this credit memo excluding tax */
   subTotalAmount: AmountTypeInput;
   /**  The total amount of this credit memo including tax */
@@ -7907,81 +7902,81 @@ export type CreateCreditMemoInput = {
    *  Type of the `CreditMemo`, typically used by the Orchestration Engine to determine the workflow that should be applied. <br/>
    *  Max character limit: 50.
    */
-  type: Scalars['String'];
+  type: string;
 };
 
 /**  Input type to uniquely identify a `BillingAccount` object. We use all the fields present in the request to look for this object. */
 export type BillingAccountKey = {
   /**  The client's reference identifier for the object */
-  ref: Scalars['String'];
+  ref: string;
 };
 
 /**  Input type to uniquely identify a `Currency` object. We use all the fields present in the request to look for this object. */
 export type CurrencyKey = {
   /**  Max character limit: 20. */
-  alphabeticCode: Scalars['String'];
+  alphabeticCode: string;
 };
 
 /**  Input structure for creating or updating a `TaxType` on a `Product`. If `country` and `group` match, it will UPDATE, otherwise it will CREATE. All fields are required. */
 export type TaxTypeInput = {
   /**  Max character limit: 100. */
-  country: Scalars['String'];
+  country: string;
   /**  Max character limit: 100. */
-  group: Scalars['String'];
+  group: string;
   /**  Max character limit: 100. */
-  tariff: Scalars['String'];
+  tariff: string;
 };
 
 /**  Input type to uniquely identify an `Invoice` object. We use all the fields present in the request to look for this object. */
 export type InvoiceKey = {
   /**  The client's reference identifier for the object */
-  ref: Scalars['String'];
+  ref: string;
 };
 
 export type CreateCreditMemoItemWithCreditMemoInput = {
   /**  The item amount for this item excluding tax. This is a calculated value based on business rules that does not necessarily have to take into account the unit quantity or amounts. */
   amount: AmountTypeInput;
   /**  Credit reason code of the `CreditMemoItem`. */
-  creditReasonCode?: InputMaybe<SettingValueTypeInput>;
+  creditReasonCode?: SettingValueTypeInput;
   /**  Description of the `CreditMemoItem`. */
-  description?: InputMaybe<Scalars['String']>;
+  description?: string;
   /**  Reference to an `OrderItem` associated with the `CreditMemoItem`. */
-  orderItem?: InputMaybe<OrderItemLinkInput>;
+  orderItem?: OrderItemLinkInput;
   /**  Reference to a `Product` associated with the `CreditMemoItem`. */
-  product?: InputMaybe<ProductKey>;
+  product?: ProductKey;
   /**
    *  External reference to the `CreditMemoItem`. Must be unique. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**  Reference to a `ReturnOrderItem` associated with the `CreditMemoItem`. */
-  returnOrderItem?: InputMaybe<ReturnOrderItemKey>;
+  returnOrderItem?: ReturnOrderItemKey;
   /**  The tax amount for this item. If not present at the item level, tax amount should be generated based on the tax type set at the invoice parent level. */
   taxAmount: AmountTypeInput;
   /**
    *  Type of the `CreditMemoItem`, typically used by the Orchestration Engine to determine the workflow that should be applied. <br/>
    *  Max character limit: 50.
    */
-  type: Scalars['String'];
+  type: string;
   /**  The unit sale price at time of sale or exchange */
   unitAmount: AmountTypeInput;
   /**  The unit cost price at time of sale or exchange. */
-  unitCostAmount?: InputMaybe<AmountTypeInput>;
+  unitCostAmount?: AmountTypeInput;
   /**  `unitQuantity` holds separately the amount and the unit associated. */
   unitQuantity: QuantityTypeInput;
   /**  The tax type of this item. Should only be provided if different to the default credit memo tax type. */
-  unitTaxType?: InputMaybe<TaxTypeInput>;
+  unitTaxType?: TaxTypeInput;
 };
 
 export type AmountTypeInput = {
-  amount?: InputMaybe<Scalars['Float']>;
-  scale?: InputMaybe<Scalars['Int']>;
-  unscaledValue?: InputMaybe<Scalars['Int']>;
+  amount?: number;
+  scale?: number;
+  unscaledValue?: number;
 };
 
 export type SettingValueTypeInput = {
-  label?: InputMaybe<Scalars['String']>;
-  value: Scalars['String'];
+  label?: string;
+  value: string;
 };
 
 /**  The `ProductKey` input is the parameter for identifying a specific Product. */
@@ -7992,20 +7987,20 @@ export type ProductKey = {
    *  Product reference identifier. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
 };
 
 /**  Input type to uniquely identify a `ReturnOrderItem` object. We use all the fields present in the request to look for this object. */
 export type ReturnOrderItemKey = {
   /**  The client's reference identifier for the object */
-  ref: Scalars['String'];
+  ref: string;
   /**  Return order associated with the order item */
   returnOrder: ReturnOrderKey;
 };
 
 export type QuantityTypeInput = {
-  quantity: Scalars['Int'];
-  unit?: InputMaybe<Scalars['String']>;
+  quantity: number;
+  unit?: string;
 };
 
 export type CreateCreditMemoItemInput = {
@@ -8014,89 +8009,89 @@ export type CreateCreditMemoItemInput = {
   /**  `CreditMemo` associated with the `CreditMemoItem`. */
   creditMemo: CreditMemoKey;
   /**  Credit reason code of the `CreditMemoItem`. */
-  creditReasonCode?: InputMaybe<SettingValueTypeInput>;
+  creditReasonCode?: SettingValueTypeInput;
   /**  Description of the `CreditMemoItem`. */
-  description?: InputMaybe<Scalars['String']>;
+  description?: string;
   /**  Reference to an `OrderItem` associated with the `CreditMemoItem`. */
-  orderItem?: InputMaybe<OrderItemLinkInput>;
+  orderItem?: OrderItemLinkInput;
   /**  Reference to a `Product` associated with the `CreditMemoItem`. */
-  product?: InputMaybe<ProductKey>;
+  product?: ProductKey;
   /**
    *  External reference to the `CreditMemoItem`. Must be unique. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**  Reference to a `ReturnOrderItem` associated with the `CreditMemoItem`. */
-  returnOrderItem?: InputMaybe<ReturnOrderItemKey>;
+  returnOrderItem?: ReturnOrderItemKey;
   /**  The tax amount for this item. If not present at the item level, tax amount should be generated based on the tax type set at the invoice parent level. */
   taxAmount: AmountTypeInput;
   /**
    *  Type of the `CreditMemoItem`, typically used by the Orchestration Engine to determine the workflow that should be applied. <br/>
    *  Max character limit: 50.
    */
-  type: Scalars['String'];
+  type: string;
   /**  The unit sale price at time of sale or exchange */
   unitAmount: AmountTypeInput;
   /**  The unit cost price at time of sale or exchange. */
-  unitCostAmount?: InputMaybe<AmountTypeInput>;
+  unitCostAmount?: AmountTypeInput;
   /**  `unitQuantity` holds separately the amount and the unit associated. */
   unitQuantity: QuantityTypeInput;
   /**  The tax type of this item. Should only be provided if different to the default credit memo tax type. */
-  unitTaxType?: InputMaybe<TaxTypeInput>;
+  unitTaxType?: TaxTypeInput;
 };
 
 /**  Input type to uniquely identify a `CreditMemo` object. We use all the fields present in the request to look for this object. */
 export type CreditMemoKey = {
   /**  The client's reference identifier for the object */
-  ref: Scalars['String'];
+  ref: string;
 };
 
 /** Customer */
 export type CreateCustomerInput = {
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  Max character limit: 100. */
-  country?: InputMaybe<Scalars['String']>;
-  department?: InputMaybe<Scalars['String']>;
+  country?: string;
+  department?: string;
   /**  Max character limit: 50. */
-  firstName: Scalars['String'];
+  firstName: string;
   /**  Max character limit: 50. */
-  lastName?: InputMaybe<Scalars['String']>;
+  lastName?: string;
   /**  Max character limit: 250. */
-  primaryEmail: Scalars['String'];
+  primaryEmail: string;
   /**  Max character limit: 20. */
-  primaryPhone?: InputMaybe<Scalars['String']>;
+  primaryPhone?: string;
   promotionOptIn: Scalars['Boolean'];
   retailer: RetailerId;
   /**  Max character limit: 32. */
-  timezone: Scalars['String'];
+  timezone: string;
   /**  Max character limit: 50. */
-  title?: InputMaybe<Scalars['String']>;
+  title?: string;
   /**  Max character limit: 250. */
-  username: Scalars['String'];
+  username: string;
 };
 
 /** CustomerAddress */
 export type CreateCustomerAddressInput = {
   /**  Max character limit: 45. */
-  city?: InputMaybe<Scalars['String']>;
+  city?: string;
   /**  Max character limit: 45. */
-  companyName?: InputMaybe<Scalars['String']>;
+  companyName?: string;
   /**  Max character limit: 100. */
-  country?: InputMaybe<Scalars['String']>;
-  latitude?: InputMaybe<Scalars['Float']>;
-  longitude?: InputMaybe<Scalars['Float']>;
-  name?: InputMaybe<Scalars['String']>;
+  country?: string;
+  latitude?: number;
+  longitude?: number;
+  name?: string;
   /**  Max character limit: 100. */
-  postcode?: InputMaybe<Scalars['String']>;
-  ref: Scalars['String'];
+  postcode?: string;
+  ref: string;
   /**  Max character limit: 250. */
-  region?: InputMaybe<Scalars['String']>;
+  region?: string;
   /**  Max character limit: 200. */
-  state?: InputMaybe<Scalars['String']>;
+  state?: string;
   /**  Max character limit: 100. */
-  street?: InputMaybe<Scalars['String']>;
+  street?: string;
   /**  Max character limit: 32. */
-  timeZone?: InputMaybe<Scalars['String']>;
+  timeZone?: string;
 };
 
 /**
@@ -8107,7 +8102,7 @@ export type CreateDecisionRuleInput = {
   /**  Input for the new decision rule being created */
   decisionRule: CreateDecisionRuleWithDecisionTableInput;
   /**  Id of the decision table that this rule is being added to */
-  decisionTableId: Scalars['ID'];
+  decisionTableId: string;
 };
 
 /**
@@ -8116,13 +8111,13 @@ export type CreateDecisionRuleInput = {
  */
 export type CreateDecisionRuleWithDecisionTableInput = {
   /**  A short description of the rule. Helpful to understand the behaviour when the rule itself is complicated. */
-  description?: InputMaybe<Scalars['String']>;
+  description?: string;
   /**  A set of conditions that all need to be true for the input to evaluate to true. */
-  inputs: Array<CreateDecisionRuleInputInput>;
+  inputs: CreateDecisionRuleInputInput[];
   /**  A set of actions to be taken when the input evaluates to true. <br/> Note: The type is list for future support. Currently we support only one action. If user configures more than one output, the first one in the array will be executed and the rest will be ignored. */
-  outputs: Array<CreateDecisionRuleOutputInput>;
+  outputs: CreateDecisionRuleOutputInput[];
   /**  The priority decides which rule to execute in case of a conflict between multiple rules. The rule with the highest priority (represented by lowest number) will be selected. If no priority is provided, each rule will get a priority of 100 by default. */
-  priority?: InputMaybe<Scalars['Int']>;
+  priority?: number;
 };
 
 /**
@@ -8131,15 +8126,15 @@ export type CreateDecisionRuleWithDecisionTableInput = {
  */
 export type CreateDecisionRuleInputInput = {
   /**  This represents the right hand side of the condition equation. It includes the input values. */
-  inputEntries?: InputMaybe<CreateDecisionRuleInputEntriesInput>;
+  inputEntries?: CreateDecisionRuleInputEntriesInput;
   /**  The left hand side of a condition equation. At the moment, the actions are executed only when the inputExpression evaluates to true. So, it should be designed such that the true value should lead to the execution of the action. */
-  inputExpression?: InputMaybe<CreateDecisionRuleInputExpressionInput>;
+  inputExpression?: CreateDecisionRuleInputExpressionInput;
 };
 
 /**  _Disclaimer:  This type is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/> */
 export type CreateDecisionRuleInputEntriesInput = {
   /**  Values that the input expression will be compared to. To be used when values of the corresponding fields are strings. For example, value of Product.Ref will be string or a value that can be passed and converted into a string. */
-  stringEntries?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  stringEntries?: string[];
 };
 
 /**
@@ -8149,9 +8144,9 @@ export type CreateDecisionRuleInputEntriesInput = {
  */
 export type CreateDecisionRuleInputExpressionInput = {
   /**  The fieldName from the GraphQL type */
-  fieldName?: InputMaybe<DecisionRuleInputFieldName>;
+  fieldName?: DecisionRuleInputFieldName;
   /**  The comparison operator */
-  operator?: InputMaybe<DecisionRuleComparisionOperator>;
+  operator?: DecisionRuleComparisionOperator;
 };
 
 /**
@@ -8168,62 +8163,62 @@ export type CreateDecisionRuleOutputInput = {
 /**  _Disclaimer:  This type is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/> */
 export type CreateDecisionRuleOutputEntriesInput = {
   /**  Values that the output expression will be compared to. To be used when the values are a single Int. For example, for the Output "Apply a quantity buffer of 10, this is the `10` part. */
-  intEntry?: InputMaybe<Scalars['Int']>;
+  intEntry?: number;
 };
 
 /**  _Disclaimer:  This type is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/> */
 export type CreateDecisionRuleOutputExpressionInput = {
   /**  The action to be executed */
-  action?: InputMaybe<DecisionRuleOutputAction>;
+  action?: DecisionRuleOutputAction;
 };
 
 /** Financial Transaction */
 export type CreateFinancialTransactionInput = {
-  amount: Scalars['Float'];
+  amount: number;
   /**  The card type used for the payment. Possible values are 'MASTERCARD', 'VISA', 'AMEX', 'DINERS', 'SPAN', 'DISCOVER', 'UNIONPAY', 'JCB', 'MAESTRO', 'INTERAC'. */
-  cardType?: InputMaybe<Scalars['String']>;
+  cardType?: string;
   /**  Max character limit: 3. */
-  currency: Scalars['String'];
-  externalTransactionCode?: InputMaybe<Scalars['String']>;
-  externalTransactionId?: InputMaybe<Scalars['String']>;
+  currency: string;
+  externalTransactionCode?: string;
+  externalTransactionId?: string;
   order: OrderId;
-  paymentMethod: Scalars['String'];
-  paymentProvider?: InputMaybe<Scalars['String']>;
-  ref: Scalars['String'];
+  paymentMethod: string;
+  paymentProvider?: string;
+  ref: string;
   /**
    *  Type of the `FinancialTransaction`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
    *  Max character limit: 25.
    */
-  type: Scalars['String'];
+  type: string;
 };
 
 export type OrderId = {
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
 };
 
 /**  Input type to create a `Fulfilment` */
 export type CreateFulfilmentInput = {
   /**  List of `attribute`s */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  Represents the associated `Customer` */
-  customer?: InputMaybe<CustomerId>;
+  customer?: CustomerId;
   /**  Type of delivery. Supported values are _STANDARD_, _OVERNIGHT_ and _EXPRESS_. */
-  deliveryType?: InputMaybe<Scalars['String']>;
+  deliveryType?: string;
   /**  Estimated time of completing this fulfilment */
-  eta?: InputMaybe<Scalars['String']>;
+  eta?: string;
   /**  Expiry time of the fulfilment */
-  expiryTime?: InputMaybe<Scalars['DateTime']>;
+  expiryTime?: Date;
   /**  Represents `Address` fulfilling this fulfilment */
-  fromAddress?: InputMaybe<AddressId>;
+  fromAddress?: AddressId;
   /**  List of `FulfilmentItem`s */
-  items?: InputMaybe<Array<InputMaybe<CreateFulfilmentItemWithFulfilmentInput>>>;
+  items?: CreateFulfilmentItemWithFulfilmentInput[];
   /**  Represents the associated `Order` */
   order: OrderId;
   /**  External reference. Recommended to be unique. */
-  ref: Scalars['String'];
+  ref: string;
   /**  Represents the delivery `Address` */
-  toAddress?: InputMaybe<AddressId>;
+  toAddress?: AddressId;
   /**
    *  Type of the `Fulfilment`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
    *  Type of fulfilment. Supported types are <br/>
@@ -8232,36 +8227,36 @@ export type CreateFulfilmentInput = {
    *  - *HD_PFS* for Home Delivery - Pick from Store
    *  - *HD_PFDC* for Home Delivery - Pick from DC
    */
-  type: Scalars['String'];
+  type: string;
 };
 
 export type CustomerId = {
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
 };
 
 export type AddressId = {
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
 };
 
 /**  Input type to create a `FulfilmentItem` with a `Fulfilment`. Intended to be used as an inline input in the _createFulfilment_ mutation. */
 export type CreateFulfilmentItemWithFulfilmentInput = {
   /**  Number of `OrderItem`s confirmed */
-  filledQuantity: Scalars['Int'];
+  filledQuantity: number;
   /**  Associated `OrderItem` */
   orderItem: OrderItemId;
   /**  External reference. Recommended to be unique. */
-  ref: Scalars['String'];
+  ref: string;
   /**  Number of `OrderItem`s rejected */
-  rejectedQuantity: Scalars['Int'];
+  rejectedQuantity: number;
   /**  Number of `OrderItem`s assigned to the fulfilment */
-  requestedQuantity?: InputMaybe<Scalars['Int']>;
+  requestedQuantity?: number;
 };
 
 export type OrderItemId = {
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
 };
 
 export enum ExecutionMode {
@@ -8271,136 +8266,136 @@ export enum ExecutionMode {
 /**  Input type to create a `FulfilmentOption` object. */
 export type CreateFulfilmentOptionInput = {
   /**  A type for passing address. Can be used as an input in creating Fulfilment Plans. */
-  address?: InputMaybe<CreateFulfilmentOptionAddressInput>;
+  address?: CreateFulfilmentOptionAddressInput;
   /**  A list of attributes associated with this object. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**
    *  The reference identifier for a location. May be used in orchestration rules to drive custom business logic. For example, you can have a rule to return plans only from this
    *   location or a rule to return plans from all locations but excluding this one.
    */
-  locationRef?: InputMaybe<Scalars['String']>;
+  locationRef?: string;
   /**  Type of order. For example _click & collect (CC)_ or _home delivery (HD)_ */
-  orderType?: InputMaybe<Scalars['String']>;
+  orderType?: string;
   /**  Products being queried for availability */
-  products?: InputMaybe<Array<InputMaybe<CreateFulfilmentOptionProductInput>>>;
+  products?: CreateFulfilmentOptionProductInput[];
   /**  External reference. Recommended to be unique. */
-  ref: Scalars['String'];
+  ref: string;
   /**  ID of the `Retailer`, typically used by the Orchestration Engine to determine the workflow that should be applied. */
-  retailerId: Scalars['Int'];
+  retailerId: number;
   /**  A unique identifier for the clients to group related Fulfilment Plans. */
-  trackingCode?: InputMaybe<Scalars['String']>;
+  trackingCode?: string;
   /**  Type of the `FulfilmentOption`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/> */
-  type: Scalars['String'];
+  type: string;
 };
 
 /**  Address type to be used in `FulfilmentOption` */
 export type CreateFulfilmentOptionAddressInput = {
   /**  First address line */
-  addressLine1?: InputMaybe<Scalars['String']>;
+  addressLine1?: string;
   /**  Second address line */
-  addressLine2?: InputMaybe<Scalars['String']>;
+  addressLine2?: string;
   /**
    *  City or Town. <br/>
    *  Max character limit: 45.
    */
-  city?: InputMaybe<Scalars['String']>;
+  city?: string;
   /**
    *  Company Name. <br/>
    *  Max character limit: 45.
    */
-  companyName?: InputMaybe<Scalars['String']>;
+  companyName?: string;
   /**
    *  Country. <br/>
    *  Max character limit: 100.
    */
-  country?: InputMaybe<Scalars['String']>;
+  country?: string;
   /**  Geographical coordinate that specifies the north–south position of a point on the Earth's surface */
-  latitude?: InputMaybe<Scalars['Float']>;
+  latitude?: number;
   /**  Geographical coordinate that specifies the east–west position of a point on the Earth's surface */
-  longitude?: InputMaybe<Scalars['Float']>;
+  longitude?: number;
   /**  Name */
-  name?: InputMaybe<Scalars['String']>;
+  name?: string;
   /**
    *  Postcode or Zipcode. <br/>
    *  Max character limit: 100.
    */
-  postcode?: InputMaybe<Scalars['String']>;
+  postcode?: string;
   /**
    *  State or County. <br/>
    *  Max character limit: 100.
    */
-  state?: InputMaybe<Scalars['String']>;
+  state?: string;
 };
 
 /**  Input type to create a `FulfilmentOptionProduct`. */
 export type CreateFulfilmentOptionProductInput = {
   /**  A reference to identify the catalogue for the product */
-  catalogueRef?: InputMaybe<Scalars['String']>;
+  catalogueRef?: string;
   /**  A reference to identify a Product */
-  productRef: Scalars['String'];
+  productRef: string;
   /**  The requested quantity for the product */
-  requestedQuantity?: InputMaybe<Scalars['Int']>;
+  requestedQuantity?: number;
 };
 
 /**  Input type to create a `FulfilmentPlan` object. */
 export type CreateFulfilmentPlanInput = {
   /**  A list of attributes associated with this object. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  ETA of the `FulfilmentPlan`. Although this can be set explicitly, we recommend that this be determined and set in the workflow. */
-  eta?: InputMaybe<Scalars['String']>;
+  eta?: string;
   /**  A list of exceptions. */
-  exceptions?: InputMaybe<Array<InputMaybe<CreateFulfilmentPlanExceptionInput>>>;
+  exceptions?: CreateFulfilmentPlanExceptionInput[];
   /**  associated `FulfilmentOption` object */
   fulfilmentOptionId: FulfilmentOptionId;
   /**  Represents fulfilments under this Fulfilment Plan */
-  fulfilments?: InputMaybe<Array<InputMaybe<CreateFulfilmentPlanFulfilmentInput>>>;
+  fulfilments?: CreateFulfilmentPlanFulfilmentInput[];
   /**  External reference. Recommended to be unique. */
-  ref: Scalars['String'];
+  ref: string;
   /**  ID of the retailer */
-  retailerId: Scalars['Int'];
+  retailerId: number;
   /**  Order split limits */
-  splits?: InputMaybe<Scalars['Int']>;
+  splits?: number;
   /**  Type of the `FulfilmentPlan`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/> */
-  type: Scalars['String'];
+  type: string;
 };
 
 /**  Input type to create a new `FulfilmentPlanException` type */
 export type CreateFulfilmentPlanExceptionInput = {
   /**  Attributes may contain useful information about the exception */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  The exception code */
-  code?: InputMaybe<Scalars['String']>;
+  code?: string;
   /**  The english like description of the exception */
-  message?: InputMaybe<Scalars['String']>;
+  message?: string;
 };
 
 export type FulfilmentOptionId = {
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
 };
 
 /**  Represents a fulfilment under a `FulfilmentPlan` */
 export type CreateFulfilmentPlanFulfilmentInput = {
   /**  ETA of the `FulfilmentPlan` as configured in the workflow */
-  eta?: InputMaybe<Scalars['String']>;
+  eta?: string;
   /**  Type of fulfilment. */
-  fulfilmentType?: InputMaybe<Scalars['String']>;
+  fulfilmentType?: string;
   /**  List of products with their requested and available quantities */
-  items?: InputMaybe<Array<InputMaybe<CreateFulfilmentPlanFulfilmentItemInput>>>;
+  items?: CreateFulfilmentPlanFulfilmentItemInput[];
   /**  Reference to identify the fulfilment location for this fulfilment. */
-  locationRef?: InputMaybe<Scalars['String']>;
+  locationRef?: string;
 };
 
 /**  Input type to create `FulfilmentPlanFulfilmentItem`. */
 export type CreateFulfilmentPlanFulfilmentItemInput = {
   /**  Quantity of the product available as per the plan */
-  availableQuantity: Scalars['Int'];
+  availableQuantity: number;
   /**  A reference to identify the Catalogue */
-  catalogueRef?: InputMaybe<Scalars['String']>;
+  catalogueRef?: string;
   /**  External reference of the product. */
-  productRef: Scalars['String'];
+  productRef: string;
   /**  Requested quantity of the product. */
-  requestedQuantity: Scalars['Int'];
+  requestedQuantity: number;
 };
 
 /**
@@ -8416,38 +8411,38 @@ export type CreateFulfilmentPlanFulfilmentItemInput = {
  */
 export type CreateGroupProductInput = {
   /**  A list of attributes associated with this Product. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  The Product Catalogue in which this Product is managed */
   catalogue: ProductCatalogueKey;
   /**  A list of references to the `Category`'s to which this `Product` relates. Product categories must be a part of the same `ProductCatalogue` (see `catalogue` field). The `Category` must already exist. */
-  categories?: InputMaybe<Array<InputMaybe<CategoryKey>>>;
+  categories?: CategoryKey[];
   /**  The name of the Product */
-  name: Scalars['String'];
+  name: string;
   /**  A list of Prices for this Product */
-  prices?: InputMaybe<Array<InputMaybe<PriceInput>>>;
+  prices?: PriceInput[];
   /**  A list of Products within the group */
-  products?: InputMaybe<Array<InputMaybe<ProductKey>>>;
+  products?: ProductKey[];
   /**
    *  The unique reference identifier for the Product. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**  A short description of the Product (max 255 chars) */
-  summary?: InputMaybe<Scalars['String']>;
+  summary?: string;
   /**  The tax information for this Product */
-  taxType?: InputMaybe<TaxTypeInput>;
+  taxType?: TaxTypeInput;
   /**
    *  Type of the `GroupProduct`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
    *  Max character limit: 50.
    */
-  type: Scalars['String'];
+  type: string;
 };
 
 /**  Input structure for creating or updating `Price`'s on a `Product`. If `type` and `currency` match, it will UPDATE, otherwise it will CREATE. All fields are required. */
 export type PriceInput = {
-  currency: Scalars['String'];
-  type: Scalars['String'];
-  value: Scalars['Float'];
+  currency: string;
+  type: string;
+  value: number;
 };
 
 /**
@@ -8463,23 +8458,23 @@ export type PriceInput = {
  */
 export type CreateInventoryCatalogueInput = {
   /**  A list of attributes associated with this Inventory Catalogue. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  A short description of the Inventory Catalogue */
-  description?: InputMaybe<Scalars['String']>;
+  description?: string;
   /**  The name of the Inventory Catalogue */
-  name: Scalars['String'];
+  name: string;
   /**
    *  The unique reference identifier for the Inventory Catalogue. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**  A list of Retailer references associated with this Inventory Catalogue */
-  retailerRefs?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  retailerRefs?: string[];
   /**
    *  Type of the `InventoryCatalogue`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
    *  Max character limit: 50.
    */
-  type: Scalars['String'];
+  type: string;
 };
 
 /**
@@ -8495,27 +8490,27 @@ export type CreateInventoryCatalogueInput = {
  */
 export type CreateInventoryPositionInput = {
   /**  A list of attributes associated with this Inventory Position. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  The Inventory Catalogue in which this Position is managed */
   catalogue: InventoryCatalogueKey;
   /**  A reference identifying the Location where this inventory exists. This is a loosely coupled association. */
-  locationRef: Scalars['String'];
+  locationRef: string;
   /**  The calculated on hand quantity based on the associated quantities, and rules in the orchestration workflow */
-  onHand?: InputMaybe<Scalars['Int']>;
+  onHand?: number;
   /**  A reference identifying a Product. The referenced product may or may not exist within one or more Product Catalogues. This is a loosely coupled association, since Product and Inventory are separate domains. */
-  productRef: Scalars['String'];
+  productRef: string;
   /**  A list of Inventory Quantities associated with this Position */
-  quantities?: InputMaybe<Array<InputMaybe<InventoryQuantityKey>>>;
+  quantities?: InventoryQuantityKey[];
   /**
    *  The unique reference identifier for the Inventory Position. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**
    *  Type of the `InventoryPosition`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
    *  Max character limit: 50.
    */
-  type: Scalars['String'];
+  type: string;
 };
 
 /**  The `InventoryQuantityKey` input is the parameter for identifying a specific Inventory Quantity. */
@@ -8526,7 +8521,7 @@ export type InventoryQuantityKey = {
    *  Inventory Quantity reference identifier. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
 };
 
 /**
@@ -8542,38 +8537,38 @@ export type InventoryQuantityKey = {
  */
 export type CreateInventoryQuantityInput = {
   /**  A list of attributes associated with this Inventory Quantity. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  The Inventory Catalogue in which this Position is managed */
   catalogue: InventoryCatalogueKey;
   /**  The condition of the Inventory Quantity value. The platform does not enforce any values here. Examples could include `NEW`, `USED`, or `DAMAGED` */
-  condition?: InputMaybe<Scalars['String']>;
+  condition?: string;
   /**  The date and time the quantity is expected to arrive */
-  expectedOn?: InputMaybe<Scalars['DateTime']>;
+  expectedOn?: Date;
   /**  The associated parent Inventory Position of which this Quantity applies */
   position: InventoryPositionKey;
   /**  The actual amount of this specific Quantity record */
-  quantity: Scalars['Int'];
+  quantity: number;
   /**
    *  The unique reference identifier for the Inventory Quantity. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**
    *  A reference to the Storage Area where this inventory is kept. <br/>
    *  Max character limit: 100.
    */
-  storageAreaRef?: InputMaybe<Scalars['String']>;
+  storageAreaRef?: string;
   /**
    *  Type of the `InventoryQuantity`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
    *  Max character limit: 50.
    */
-  type: Scalars['String'];
+  type: string;
 };
 
 /**  `CreateInvoiceInput` */
 export type CreateInvoiceInput = {
   /**  A list of attributes associated with the `Invoice`. This can be used to extend the existing data structure with additional data. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  The `BillingAccount` associated with the `Invoice`. */
   billingAccount: BillingAccountKey;
   /**
@@ -8584,20 +8579,20 @@ export type CreateInvoiceInput = {
   /**  Default tax type */
   defaultTaxType: TaxTypeInput;
   /**  Due date of the `Invoice` */
-  dueDate?: InputMaybe<Scalars['DateTime']>;
+  dueDate?: Date;
   /**  Reference to the `Fulfilment` associated with this `Invoice`. */
-  fulfilment?: InputMaybe<FulfilmentLinkInput>;
+  fulfilment?: FulfilmentLinkInput;
   /**  Issue date of the `Invoice` */
-  issueDate: Scalars['DateTime'];
+  issueDate: Date;
   /**  The `InvoiceItem`s associated with this `Invoice`. */
-  items?: InputMaybe<Array<InputMaybe<CreateInvoiceItemWithInvoiceInput>>>;
+  items?: CreateInvoiceItemWithInvoiceInput[];
   /**  Reference to the `Order` associated with this `Invoice`. */
-  order?: InputMaybe<OrderLinkInput>;
+  order?: OrderLinkInput;
   /**
    *  External reference to the `Invoice`. Must be unique. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**  The total amount of this invoice excluding tax. */
   subTotalAmount: AmountTypeInput;
   /**  The total amount of this invoice including tax */
@@ -8610,7 +8605,7 @@ export type CreateInvoiceInput = {
    *  Type of the `Invoice`, typically used by the Orchestration Engine to determine the workflow that should be applied. <br/>
    *  Max character limit: 50.
    */
-  type: Scalars['String'];
+  type: string;
 };
 
 /**  Input type to create an `InvoiceItem` with an `Invoice`. Intended to be used as an inline input in the createInvoice_mutation. */
@@ -8618,27 +8613,27 @@ export type CreateInvoiceItemWithInvoiceInput = {
   /**  The item amount for this item excluding tax */
   amount: AmountTypeInput;
   /**  Description of the `InvoiceItem`. */
-  description?: InputMaybe<Scalars['String']>;
+  description?: string;
   /**  Reference to the `Product` associated with this object. */
-  product?: InputMaybe<ProductKey>;
+  product?: ProductKey;
   /**
    *  External reference to the `InvoiceItem`. Must be unique. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**  The tax amount for this item. If not present at the item level, tax amount should be generated based on the tax type set at the invoice parent level. */
   taxAmount: AmountTypeInput;
   /**
    *  Type of the `InvoiceItem`, typically used by the Orchestration Engine to determine the workflow that should be applied. <br/>
    *  Max character limit: 50.
    */
-  type: Scalars['String'];
+  type: string;
   /**  The unit price of the source item. */
   unitAmount: AmountTypeInput;
   /**  `unitQuantity` holds separately the amount and the unit associated. */
   unitQuantity: QuantityTypeInput;
   /**  The tax type of this item. Should only be provided if different to the default invoice tax type. */
-  unitTaxType?: InputMaybe<TaxTypeInput>;
+  unitTaxType?: TaxTypeInput;
 };
 
 /**  Input type to create an `InvoiceItem` after the `Invoice` creation. */
@@ -8646,131 +8641,131 @@ export type CreateInvoiceItemInput = {
   /**  The item amount for this item excluding tax */
   amount: AmountTypeInput;
   /**  Description of the `InvoiceItem`. */
-  description?: InputMaybe<Scalars['String']>;
+  description?: string;
   /**  The `Invoice` this object is associated with */
   invoice: InvoiceKey;
   /**  Reference to the `Product` associated with this object. */
-  product?: InputMaybe<ProductKey>;
+  product?: ProductKey;
   /**
    *  External reference to the `InvoiceItem`. Must be unique. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**  The tax amount for this item. If not present at the item level, tax amount should be generated based on the tax type set at the invoice parent level. */
   taxAmount: AmountTypeInput;
   /**
    *  Type of the `InvoiceItem`, typically used by the Orchestration Engine to determine the workflow that should be applied. <br/>
    *  Max character limit: 50.
    */
-  type: Scalars['String'];
+  type: string;
   /**  The unit price of the source item. */
   unitAmount: AmountTypeInput;
   /**  `unitQuantity` holds separately the amount and the unit associated. */
   unitQuantity: QuantityTypeInput;
   /**  The tax type of this item. Should only be provided if different to the default invoice tax type. */
-  unitTaxType?: InputMaybe<TaxTypeInput>;
+  unitTaxType?: TaxTypeInput;
 };
 
 export type CreateLocationInput = {
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  Max character limit: 50. */
-  defaultCarrier?: InputMaybe<Scalars['String']>;
+  defaultCarrier?: string;
   /**  Max character limit: 100. */
-  name: Scalars['String'];
-  networks?: InputMaybe<Array<InputMaybe<NetworkId>>>;
+  name: string;
+  networks?: NetworkId[];
   openingSchedule: CreateOpeningScheduleInput;
   primaryAddress: CreateStoreAddressInput;
   /**  Max character limit: 100. */
-  ref: Scalars['String'];
+  ref: string;
   retailer: RetailerId;
-  storageAreas?: InputMaybe<Array<InputMaybe<CreateStorageAreaWithLocationInput>>>;
+  storageAreas?: CreateStorageAreaWithLocationInput[];
   /**  Max character limit: 20. */
-  supportPhoneNumber?: InputMaybe<Scalars['String']>;
+  supportPhoneNumber?: string;
   /**  Max character limit: 25. */
-  type: Scalars['String'];
+  type: string;
 };
 
 export type NetworkId = {
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
 };
 
 /** OpeningSchedule */
 export type CreateOpeningScheduleInput = {
   allHours: Scalars['Boolean'];
-  friEnd: Scalars['Int'];
-  friStart: Scalars['Int'];
-  monEnd: Scalars['Int'];
-  monStart: Scalars['Int'];
-  satEnd: Scalars['Int'];
-  satStart: Scalars['Int'];
-  sunEnd: Scalars['Int'];
-  sunStart: Scalars['Int'];
-  thuEnd: Scalars['Int'];
-  thuStart: Scalars['Int'];
-  tueEnd: Scalars['Int'];
-  tueStart: Scalars['Int'];
-  wedEnd: Scalars['Int'];
-  wedStart: Scalars['Int'];
+  friEnd: number;
+  friStart: number;
+  monEnd: number;
+  monStart: number;
+  satEnd: number;
+  satStart: number;
+  sunEnd: number;
+  sunStart: number;
+  thuEnd: number;
+  thuStart: number;
+  tueEnd: number;
+  tueStart: number;
+  wedEnd: number;
+  wedStart: number;
 };
 
 export type CreateStoreAddressInput = {
   /**  Max character limit: 45. */
-  city?: InputMaybe<Scalars['String']>;
+  city?: string;
   /**  Max character limit: 45. */
-  companyName?: InputMaybe<Scalars['String']>;
+  companyName?: string;
   /**  Max character limit: 100. */
-  country?: InputMaybe<Scalars['String']>;
-  latitude: Scalars['Float'];
-  longitude: Scalars['Float'];
-  name?: InputMaybe<Scalars['String']>;
+  country?: string;
+  latitude: number;
+  longitude: number;
+  name?: string;
   /**  Max character limit: 100. */
-  postcode?: InputMaybe<Scalars['String']>;
-  ref: Scalars['String'];
+  postcode?: string;
+  ref: string;
   /**  Max character limit: 250. */
-  region?: InputMaybe<Scalars['String']>;
+  region?: string;
   /**  Max character limit: 200. */
-  state?: InputMaybe<Scalars['String']>;
+  state?: string;
   /**  Max character limit: 100. */
-  street?: InputMaybe<Scalars['String']>;
+  street?: string;
   /**  Max character limit: 32. */
-  timeZone?: InputMaybe<Scalars['String']>;
+  timeZone?: string;
 };
 
 export type CreateStorageAreaWithLocationInput = {
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
-  ref: Scalars['String'];
+  attributes?: AttributeInput[];
+  ref: string;
   /**  Max character limit: 50. */
-  type?: InputMaybe<Scalars['String']>;
+  type?: string;
 };
 
 /**  Input for the `createManifest` mutation. */
 export type CreateManifestInput = {
   /**  A list of attributes associated with the `Manifest`. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**
    *  Reference to the `Carrier` the `Manifest` is for <br/>
    *  Max character limit: 100.
    */
   carrier: CarrierKey;
   /**  A list of references to the `Consignment`'s the `Manifest` contains. */
-  carrierConsignments?: InputMaybe<Array<InputMaybe<CarrierConsignmentKey>>>;
+  carrierConsignments?: CarrierConsignmentKey[];
   /**  The link where the carrier's manifest is stored. Not all the carriers generates one, so this field is optional. */
-  carrierManifestLink?: InputMaybe<Scalars['String']>;
+  carrierManifestLink?: string;
   /**  The `Location` the `Manifest` is associated with */
   location: LocationKey;
   /**  The name of the `Manifest` */
-  name: Scalars['String'];
+  name: string;
   /**
    *  External reference for the `Manifest`. Must be unique. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**
    *  The type of `Manifest`. <br/>
    *  Max character limit: 50.
    */
-  type: Scalars['String'];
+  type: string;
 };
 
 /**  Input type to uniquely identify a `Carrier` */
@@ -8779,137 +8774,137 @@ export type CarrierKey = {
    *  Reference of the object. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
 };
 
 /**  Input type to create a `Network` */
 export type CreateNetworkInput = {
   /**  List of the network's `attribute`s */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  List of `location`s within this network */
-  locations?: InputMaybe<Array<InputMaybe<LocationId>>>;
+  locations?: LocationId[];
   /**
    *  Name of the network. Recommended to be unique as this is used as the reference for the network. <br/>
    *  Max character limit: 100.
    */
-  name: Scalars['String'];
+  name: string;
   /**  List of `retailer`s associated with this network */
-  retailers: Array<RetailerId>;
+  retailers: RetailerId[];
   /**
    *  Type of the network. For example you could use _CC_ for _Click and Collect_ or _HD_ for _Home Delivery_. These types can be defined by the user and used by the Orchestration
    *  Engine to determine the workflow that should be applied <br/>
    *  Max character limit: 15.
    */
-  type?: InputMaybe<Scalars['String']>;
+  type?: string;
 };
 
 export type LocationId = {
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
 };
 
 /**  Input type to create an `Order` */
 export type CreateOrderInput = {
   /**  List of order `attribute`s */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  `ID` of the `Customer` for the order */
   customer: CustomerId;
   /**  `FulfilmentChoice` for the order */
-  fulfilmentChoice?: InputMaybe<CreateFulfilmentChoiceWithOrderInput>;
+  fulfilmentChoice?: CreateFulfilmentChoiceWithOrderInput;
   /**  A list of `OrderItem`s for this order */
-  items: Array<InputMaybe<CreateOrderItemWithOrderInput>>;
+  items: CreateOrderItemWithOrderInput[];
   /**  The 'Payment' associated with this `Order` */
-  payment?: InputMaybe<PaymentKey>;
+  payment?: PaymentKey;
   /**  External reference for the order. Must be unique. */
-  ref: Scalars['String'];
+  ref: string;
   /**  `Retailer` for the order */
   retailer: RetailerId;
   /**  Total price */
-  totalPrice?: InputMaybe<Scalars['Float']>;
+  totalPrice?: number;
   /**  Total tax price */
-  totalTaxPrice?: InputMaybe<Scalars['Float']>;
+  totalTaxPrice?: number;
   /**
    *  Type of the `Order`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
    *  Type. Currently supports values _CC_, _SFS_, _HD_ for _Click and Collect_, _Ship from Store_ and _Home Delivery_ type orders respectively.
    */
-  type: Scalars['String'];
+  type: string;
 };
 
 /** FulfilmentChoice */
 export type CreateFulfilmentChoiceWithOrderInput = {
-  currency?: InputMaybe<Scalars['String']>;
-  deliveryAddress?: InputMaybe<CreateCustomerAddressInput>;
-  deliveryInstruction?: InputMaybe<Scalars['String']>;
-  deliveryType: Scalars['String'];
-  fulfilmentPrice?: InputMaybe<Scalars['Float']>;
-  fulfilmentTaxPrice?: InputMaybe<Scalars['Float']>;
-  fulfilmentType?: InputMaybe<Scalars['String']>;
-  pickupLocationRef?: InputMaybe<Scalars['String']>;
+  currency?: string;
+  deliveryAddress?: CreateCustomerAddressInput;
+  deliveryInstruction?: string;
+  deliveryType: string;
+  fulfilmentPrice?: number;
+  fulfilmentTaxPrice?: number;
+  fulfilmentType?: string;
+  pickupLocationRef?: string;
 };
 
 /**  Input type to create an `OrderItem` with an `Order`. Intended to be used as an inline input in the _createOrder_ mutation. */
 export type CreateOrderItemWithOrderInput = {
   /**  List of `OrderItem` `attribute`s. There's expected a JSON object */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  Currency. Should ideally be a 3 letter ISO currency code. For instance _AUD_. */
-  currency?: InputMaybe<Scalars['String']>;
+  currency?: string;
   /**  Price paid. Excludes tax. */
-  paidPrice?: InputMaybe<Scalars['Float']>;
+  paidPrice?: number;
   /**  Price */
-  price?: InputMaybe<Scalars['Float']>;
+  price?: number;
   /**
    *  External reference for the product catalogue containing the associated product (specified using the `productRef` in this object).
    *  A product is always associated with a catalogue, that's why we recommend that you always pass a `productCatalogueRef`.
    *  However, if you are using the compatibility catalogue, you don't need to pass in this value as that's the default catalogue
    */
-  productCatalogueRef?: InputMaybe<Scalars['String']>;
+  productCatalogueRef?: string;
   /**  External reference for the associated product. */
-  productRef: Scalars['String'];
+  productRef: string;
   /**  Quantity ordered */
-  quantity: Scalars['Int'];
+  quantity: number;
   /**  External reference for the object. Recommended to be unique. */
-  ref: Scalars['String'];
+  ref: string;
   /**  Tax price */
-  taxPrice?: InputMaybe<Scalars['Float']>;
+  taxPrice?: number;
   /**  Tax type. Supported values are _GST_, _VAT_, _EXCLTAX_. */
-  taxType?: InputMaybe<Scalars['String']>;
+  taxType?: string;
   /**  Total price */
-  totalPrice?: InputMaybe<Scalars['Float']>;
+  totalPrice?: number;
   /**  Total tax price */
-  totalTaxPrice?: InputMaybe<Scalars['Float']>;
+  totalTaxPrice?: number;
 };
 
 /**  Input type to uniquely identify a `Payment` object. We use all the fields present in the request to look for this object. */
 export type PaymentKey = {
   /**  The client's reference identifier for the object */
-  ref: Scalars['String'];
+  ref: string;
 };
 
 /**  Input type to create an `Order` while creating a new `Customer` in a single request */
 export type CreateOrderAndCustomerInput = {
   /**  List of order's `attribute`s */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  `Customer` for the order */
   customer: CreateCustomerInput;
   /**  `FulfilmentChoice` for the order */
-  fulfilmentChoice?: InputMaybe<CreateFulfilmentChoiceWithOrderInput>;
+  fulfilmentChoice?: CreateFulfilmentChoiceWithOrderInput;
   /**  A list of `OrderItem`s for this order */
-  items: Array<InputMaybe<CreateOrderItemWithOrderInput>>;
+  items: CreateOrderItemWithOrderInput[];
   /**  The 'Payment' associated with this `Order` */
-  payment?: InputMaybe<PaymentKey>;
+  payment?: PaymentKey;
   /**  External reference for the order. Must be unique. */
-  ref: Scalars['String'];
+  ref: string;
   /**  `Retailer` for the order */
   retailer: RetailerId;
   /**  Total price */
-  totalPrice?: InputMaybe<Scalars['Float']>;
+  totalPrice?: number;
   /**  Total tax price */
-  totalTaxPrice?: InputMaybe<Scalars['Float']>;
+  totalTaxPrice?: number;
   /**
    *  Type of the `Order`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
    *  Type. Currently supports values _CC_, _SFS_, _HD_ for _Click and Collect_, _Ship from Store_ and _Home Delivery_ type orders respectively
    */
-  type: Scalars['String'];
+  type: string;
 };
 
 /**
@@ -8918,43 +8913,43 @@ export type CreateOrderAndCustomerInput = {
  */
 export type CreateOrderItemInput = {
   /**  List of `OrderItem` `attribute`s. There's expected a JSON object */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  Currency. Should ideally be a 3 letter ISO currency code. For instance _AUD_. */
-  currency?: InputMaybe<Scalars['String']>;
+  currency?: string;
   /**  Contains the reference to the `Order` this item will be added to. */
   order: OrderKey;
   /**  Price paid. Excludes tax. */
-  paidPrice?: InputMaybe<Scalars['Float']>;
+  paidPrice?: number;
   /**  Price */
-  price?: InputMaybe<Scalars['Float']>;
+  price?: number;
   /**
    *  External reference for the product catalogue containing the associated product (specified using the `productRef` in this object).
    *  A product is always associated with a catalogue, that's why we recommend that you always pass a `productCatalogueRef`.
    *  However, if you are using the compatibility catalogue, you don't need to pass in this value as that's the default catalogue
    */
-  productCatalogueRef: Scalars['String'];
+  productCatalogueRef: string;
   /**  External reference for the associated product. Use together with productCatalogueRef to identify a particular `Product` */
-  productRef: Scalars['String'];
+  productRef: string;
   /**  Quantity ordered */
-  quantity: Scalars['Int'];
+  quantity: number;
   /**  External reference for the object. Recommended to be unique. */
-  ref: Scalars['String'];
+  ref: string;
   /**  Tax price */
-  taxPrice?: InputMaybe<Scalars['Float']>;
+  taxPrice?: number;
   /**  Tax type. Supported values are _GST_, _VAT_, _EXCLTAX_. */
-  taxType?: InputMaybe<Scalars['String']>;
+  taxType?: string;
   /**  Total price */
-  totalPrice?: InputMaybe<Scalars['Float']>;
+  totalPrice?: number;
   /**  Total tax price */
-  totalTaxPrice?: InputMaybe<Scalars['Float']>;
+  totalTaxPrice?: number;
 };
 
 /**  The `OrderKey` input identify the `Order` using either the id or the external reference to the object */
 export type OrderKey = {
   /**  ID of the `Order` */
-  id?: InputMaybe<Scalars['ID']>;
+  id?: string;
   /**  External reference of the `Order`. */
-  ref?: InputMaybe<Scalars['String']>;
+  ref?: string;
 };
 
 /**  Input type to create a `Payment`. */
@@ -8962,16 +8957,16 @@ export type CreatePaymentInput = {
   /**  The total amount of this `Payment` */
   amount: AmountTypeInput;
   /**  A list of attributes associated with the `Payment`. This can be used to extend the existing data structure with additional data. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  The `BillingAccount` associated with this `Payment`. */
-  billingAccount?: InputMaybe<BillingAccountKey>;
+  billingAccount?: BillingAccountKey;
   /**  The `PaymentTransaction`s associated with this `Payment`. */
-  paymentTransactions?: InputMaybe<Array<CreatePaymentTransactionWithPaymentInput>>;
+  paymentTransactions?: CreatePaymentTransactionWithPaymentInput[];
   /**
    *  External reference for the `Payment`. Must be unique. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**  Retailer associated to the `Payment`. */
   retailer: RetailerId;
   /**
@@ -8979,13 +8974,13 @@ export type CreatePaymentInput = {
    *  Status of the `Payment`. <br/>
    *  Max character limit: 25.
    */
-  status?: InputMaybe<Scalars['String']>;
+  status?: string;
   /**
    *  Type of the `Payment`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
    *  Type of the `Payment`, typically used by the Orchestration Engine to determine the workflow that should be applied. <br/>
    *  Max character limit: 25.
    */
-  type: Scalars['String'];
+  type: string;
 };
 
 /**  Input type to create one or more `PaymentTransaction` when a `Payment` is created. */
@@ -8993,79 +8988,79 @@ export type CreatePaymentTransactionWithPaymentInput = {
   /**  The total amount of this `PaymentTransaction` */
   amount: AmountTypeInput;
   /**  A list of attributes associated with the `PaymentTransaction`. This can be used to extend the existing data structure with additional data. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  The Authorization Key of this `PaymentTransaction` if it is of 'PreAuth' */
-  authorizationKey?: InputMaybe<Scalars['String']>;
+  authorizationKey?: string;
   /**  The Card type used in this `PaymentTransaction`. Some example values are: 'MASTERCARD', 'VISA', 'AMEX', 'DINERS', 'SPAN', 'DISCOVER', 'UNIONPAY', 'JCB', 'MAESTRO', 'INTERAC'. */
-  cardType?: InputMaybe<Scalars['String']>;
+  cardType?: string;
   /**  The currency used in this `Payment`. */
   currency: CurrencyKey;
   /**  The payment method used in this `PaymentTransaction`. Some example values are: 'CREDITCARD', 'GIFTCARD', 'COUPON'. */
-  paymentMethod: Scalars['String'];
+  paymentMethod: string;
   /**  The payment servicer provider for this `PaymentTransaction` */
   paymentServiceProvider: PaymentServiceProviderKey;
   /**
    *  External reference to the `PaymentTransaction`. Must be unique. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**
    *  Status of the `PaymentTransaction`. <br/>
    *  Max character limit: 25.
    */
-  status?: InputMaybe<Scalars['String']>;
+  status?: string;
   /**
    *  Type of the `PaymentTransaction`, typically used by the Orchestration Engine to determine the workflow that should be applied. Common types that are used are: CAPTURE
    * REFUND, AUTHORIZATION. <br/>
    *  Max character limit: 25.
    */
-  type: Scalars['String'];
+  type: string;
 };
 
 /**  Input type to uniquely identify a `PaymentServiceProvider` object. We use all the fields present in the request to look for this object. */
 export type PaymentServiceProviderKey = {
   /**  The client's reference identifier for the object */
-  ref: Scalars['String'];
+  ref: string;
 };
 
 /**  Input type to create a `PaymentServiceProvider`. */
 export type CreatePaymentServiceProviderInput = {
   /**  A list of attributes associated with the `PaymentServiceProvider`. This can be used to extend the existing data structure with additional data. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**
    *  The ClientId of the `PaymentServiceProvider`. <br/>
    *  Max character limit: 25.
    */
-  clientId: Scalars['String'];
+  clientId: string;
   /**
    *  The Client Secret of the `PaymentServiceProvider`. <br/>
    *  Max character limit: 50.
    */
-  clientSecret: Scalars['String'];
+  clientSecret: string;
   /**
    *  The host name of the `PaymentServiceProvider`. <br/>
    *  Max character limit: 50.
    */
-  host: Scalars['String'];
+  host: string;
   /**
    *  Name of the `PaymentServiceProvider`. <br/>
    *  Max character limit: 50.
    */
-  name?: InputMaybe<Scalars['String']>;
+  name?: string;
   /**  The port of the `PaymentServiceProvider` */
-  port: Scalars['Int'];
+  port: number;
   /**
    *  External reference to the `PaymentServiceProvider`. Must be unique. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**  Retailer associated to the `PaymentServiceProvider`. */
   retailer: RetailerId;
   /**
    *  The Authorization Key of this `PaymentServiceProvider`. <br/>
    *  Max character limit: 50.
    */
-  serviceAuthToken: Scalars['String'];
+  serviceAuthToken: string;
 };
 
 /**  Input type to create a `PaymentTransaction`. */
@@ -9073,17 +9068,17 @@ export type CreatePaymentTransactionInput = {
   /**  The total amount of this `PaymentTransaction` */
   amount: AmountTypeInput;
   /**  A list of attributes associated with the `PaymentTransaction`. This can be used to extend the existing data structure with additional data. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**
    *  The Authorization Key of this `PaymentTransaction` if it is of 'PreAuth'. <br/>
    *  Max character limit: 50.
    */
-  authorizationKey?: InputMaybe<Scalars['String']>;
+  authorizationKey?: string;
   /**
    *  The Card type used in this `PaymentTransaction`. Some example values are: 'MASTERCARD', 'VISA', 'AMEX', 'DINERS', 'SPAN', 'DISCOVER', 'UNIONPAY', 'JCB', 'MAESTRO', 'INTERAC'. <br/>
    *  Max character limit: 25.
    */
-  cardType?: InputMaybe<Scalars['String']>;
+  cardType?: string;
   /**  The currency used in this `Payment`. */
   currency: CurrencyKey;
   /**  The 'Payment' associated with this `PaymentTransaction` */
@@ -9092,27 +9087,27 @@ export type CreatePaymentTransactionInput = {
    *  The payment method used in this `PaymentTransaction`. Some example values are: 'CREDITCARD', 'GIFTCARD', 'COUPON'. <br/>
    *  Max character limit: 25.
    */
-  paymentMethod: Scalars['String'];
+  paymentMethod: string;
   /**  The payment servicer provider for this `PaymentTransaction` */
   paymentServiceProvider: PaymentServiceProviderKey;
   /**
    *  External reference to the `PaymentTransaction`. Must be unique. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**
    *  The current status of the `PaymentTransaction`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/>
    *  Status of the `PaymentTransaction`. <br/>
    *  Max character limit: 25.
    */
-  status?: InputMaybe<Scalars['String']>;
+  status?: string;
   /**
    *  Type of the `PaymentTransaction`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
    *  Type of the `PaymentTransaction`, typically used by the Orchestration Engine to determine the workflow that should be applied. Common types that are used are: CAPTURE
    * REFUND, AUTHORIZATION. <br/>
    *  Max character limit: 25.
    */
-  type: Scalars['String'];
+  type: string;
 };
 
 /**
@@ -9128,86 +9123,86 @@ export type CreatePaymentTransactionInput = {
  */
 export type CreateProductCatalogueInput = {
   /**  A list of attributes associated with this Product Catalogue. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  A short description of the Product Catalogue */
-  description?: InputMaybe<Scalars['String']>;
+  description?: string;
   /**  The name of the Product Catalogue */
-  name: Scalars['String'];
+  name: string;
   /**
    *  The unique reference identifier for the Product Catalogue. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**  A list of Retailer references associated with this Product Catalogue */
-  retailerRefs?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  retailerRefs?: string[];
   /**
    *  Type of the `ProductCatalogue`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
    *  Max character limit: 50.
    */
-  type: Scalars['String'];
+  type: string;
 };
 
 /** Retailer */
 export type CreateRetailerInput = {
   /**  Max character limit: 45. */
-  name: Scalars['String'];
-  networks?: InputMaybe<Array<InputMaybe<CreateNetworkWithRetailerInput>>>;
+  name: string;
+  networks?: CreateNetworkWithRetailerInput[];
   /**  Max character limit: 250. */
-  primaryEmail?: InputMaybe<Scalars['String']>;
-  region?: InputMaybe<Scalars['String']>;
-  summary?: InputMaybe<Scalars['String']>;
-  supportContactName?: InputMaybe<Scalars['String']>;
-  supportEmail?: InputMaybe<Scalars['String']>;
-  supportPhone?: InputMaybe<Scalars['String']>;
-  tradingName?: InputMaybe<Scalars['String']>;
-  urlName?: InputMaybe<Scalars['String']>;
-  websiteUrl?: InputMaybe<Scalars['String']>;
+  primaryEmail?: string;
+  region?: string;
+  summary?: string;
+  supportContactName?: string;
+  supportEmail?: string;
+  supportPhone?: string;
+  tradingName?: string;
+  urlName?: string;
+  websiteUrl?: string;
 };
 
 export type CreateNetworkWithRetailerInput = {
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  Max character limit: 100. */
-  ref: Scalars['String'];
-  type?: InputMaybe<Scalars['String']>;
+  ref: string;
+  type?: string;
 };
 
 /**  Input type to create a return fulfilment */
 export type CreateReturnFulfilmentInput = {
   /**  A list of attributes. Attributes can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /** The destination of the return order items */
   destinationLocation: LocationLinkInput;
   /** The lodged location in cases where the return order was directly returned to a store or DC */
-  lodgedLocation?: InputMaybe<LocationLinkInput>;
+  lodgedLocation?: LocationLinkInput;
   /** The pickup address in the cases of return orders that are being picked up by a carrier */
-  pickupAddress?: InputMaybe<StreetAddressInput>;
+  pickupAddress?: StreetAddressInput;
   /**
    *  External reference. Must be unique. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /** Add fulfilment items with fulfilment */
-  returnFulfilmentItems?: InputMaybe<Array<InputMaybe<CreateReturnFulfilmentItemWithReturnFulfilmentInput>>>;
+  returnFulfilmentItems?: CreateReturnFulfilmentItemWithReturnFulfilmentInput[];
   /**  Return order reference */
   returnOrder: ReturnOrderKey;
   /**
    *  Type of fulfilment. <br/>
    *  Max character limit: 50.
    */
-  type: Scalars['String'];
+  type: string;
 };
 
 /** Input type to create a return fulfilment item when creating a return fulfilment */
 export type CreateReturnFulfilmentItemWithReturnFulfilmentInput = {
   /**  A list of attributes. Attributes can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  Product reference */
-  product?: InputMaybe<ProductKey>;
+  product?: ProductKey;
   /**
    *  External reference. Must be unique. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**  Return order item reference */
   returnOrderItem: ReturnOrderItemKey;
   /**  Quantity of return fulfilment */
@@ -9217,14 +9212,14 @@ export type CreateReturnFulfilmentItemWithReturnFulfilmentInput = {
 /** Input type to create a return fulfilment item */
 export type CreateReturnFulfilmentItemInput = {
   /**  A list of attributes. Attributes can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /** Product reference */
-  product?: InputMaybe<ProductKey>;
+  product?: ProductKey;
   /**
    *  External reference. Must be unique. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /** Return order fulfilment reference */
   returnOrderFulfilment: ReturnFulfilmentKey;
   /**  Reference of return order item */
@@ -9236,9 +9231,9 @@ export type CreateReturnFulfilmentItemInput = {
 /**  Input type to create return order */
 export type CreateReturnOrderInput = {
   /**  A list of attributes of the return order. Attributes can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  The associated credit memo for this return order */
-  creditMemo?: InputMaybe<CreditMemoKey>;
+  creditMemo?: CreditMemoKey;
   /**  The currency of this return */
   currency: CurrencyKey;
   /**  Customer reference of the return order. This links the customer to return order */
@@ -9246,32 +9241,32 @@ export type CreateReturnOrderInput = {
   /**  The default Tax Type for this return order. Individual return order items can override */
   defaultTaxType: TaxTypeInput;
   /**  The destination of the return order items */
-  destinationLocation?: InputMaybe<LocationLinkInput>;
+  destinationLocation?: LocationLinkInput;
   /**  The associated exchange order managed the exchange item */
-  exchangeOrder?: InputMaybe<OrderLinkInput>;
+  exchangeOrder?: OrderLinkInput;
   /**  The lodged location in cases where the return order was directly returned to a store or DC */
-  lodgedLocation?: InputMaybe<LocationLinkInput>;
+  lodgedLocation?: LocationLinkInput;
   /**  Linked order for this return order */
-  order?: InputMaybe<OrderLinkInput>;
+  order?: OrderLinkInput;
   /**  The pickup address in the cases of return orders that are being picked up by a carrier */
-  pickupAddress?: InputMaybe<StreetAddressInput>;
+  pickupAddress?: StreetAddressInput;
   /**
    *  External reference of the return order. Must be unique. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**  Retailer reference of return orders */
   retailer: RetailerId;
   /**  The authorised disposition for this return order. This can be different to the return disposition action which reflects the actual action once an item has been inspected */
-  returnAuthorisationDisposition?: InputMaybe<SettingValueTypeInput>;
+  returnAuthorisationDisposition?: SettingValueTypeInput;
   /**  The generated key representing an authorised return order which the customer can use to progress through the return order proces */
-  returnAuthorisationKey?: InputMaybe<Scalars['String']>;
+  returnAuthorisationKey?: string;
   /**  The time at which the return authorisation expires */
-  returnAuthorisationKeyExpiry?: InputMaybe<Scalars['DateTime']>;
+  returnAuthorisationKeyExpiry?: Date;
   /**  The list of associated return order items */
-  returnOrderItems: Array<CreateReturnOrderItemWithReturnOrderInput>;
+  returnOrderItems: CreateReturnOrderItemWithReturnOrderInput[];
   /**  List of return verifications associated with the return order */
-  returnVerifications?: InputMaybe<Array<InputMaybe<CreateReturnVerificationWithReturnOrderInput>>>;
+  returnVerifications?: CreateReturnVerificationWithReturnOrderInput[];
   /**  The total amount of this return order excluding tax */
   subTotalAmount: AmountTypeInput;
   /**  The total amount of this return order including tax */
@@ -9282,49 +9277,49 @@ export type CreateReturnOrderInput = {
    *  Type of the return order. <br/>
    *  Max character limit: 50.
    */
-  type: Scalars['String'];
+  type: string;
 };
 
 /**  Input type to create return order items when creating a return order */
 export type CreateReturnOrderItemWithReturnOrderInput = {
   /**  A list of attributes. Attributes can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  Item total amount of returning item */
   itemAmount: AmountTypeInput;
   /**  Item tax amount of the returning item */
   itemTaxAmount: AmountTypeInput;
   /**  Order item of return order item. This field is optional */
-  orderItem?: InputMaybe<OrderItemLinkInput>;
+  orderItem?: OrderItemLinkInput;
   /**  Product reference of return order item */
   product: ProductKey;
   /**
    *  External reference. Must be unique. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**  The condition in which the return item was received */
-  returnCondition?: InputMaybe<SettingValueTypeInput>;
+  returnCondition?: SettingValueTypeInput;
   /**  An optional comment. Required if the condition code required further information such as 'Other'. */
-  returnConditionComment?: InputMaybe<Scalars['String']>;
+  returnConditionComment?: string;
   /**  The actual disposition action taken for this return item */
-  returnDispositionAction?: InputMaybe<SettingValueTypeInput>;
+  returnDispositionAction?: SettingValueTypeInput;
   /**  The actual payment action taken for this return item */
-  returnPaymentAction?: InputMaybe<SettingValueTypeInput>;
+  returnPaymentAction?: SettingValueTypeInput;
   /**  Reason for returning the item */
-  returnReason?: InputMaybe<SettingValueTypeInput>;
+  returnReason?: SettingValueTypeInput;
   /**  Additional comments related to the returning item */
-  returnReasonComment?: InputMaybe<Scalars['String']>;
+  returnReasonComment?: string;
   /**
    *  Type. <br/>
    *  Max character limit: 50.
    */
-  type: Scalars['String'];
+  type: string;
   /**  Unit price of the returning item */
   unitAmount: AmountTypeInput;
   /**  Return quantity */
   unitQuantity: QuantityTypeInput;
   /**  Unit tax type of the retuning item */
-  unitTaxType?: InputMaybe<TaxTypeInput>;
+  unitTaxType?: TaxTypeInput;
 };
 
 export type CreateReturnVerificationWithReturnOrderInput = {
@@ -9332,17 +9327,17 @@ export type CreateReturnVerificationWithReturnOrderInput = {
    *  External reference. Must be unique. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /** Type */
-  type: Scalars['String'];
+  type: string;
   /** verification details */
-  verificationDetails: Scalars['String'];
+  verificationDetails: string;
 };
 
 /**  Input type to create return order items */
 export type CreateReturnOrderItemInput = {
   /**  A list of attributes. Attributes can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  Item total amount of returning item */
   itemAmount: AmountTypeInput;
   /**  Item tax amount of the returning item */
@@ -9355,51 +9350,51 @@ export type CreateReturnOrderItemInput = {
    *  External reference. Must be unique. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**  The condition in which the return item was received */
-  returnCondition?: InputMaybe<SettingValueTypeInput>;
+  returnCondition?: SettingValueTypeInput;
   /**  An optional comment. Required if the condition code required further information such as 'Other' */
-  returnConditionComment?: InputMaybe<Scalars['String']>;
+  returnConditionComment?: string;
   /**  The actual disposition action taken for this return item */
-  returnDispositionAction?: InputMaybe<SettingValueTypeInput>;
+  returnDispositionAction?: SettingValueTypeInput;
   /**  Return order reference */
   returnOrder: ReturnOrderKey;
   /**  The actual payment action taken for this return item */
-  returnPaymentAction?: InputMaybe<SettingValueTypeInput>;
+  returnPaymentAction?: SettingValueTypeInput;
   /**  Reason for returning the item */
-  returnReason?: InputMaybe<SettingValueTypeInput>;
+  returnReason?: SettingValueTypeInput;
   /**  Additional comments related to the returning item */
-  returnReasonComment?: InputMaybe<Scalars['String']>;
+  returnReasonComment?: string;
   /**
    *  Status of the return order item. <br/>
    *  Max character limit: 50.
    */
-  status: Scalars['String'];
+  status: string;
   /**
    *  Type. <br/>
    *  Max character limit: 50.
    */
-  type: Scalars['String'];
+  type: string;
   /**  Unit price of the returning item */
   unitAmount: AmountTypeInput;
   /**  Return quantity */
   unitQuantity: QuantityTypeInput;
   /**  Unit tax type of the retuning item */
-  unitTaxType?: InputMaybe<TaxTypeInput>;
+  unitTaxType?: TaxTypeInput;
 };
 
 /**  Input type to create a `Role` */
 export type CreateRoleInput = {
   /**  Name of the role. Must be unique. */
-  name: Scalars['String'];
+  name: string;
   /**  A list of permissions to be assigned to the role */
-  permissions?: InputMaybe<Array<InputMaybe<PermissionKey>>>;
+  permissions?: PermissionKey[];
 };
 
 /**  Input type to uniquely identify a `Permission` object. We use all the fields present in the request to look for this object. */
 export type PermissionKey = {
   /**  Name of the permission */
-  name: Scalars['String'];
+  name: string;
 };
 
 /**
@@ -9410,17 +9405,17 @@ export type PermissionKey = {
  */
 export type CreateSettingInput = {
   /**  The context of the setting. Supported values are ACCOUNT, RETAILER, AGENT or CUSTOMER */
-  context: Scalars['String'];
+  context: string;
   /**  `ID` of the context type. For instance, use a retailer's ID when using _RETAILER_ context. */
-  contextId: Scalars['Int'];
+  contextId: number;
   /**  Value of the setting. Use this if the value is a JSON. */
-  lobValue?: InputMaybe<Scalars['Json']>;
+  lobValue?: Scalars['Json'];
   /**  Name of the setting */
-  name: Scalars['String'];
+  name: string;
   /**  Value of the setting. Use this if the value is NOT a JSON. */
-  value?: InputMaybe<Scalars['String']>;
+  value?: string;
   /**  Data type of the setting's value. Supported types are _LOB_, _STRING_, _INTEGER_, _BOOLEAN_ and _JSON_. */
-  valueType: Scalars['String'];
+  valueType: string;
 };
 
 /**
@@ -9436,36 +9431,36 @@ export type CreateSettingInput = {
  */
 export type CreateStandardProductInput = {
   /**  A list of attributes associated with this Product. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  The Product Catalogue in which this Product is managed */
   catalogue: ProductCatalogueKey;
   /**  A list of references to the `Category`'s to which this `Product` relates. Product categories must be a part of the same `ProductCatalogue` (see `catalogue` field). The `Category` must already exist. */
-  categories?: InputMaybe<Array<InputMaybe<CategoryKey>>>;
+  categories?: CategoryKey[];
   /**
    *  The Global Trade Item Number (GTIN) for this Product. <br/>
    *  Max character limit: 20.
    */
-  gtin: Scalars['String'];
+  gtin: string;
   /**  The name of the Product */
-  name: Scalars['String'];
+  name: string;
   /**  A list of Prices for this Product */
-  prices?: InputMaybe<Array<InputMaybe<PriceInput>>>;
+  prices?: PriceInput[];
   /**
    *  The unique reference identifier for the Product. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**  A short description of the Product (max 255 chars) */
-  summary?: InputMaybe<Scalars['String']>;
+  summary?: string;
   /**  The tax information for this Product */
-  taxType?: InputMaybe<TaxTypeInput>;
+  taxType?: TaxTypeInput;
   /**
    *  Type of the `StandardProduct`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
    *  Max character limit: 50.
    */
-  type: Scalars['String'];
+  type: string;
   /**  A list of references to the `VariantProduct`'s to which this `Product` relates. Product variants must be a part of the same `ProductCatalogue` (see `catalogue` field). The `VariantProduct` must already exist. */
-  variants?: InputMaybe<Array<InputMaybe<VariantProductKey>>>;
+  variants?: VariantProductKey[];
 };
 
 /**  The `VariantProductKey` input is the parameter for identifying a specific Variant Product. */
@@ -9473,15 +9468,15 @@ export type VariantProductKey = {
   /**  The Product Catalogue in which this Product resides */
   catalogue: ProductCatalogueKey;
   /**  Max character limit: 100. */
-  ref?: InputMaybe<Scalars['String']>;
+  ref?: string;
 };
 
 export type CreateStorageAreaInput = {
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   location: LocationId;
-  ref: Scalars['String'];
+  ref: string;
   /**  Max character limit: 50. */
-  type?: InputMaybe<Scalars['String']>;
+  type?: string;
 };
 
 /**  Creates a new `User` */
@@ -9490,81 +9485,81 @@ export type CreateUserInput = {
    *  API Key. To be used with the Fluent Widget. <br/>
    *  Max character limit: 128.
    */
-  apiKey?: InputMaybe<Scalars['String']>;
+  apiKey?: string;
   /**  A list of attributes associated with this object. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**
    *  Country. <br/>
    *  Max character limit: 100.
    */
-  country?: InputMaybe<Scalars['String']>;
+  country?: string;
   /**  Department */
-  department?: InputMaybe<Scalars['String']>;
+  department?: string;
   /**
    *  User's first name. <br/>
    *  Max character limit: 50.
    */
-  firstName: Scalars['String'];
+  firstName: string;
   /**  User language (leave null to allow users to self-select their language preference) */
-  language?: InputMaybe<SettingValueTypeInput>;
+  language?: SettingValueTypeInput;
   /**
    *  User's last name. <br/>
    *  Max character limit: 50.
    */
-  lastName?: InputMaybe<Scalars['String']>;
+  lastName?: string;
   /**
    *  Password. # **Note** <br /><br />
    *  Please note that password once created can not be retrieved via the API at the moment. We are working on a security model that will enable password viewing to
    *  authenticated customers but until then, we request you to remember the password you created the `User` with. <br/>
    *  Max character limit: 128.
    */
-  password: Scalars['String'];
+  password: string;
   /**
    *  User's primary email. <br/>
    *  Max character limit: 250.
    */
-  primaryEmail: Scalars['String'];
+  primaryEmail: string;
   /**  User's location context */
-  primaryLocation?: InputMaybe<LocationId>;
+  primaryLocation?: LocationId;
   /**
    *  User's primary phone number. <br/>
    *  Max character limit: 20.
    */
-  primaryPhone?: InputMaybe<Scalars['String']>;
+  primaryPhone?: string;
   /**  User's retailer context */
-  primaryRetailer?: InputMaybe<RetailerId>;
+  primaryRetailer?: RetailerId;
   /**  Determines if the user has opted to receive promotions */
-  promotionOptIn?: InputMaybe<Scalars['Boolean']>;
+  promotionOptIn?: Scalars['Boolean'];
   /**
    *  External reference of the object. Recommended to be unique. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**  A list of roles along with their contexts which are to be assigned to the user. */
-  roles?: InputMaybe<Array<InputMaybe<UserRoleInput>>>;
+  roles?: UserRoleInput[];
   /**
    *  Timezone. <br/>
    *  Max character limit: 32.
    */
-  timezone: Scalars['String'];
+  timezone: string;
   /**
    *  The user's title. For example _Mr._, _Miss_, _Dr._, _Ms._ etc <br/>
    *  Max character limit: 50.
    */
-  title?: InputMaybe<Scalars['String']>;
+  title?: string;
   /**  Type of the user. This type is currently supports one of the following three values: _ADMIN_, _RETAILER_, _LOCATION_ */
-  type: Scalars['String'];
+  type: string;
   /**
    *  Unique name for the user used for identification and logging purposes. <br/>
    *  Max character limit: 250.
    */
-  username: Scalars['String'];
+  username: string;
 };
 
 /**  Input type to assign a `Role` with it's context to the `User` object */
 export type UserRoleInput = {
   /**  Context for the role being assigned */
-  contexts: Array<RoleContextInput>;
+  contexts: RoleContextInput[];
   /**  Input to identify the role to be assigned */
   role: RoleKey;
 };
@@ -9572,18 +9567,18 @@ export type UserRoleInput = {
 /**  Input type to supply context during assignment of a role */
 export type RoleContextInput = {
   /**  Represents the identity of the context object. */
-  contextId: Scalars['ID'];
+  contextId: string;
   /**
    *  Represents the type of context. For more information on contexts and how they relate to user and roles,
    *  please visit <a href="https://lingo.fluentretail.com/display/LIN/Flex+Academy+Users" target="_blank">User's section on Lingo</a>.
    */
-  contextType: Scalars['String'];
+  contextType: string;
 };
 
 /**  Input type to uniquely identify a `Role` object. We use all the fields present in the request to look for this object. */
 export type RoleKey = {
   /**  Name of the role which is unique and acts as a key to identify the role itself */
-  name: Scalars['String'];
+  name: string;
 };
 
 /**
@@ -9599,36 +9594,36 @@ export type RoleKey = {
  */
 export type CreateVariantProductInput = {
   /**  A list of attributes associated with this Product. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  The Product Catalogue in which this Product is managed */
   catalogue: ProductCatalogueKey;
   /**  A list of references to the `Category`'s to which this `Product` relates. Product categories must be a part of the same `ProductCatalogue` (see `catalogue` field). The `Category` must already exist. */
-  categories?: InputMaybe<Array<InputMaybe<CategoryKey>>>;
+  categories?: CategoryKey[];
   /**
    *  The Global Trade Item Number (GTIN) for this Product. <br/>
    *  Max character limit: 20.
    */
-  gtin: Scalars['String'];
+  gtin: string;
   /**  The name of the Product */
-  name: Scalars['String'];
+  name: string;
   /**  A list of Prices for this Product */
-  prices?: InputMaybe<Array<InputMaybe<PriceInput>>>;
+  prices?: PriceInput[];
   /**  Associated base 'Product' of this variant */
-  product?: InputMaybe<ProductKey>;
+  product?: ProductKey;
   /**
    *  The unique reference identifier for the Product. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**  A short description of the Product (max 255 chars) */
-  summary?: InputMaybe<Scalars['String']>;
+  summary?: string;
   /**  The tax information for this Product */
-  taxType?: InputMaybe<TaxTypeInput>;
+  taxType?: TaxTypeInput;
   /**
    *  Type of the `VariantProduct`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
    *  Max character limit: 50.
    */
-  type: Scalars['String'];
+  type: string;
 };
 
 /**
@@ -9641,31 +9636,31 @@ export type CreateVariantProductInput = {
  */
 export type CreateVirtualCatalogueInput = {
   /**  List of Attribute containing meta data information for an entity */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  Control group Ref */
-  controlGroupRef?: InputMaybe<Scalars['String']>;
+  controlGroupRef?: string;
   /**  Description */
-  description?: InputMaybe<Scalars['String']>;
+  description?: string;
   /**  Inventory Catalogue used for this virtual catalogue */
-  inventoryCatalogueRef: Scalars['String'];
+  inventoryCatalogueRef: string;
   /**  Name of the inventory catalogue */
-  name: Scalars['String'];
+  name: string;
   /**  Networks used for this catalogue */
-  networkIds?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  networkIds?: string[];
   /**  Product Catalogue used for this virtual catalogue */
-  productCatalogueRef: Scalars['String'];
+  productCatalogueRef: string;
   /**
    *  The reference identifier used to identify an entity. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**  Retailer refs */
-  retailerRefs?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  retailerRefs?: string[];
   /**
    *  Type of the `VirtualCatalogue`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
    *  Max character limit: 50.
    */
-  type: Scalars['String'];
+  type: string;
 };
 
 /**
@@ -9677,25 +9672,25 @@ export type CreateVirtualCatalogueInput = {
  */
 export type CreateVirtualPositionInput = {
   /**  List of Attribute containing meta data information for an entity */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  Catalogue */
   catalogue: VirtualCatalogueKey;
   /**  Group Reference */
-  groupRef?: InputMaybe<Scalars['String']>;
+  groupRef?: string;
   /**  Product Reference */
-  productRef?: InputMaybe<Scalars['String']>;
+  productRef?: string;
   /**  Quantity */
-  quantity: Scalars['Int'];
+  quantity: number;
   /**
    *  The reference identifier used to identify an entity. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**
    *  Type of the `VirtualPosition`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
    *  Max character limit: 50.
    */
-  type: Scalars['String'];
+  type: string;
 };
 
 /**
@@ -9704,19 +9699,19 @@ export type CreateVirtualPositionInput = {
  */
 export type CreateVirtualViewInput = {
   /**  Description */
-  description?: InputMaybe<Scalars['String']>;
+  description?: string;
   /**  `InventoryCatalogue` associated with the Virtual View. */
   inventoryCatalogueKey: InventoryCatalogueKey;
   /**  Creates inventory controls as a decision table and associate it with this Virtual View. */
   inventoryControls: CreateDecisionTableInput;
   /**  Name */
-  name: Scalars['String'];
+  name: string;
   /**  `Network` associated with the Virtual View. */
   networkKey: NetworkKey;
   /**  `ProductCatalogue` associated with the Virtual View. */
   productCatalogueKey: ProductCatalogueKey;
   /**  A unique reference for the Virtual View. Note: Virtual View refs do not support the hash (#) character. */
-  ref: Scalars['String'];
+  ref: string;
 };
 
 /**
@@ -9725,19 +9720,19 @@ export type CreateVirtualViewInput = {
  */
 export type CreateDecisionTableInput = {
   /**  Description of the decision table. */
-  description?: InputMaybe<Scalars['String']>;
+  description?: string;
   /**  Name of the table. Please provide a name that will help in identifying the decision table. */
-  name: Scalars['String'];
+  name: string;
   /**  A connection of `DecisionRule`s. A decision rule is a set of conditions with the corresponding actions. The actions are performed if the conditions evaluate to true.So rules can be created in a single mutation while creating the table. But they can be added later too. */
-  rules?: InputMaybe<Array<InputMaybe<CreateDecisionRuleWithDecisionTableInput>>>;
+  rules?: CreateDecisionRuleWithDecisionTableInput[];
 };
 
 /**  Input type to uniquely identify a `Network` object. We use all the fields present in the request to look for this object. */
 export type NetworkKey = {
   /**  ID of the object */
-  id?: InputMaybe<Scalars['ID']>;
+  id?: string;
   /**  The client's reference identifier for the object */
-  ref?: InputMaybe<Scalars['String']>;
+  ref?: string;
 };
 
 /**
@@ -9747,38 +9742,38 @@ export type NetworkKey = {
 export type CreateVirtualViewOutput = {
   __typename?: 'CreateVirtualViewOutput';
   /**  Current status of the Virtual View */
-  status?: Maybe<VirtualViewStatus>;
+  status?: VirtualViewStatus;
 };
 
 /**  Input type to create a `Wave` */
 export type CreateWaveInput = {
   /**  `User` who this wave is assigned to */
-  allocatedTo?: InputMaybe<UserId>;
+  allocatedTo?: UserId;
   /**  A list of attributes associated with this wave. Attributes can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  `Fulfilment`s associated with this wave */
-  fulfilments: Array<FulfilmentId>;
+  fulfilments: FulfilmentId[];
   /**  `Location` of the wave operation */
   location: LocationId;
   /**  Name of the wave */
-  name?: InputMaybe<Scalars['String']>;
+  name?: string;
   /**  External reference of the object. Must be unique. */
-  ref: Scalars['String'];
+  ref: string;
   /**  `Retailer` of the wave */
   retailer: RetailerId;
   /**  Type of the `Wave`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/> */
-  type: Scalars['String'];
+  type: string;
 };
 
 export type UserId = {
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
 };
 
 /**  Input type to remove one or more `Category`s from a `GroupProduct` */
 export type RemoveCategoriesFromGroupProductInput = {
   /**  Key to identify the `Category` objects to remove */
-  categories: Array<CategoryKey>;
+  categories: CategoryKey[];
   /**  Key to identify the `GroupProduct` object from which to remove the `Category`s */
   groupProduct: GroupProductKey;
 };
@@ -9788,20 +9783,20 @@ export type GroupProductKey = {
   /**  The Product Catalogue in which this Product resides */
   catalogue: ProductCatalogueKey;
   /**  Max character limit: 100. */
-  ref?: InputMaybe<Scalars['String']>;
+  ref?: string;
 };
 
 /**  Output type for removing `Category`s from a `GroupProduct` */
 export type RemoveCategoriesFromGroupProductOutput = {
   __typename?: 'RemoveCategoriesFromGroupProductOutput';
   /**  Status of the mutation operation */
-  status?: Maybe<Scalars['String']>;
+  status?: string;
 };
 
 /**  Input type to remove one or more `Category`s from a `StandardProduct` */
 export type RemoveCategoriesFromStandardProductInput = {
   /**  Key to identify the `Category` objects to remove */
-  categories: Array<CategoryKey>;
+  categories: CategoryKey[];
   /**  Key to identify the `StandardProduct` object from which to remove the `Category`s */
   standardProduct: StandardProductKey;
 };
@@ -9811,20 +9806,20 @@ export type StandardProductKey = {
   /**  The Product Catalogue in which this Product resides */
   catalogue: ProductCatalogueKey;
   /**  Max character limit: 100. */
-  ref?: InputMaybe<Scalars['String']>;
+  ref?: string;
 };
 
 /**  Output type for removing `Category`s from a `StandardProduct` */
 export type RemoveCategoriesFromStandardProductOutput = {
   __typename?: 'RemoveCategoriesFromStandardProductOutput';
   /**  Status of the mutation operation */
-  status?: Maybe<Scalars['String']>;
+  status?: string;
 };
 
 /**  Input type to remove one or more `Category`s from a `VariantProduct` */
 export type RemoveCategoriesFromVariantProductInput = {
   /**  Key to identify the `Category` objects to remove */
-  categories: Array<CategoryKey>;
+  categories: CategoryKey[];
   /**  Key to identify the `VariantProduct` object from which to remove the `Category`s */
   variantProduct: VariantProductKey;
 };
@@ -9833,7 +9828,7 @@ export type RemoveCategoriesFromVariantProductInput = {
 export type RemoveCategoriesFromVariantProductOutput = {
   __typename?: 'RemoveCategoriesFromVariantProductOutput';
   /**  Status of the mutation operation */
-  status?: Maybe<Scalars['String']>;
+  status?: string;
 };
 
 /**
@@ -9842,7 +9837,7 @@ export type RemoveCategoriesFromVariantProductOutput = {
  */
 export type RemoveDecisionRuleInput = {
   /**  ID of the rule that is to be removed */
-  decisionRuleId: Scalars['ID'];
+  decisionRuleId: string;
 };
 
 /**
@@ -9852,13 +9847,13 @@ export type RemoveDecisionRuleInput = {
 export type RemoveDecisionRuleOutput = {
   __typename?: 'RemoveDecisionRuleOutput';
   /**  Status of the mutation operation */
-  status?: Maybe<Scalars['String']>;
+  status?: string;
 };
 
 /**  Input type to remove one or more `Location`s from a `Network` */
 export type RemoveLocationsFromNetworkInput = {
   /**  Key to identify the `Location` objects to remove */
-  locations: Array<LocationKey>;
+  locations: LocationKey[];
   /**  Key to identify the `Network` object from which to remove the `Location`s */
   network: NetworkKey;
 };
@@ -9867,7 +9862,7 @@ export type RemoveLocationsFromNetworkInput = {
 export type RemoveLocationsFromNetworkOutput = {
   __typename?: 'RemoveLocationsFromNetworkOutput';
   /**  Status of the mutation operation */
-  status?: Maybe<Scalars['String']>;
+  status?: string;
 };
 
 /**  Input type to remove one or more `Network`s from a `Location` */
@@ -9875,20 +9870,20 @@ export type RemoveNetworksFromLocationInput = {
   /**  Key to identify the `Location` object from which to remove the `Network`s */
   location: LocationKey;
   /**  Key to identify the `Network` objects to remove */
-  networks: Array<NetworkKey>;
+  networks: NetworkKey[];
 };
 
 /**  Output type for removing `Network`s from a `Location` */
 export type RemoveNetworksFromLocationOutput = {
   __typename?: 'RemoveNetworksFromLocationOutput';
   /**  Status of the mutation operation */
-  status?: Maybe<Scalars['String']>;
+  status?: string;
 };
 
 /**  Input type to remove one or more `Permission`s from a `Role` */
 export type RemovePermissionsFromRoleInput = {
   /**  Key to identify the `Permission` objects to remove */
-  permissions: Array<PermissionKey>;
+  permissions: PermissionKey[];
   /**  Key to identify the `Role` object from which to remove the `Permission`s */
   role: RoleKey;
 };
@@ -9897,13 +9892,13 @@ export type RemovePermissionsFromRoleInput = {
 export type RemovePermissionsFromRoleOutput = {
   __typename?: 'RemovePermissionsFromRoleOutput';
   /**  Status of the mutation operation */
-  status?: Maybe<Scalars['String']>;
+  status?: string;
 };
 
 /**  Input type to remove one or more `UserRole`s from an `User` */
 export type RemoveUserRolesFromUserInput = {
   /**  Key to identify the `UserRole` objects to remove */
-  roles: Array<UserRoleKey>;
+  roles: UserRoleKey[];
   /**  Key to identify the `User` object from which to remove the `UserRole`s */
   user: UserKey;
 };
@@ -9911,7 +9906,7 @@ export type RemoveUserRolesFromUserInput = {
 /**  Input type to uniquely identify an `UserRole` object. We use all the fields present in the request to look for this object. */
 export type UserRoleKey = {
   /**  Key to identify the `RoleContext` objects to remove */
-  contexts: Array<RoleContextKey>;
+  contexts: RoleContextKey[];
   /**  Key to identify the `Role` object from which to remove the `RoleContext` */
   role: RoleKey;
 };
@@ -9919,123 +9914,123 @@ export type UserRoleKey = {
 /**  Input type to uniquely identify a `RoleContext` object. We use all the fields present in the request to look for this object. */
 export type RoleContextKey = {
   /**  Represents the identity of the context object. */
-  contextId: Scalars['ID'];
+  contextId: string;
   /**  Represents the type of context. For more information on contexts and how they relate to user and roles, please visit <a href="https://lingo.fluentretail.com/display/LIN/Flex+Academy+Users" target="_blank">User's section on Lingo</a>. */
-  contextType: Scalars['String'];
+  contextType: string;
 };
 
 /**  Input type to uniquely identify an `User` object. We use all the fields present in the request to look for this object. */
 export type UserKey = {
   /**  ID of the object */
-  id?: InputMaybe<Scalars['ID']>;
+  id?: string;
   /**  Unique name for the user used for identification and logging purposes. */
-  username?: InputMaybe<Scalars['String']>;
+  username?: string;
 };
 
 /**  Output type for removing `UserRole`s from an `User` */
 export type RemoveUserRolesFromUserOutput = {
   __typename?: 'RemoveUserRolesFromUserOutput';
   /**  Status of the mutation operation */
-  status?: Maybe<Scalars['String']>;
+  status?: string;
 };
 
 export type UpdateArticleInput = {
   /**  Max character limit: 30. */
-  articleNumber?: InputMaybe<Scalars['String']>;
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  articleNumber?: string;
+  attributes?: AttributeInput[];
   /**  Max character limit: 50. */
-  barcodeArticleNumber?: InputMaybe<Scalars['String']>;
+  barcodeArticleNumber?: string;
   /**  Max character limit: 256. */
-  description?: InputMaybe<Scalars['String']>;
-  expiryDate?: InputMaybe<Scalars['DateTime']>;
-  height?: InputMaybe<Scalars['Float']>;
+  description?: string;
+  expiryDate?: Date;
+  height?: number;
   /**  ID of the object */
-  id: Scalars['ID'];
-  length?: InputMaybe<Scalars['Float']>;
+  id: string;
+  length?: number;
   /**  Max character limit: 256. */
-  name?: InputMaybe<Scalars['String']>;
+  name?: string;
   /**  Max character limit: 100. */
-  purchaseValue?: InputMaybe<Scalars['String']>;
-  quantity?: InputMaybe<Scalars['Int']>;
+  purchaseValue?: string;
+  quantity?: number;
   /**
    *  The current status of the `Article`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/>
    *  Max character limit: 30.
    */
-  status?: InputMaybe<Scalars['String']>;
+  status?: string;
   /**
    *  Type of the `Article`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
    *  Max character limit: 50.
    */
-  type?: InputMaybe<Scalars['String']>;
-  weight?: InputMaybe<Scalars['Float']>;
-  width?: InputMaybe<Scalars['Float']>;
+  type?: string;
+  weight?: number;
+  width?: number;
 };
 
 export type UpdateBillingAccountInput = {
   /**  Address associated to the `BillingAccount`. */
-  address?: InputMaybe<StreetAddressInput>;
+  address?: StreetAddressInput;
   /**  A list of attributes associated with the `BillingAccount`. This can be used to extend the existing data structure with additional data. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**
    *  Name of the `BillingAccount`. <br/>
    *  Max character limit: 100.
    */
-  name?: InputMaybe<Scalars['String']>;
+  name?: string;
   /**
    *  External reference to the `BillingAccount`. Must be unique. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**
    *  Status of the `BillingAccount`. <br/>
    *  Max character limit: 50.
    */
-  status?: InputMaybe<Scalars['String']>;
+  status?: string;
 };
 
 /**  Input type to update a `Carrier` */
 export type UpdateCarrierInput = {
   /**  A list of attributes associated with this Carrier. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**
    *  Name of the carrier. <br/>
    *  Max character limit: 45.
    */
-  name?: InputMaybe<Scalars['String']>;
+  name?: string;
   /**
    *  The current status of the `Carrier`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/>
    *  Max character limit: 50.
    */
-  status?: InputMaybe<Scalars['String']>;
+  status?: string;
 };
 
 /**  Input for updating a `CarrierConsignment` object. */
 export type UpdateCarrierConsignmentInput = {
   /**  A list of attributes associated with this Consignment. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**
    *  The external consignment reference assigned by the carrier. <br/>
    *  Max character limit: 100.
    */
-  consignmentReference?: InputMaybe<Scalars['String']>;
+  consignmentReference?: string;
   /**  The URL used to retrieve the shipping label */
-  labelUrl?: InputMaybe<Scalars['String']>;
+  labelUrl?: string;
   /**  A url to represent the order summary. Usually the manifest url from the service provider. */
-  orderSummaryUrl?: InputMaybe<Scalars['String']>;
+  orderSummaryUrl?: string;
   /**  ref of the object */
-  ref: Scalars['String'];
+  ref: string;
   /**
    *  The status of the consignment. <br/>
    *  Max character limit: 25.
    */
-  status?: InputMaybe<Scalars['String']>;
+  status?: string;
   /**
    *  Tracking label of the consignment. <br/>
    *  Max character limit: 100.
    */
-  trackingLabel?: InputMaybe<Scalars['String']>;
+  trackingLabel?: string;
 };
 
 /**
@@ -10048,73 +10043,73 @@ export type UpdateCarrierConsignmentInput = {
  */
 export type UpdateCategoryInput = {
   /**  A list of attributes associated with this Category. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  The reference of the `ProductCatalogue` in which this `Category` resides. */
   catalogue: ProductCatalogueKey;
   /**  List of child `Category` references, if any. Child categories must be a part of the same `ProductCatalogue` (see `catalogue` field). The child `Category` must already exist. */
-  childCategories?: InputMaybe<Array<InputMaybe<CategoryKey>>>;
+  childCategories?: CategoryKey[];
   /**  The name of the Category */
-  name?: InputMaybe<Scalars['String']>;
+  name?: string;
   /**
    *  The reference to the parent of this `Category`, if any. The parent `Category` must be a part of the same `ProductCatalogue` (see `catalogue` field). The parent `Category` must already exist. <br/>
    *  Max character limit: 36.
    */
-  parentCategory?: InputMaybe<CategoryKey>;
+  parentCategory?: CategoryKey;
   /**
    *  The reference of the `Category` to be updated. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**
    *  The current status of the `Category`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/>
    *  Max character limit: 50.
    */
-  status?: InputMaybe<Scalars['String']>;
+  status?: string;
   /**  A short description of the Category */
-  summary?: InputMaybe<Scalars['String']>;
+  summary?: string;
   /**
    *  Type of the `Category`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
    *  Max character limit: 50.
    */
-  type?: InputMaybe<Scalars['String']>;
+  type?: string;
 };
 
 /**  Input for updating an existing `comment` object */
 export type UpdateCommentInput = {
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**
    *  Comment text. <br/>
    *  Max character limit: 200.
    */
-  text: Scalars['String'];
+  text: string;
 };
 
 /**  Input for updating a `Consignment` object. */
 export type UpdateConsignmentInput = {
   /**  Carrier used for the consignment */
-  carrier?: InputMaybe<CarrierId>;
+  carrier?: CarrierId;
   /**
    *  The external consignment reference assigned by the carrier. <br/>
    *  Max character limit: 100.
    */
-  consignmentReference?: InputMaybe<Scalars['String']>;
+  consignmentReference?: string;
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  The URL used to retrieve the shipping label */
-  labelUrl?: InputMaybe<Scalars['String']>;
+  labelUrl?: string;
   /**  A url to represent the order summary. Usually the manifest url from the service provider. */
-  orderSummaryUrl?: InputMaybe<Scalars['String']>;
+  orderSummaryUrl?: string;
   /**
    *  The status of the consignment. <br/>
    *  Max character limit: 25.
    */
-  status?: InputMaybe<Scalars['String']>;
+  status?: string;
   /**
    *  Tracking label of the consignment. <br/>
    *  Max character limit: 100.
    */
-  trackingLabel?: InputMaybe<Scalars['String']>;
+  trackingLabel?: string;
 };
 
 /**
@@ -10125,32 +10120,32 @@ export type UpdateConsignmentInput = {
  */
 export type UpdateControlInput = {
   /**  List of Attribute containing meta data information for this entity */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  Control Group */
-  controlGroup?: InputMaybe<ControlGroupKey>;
+  controlGroup?: ControlGroupKey;
   /**  Description */
-  description?: InputMaybe<Scalars['String']>;
+  description?: string;
   /**  Order that this control is applied */
-  executionOrder?: InputMaybe<Scalars['Int']>;
+  executionOrder?: number;
   /**  Name */
-  name?: InputMaybe<Scalars['String']>;
+  name?: string;
   /**
    *  The reference identifier used to identify an entity. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**
    *  The current status of the `Control`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/>
    *  Max character limit: 50.
    */
-  status?: InputMaybe<Scalars['String']>;
+  status?: string;
   /**
    *  Type of the `Control`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
    *  Max character limit: 50.
    */
-  type?: InputMaybe<Scalars['String']>;
+  type?: string;
   /**  values */
-  values?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  values?: AttributeInput[];
 };
 
 /**
@@ -10161,183 +10156,183 @@ export type UpdateControlInput = {
  */
 export type UpdateControlGroupInput = {
   /**  List of Attribute containing meta data information for this entity */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  Description */
-  description?: InputMaybe<Scalars['String']>;
+  description?: string;
   /**  Name */
-  name?: InputMaybe<Scalars['String']>;
+  name?: string;
   /**
    *  The reference identifier used to identify an entity. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**  Retailer refs */
-  retailerRefs?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  retailerRefs?: string[];
   /**
    *  The current status of the `ControlGroup`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/>
    *  Max character limit: 50.
    */
-  status?: InputMaybe<Scalars['String']>;
+  status?: string;
   /**
    *  Type of the `ControlGroup`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
    *  Max character limit: 50.
    */
-  type?: InputMaybe<Scalars['String']>;
+  type?: string;
 };
 
 export type UpdateCreditMemoInput = {
   /**  A list of attributes associated with the `CreditMemo`. This can be used to extend the existing data structure with additional data. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  Reference to the `Currency` */
-  currency?: InputMaybe<CurrencyKey>;
+  currency?: CurrencyKey;
   /**  The default Tax Type for this credit memo. Individual credit memo items can override. */
-  defaultTaxType?: InputMaybe<TaxTypeInput>;
+  defaultTaxType?: TaxTypeInput;
   /**  Issue date */
-  issueDate?: InputMaybe<Scalars['DateTime']>;
+  issueDate?: Date;
   /**  The `CreditMemoItem`s associated with this `CreditMemo`. */
-  items?: InputMaybe<Array<InputMaybe<UpdateCreditMemoItemWithCreditMemoInput>>>;
+  items?: UpdateCreditMemoItemWithCreditMemoInput[];
   /**  Reference to an `Order` associated with the `CreditMemo`. */
-  order?: InputMaybe<OrderLinkInput>;
+  order?: OrderLinkInput;
   /**
    *  External reference to the `CreditMemo`. Must be unique. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**  Reference to a `ReturnOrder` associated with the `CreditMemo`. */
-  returnOrder?: InputMaybe<ReturnOrderKey>;
+  returnOrder?: ReturnOrderKey;
   /**
    *  Status of the `CreditMemo`. <br/>
    *  Max character limit: 50.
    */
-  status?: InputMaybe<Scalars['String']>;
+  status?: string;
   /**  The total amount of this credit memo excluding tax. */
-  subTotalAmount?: InputMaybe<AmountTypeInput>;
+  subTotalAmount?: AmountTypeInput;
   /**  The total amount of this credit memo including tax */
-  totalAmount?: InputMaybe<AmountTypeInput>;
+  totalAmount?: AmountTypeInput;
   /**  The total amount of this credit memo yet to be paid. (This caters for multi-part payments and payment milestones) */
-  totalBalance?: InputMaybe<AmountTypeInput>;
+  totalBalance?: AmountTypeInput;
   /**  The total amount of tax for this credit memo */
-  totalTax?: InputMaybe<AmountTypeInput>;
+  totalTax?: AmountTypeInput;
 };
 
 export type UpdateCreditMemoItemWithCreditMemoInput = {
   /**  The item amount for this item excluding tax. This is a calculated value based on business rules that does not necessarily have to take into account the unit quantity or amounts. */
-  amount?: InputMaybe<AmountTypeInput>;
+  amount?: AmountTypeInput;
   /**  Credit reason code of the `CreditMemoItem`. */
-  creditReasonCode?: InputMaybe<SettingValueTypeInput>;
+  creditReasonCode?: SettingValueTypeInput;
   /**  Description of the `CreditMemoItem`. */
-  description?: InputMaybe<Scalars['String']>;
+  description?: string;
   /**  Reference to an `OrderItem` associated with the `CreditMemoItem`. */
-  orderItem?: InputMaybe<OrderItemLinkInput>;
+  orderItem?: OrderItemLinkInput;
   /**  Reference to a `Product` associated with the `CreditMemoItem`. */
-  product?: InputMaybe<ProductKey>;
+  product?: ProductKey;
   /**
    *  External reference to the `CreditMemoItem`. Must be unique. <br/>
    *  Max character limit: 100.
    */
-  ref?: InputMaybe<Scalars['String']>;
+  ref?: string;
   /**  Reference to a `ReturnOrderItem` associated with the `CreditMemoItem`. */
-  returnOrderItem?: InputMaybe<ReturnOrderItemKey>;
+  returnOrderItem?: ReturnOrderItemKey;
   /**  The tax amount for this item. If not present at the item level, tax amount should be generated based on the tax type set at the invoice parent level. */
-  taxAmount?: InputMaybe<AmountTypeInput>;
+  taxAmount?: AmountTypeInput;
   /**  The unit sale price at time of sale or exchange */
-  unitAmount?: InputMaybe<AmountTypeInput>;
+  unitAmount?: AmountTypeInput;
   /**  The unit cost price at time of sale or exchange. */
-  unitCostAmount?: InputMaybe<AmountTypeInput>;
+  unitCostAmount?: AmountTypeInput;
   /**  `unitQuantity` holds separately the amount and the unit associated. */
-  unitQuantity?: InputMaybe<QuantityTypeInput>;
+  unitQuantity?: QuantityTypeInput;
   /**  The tax type of this item. Should only be provided if different to the default credit memo tax type. */
-  unitTaxType?: InputMaybe<TaxTypeInput>;
+  unitTaxType?: TaxTypeInput;
 };
 
 /** Input type to update a `Customer`. */
 export type UpdateCustomerInput = {
   /**  List of new attributes or updates to existing attributes. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**
    *  Customer's Country
    *  Max character limit: 100.
    */
-  country?: InputMaybe<Scalars['String']>;
+  country?: string;
   /**
    *  Firstname of the customer.
    *  Max character limit: 50.
    */
-  firstName?: InputMaybe<Scalars['String']>;
+  firstName?: string;
   /**
    *  Lastname of the customer.
    *  Max character limit: 50.
    */
-  lastName?: InputMaybe<Scalars['String']>;
+  lastName?: string;
   /**
    *  Email of the customer
    *  Max character limit: 250.
    */
-  primaryEmail?: InputMaybe<Scalars['String']>;
+  primaryEmail?: string;
   /**
    *  Phone number of the customer.
    *  Max character limit: 20.
    */
-  primaryPhone?: InputMaybe<Scalars['String']>;
+  primaryPhone?: string;
   /**  Specifies whether the customer has opted-in to receive promotions */
-  promotionOptIn?: InputMaybe<Scalars['Boolean']>;
+  promotionOptIn?: Scalars['Boolean'];
   /**
    *  Customer's timezone
    *  Max character limit: 32.
    */
-  timezone?: InputMaybe<Scalars['String']>;
+  timezone?: string;
   /**
    *  Customer's title.
    *  Max character limit: 50.
    */
-  title?: InputMaybe<Scalars['String']>;
+  title?: string;
   /**
    *  The username of the customer. This value is used to identify the customer to update.
    *  Max character limit: 250.
    */
-  username: Scalars['String'];
+  username: string;
 };
 
 export type UpdateCustomerAddressInput = {
   /**  Max character limit: 45. */
-  city?: InputMaybe<Scalars['String']>;
+  city?: string;
   /**  Max character limit: 45. */
-  companyName?: InputMaybe<Scalars['String']>;
+  companyName?: string;
   /**  Max character limit: 100. */
-  country?: InputMaybe<Scalars['String']>;
+  country?: string;
   /**  ID of the object */
-  id: Scalars['ID'];
-  latitude?: InputMaybe<Scalars['Float']>;
-  longitude?: InputMaybe<Scalars['Float']>;
-  name?: InputMaybe<Scalars['String']>;
+  id: string;
+  latitude?: number;
+  longitude?: number;
+  name?: string;
   /**  Max character limit: 100. */
-  postcode?: InputMaybe<Scalars['String']>;
+  postcode?: string;
   /**  Max character limit: 250. */
-  region?: InputMaybe<Scalars['String']>;
+  region?: string;
   /**  Max character limit: 200. */
-  state?: InputMaybe<Scalars['String']>;
+  state?: string;
   /**  Max character limit: 100. */
-  street?: InputMaybe<Scalars['String']>;
+  street?: string;
   /**  Max character limit: 32. */
-  timeZone?: InputMaybe<Scalars['String']>;
+  timeZone?: string;
 };
 
 /**  Input type to update a `Fulfilment` */
 export type UpdateFulfilmentInput = {
   /**  List of fulfilment `attribute`s */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  Type of delivery. Supported values are _STANDARD_, _OVERNIGHT_ and _EXPRESS_. */
-  deliveryType?: InputMaybe<Scalars['String']>;
+  deliveryType?: string;
   /**  Estimated time of completing this fulfilment */
-  eta?: InputMaybe<Scalars['String']>;
+  eta?: string;
   /**  Expiry time of the fulfilment */
-  expiryTime?: InputMaybe<Scalars['DateTime']>;
+  expiryTime?: Date;
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  List of `FulfilmentItem`s */
-  items?: InputMaybe<Array<InputMaybe<UpdateFulfilmentItemWithFulfilmentInput>>>;
+  items?: UpdateFulfilmentItemWithFulfilmentInput[];
   /**  The current status of the `Fulfilment`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/> */
-  status?: InputMaybe<Scalars['String']>;
+  status?: string;
   /**
    *  Type of the `Fulfilment`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
    *  Type of fulfilment. Supported types are <br/>
@@ -10346,55 +10341,55 @@ export type UpdateFulfilmentInput = {
    *  - *HD_PFS* for Home Delivery - Pick from Store
    *  - *HD_PFDC* for Home Delivery - Pick from DC
    */
-  type?: InputMaybe<Scalars['String']>;
+  type?: string;
 };
 
 /**  Input type to update a Fulfilment */
 export type UpdateFulfilmentItemWithFulfilmentInput = {
   /**  Number of `OrderItem`s confirmed */
-  filledQuantity?: InputMaybe<Scalars['Int']>;
+  filledQuantity?: number;
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  Number of `OrderItem`s rejected */
-  rejectedQuantity?: InputMaybe<Scalars['Int']>;
+  rejectedQuantity?: number;
   /**  Number of `OrderItem`s assigned to the fulfilment */
-  requestedQuantity?: InputMaybe<Scalars['Int']>;
+  requestedQuantity?: number;
   /**  Status. Supported value is _DELETED_. */
-  status?: InputMaybe<Scalars['String']>;
+  status?: string;
 };
 
 /**  Input type to update a `FulfilmentOption` object. */
 export type UpdateFulfilmentOptionInput = {
   /**  A list of attributes associated with this object. This can be used to extend an existing object with additional data for use in orchestration rules, etc. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  ID of the object. If provided, will be used to identify the object. */
-  id: Scalars['ID'];
+  id: string;
   /**  External reference. If provided, will be used to identify the object. */
-  ref?: InputMaybe<Scalars['String']>;
+  ref?: string;
   /**  The current status of the `FulfilmentOption`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/> */
-  status?: InputMaybe<Scalars['String']>;
+  status?: string;
   /**  A unique identifier for the clients to group related Fulfilment Plans. */
-  trackingCode?: InputMaybe<Scalars['String']>;
+  trackingCode?: string;
 };
 
 /**  Input type to update a `FulfilmentPlan` object. */
 export type UpdateFulfilmentPlanInput = {
   /**  A list of attributes associated with this object. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  ETA of the `FulfilmentPlan`. Although this can be set explicitly, we recommend that this be determined and set in the workflow. */
-  eta?: InputMaybe<Scalars['String']>;
+  eta?: string;
   /**
    *  A list of exceptions.
    *  **Note** <br /><br />
    *  This will always be an append operation. Existing exceptions can not be modified but new ones can be added.
    */
-  exceptions?: InputMaybe<Array<InputMaybe<CreateFulfilmentPlanExceptionInput>>>;
+  exceptions?: CreateFulfilmentPlanExceptionInput[];
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  External reference. Recommended to be unique. */
-  ref?: InputMaybe<Scalars['String']>;
+  ref?: string;
   /**  The current status of the `FulfilmentPlan`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/> */
-  status?: InputMaybe<Scalars['String']>;
+  status?: string;
 };
 
 /**
@@ -10408,36 +10403,36 @@ export type UpdateFulfilmentPlanInput = {
  */
 export type UpdateGroupProductInput = {
   /**  A list of attributes associated with this Product. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  The Product Catalogue in which this Product is managed */
   catalogue: ProductCatalogueKey;
   /**  A list of references to the `Category`'s to which this `Product` relates. Product categories must be a part of the same `ProductCatalogue` (see `catalogue` field). The `Category` must already exist. */
-  categories?: InputMaybe<Array<InputMaybe<CategoryKey>>>;
+  categories?: CategoryKey[];
   /**  The name of the Product */
-  name?: InputMaybe<Scalars['String']>;
+  name?: string;
   /**  A list of Prices for this Product */
-  prices?: InputMaybe<Array<InputMaybe<PriceInput>>>;
+  prices?: PriceInput[];
   /**  A list of Products within the group */
-  products?: InputMaybe<Array<InputMaybe<ProductKey>>>;
+  products?: ProductKey[];
   /**
    *  The unique reference identifier for the Product. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**
    *  The current status of the `GroupProduct`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/>
    *  Max character limit: 50.
    */
-  status?: InputMaybe<Scalars['String']>;
+  status?: string;
   /**  A short description of the Product (max 255 chars) */
-  summary?: InputMaybe<Scalars['String']>;
+  summary?: string;
   /**  The tax information for this Product */
-  taxType?: InputMaybe<TaxTypeInput>;
+  taxType?: TaxTypeInput;
   /**
    *  Type of the `GroupProduct`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
    *  Max character limit: 50.
    */
-  type?: InputMaybe<Scalars['String']>;
+  type?: string;
 };
 
 /**
@@ -10450,28 +10445,28 @@ export type UpdateGroupProductInput = {
  */
 export type UpdateInventoryCatalogueInput = {
   /**  A list of attributes associated with this Inventory Catalogue. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  A short description of the Inventory Catalogue */
-  description?: InputMaybe<Scalars['String']>;
+  description?: string;
   /**  The name of the Inventory Catalogue */
-  name?: InputMaybe<Scalars['String']>;
+  name?: string;
   /**
    *  The unique reference identifier for the Inventory Catalogue. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**  A list of Retailer references associated with this Inventory Catalogue */
-  retailerRefs?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  retailerRefs?: string[];
   /**
    *  The current status of the `InventoryCatalogue`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/>
    *  Max character limit: 50.
    */
-  status?: InputMaybe<Scalars['String']>;
+  status?: string;
   /**
    *  Type of the `InventoryCatalogue`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
    *  Max character limit: 50.
    */
-  type?: InputMaybe<Scalars['String']>;
+  type?: string;
 };
 
 /**
@@ -10484,32 +10479,32 @@ export type UpdateInventoryCatalogueInput = {
  */
 export type UpdateInventoryPositionInput = {
   /**  A list of attributes associated with this Inventory Position. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  The Inventory Catalogue in which this Position is managed */
   catalogue: InventoryCatalogueKey;
   /**  A reference identifying the Location where this inventory exists. This is a loosely coupled association. */
-  locationRef?: InputMaybe<Scalars['String']>;
+  locationRef?: string;
   /**  The calculated on hand quantity based on the associated quantities, and rules in the orchestration workflow */
-  onHand?: InputMaybe<Scalars['Int']>;
+  onHand?: number;
   /**  A reference identifying a Product. The referenced product may or may not exist within one or more Product Catalogues. This is a loosely coupled association, since Product and Inventory are separate domains. */
-  productRef?: InputMaybe<Scalars['String']>;
+  productRef?: string;
   /**  A list of Inventory Quantities associated with this Position */
-  quantities?: InputMaybe<Array<InputMaybe<InventoryQuantityKey>>>;
+  quantities?: InventoryQuantityKey[];
   /**
    *  The unique reference identifier for the Inventory Position. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**
    *  The current status of the `InventoryPosition`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/>
    *  Max character limit: 50.
    */
-  status?: InputMaybe<Scalars['String']>;
+  status?: string;
   /**
    *  Type of the `InventoryPosition`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
    *  Max character limit: 50.
    */
-  type?: InputMaybe<Scalars['String']>;
+  type?: string;
 };
 
 /**  Input for filtering out a subset of Inventory Positions */
@@ -10517,32 +10512,32 @@ export type InventoryPositionsLocationFilterInput = {
   /**  Inventory Catalogue reference identifier */
   catalogue: InventoryCatalogueKey;
   /**  Location reference identifier */
-  locationRef: Scalars['String'];
+  locationRef: string;
 };
 
 /**  Input for updating the status of any entity with a status field */
 export type StatusInput = {
   /**  Status value used for the input */
-  status: Scalars['String'];
+  status: string;
 };
 
 /**  Output type for bulk updating entity statuses */
 export type UpdateStatusOutput = {
   __typename?: 'UpdateStatusOutput';
   /**  Returns the count of data entries that were updated. Count >= 0 implies the query executed successfully */
-  count?: Maybe<Scalars['Int']>;
+  count?: number;
 };
 
 /**  Input for filtering out a subset of Inventory Quantities */
 export type InventoryQuantityFilterInput = {
   /**  Inventory quantity expected on date */
-  expectedOn?: InputMaybe<DateRange>;
+  expectedOn?: DateRange;
   /**  Inventory Position reference identifier */
   position: InventoryPositionKey;
   /**  Inventory quantity status */
-  status?: InputMaybe<Array<Scalars['String']>>;
+  status?: string[];
   /**  Inventory quantity type */
-  type?: InputMaybe<Array<Scalars['String']>>;
+  type?: string[];
 };
 
 /**
@@ -10555,245 +10550,245 @@ export type InventoryQuantityFilterInput = {
  */
 export type UpdateInventoryQuantityInput = {
   /**  A list of attributes associated with this Inventory Quantity. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  The Inventory Catalogue in which this Position is managed */
   catalogue: InventoryCatalogueKey;
   /**  The condition of the Inventory Quantity value. The platform does not enforce any values here. Examples could include `NEW`, `USED`, or `DAMAGED` */
-  condition?: InputMaybe<Scalars['String']>;
+  condition?: string;
   /**  The date and time the quantity is expected to arrive */
-  expectedOn?: InputMaybe<Scalars['DateTime']>;
+  expectedOn?: Date;
   /**  The actual amount of this specific Quantity record */
-  quantity?: InputMaybe<Scalars['Int']>;
+  quantity?: number;
   /**
    *  The unique reference identifier for the Inventory Quantity. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**
    *  The current status of the `InventoryQuantity`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/>
    *  Max character limit: 50.
    */
-  status?: InputMaybe<Scalars['String']>;
+  status?: string;
   /**
    *  A reference to the Storage Area where this inventory is kept. <br/>
    *  Max character limit: 100.
    */
-  storageAreaRef?: InputMaybe<Scalars['String']>;
+  storageAreaRef?: string;
   /**
    *  Type of the `InventoryQuantity`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
    *  Max character limit: 50.
    */
-  type?: InputMaybe<Scalars['String']>;
+  type?: string;
 };
 
 /**  `UpdateInvoiceInput` */
 export type UpdateInvoiceInput = {
   /**  A list of attributes associated with the `Invoice`. This can be used to extend the existing data structure with additional data. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  Reference to the `Currency` */
-  currency?: InputMaybe<CurrencyKey>;
+  currency?: CurrencyKey;
   /**  The default Tax Type for this invoice. Individual invoice items can override. */
-  defaultTaxType?: InputMaybe<TaxTypeInput>;
+  defaultTaxType?: TaxTypeInput;
   /**  Due date of the `Invoice` */
-  dueDate?: InputMaybe<Scalars['DateTime']>;
+  dueDate?: Date;
   /**  Reference to the `Fulfilment` associated with this `Invoice`. */
-  fulfilment?: InputMaybe<FulfilmentLinkInput>;
+  fulfilment?: FulfilmentLinkInput;
   /**  Issue date of the `Invoice` */
-  issueDate?: InputMaybe<Scalars['DateTime']>;
+  issueDate?: Date;
   /**  The `InvoiceItem`s associated with this `Invoice`. */
-  items?: InputMaybe<Array<InputMaybe<UpdateInvoiceItemWithInvoiceInput>>>;
+  items?: UpdateInvoiceItemWithInvoiceInput[];
   /**  Reference to the `Order` associated with this `Invoice`. */
-  order?: InputMaybe<OrderLinkInput>;
+  order?: OrderLinkInput;
   /**
    *  External reference to the `Invoice`. Must be unique. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**
    *  Status of the `Invoice`. <br/>
    *  Max character limit: 50.
    */
-  status?: InputMaybe<Scalars['String']>;
+  status?: string;
   /**  The total amount of this invoice excluding tax. */
-  subTotalAmount?: InputMaybe<AmountTypeInput>;
+  subTotalAmount?: AmountTypeInput;
   /**  The total amount of this invoice including tax */
-  totalAmount?: InputMaybe<AmountTypeInput>;
+  totalAmount?: AmountTypeInput;
   /**  The total amount of this invoice yet to be paid. (This caters for multi-part payments and payment milestones) */
-  totalBalance?: InputMaybe<AmountTypeInput>;
+  totalBalance?: AmountTypeInput;
   /**  The total amount of tax for this invoice */
-  totalTax?: InputMaybe<AmountTypeInput>;
+  totalTax?: AmountTypeInput;
 };
 
 /**  Input type to create an `InvoiceItem` with an `Invoice`. Intended to be used as an inline input in the createInvoice_mutation. */
 export type UpdateInvoiceItemWithInvoiceInput = {
   /**  The item amount for this item excluding tax */
-  amount?: InputMaybe<AmountTypeInput>;
+  amount?: AmountTypeInput;
   /**  Description of the `InvoiceItem` */
-  description?: InputMaybe<Scalars['String']>;
+  description?: string;
   /**  Reference to the `Product` associated with this object. */
-  product?: InputMaybe<ProductKey>;
+  product?: ProductKey;
   /**
    *  External reference to the `InvoiceItem`. Must be unique. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**  The tax amount for this item. If not present at the item level, tax amount should be generated based on the tax type set at the invoice parent level. */
-  taxAmount?: InputMaybe<AmountTypeInput>;
+  taxAmount?: AmountTypeInput;
   /**  The unit price of the source item. */
-  unitAmount?: InputMaybe<AmountTypeInput>;
+  unitAmount?: AmountTypeInput;
   /**  `unitQuantity` holds separately the amount and the unit associated. */
-  unitQuantity?: InputMaybe<QuantityTypeInput>;
+  unitQuantity?: QuantityTypeInput;
   /**  The tax type of this item. Should only be provided if different to the default invoice tax type. */
-  unitTaxType?: InputMaybe<TaxTypeInput>;
+  unitTaxType?: TaxTypeInput;
 };
 
 export type UpdateLocationInput = {
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  Max character limit: 50. */
-  defaultCarrier?: InputMaybe<Scalars['String']>;
+  defaultCarrier?: string;
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  Max character limit: 100. */
-  name?: InputMaybe<Scalars['String']>;
-  networks?: InputMaybe<Array<InputMaybe<NetworkId>>>;
-  openingSchedule?: InputMaybe<UpdateOpeningScheduleInput>;
-  primaryAddress?: InputMaybe<UpdateStoreAddressInput>;
-  retailer?: InputMaybe<RetailerId>;
+  name?: string;
+  networks?: NetworkId[];
+  openingSchedule?: UpdateOpeningScheduleInput;
+  primaryAddress?: UpdateStoreAddressInput;
+  retailer?: RetailerId;
   /**  Max character limit: 15. */
-  status?: InputMaybe<Scalars['String']>;
-  storageAreas?: InputMaybe<Array<InputMaybe<UpdateStorageAreaWithLocationInput>>>;
+  status?: string;
+  storageAreas?: UpdateStorageAreaWithLocationInput[];
   /**  Max character limit: 20. */
-  supportPhoneNumber?: InputMaybe<Scalars['String']>;
+  supportPhoneNumber?: string;
   /**  Max character limit: 25. */
-  type?: InputMaybe<Scalars['String']>;
+  type?: string;
 };
 
 export type UpdateOpeningScheduleInput = {
-  allHours?: InputMaybe<Scalars['Boolean']>;
-  friEnd?: InputMaybe<Scalars['Int']>;
-  friStart?: InputMaybe<Scalars['Int']>;
+  allHours?: Scalars['Boolean'];
+  friEnd?: number;
+  friStart?: number;
   /**  ID of the object */
-  id: Scalars['ID'];
-  monEnd?: InputMaybe<Scalars['Int']>;
-  monStart?: InputMaybe<Scalars['Int']>;
-  satEnd?: InputMaybe<Scalars['Int']>;
-  satStart?: InputMaybe<Scalars['Int']>;
-  sunEnd?: InputMaybe<Scalars['Int']>;
-  sunStart?: InputMaybe<Scalars['Int']>;
-  thuEnd?: InputMaybe<Scalars['Int']>;
-  thuStart?: InputMaybe<Scalars['Int']>;
-  tueEnd?: InputMaybe<Scalars['Int']>;
-  tueStart?: InputMaybe<Scalars['Int']>;
-  wedEnd?: InputMaybe<Scalars['Int']>;
-  wedStart?: InputMaybe<Scalars['Int']>;
+  id: string;
+  monEnd?: number;
+  monStart?: number;
+  satEnd?: number;
+  satStart?: number;
+  sunEnd?: number;
+  sunStart?: number;
+  thuEnd?: number;
+  thuStart?: number;
+  tueEnd?: number;
+  tueStart?: number;
+  wedEnd?: number;
+  wedStart?: number;
 };
 
 export type UpdateStoreAddressInput = {
   /**  Max character limit: 45. */
-  city?: InputMaybe<Scalars['String']>;
+  city?: string;
   /**  Max character limit: 45. */
-  companyName?: InputMaybe<Scalars['String']>;
+  companyName?: string;
   /**  Max character limit: 100. */
-  country?: InputMaybe<Scalars['String']>;
+  country?: string;
   /**  Max character limit: 4096. */
-  directions?: InputMaybe<Scalars['String']>;
+  directions?: string;
   /**  ID of the object */
-  id: Scalars['ID'];
-  latitude?: InputMaybe<Scalars['Float']>;
-  longitude?: InputMaybe<Scalars['Float']>;
-  name?: InputMaybe<Scalars['String']>;
+  id: string;
+  latitude?: number;
+  longitude?: number;
+  name?: string;
   /**  Max character limit: 100. */
-  postcode?: InputMaybe<Scalars['String']>;
+  postcode?: string;
   /**  Max character limit: 250. */
-  region?: InputMaybe<Scalars['String']>;
+  region?: string;
   /**  Max character limit: 200. */
-  state?: InputMaybe<Scalars['String']>;
+  state?: string;
   /**  Max character limit: 100. */
-  street?: InputMaybe<Scalars['String']>;
+  street?: string;
   /**  Max character limit: 32. */
-  timeZone?: InputMaybe<Scalars['String']>;
+  timeZone?: string;
 };
 
 export type UpdateStorageAreaWithLocationInput = {
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  ID of the object */
-  id: Scalars['ID'];
-  status?: InputMaybe<Scalars['String']>;
+  id: string;
+  status?: string;
   /**  Max character limit: 50. */
-  type?: InputMaybe<Scalars['String']>;
+  type?: string;
 };
 
 /**  Input for the `updateManifest` mutation. */
 export type UpdateManifestInput = {
   /**  A list of attributes associated with this `Manifest`. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**
    *  Reference to the `Carrier` this `Manifest` is for <br/>
    *  Max character limit: 100.
    */
-  carrier?: InputMaybe<CarrierKey>;
+  carrier?: CarrierKey;
   /**  A list of references to the `Consignment`s this `Manifest` contains. */
-  carrierConsignments?: InputMaybe<Array<InputMaybe<CarrierConsignmentKey>>>;
+  carrierConsignments?: CarrierConsignmentKey[];
   /**  The link where the carrier's manifest is stored. Not all the carriers generates one, so this field is optional. */
-  carrierManifestLink?: InputMaybe<Scalars['String']>;
+  carrierManifestLink?: string;
   /**  The `Location` this `Manifest` is associated with */
-  location?: InputMaybe<LocationKey>;
+  location?: LocationKey;
   /**  The name of this `Manifest` */
-  name?: InputMaybe<Scalars['String']>;
+  name?: string;
   /**
    *  External reference for this `Manifest`. Must be unique. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**
    *  The status of this `Manifest`. <br/>
    *  Max character limit: 50.
    */
-  status?: InputMaybe<Scalars['String']>;
+  status?: string;
   /**
    *  The type of `Manifest`. <br/>
    *  Max character limit: 50.
    */
-  type?: InputMaybe<Scalars['String']>;
+  type?: string;
 };
 
 /**  Input type to update a `Network` */
 export type UpdateNetworkInput = {
   /**  List of the network's `attribute`s */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  List of `location`s within this network */
-  locations?: InputMaybe<Array<InputMaybe<LocationId>>>;
+  locations?: LocationId[];
   /**
    *  Name of the network. <br/>
    *  Max character limit: 100.
    */
-  name?: InputMaybe<Scalars['String']>;
+  name?: string;
   /**  Status of the network */
-  status?: InputMaybe<Scalars['String']>;
+  status?: string;
   /**
    *  Type of the network. For example you could use _CC_ for _Click and Collect_ or _HD_ for _Home Delivery_. These types can be defined by the user and used by the Orchestration
    *  Engine to determine the workflow that should be applied. <br/>
    *  Max character limit: 15.
    */
-  type?: InputMaybe<Scalars['String']>;
+  type?: string;
 };
 
 /**  Input type to update an `Order` */
 export type UpdateOrderInput = {
   /**  List of order's `attribute`s */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  ID of the `Order` */
-  id: Scalars['ID'];
+  id: string;
   /**  List of `OrderItem`s to be updated */
-  items?: InputMaybe<Array<InputMaybe<UpdateOrderItemWithOrderInput>>>;
+  items?: UpdateOrderItemWithOrderInput[];
   /**  The current status of the `Order`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/> */
-  status?: InputMaybe<Scalars['String']>;
+  status?: string;
   /**  Tax price */
-  totalPrice?: InputMaybe<Scalars['Float']>;
+  totalPrice?: number;
   /**  Total tax price */
-  totalTaxPrice?: InputMaybe<Scalars['Float']>;
+  totalTaxPrice?: number;
 };
 
 /**
@@ -10804,93 +10799,93 @@ export type UpdateOrderInput = {
  */
 export type UpdateOrderItemWithOrderInput = {
   /**  List of `OrderItem` `attribute`s. There's expected a JSON object */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  Currency. Should ideally be a 3 letter ISO currency code. For instance _AUD_. */
-  currency?: InputMaybe<Scalars['String']>;
+  currency?: string;
   /**  ID of the `OrderItem` */
-  id: Scalars['ID'];
+  id: string;
   /**  Price paid. Excludes tax. */
-  paidPrice?: InputMaybe<Scalars['Float']>;
+  paidPrice?: number;
   /**  Price */
-  price?: InputMaybe<Scalars['Float']>;
+  price?: number;
   /**
    *  External reference for the product catalogue containing the associated product (specified using the `productRef`in this object).
    *  When `productCatalogueRef` is not passed, the compatibility catalogue for this product is used.
    */
-  productCatalogueRef?: InputMaybe<Scalars['String']>;
+  productCatalogueRef?: string;
   /**  External reference for the associated product. */
-  productRef?: InputMaybe<Scalars['String']>;
+  productRef?: string;
   /**  Quantity ordered */
-  quantity?: InputMaybe<Scalars['Int']>;
+  quantity?: number;
   /**  External reference for the object. Recommended to be unique. */
-  ref?: InputMaybe<Scalars['String']>;
+  ref?: string;
   /**  Status of the OrderItem. Currently supported values are limited to _CREATED_, _NEW_, _COMPLETE_. */
-  status?: InputMaybe<Scalars['String']>;
+  status?: string;
   /**  Tax price */
-  taxPrice?: InputMaybe<Scalars['Float']>;
+  taxPrice?: number;
   /**  Tax type. Supported values are _GST_, _VAT_, _EXCLTAX_. */
-  taxType?: InputMaybe<Scalars['String']>;
+  taxType?: string;
   /**  Total price */
-  totalPrice?: InputMaybe<Scalars['Float']>;
+  totalPrice?: number;
   /**  Total tax price */
-  totalTaxPrice?: InputMaybe<Scalars['Float']>;
+  totalTaxPrice?: number;
 };
 
 /**  Input type to update a `Payment`. */
 export type UpdatePaymentInput = {
   /**  A list of attributes associated with the `Payment`. This can be used to extend the existing data structure with additional data. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  The `BillingAccount` associated with this `Payment`. */
-  billingAccount?: InputMaybe<BillingAccountKey>;
+  billingAccount?: BillingAccountKey;
   /**
    *  External reference to the `Payment`. Must be unique. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**
    *  The current status of the `Payment`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/>
    *  Status of the `Payment`. <br/>
    *  Max character limit: 25.
    */
-  status?: InputMaybe<Scalars['String']>;
+  status?: string;
 };
 
 /**  Input type to update a `PaymentServiceProvider`. */
 export type UpdatePaymentServiceProviderInput = {
   /**  A list of attributes associated with the `PaymentServiceProvider`. This can be used to extend the existing data structure with additional data. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**
    *  The ClientId of the `PaymentServiceProvider`. <br/>
    *  Max character limit: 25.
    */
-  clientId?: InputMaybe<Scalars['String']>;
+  clientId?: string;
   /**
    *  The Client Secret of the `PaymentServiceProvider`. <br/>
    *  Max character limit: 50.
    */
-  clientSecret?: InputMaybe<Scalars['String']>;
+  clientSecret?: string;
   /**
    *  The host name of the `PaymentServiceProvider`. <br/>
    *  Max character limit: 50.
    */
-  host?: InputMaybe<Scalars['String']>;
+  host?: string;
   /**
    *  Name of the `PaymentServiceProvider`. <br/>
    *  Max character limit: 50.
    */
-  name?: InputMaybe<Scalars['String']>;
+  name?: string;
   /**  The port of the `PaymentServiceProvider` */
-  port?: InputMaybe<Scalars['Int']>;
+  port?: number;
   /**
    *  External reference to the `PaymentServiceProvider`. Must be unique. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**
    *  The Authorization Key of this `PaymentServiceProvider`. <br/>
    *  Max character limit: 50.
    */
-  serviceAuthToken?: InputMaybe<Scalars['String']>;
+  serviceAuthToken?: string;
 };
 
 /**
@@ -10903,181 +10898,181 @@ export type UpdatePaymentServiceProviderInput = {
  */
 export type UpdateProductCatalogueInput = {
   /**  A list of attributes associated with this Product Catalogue. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  A short description of the Product Catalogue */
-  description?: InputMaybe<Scalars['String']>;
+  description?: string;
   /**  The name of the Product Catalogue */
-  name?: InputMaybe<Scalars['String']>;
+  name?: string;
   /**
    *  The unique reference identifier for the Product Catalogue. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**  A list of Retailer references associated with this Product Catalogue */
-  retailerRefs?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  retailerRefs?: string[];
   /**
    *  The current status of the `ProductCatalogue`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/>
    *  Max character limit: 50.
    */
-  status?: InputMaybe<Scalars['String']>;
+  status?: string;
   /**
    *  Type of the `ProductCatalogue`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
    *  Max character limit: 50.
    */
-  type?: InputMaybe<Scalars['String']>;
+  type?: string;
 };
 
 export type UpdateRetailerInput = {
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  Max character limit: 45. */
-  name?: InputMaybe<Scalars['String']>;
-  networks?: InputMaybe<Array<InputMaybe<NetworkId>>>;
+  name?: string;
+  networks?: NetworkId[];
   /**  Max character limit: 250. */
-  primaryEmail?: InputMaybe<Scalars['String']>;
-  region?: InputMaybe<Scalars['String']>;
+  primaryEmail?: string;
+  region?: string;
   /**  Max character limit: 25. */
-  status?: InputMaybe<Scalars['String']>;
-  summary?: InputMaybe<Scalars['String']>;
-  supportContactName?: InputMaybe<Scalars['String']>;
-  supportEmail?: InputMaybe<Scalars['String']>;
-  supportPhone?: InputMaybe<Scalars['String']>;
-  tradingName?: InputMaybe<Scalars['String']>;
-  urlName?: InputMaybe<Scalars['String']>;
-  websiteUrl?: InputMaybe<Scalars['String']>;
+  status?: string;
+  summary?: string;
+  supportContactName?: string;
+  supportEmail?: string;
+  supportPhone?: string;
+  tradingName?: string;
+  urlName?: string;
+  websiteUrl?: string;
 };
 
 /** The lodged location in cases where the return order was directly returned to a store or DC */
 export type UpdateReturnFulfilmentInput = {
   /**  A list of attributes. Attributes can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /** The destination of the return order items */
-  destinationLocation?: InputMaybe<LocationLinkInput>;
+  destinationLocation?: LocationLinkInput;
   /** The lodged location in cases where the return order was directly returned to a store or DC */
-  lodgedLocation?: InputMaybe<LocationLinkInput>;
+  lodgedLocation?: LocationLinkInput;
   /** The pickup address in the cases of return orders that are being picked up by a carrier */
-  pickupAddress?: InputMaybe<StreetAddressInput>;
+  pickupAddress?: StreetAddressInput;
   /**
    *  External reference. Must be unique. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /** Update fulfilment items */
-  returnFulfilmentItems?: InputMaybe<Array<InputMaybe<UpdateReturnFulfilmentItemWithReturnFulfilmentInput>>>;
+  returnFulfilmentItems?: UpdateReturnFulfilmentItemWithReturnFulfilmentInput[];
   /**  Return order reference related to the fulfilment */
   returnOrder: ReturnOrderKey;
   /**
    *  Status of the return fulfilment. <br/>
    *  Max character limit: 100.
    */
-  status?: InputMaybe<Scalars['String']>;
+  status?: string;
 };
 
 /**  Input type to update return fulfilment item with return fulfilment */
 export type UpdateReturnFulfilmentItemWithReturnFulfilmentInput = {
   /**  A list of attributes. Attributes can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /** Product reference of return fulfilment item */
-  product?: InputMaybe<ProductKey>;
+  product?: ProductKey;
   /**
    *  External reference. Must be unique. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**  Unit quantity of return fulfilment item */
-  unitQuantity?: InputMaybe<QuantityTypeInput>;
+  unitQuantity?: QuantityTypeInput;
 };
 
 /**  Input type to update return order */
 export type UpdateReturnOrderInput = {
   /**  A list of attributes of the return order. Attributes can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  The associated credit memo for this return order */
-  creditMemo?: InputMaybe<CreditMemoKey>;
+  creditMemo?: CreditMemoKey;
   /**  The currency of this return */
-  currency?: InputMaybe<CurrencyKey>;
+  currency?: CurrencyKey;
   /**  The default Tax Type for this return order. Individual return order items can override */
-  defaultTaxType?: InputMaybe<TaxTypeInput>;
+  defaultTaxType?: TaxTypeInput;
   /**  The destination of the return order items */
-  destinationLocation?: InputMaybe<LocationLinkInput>;
+  destinationLocation?: LocationLinkInput;
   /**  The associated exchange order managed the exchange item */
-  exchangeOrder?: InputMaybe<OrderLinkInput>;
+  exchangeOrder?: OrderLinkInput;
   /**  The lodged location in cases where the return order was directly returned to a store or DC */
-  lodgedLocation?: InputMaybe<LocationLinkInput>;
+  lodgedLocation?: LocationLinkInput;
   /**  Customer reference of the return order. This links the customer to return order */
-  order?: InputMaybe<OrderLinkInput>;
+  order?: OrderLinkInput;
   /**  The pickup address in the cases of return orders that are being picked up by a carrier */
-  pickupAddress?: InputMaybe<StreetAddressInput>;
+  pickupAddress?: StreetAddressInput;
   /**
    *  External reference of the return order. Must be unique. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**  Retailer reference of return orders */
   retailer: RetailerId;
   /**  The authorised disposition for this return order. This can be different to the return disposition action which reflects the actual action once an item has been inspected */
-  returnAuthorisationDisposition?: InputMaybe<SettingValueTypeInput>;
+  returnAuthorisationDisposition?: SettingValueTypeInput;
   /**  The generated key representing an authorised return order which the customer can use to progress through the return order process */
-  returnAuthorisationKey?: InputMaybe<Scalars['String']>;
+  returnAuthorisationKey?: string;
   /**  The time at which the return authorisation expires */
-  returnAuthorisationKeyExpiry?: InputMaybe<Scalars['DateTime']>;
+  returnAuthorisationKeyExpiry?: Date;
   /**  The destination of the return order items */
-  returnOrderItems?: InputMaybe<Array<InputMaybe<UpdateReturnOrderItemWithReturnOrderInput>>>;
+  returnOrderItems?: UpdateReturnOrderItemWithReturnOrderInput[];
   /**  List of return verifications associated with the return order */
-  returnVerifications?: InputMaybe<Array<InputMaybe<UpdateReturnVerificationWithReturnOrderInput>>>;
+  returnVerifications?: UpdateReturnVerificationWithReturnOrderInput[];
   /**
    *  Status of the return order. <br/>
    *  Max character limit: 50.
    */
-  status?: InputMaybe<Scalars['String']>;
+  status?: string;
   /**  The total amount of this return order excluding tax */
-  subTotalAmount?: InputMaybe<AmountTypeInput>;
+  subTotalAmount?: AmountTypeInput;
   /**  The total amount of this return order including tax */
-  totalAmount?: InputMaybe<AmountTypeInput>;
+  totalAmount?: AmountTypeInput;
   /**  The total amount of tax for this return order */
-  totalTax?: InputMaybe<AmountTypeInput>;
+  totalTax?: AmountTypeInput;
 };
 
 /**  Input type to update return order item when updating the return order */
 export type UpdateReturnOrderItemWithReturnOrderInput = {
   /**  A list of attributes. Attributes can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  Item total amount of returning item */
-  itemAmount?: InputMaybe<AmountTypeInput>;
+  itemAmount?: AmountTypeInput;
   /**  Item tax amount of the returning item */
-  itemTaxAmount?: InputMaybe<AmountTypeInput>;
+  itemTaxAmount?: AmountTypeInput;
   /**  Order item of return order item. This field is optional */
-  orderItem?: InputMaybe<OrderItemLinkInput>;
+  orderItem?: OrderItemLinkInput;
   /**  Product reference of return order item */
-  product?: InputMaybe<ProductKey>;
+  product?: ProductKey;
   /**
    *  External reference. Must be unique. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**  The condition in which the return item was received */
-  returnCondition?: InputMaybe<SettingValueTypeInput>;
+  returnCondition?: SettingValueTypeInput;
   /**  An optional comment. Required if the condition code required further information such as 'Other'. */
-  returnConditionComment?: InputMaybe<Scalars['String']>;
+  returnConditionComment?: string;
   /**  The actual disposition action taken for this return item */
-  returnDispositionAction?: InputMaybe<SettingValueTypeInput>;
+  returnDispositionAction?: SettingValueTypeInput;
   /**  The actual payment action taken for this return item */
-  returnPaymentAction?: InputMaybe<SettingValueTypeInput>;
+  returnPaymentAction?: SettingValueTypeInput;
   /**  Reason for returning the item */
-  returnReason?: InputMaybe<SettingValueTypeInput>;
+  returnReason?: SettingValueTypeInput;
   /**  Additional comments related to the returning item */
-  returnReasonComment?: InputMaybe<Scalars['String']>;
+  returnReasonComment?: string;
   /**
    *  Status or the return order item. <br/>
    *  Max character limit: 50.
    */
-  status?: InputMaybe<Scalars['String']>;
+  status?: string;
   /**  Unit price of the returning item */
-  unitAmount?: InputMaybe<AmountTypeInput>;
+  unitAmount?: AmountTypeInput;
   /**  Return quantity */
-  unitQuantity?: InputMaybe<QuantityTypeInput>;
+  unitQuantity?: QuantityTypeInput;
   /**  Unit tax type of the retuning item */
-  unitTaxType?: InputMaybe<TaxTypeInput>;
+  unitTaxType?: TaxTypeInput;
 };
 
 export type UpdateReturnVerificationWithReturnOrderInput = {
@@ -11085,17 +11080,17 @@ export type UpdateReturnVerificationWithReturnOrderInput = {
    *  External reference. Must be unique. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /** verification details */
-  verificationDetails?: InputMaybe<Scalars['String']>;
+  verificationDetails?: string;
 };
 
 /**  Input type to update a `Role` */
 export type UpdateRoleInput = {
   /**  Name of the role. This input is used to identify the role to be updated. */
-  name: Scalars['String'];
+  name: string;
   /**  A list of permissions to be assigned to the role. Please note that all new permissions in the input will be added, existing ones will not be affected. */
-  permissions?: InputMaybe<Array<InputMaybe<PermissionKey>>>;
+  permissions?: PermissionKey[];
 };
 
 /**
@@ -11110,19 +11105,19 @@ export type UpdateRoleInput = {
  */
 export type UpdateSettingInput = {
   /**  The context of the setting. Supported values are ACCOUNT, RETAILER, AGENT or CUSTOMER */
-  context: Scalars['String'];
+  context: string;
   /**  `ID` of the context type. For instance, use a retailer's ID when using _RETAILER_ context. */
-  contextId: Scalars['Int'];
+  contextId: number;
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  Value of the setting. Use this if the value is a JSON. */
-  lobValue?: InputMaybe<Scalars['Json']>;
+  lobValue?: Scalars['Json'];
   /**  Name of the setting */
-  name?: InputMaybe<Scalars['String']>;
+  name?: string;
   /**  Value of the setting. Use this if the value is NOT a JSON. */
-  value?: InputMaybe<Scalars['String']>;
+  value?: string;
   /**  Data type of the setting's value. Supported types are _LOB_, _STRING_, _INTEGER_, _BOOLEAN_ and _JSON_. */
-  valueType: Scalars['String'];
+  valueType: string;
 };
 
 /**
@@ -11136,50 +11131,50 @@ export type UpdateSettingInput = {
  */
 export type UpdateStandardProductInput = {
   /**  A list of attributes associated with this Product. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  The Product Catalogue in which this Product is managed */
   catalogue: ProductCatalogueKey;
   /**  A list of references to the `Category`'s to which this `Product` relates. Product categories must be a part of the same `ProductCatalogue` (see `catalogue` field). The `Category` must already exist. */
-  categories?: InputMaybe<Array<InputMaybe<CategoryKey>>>;
+  categories?: CategoryKey[];
   /**
    *  The Global Trade Item Number (GTIN) for this Product.<br/>
    *  Max character limit: 20.
    */
-  gtin?: InputMaybe<Scalars['String']>;
+  gtin?: string;
   /**  The name of the Product */
-  name?: InputMaybe<Scalars['String']>;
+  name?: string;
   /**  A list of Prices for this Product */
-  prices?: InputMaybe<Array<InputMaybe<PriceInput>>>;
+  prices?: PriceInput[];
   /**
    *  The unique reference identifier for the Product. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**
    *  The current status of the `StandardProduct`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/>
    *  Max character limit: 50.
    */
-  status?: InputMaybe<Scalars['String']>;
+  status?: string;
   /**  A short description of the Product (max 255 chars) */
-  summary?: InputMaybe<Scalars['String']>;
+  summary?: string;
   /**  The tax information for this Product */
-  taxType?: InputMaybe<TaxTypeInput>;
+  taxType?: TaxTypeInput;
   /**
    *  Type of the `StandardProduct`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
    *  Max character limit: 50.
    */
-  type?: InputMaybe<Scalars['String']>;
+  type?: string;
   /**  A list of references to the `VariantProduct`'s to which this `Product` relates. Product variants must be a part of the same `ProductCatalogue` (see `catalogue` field). The `VariantProduct` must already exist. */
-  variants?: InputMaybe<Array<InputMaybe<VariantProductKey>>>;
+  variants?: VariantProductKey[];
 };
 
 export type UpdateStorageAreaInput = {
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  ID of the object */
-  id: Scalars['ID'];
-  status?: InputMaybe<Scalars['String']>;
+  id: string;
+  status?: string;
   /**  Max character limit: 50. */
-  type?: InputMaybe<Scalars['String']>;
+  type?: string;
 };
 
 /**  Updates an existing `User`s details */
@@ -11188,78 +11183,78 @@ export type UpdateUserInput = {
    *  API Key. To be used with the Fluent Widget. <br/>
    *  Max character limit: 128.
    */
-  apiKey?: InputMaybe<Scalars['String']>;
+  apiKey?: string;
   /**  A list of attributes associated with this object. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**
    *  Country. <br/>
    *  Max character limit: 100.
    */
-  country?: InputMaybe<Scalars['String']>;
+  country?: string;
   /**  Department */
-  department?: InputMaybe<Scalars['String']>;
+  department?: string;
   /**
    *  User's first name. <br/>
    *  Max character limit: 50.
    */
-  firstName?: InputMaybe<Scalars['String']>;
+  firstName?: string;
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
   /**  User language (leave null to allow users to self-select their language preference) */
-  language?: InputMaybe<SettingValueTypeInput>;
+  language?: SettingValueTypeInput;
   /**
    *  User's last name. <br/>
    *  Max character limit: 50.
    */
-  lastName?: InputMaybe<Scalars['String']>;
+  lastName?: string;
   /**
    *  User Password.
    *  Max character limit: 128.
    */
-  password?: InputMaybe<Scalars['String']>;
+  password?: string;
   /**
    *  User's primary email. <br/>
    *  Max character limit: 250.
    */
-  primaryEmail?: InputMaybe<Scalars['String']>;
+  primaryEmail?: string;
   /**  User's location context */
-  primaryLocation?: InputMaybe<LocationId>;
+  primaryLocation?: LocationId;
   /**
    *  User's primary phone number. <br/>
    *  Max character limit: 20.
    */
-  primaryPhone?: InputMaybe<Scalars['String']>;
+  primaryPhone?: string;
   /**  User's retailer context */
-  primaryRetailer?: InputMaybe<RetailerId>;
+  primaryRetailer?: RetailerId;
   /**  Determines if the user has opted to receive promotions */
-  promotionOptIn?: InputMaybe<Scalars['Boolean']>;
+  promotionOptIn?: Scalars['Boolean'];
   /**
    *  External reference of the object. Recommended to be unique. <br/>
    *  Max character limit: 100.
    */
-  ref?: InputMaybe<Scalars['String']>;
+  ref?: string;
   /**
    *  A list of roles to be assigned to the user. This operation works in an _upsert_ fashion i.e. any previously assigned roles to the user will not be removed; only new ones
    *  will be added.
    */
-  roles?: InputMaybe<Array<InputMaybe<UserRoleInput>>>;
+  roles?: UserRoleInput[];
   /**
    *  Status of the user. <br/>
    *  Max character limit: 50.
    */
-  status?: InputMaybe<Scalars['String']>;
+  status?: string;
   /**
    *  Timezone. <br/>
    *  Max character limit: 32.
    */
-  timezone?: InputMaybe<Scalars['String']>;
+  timezone?: string;
   /**
    *  The user's title. For example _Mr._, _Miss_, _Dr._, _Ms._ etc <br/>
    *  Max character limit: 50.
    */
-  title?: InputMaybe<Scalars['String']>;
+  title?: string;
   /**  Type of the user. For example _ADMIN_, _RETAILER_, _LOCATION_ etc */
-  type?: InputMaybe<Scalars['String']>;
+  type?: string;
 };
 
 /**
@@ -11273,41 +11268,41 @@ export type UpdateUserInput = {
  */
 export type UpdateVariantProductInput = {
   /**  A list of attributes associated with this Product. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  The Product Catalogue in which this Product is managed */
   catalogue: ProductCatalogueKey;
   /**  A list of references to the `Category`'s to which this `Product` relates. Product categories must be a part of the same `ProductCatalogue` (see `catalogue` field). The `Category` must already exist. */
-  categories?: InputMaybe<Array<InputMaybe<CategoryKey>>>;
+  categories?: CategoryKey[];
   /**
    *  The Global Trade Item Number (GTIN) for this Product. <br/>
    *  Max character limit: 20.
    */
-  gtin?: InputMaybe<Scalars['String']>;
+  gtin?: string;
   /**  The name of the Product */
-  name?: InputMaybe<Scalars['String']>;
+  name?: string;
   /**  A list of Prices for this Product */
-  prices?: InputMaybe<Array<InputMaybe<PriceInput>>>;
+  prices?: PriceInput[];
   /**  Associated base 'Product' of this variant */
-  product?: InputMaybe<ProductKey>;
+  product?: ProductKey;
   /**
    *  The unique reference identifier for the Product. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**
    *  The current status of the `VariantProduct`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/>
    *  Max character limit: 50.
    */
-  status?: InputMaybe<Scalars['String']>;
+  status?: string;
   /**  A short description of the Product (max 255 chars) */
-  summary?: InputMaybe<Scalars['String']>;
+  summary?: string;
   /**  The tax information for this Product */
-  taxType?: InputMaybe<TaxTypeInput>;
+  taxType?: TaxTypeInput;
   /**
    *  Type of the `VariantProduct`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
    *  Max character limit: 50.
    */
-  type?: InputMaybe<Scalars['String']>;
+  type?: string;
 };
 
 /**
@@ -11318,36 +11313,36 @@ export type UpdateVariantProductInput = {
  */
 export type UpdateVirtualCatalogueInput = {
   /**  New list of Attribute containing meta data information for this entity object */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  Control group Ref */
-  controlGroupRef?: InputMaybe<Scalars['String']>;
+  controlGroupRef?: string;
   /**  Description */
-  description?: InputMaybe<Scalars['String']>;
+  description?: string;
   /**  Inventory Catalogue used for this virtual catalogue */
-  inventoryCatalogueRef?: InputMaybe<Scalars['String']>;
+  inventoryCatalogueRef?: string;
   /**  Name of the inventory catalogue */
-  name?: InputMaybe<Scalars['String']>;
+  name?: string;
   /**  Networks used for this catalogue */
-  networkIds?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  networkIds?: string[];
   /**  Product Catalogue used for this virtual catalogue */
-  productCatalogueRef?: InputMaybe<Scalars['String']>;
+  productCatalogueRef?: string;
   /**
    *  Reference identifier used to identify this entity object. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**  Retailer refs */
-  retailerRefs?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  retailerRefs?: string[];
   /**
    *  The current status of the `VirtualCatalogue`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/>
    *  Max character limit: 50.
    */
-  status?: InputMaybe<Scalars['String']>;
+  status?: string;
   /**
    *  Type of the `VirtualCatalogue`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
    *  Max character limit: 50.
    */
-  type?: InputMaybe<Scalars['String']>;
+  type?: string;
 };
 
 /**
@@ -11358,30 +11353,30 @@ export type UpdateVirtualCatalogueInput = {
  */
 export type UpdateVirtualPositionInput = {
   /**  List of Attribute containing meta data information for this entity */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  Catalogue */
   catalogue: VirtualCatalogueKey;
   /**  Group Reference */
-  groupRef?: InputMaybe<Scalars['String']>;
+  groupRef?: string;
   /**  Product reference */
-  productRef?: InputMaybe<Scalars['String']>;
+  productRef?: string;
   /**  Quantity */
-  quantity?: InputMaybe<Scalars['Int']>;
+  quantity?: number;
   /**
    *  Reference identifier used to identify this entity. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**
    *  The current status of the `VirtualPosition`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/>
    *  Max character limit: 50.
    */
-  status?: InputMaybe<Scalars['String']>;
+  status?: string;
   /**
    *  Type of the `VirtualPosition`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
    *  Max character limit: 50.
    */
-  type?: InputMaybe<Scalars['String']>;
+  type?: string;
 };
 
 /**  Input for filtering out a subset of Virtual Positions */
@@ -11389,42 +11384,42 @@ export type VirtualPositionsGroupFilterInput = {
   /**  Virtual Catalogue reference identifier */
   catalogue: VirtualCatalogueKey;
   /**  Virtual Position Group reference identifier */
-  groupRef: Scalars['String'];
+  groupRef: string;
 };
 
 /**  Input type to update a `Wave` */
 export type UpdateWaveInput = {
   /**  `User` who this wave is assigned to */
-  allocatedTo?: InputMaybe<UserId>;
+  allocatedTo?: UserId;
   /**  A list of attributes associated with this wave. `Attribute`s can be used to extend the existing data structure with additional data for use in orchestration rules, UI etc. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
+  attributes?: AttributeInput[];
   /**  Fulfilments associated with this wave. This field can be used to add new fulfilments to the wave. Existing fulfilments can't be deleted. */
-  fulfilments?: InputMaybe<Array<InputMaybe<FulfilmentId>>>;
+  fulfilments?: FulfilmentId[];
   /**  ID of the `Wave` to be updated */
-  id: Scalars['ID'];
+  id: string;
   /**  Name of the wave */
-  name?: InputMaybe<Scalars['String']>;
+  name?: string;
   /**  The current status of the `Wave`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/> */
-  status?: InputMaybe<Scalars['String']>;
+  status?: string;
   /**  Type of the `Wave`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/> */
-  type?: InputMaybe<Scalars['String']>;
+  type?: string;
 };
 
 /** CarrierConsignmentArticle */
 export type CarrierConsignmentArticleId = {
-  article?: InputMaybe<ArticleId>;
-  carrierConsignment?: InputMaybe<CarrierConsignmentKey>;
+  article?: ArticleId;
+  carrierConsignment?: CarrierConsignmentKey;
 };
 
 export type CommentId = {
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
 };
 
 /** ConsignmentArticle */
 export type ConsignmentArticleId = {
-  article?: InputMaybe<ArticleId>;
-  consignment?: InputMaybe<ConsignmentId>;
+  article?: ArticleId;
+  consignment?: ConsignmentId;
 };
 
 /**  The `ControlKey` input is the parameter for identifying a specific Catalogue Control */
@@ -11435,7 +11430,7 @@ export type ControlKey = {
    *  Control reference identifier. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
 };
 
 export type CreateReturnVerificationInput = {
@@ -11443,35 +11438,35 @@ export type CreateReturnVerificationInput = {
    *  External reference. Must be unique. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   /**  Reference of return order */
   returnOrder: ReturnOrderKey;
   /**  Type */
-  type: Scalars['String'];
+  type: string;
   /**  verification details */
-  verificationDetails: Scalars['String'];
+  verificationDetails: string;
 };
 
 /**  Input type to uniquely identify a `CreditMemoItem` object. We use all the fields present in the request to look for this object. */
 export type CreditMemoItemKey = {
   /**  The client's reference identifier for the object */
-  ref: Scalars['String'];
+  ref: string;
 };
 
 export type CustomerAddressId = {
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
 };
 
 export type FulfilmentPlanId = {
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
 };
 
 /**  Input type to uniquely identify an `InvoiceItem` object. We use all the fields present in the request to look for this object. */
 export type InvoiceItemKey = {
   /**  The client's reference identifier for the object */
-  ref: Scalars['String'];
+  ref: string;
 };
 
 /**  The `ManifestKey` input, for identifying a specific Manifest. */
@@ -11480,33 +11475,33 @@ export type ManifestKey = {
    *  external reference of the object. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
 };
 
 /**  Input type to uniquely identify a `ReturnFulfilmentItem` object. We use all the fields present in the request to look for this object. */
 export type ReturnFulfilmentItemKey = {
   /**  The client's reference identifier for the object */
-  ref: Scalars['String'];
+  ref: string;
   returnFulfilment: ReturnFulfilmentKey;
 };
 
 export type StoreAddressId = {
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
 };
 
 export type UpdateReturnFulfilmentItemInput = {
   /**  A list of attributes. Attributes can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: InputMaybe<Array<InputMaybe<AttributeInput>>>;
-  product?: InputMaybe<ProductLinkInput>;
+  attributes?: AttributeInput[];
+  product?: ProductLinkInput;
   /**
    *  External reference. Must be unique. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
   returnOrderFulfilment: ReturnFulfilmentKey;
   /**  Unit quantity of return fulfilment item */
-  unitQuantity?: InputMaybe<QuantityTypeInput>;
+  unitQuantity?: QuantityTypeInput;
 };
 
 /**  The `VirtualPositionKey` input is the parameter for identifying a specific Virtual Position */
@@ -11517,10 +11512,10 @@ export type VirtualPositionKey = {
    *  Virtual Position reference identifier. <br/>
    *  Max character limit: 100.
    */
-  ref: Scalars['String'];
+  ref: string;
 };
 
 export type WaveId = {
   /**  ID of the object */
-  id: Scalars['ID'];
+  id: string;
 };
