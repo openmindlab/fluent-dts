@@ -1,10 +1,10 @@
 {
   "name": "fluent-dts",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "author": "openmindlab",
   "license": "MIT",
-  "types": "./@types/index.d.ts",
+  "types": "./@types/fluent/index.d.ts",
   "keywords": [
     "Fluent commerce"
   ],
@@ -30,6 +30,7 @@
   },
   "scripts": {
     "build": "graphql-codegen --config graphql.yaml",
+    "prepare": "npm run build",
     "postversion": "git push && git push --tags",
     "codegen": "graphql-codegen --config graphql.yaml"
   }

@@ -11,7 +11,9 @@ content = content
   .replace(/Scalars\[\'String\'\]/g, 'string')
   .replace(/Scalars\[\'Int\'\]/g, 'number')
   .replace(/Scalars\[\'Float\'\]/g, 'number')
-  .replace(/Scalars\[\'DateTime\'\]/g, 'Date')
+  .replace(/Scalars\[\'DateTime\'\]/g, 'string')
+  .replace(/Scalars\[\'Boolean\'\]/g, 'boolean')
+  .replace(/Scalars\[\'Json\'\]/g, 'any')
   .replace(/Scalars\[\'ID\'\]/g, 'string')
   .replace(/InputMaybe<(.*)>/g, '$1')
   .replace(/InputMaybe<(.*)>/g, '$1')
@@ -21,7 +23,11 @@ content = content
   .replace(/Array<(.*)>/g, '$1[]')
   ;
 
-content = content.substring(content.indexOf('/**'));
+content = `declare module 'fluent-dts' {
+
+${content.substring(content.indexOf('/**'))}
+
+}`;
 
 fs.writeFileSync(generatedFiles, content);
 

@@ -1,3 +1,5 @@
+declare module 'fluent-dts' {
+
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -651,7 +653,7 @@ export type QueryCurrenciesArgs = {
   alphabeticCode?: string[];
   before?: string;
   first?: number;
-  isISO4217?: Scalars['Boolean'][];
+  isISO4217?: boolean[];
   last?: number;
   minorUnits?: number[];
   name?: string[];
@@ -720,7 +722,7 @@ export type QueryCustomersArgs = {
   lastName?: string[];
   primaryEmail?: string[];
   primaryPhone?: string[];
-  promotionOptIn?: Scalars['Boolean'][];
+  promotionOptIn?: boolean[];
   ref?: string[];
   status?: string[];
   timezone?: string[];
@@ -1127,7 +1129,7 @@ export type QueryNetworksArgs = {
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryOpeningSchedulesArgs = {
   after?: string;
-  allHours?: Scalars['Boolean'][];
+  allHours?: boolean[];
   before?: string;
   createdOn?: DateRange;
   first?: number;
@@ -1629,7 +1631,7 @@ export type QueryUsersArgs = {
   lastName?: string[];
   primaryEmail?: string[];
   primaryPhone?: string[];
-  promotionOptIn?: Scalars['Boolean'][];
+  promotionOptIn?: boolean[];
   ref?: string[];
   status?: string[];
   timezone?: string[];
@@ -1779,7 +1781,7 @@ export type Article = Node & Orchestrateable & {
   /**  Relationships between consignment and article */
   consignmentArticles?: ConsignmentArticleConnection;
   /**  Time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  Description */
   description?: string;
   /**  Fulfilments associated with this article */
@@ -1805,7 +1807,7 @@ export type Article = Node & Orchestrateable & {
   /**  Type of the `Article`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/> */
   type: string;
   /**  Time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
   /**  Weight */
   weight: number;
   /**  Width */
@@ -1870,11 +1872,11 @@ export type ArticleItemsArgs = {
 /**  Represents an object with `ID`. */
 export type Node = {
   /**  Time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  ID of the object */
   id: string;
   /**  Time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
 };
 
 /**  Represents an object that can be orchestrated via a workflow */
@@ -1897,7 +1899,7 @@ export type Attribute = {
   /**  Type of the attribute's `value`. This is a free string and can be used by the client to interpret and cast the `value` into the appropriate type. */
   type: string;
   /**  Value of the `attribute` */
-  value: Scalars['Json'];
+  value: any;
 };
 
 /**  A list of results that matched against a CarrierConsignmentArticle search query */
@@ -1939,7 +1941,7 @@ export type CarrierConsignment = Extendable & Node & Referenceable & {
   /**  The external consignment reference assigned by the carrier */
   consignmentReference?: string;
   /**  Time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  ID of the object */
   id: string;
   /**  The URL used to retrieve the shipping label */
@@ -1957,7 +1959,7 @@ export type CarrierConsignment = Extendable & Node & Referenceable & {
   /**  Tracking label of the consignment */
   trackingLabel?: string;
   /**  Time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
   /**  The reference used for workflow identification */
   workflowRef: string;
   /**   The version of the workflow */
@@ -2011,7 +2013,7 @@ export type Carrier = Extendable & Node & Orchestrateable & Referenceable & {
   /**  A connection to associated Consignments */
   carrierConsignments?: CarrierConsignmentConnection;
   /**  Time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  ID of the object */
   id: string;
   /**  A list of manifests associated with this Carrier. */
@@ -2030,7 +2032,7 @@ export type Carrier = Extendable & Node & Orchestrateable & Referenceable & {
    */
   type: string;
   /**  Time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
   /**
    *  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/>
    *  The reference used for workflow identification
@@ -2078,9 +2080,9 @@ export type CarrierCarrierConsignmentsArgs = {
  */
 export type DateRange = {
   /**  `DateTime` in a valid ISO8601 format for identifying records _after_ or _at_ the given timestamp. If this field is not passed in the request, the response will contain all records from the beginning of time till the `to` date. */
-  from?: Date;
+  from?: string;
   /**  `DateTime` in a valid ISO8601 format for identifying records _before_ or _at_ the given timestamp. If this field is not passed in the request, the response will contain all records after the `from` date. */
-  to?: Date;
+  to?: string;
 };
 
 /**  A list of results that matched against a CarrierConsignment search query */
@@ -2105,9 +2107,9 @@ export type CarrierConsignmentEdge = {
 export type PageInfo = {
   __typename?: 'PageInfo';
   /**  true if there are one or more pages of items beyond the current page */
-  hasNextPage?: Scalars['Boolean'];
+  hasNextPage?: boolean;
   /**  true if there are one or more pages of items before the current page */
-  hasPreviousPage?: Scalars['Boolean'];
+  hasPreviousPage?: boolean;
 };
 
 export type Manifest = Extendable & Node & Referenceable & {
@@ -2121,7 +2123,7 @@ export type Manifest = Extendable & Node & Referenceable & {
   /**  The link where the carrier's manifest is stored. Not all the carriers generates one, so this field is optional. */
   carrierManifestLink?: string;
   /**  The time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  ID of the object */
   id: string;
   /**  The `Location` the `Manifest` is associated with */
@@ -2135,7 +2137,7 @@ export type Manifest = Extendable & Node & Referenceable & {
   /**  The type of `Manifest` */
   type: string;
   /**  The time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
   /**  The reference used for workflow identification */
   workflowRef: string;
   /**  The version of the workflow */
@@ -2169,7 +2171,7 @@ export type Location = Node & {
   /**  Attributes */
   attributes?: Attribute[];
   /**  Time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  Default carrier */
   defaultCarrier?: string;
   /**  Default carrier of the location */
@@ -2199,7 +2201,7 @@ export type Location = Node & {
   /**  Type */
   type?: string;
   /**  Time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
   /**
    *  The reference used for workflow identification
    * @deprecated No longer supported
@@ -2309,7 +2311,7 @@ export type Network = Node & {
   /**  Network attributes */
   attributes?: Attribute[];
   /**  Time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  ID of the object */
   id: string;
   /**  Locations in the network */
@@ -2323,7 +2325,7 @@ export type Network = Node & {
   /**  The type of network */
   type?: string;
   /**  Time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
 };
 
 
@@ -2405,7 +2407,7 @@ export type RetailerEdge = {
 export type Retailer = Node & Referenceable & {
   __typename?: 'Retailer';
   /**  Time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  ID of the object */
   id: string;
   /**  A list of retailer's network (stores, warehouses, distribution centers) */
@@ -2427,7 +2429,7 @@ export type Retailer = Node & Referenceable & {
   /**  The retailer's trading name used in customer notifications */
   tradingName?: string;
   /**  Time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
   /**  Retailer's website URL used in customer notifications */
   websiteUrl?: string;
   /**  Friendly text to be shown for URL links in customer notifications */
@@ -2452,9 +2454,9 @@ export type RetailerNetworksArgs = {
 export type OpeningSchedule = {
   __typename?: 'OpeningSchedule';
   /**  Is the location open 24hrs */
-  allHours: Scalars['Boolean'];
+  allHours: boolean;
   /**  Time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  Closing time on Friday (HHmm) */
   friEnd: number;
   /**  Opening time on Friday (HHmm) */
@@ -2482,7 +2484,7 @@ export type OpeningSchedule = {
   /**  Opening time on Tuesday (HHmm) */
   tueStart: number;
   /**  Time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
   /**  Closing time on Wednesday (HHmm) */
   wedEnd: number;
   /**  Opening time on Wednesday (HHmm) */
@@ -2497,7 +2499,7 @@ export type Address = {
   /**  Country */
   country?: string;
   /**  Time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  ID of the object */
   id: string;
   /**  Latitude */
@@ -2521,7 +2523,7 @@ export type Address = {
   /**  Type of Address, to support legacy address, the value can be AGENT and ORDER */
   type?: string;
   /**  Time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
 };
 
 /**  A list of results that matched against a StorageArea search query */
@@ -2548,7 +2550,7 @@ export type StorageArea = {
   /**  Articles in the storage area */
   articles?: ArticleConnection;
   /**  Time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  ID of the object */
   id: string;
   /**  Location */
@@ -2560,7 +2562,7 @@ export type StorageArea = {
   /**  Type */
   type?: string;
   /**  Time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
 };
 
 
@@ -2641,7 +2643,7 @@ export type Consignment = Node & {
   /**  The external consignment reference assigned by the carrier */
   consignmentReference: string;
   /**  Time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  ID of the object */
   id: string;
   /**  The URL used to retrieve the shipping label */
@@ -2657,7 +2659,7 @@ export type Consignment = Node & {
   /**  Tracking label of the consignment */
   trackingLabel?: string;
   /**  Time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
   /**  The reference used for workflow identification */
   workflowRef: string;
   /**   The version of the workflow */
@@ -2708,13 +2710,13 @@ export type Fulfilment = Node & Orchestrateable & {
   /**  Attributes of fulfilment */
   attributes?: Attribute[];
   /**  Time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  Type of delivery. Supported values are _STANDARD_, _OVERNIGHT_ and _EXPRESS_. */
   deliveryType?: string;
   /**  The estimated time of completing the fulfilment. */
   eta?: string;
   /**  Expiry time for the fulfilment */
-  expiryTime?: Date;
+  expiryTime?: string;
   /**  `Address` of the fulfilment location */
   fromAddress?: Address;
   /**  The `Location` responsible for processing outbound `Fulfilment`s */
@@ -2741,7 +2743,7 @@ export type Fulfilment = Node & Orchestrateable & {
    */
   type: string;
   /**  Time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
   /**  The associated `Customer` */
   user?: Customer;
   /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
@@ -2845,7 +2847,7 @@ export type OrderItem = Node & {
   /**  List of `OrderItem` `attribute`s. */
   attributes?: Attribute[];
   /**  Time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  Currency. Should ideally be a 3 letter ISO currency code. For instance _AUD_. */
   currency?: string;
   /**  ID of the object */
@@ -2873,7 +2875,7 @@ export type OrderItem = Node & {
   /**  Total tax price */
   totalTaxPrice?: number;
   /**  Time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
 };
 
 /**  A customer's order. */
@@ -2882,7 +2884,7 @@ export type Order = Node & Orchestrateable & {
   /**  List of order `attribute`s */
   attributes?: Attribute[];
   /**  Time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  `Customer` of the order */
   customer?: Customer;
   /**  Contains the reference of the customer. It can be used to fetch the `Customer` object. */
@@ -2915,7 +2917,7 @@ export type Order = Node & Orchestrateable & {
    */
   type: string;
   /**  Time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
   /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
   workflowRef: string;
   /**  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/> */
@@ -2994,7 +2996,7 @@ export type Customer = Node & {
   /**  The country the customer is operating from */
   country?: string;
   /**  Time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  The department/team that the customer belongs to */
   department?: string;
   /**  The customer's first name */
@@ -3008,7 +3010,7 @@ export type Customer = Node & {
   /**  Phone number */
   primaryPhone?: string;
   /**  Whether the customer has opted to receive promotions */
-  promotionOptIn?: Scalars['Boolean'];
+  promotionOptIn?: boolean;
   /**  Username of the customer */
   ref?: string;
   /**  Retailer used by the customer */
@@ -3020,7 +3022,7 @@ export type Customer = Node & {
   /**  The customer's title */
   title?: string;
   /**  Time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
   /**  Username */
   username?: string;
 };
@@ -3054,7 +3056,7 @@ export type FinancialTransaction = Node & Orchestrateable & {
   /**  The card type used for the payment. Possible values are 'MASTERCARD', 'VISA', 'AMEX', 'DINERS', 'SPAN', 'DISCOVER', 'UNIONPAY', 'JCB', 'MAESTRO', 'INTERAC'. */
   cardType?: string;
   /**  Time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  Currency used for the transaction. */
   currency: string;
   /**  The unique transaction code or request code provided by the payment gateway */
@@ -3081,7 +3083,7 @@ export type FinancialTransaction = Node & Orchestrateable & {
   /**  Type of the `FinancialTransaction`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/> */
   type: string;
   /**  Time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
   /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
   workflowRef: string;
   /**  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/> */
@@ -3092,7 +3094,7 @@ export type FinancialTransaction = Node & Orchestrateable & {
 export type FulfilmentChoice = {
   __typename?: 'FulfilmentChoice';
   /**  Time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  The type of currency, 3 letter ISO currency code */
   currency?: string;
   /**  Location of fulfilment choice */
@@ -3115,7 +3117,7 @@ export type FulfilmentChoice = {
   /**  Pickup location. This is required for click & collect orders */
   pickupLocationRef?: string;
   /**  Time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
 };
 
 /**  A list of results that matched against a OrderItem search query */
@@ -3207,13 +3209,13 @@ export type ArticleItem = Node & {
   /**  Barcode of article item */
   barcode?: string;
   /**  Time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  ID of the object */
   id: string;
   /**  Quantity of article item */
   quantity: number;
   /**  Time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
 };
 
 /**  Input type to uniquely identify a `Location` object. We use all the fields present in the request to look for this object. */
@@ -3234,7 +3236,7 @@ export type BillingAccount = Extendable & Node & Referenceable & {
   /**  A list of attributes associated with the `BillingAccount`. This can be used to extend the existing data structure with additional data. */
   attributes?: Attribute[];
   /**  Date and time of creation. */
-  createdOn?: Date;
+  createdOn?: string;
   /**  Credit Memos associated to the `BillingAccount`. */
   creditMemos?: CreditMemoConnection;
   /**  Customer associated to the `BillingAccount`. */
@@ -3256,7 +3258,7 @@ export type BillingAccount = Extendable & Node & Referenceable & {
   /**  Type of the `BillingAccount`, typically used by the Orchestration Engine to determine the workflow that should be applied. */
   type?: string;
   /**  Date and time of last update. */
-  updatedOn?: Date;
+  updatedOn?: string;
   /**  The reference to the `workflow` associated. */
   workflow?: WorkflowLink;
   /**
@@ -3412,7 +3414,7 @@ export type CreditMemo = Extendable & Node & Referenceable & {
   /**  `BillingAccount` associated with the `CreditMemo`. */
   billingAccount?: BillingAccount;
   /**  Date and time of creation. */
-  createdOn?: Date;
+  createdOn?: string;
   /**  Reference to the currency type. Generally, the standard ISO-4217 is used. */
   currency?: CurrencyLink;
   /**  Default tax type */
@@ -3422,7 +3424,7 @@ export type CreditMemo = Extendable & Node & Referenceable & {
   /**  `Invoice` associated with this `CreditMemo`. */
   invoice?: Invoice;
   /**  Issue date */
-  issueDate?: Date;
+  issueDate?: string;
   /**  The `CreditMemoItem`s associated with this `CreditMemo`. */
   items?: CreditMemoItemConnection;
   /**  Reference to an `Order` associated with the `CreditMemo`. */
@@ -3444,7 +3446,7 @@ export type CreditMemo = Extendable & Node & Referenceable & {
   /**  Type of the `CreditMemo`, typically used by the Orchestration Engine to determine the workflow that should be applied. */
   type?: string;
   /**  Date and time of last update. */
-  updatedOn?: Date;
+  updatedOn?: string;
   /**  The reference to the `workflow` associated. */
   workflow?: WorkflowLink;
   /**
@@ -3487,7 +3489,7 @@ export type Invoice = Extendable & Node & Referenceable & {
   /**  The `BillingAccount` associated with the `Invoice`. */
   billingAccount?: BillingAccount;
   /**  Date and time of creation. */
-  createdOn?: Date;
+  createdOn?: string;
   /**  A list of associated credit memos that have been used to adjust this invoice in favour of the billing account */
   creditMemos?: CreditMemo[];
   /**  Reference to the currency type. Generally, the standard ISO-4217 is used. */
@@ -3495,13 +3497,13 @@ export type Invoice = Extendable & Node & Referenceable & {
   /**  The default Tax Type for this invoice. Individual invoice items can override. */
   defaultTaxType?: TaxType;
   /**  The date on which this invoice is due for completion. */
-  dueDate?: Date;
+  dueDate?: string;
   /**  Reference to the `Fulfilment` associated with this `Invoice`. */
   fulfilment?: FulfilmentLink;
   /**  ID of the object */
   id: string;
   /**  The date on which this invoice was formally issued. */
-  issueDate?: Date;
+  issueDate?: string;
   /**  The `InvoiceItem`s associated with this `Invoice`. */
   items?: InvoiceItemConnection;
   /**  Reference to the `Order` associated with this `Invoice`. */
@@ -3521,7 +3523,7 @@ export type Invoice = Extendable & Node & Referenceable & {
   /**  Type of the `Invoice`, typically used by the Orchestration Engine to determine the workflow that should be applied. */
   type?: string;
   /**  Date and time of last update. */
-  updatedOn?: Date;
+  updatedOn?: string;
   /**  The reference to the `workflow` associated. */
   workflow?: WorkflowLink;
   /**
@@ -3589,7 +3591,7 @@ export type InvoiceItem = Node & Referenceable & {
   /**  The item amount for this item excluding tax */
   amount?: AmountType;
   /**  Date and time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  A description of the source item. In the case of product source items this can be the name. */
   description?: string;
   /**  ID of the object */
@@ -3611,7 +3613,7 @@ export type InvoiceItem = Node & Referenceable & {
   /**  The tax type of this item. Should only be provided if different to the default invoice tax type. */
   unitTaxType?: TaxType;
   /**  Date and time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
 };
 
 export type AmountType = {
@@ -3694,7 +3696,7 @@ export type CreditMemoItem = Node & Referenceable & {
   /**  The item amount for this item excluding tax. This is a calculated value based on business rules that does not necessarily have to take into account the unit quantity or amounts. */
   amount?: AmountType;
   /**  Date and time of creation. */
-  createdOn?: Date;
+  createdOn?: string;
   /**  `CreditMemo` associated with the `CreditMemoItem`. */
   creditMemo?: CreditMemo;
   /**  Credit reason code of the `CreditMemoItem`. */
@@ -3724,7 +3726,7 @@ export type CreditMemoItem = Node & Referenceable & {
   /**  The tax type of this item. Should only be provided if different to the default credit memo tax type. */
   unitTaxType?: TaxType;
   /**  Date and time of last update. */
-  updatedOn?: Date;
+  updatedOn?: string;
 };
 
 export type SettingValueType = {
@@ -3801,7 +3803,7 @@ export type Payment = Extendable & Node & Orchestrateable & Referenceable & {
   /**  Billing Account associated to the `Payment`. */
   billingAccount?: BillingAccount;
   /**  Time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  ID of the object */
   id: string;
   /**  Orders associated with the `Payment`. */
@@ -3823,7 +3825,7 @@ export type Payment = Extendable & Node & Orchestrateable & Referenceable & {
    */
   type: string;
   /**  Time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
   /**  The reference to the `workflow` associated. */
   workflow?: WorkflowLink;
   /**
@@ -3938,7 +3940,7 @@ export type PaymentTransaction = Extendable & Node & Orchestrateable & Reference
   /**  Card type. Some sample values are 'MASTERCARD', 'VISA', 'AMEX', 'DINERS', 'SPAN', 'DISCOVER', 'UNIONPAY', 'JCB', 'MAESTRO', 'INTERAC' */
   cardType?: string;
   /**  Time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  Reference to the currency type. Generally, the standard ISO-4217 is used. */
   currency?: CurrencyLink;
   /**  ID of the object */
@@ -3963,7 +3965,7 @@ export type PaymentTransaction = Extendable & Node & Orchestrateable & Reference
    */
   type: string;
   /**  Time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
   /**  The reference to the `workflow` associated. */
   workflow?: WorkflowLink;
   /**
@@ -3990,7 +3992,7 @@ export type PaymentServiceProvider = Extendable & Referenceable & {
   /**  Client Secret of the `PaymentServiceProvider` */
   clientSecret: string;
   /**  Time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  Host of the `PaymentServiceProvider`. Sample value: 'api.sandbox.paypal.com'. */
   host: string;
   /**  ID of the object */
@@ -4006,7 +4008,7 @@ export type PaymentServiceProvider = Extendable & Referenceable & {
   /**  Auth Token of the `PaymentServiceProvider` */
   serviceAuthToken: string;
   /**  Time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
 };
 
 /**  A list of results that matched against a BillingAccount search query */
@@ -4051,12 +4053,12 @@ export type CarrierAttribute = {
   /**  Carrier details */
   carrierDetails?: CarrierDetails;
   /**  Time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  ID of the object */
   id: string;
   name: string;
   /**  Time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
   value: string;
 };
 
@@ -4069,13 +4071,13 @@ export type CarrierDetails = {
   /**  Carrier ID of carrier details */
   carrierId?: string;
   /**  Time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  ID of the object */
   id: string;
   /**  Retailer ID of carrier details */
   retailerId?: string;
   /**  Time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
 };
 
 
@@ -4181,7 +4183,7 @@ export type Category = Extendable & Node & Orchestrateable & Referenceable & {
   /**  A connection to the immediate child Categories (NOTE: This currently does not traverse the entire tree) */
   childCategories?: CategoryConnection;
   /**  Time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  ID of the object. For internal use, should not be used externally or by any business logic */
   id: string;
   /**  The name of the Category */
@@ -4197,7 +4199,7 @@ export type Category = Extendable & Node & Orchestrateable & Referenceable & {
   /**  Type of the `Category`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/> */
   type: string;
   /**  Time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
   /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
   workflowRef: string;
   /**  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/> */
@@ -4243,7 +4245,7 @@ export type ProductCatalogue = Extendable & Node & Orchestrateable & Referenceab
   /**  A connection to associated Categories */
   categories?: CategoryConnection;
   /**  Time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  A short description of the Product Catalogue */
   description?: string;
   /**  ID of the object. For internal use, should not be used externally or by any business logic */
@@ -4259,7 +4261,7 @@ export type ProductCatalogue = Extendable & Node & Orchestrateable & Referenceab
   /**  Type of the `ProductCatalogue`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/> */
   type: string;
   /**  Time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
   /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
   workflowRef: string;
   /**  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/> */
@@ -4299,7 +4301,7 @@ export type ProductCatalogueCategoriesArgs = {
 export type Comment = Node & {
   __typename?: 'Comment';
   /**  Time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  ID of the entity */
   entityId: string;
   /**  Type of the entity. For example `ORDER`, `FULFILMENT`, `ORDERITEM`, `PRODUCTCATALOGUE` etc. */
@@ -4309,7 +4311,7 @@ export type Comment = Node & {
   /**  Comment text */
   text: string;
   /**  Time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
 };
 
 /**  A list of results that matched against a Comment search query */
@@ -4370,7 +4372,7 @@ export type Control = Extendable & Node & Orchestrateable & Referenceable & {
   /**  Control Group */
   controlGroup?: ControlGroup;
   /**  Time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  Description */
   description?: string;
   /**  Order that this control is applied */
@@ -4386,7 +4388,7 @@ export type Control = Extendable & Node & Orchestrateable & Referenceable & {
   /**  Type of the `Control`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/> */
   type: string;
   /**  Time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
   /**  values */
   values?: Attribute[];
   /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
@@ -4402,7 +4404,7 @@ export type ControlGroup = Extendable & Node & Orchestrateable & Referenceable &
   /**  Controls */
   controls?: ControlConnection;
   /**  Time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  Description */
   description?: string;
   /**  ID of the object. For internal use, should not be used externally or by any business logic */
@@ -4418,7 +4420,7 @@ export type ControlGroup = Extendable & Node & Orchestrateable & Referenceable &
   /**  Type of the `ControlGroup`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/> */
   type: string;
   /**  Time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
   /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
   workflowRef: string;
   /**  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/> */
@@ -4507,7 +4509,7 @@ export type Currency = {
   /**  ID of the object */
   id: string;
   /**  Currencies which are defined as part of the ISO-4217 standard cannot be deleted or modified. */
-  isISO4217?: Scalars['Boolean'];
+  isISO4217?: boolean;
   /**  The number of minor units that make up a major unit of the `Currency` */
   minorUnits?: number;
   /**  The name of the `Currency`. */
@@ -4529,7 +4531,7 @@ export type CustomerAddress = Address & {
   /**  Country */
   country?: string;
   /**  Time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  ID of the object */
   id: string;
   /**  Latitude */
@@ -4553,7 +4555,7 @@ export type CustomerAddress = Address & {
   /**  Type of Address, to support legacy address, the value can be AGENT and ORDER */
   type?: string;
   /**  Time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
 };
 
 /**  A list of results that matched against a CustomerAddress search query */
@@ -4801,7 +4803,7 @@ export type FulfilmentOption = Node & Orchestrateable & {
   /**  A list of attributes associated with this object. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
   attributes?: Attribute[];
   /**  Time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  ID of the object */
   id: string;
   /**
@@ -4826,7 +4828,7 @@ export type FulfilmentOption = Node & Orchestrateable & {
   /**  Type of the `FulfilmentOption`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/> */
   type: string;
   /**  Time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
   /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
   workflowRef: string;
   /**  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/> */
@@ -4904,7 +4906,7 @@ export type FulfilmentPlan = Node & Orchestrateable & {
   /**  A list of attributes associated with this object. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
   attributes?: Attribute[];
   /**  Time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  ETA of the `FulfilmentPlan`. Although this can be set explicitly, we recommend that this be determined and set in the workflow. */
   eta?: string;
   /**  Exceptions can be used to augment the existing object with any useful information in case of exceptions. */
@@ -4926,7 +4928,7 @@ export type FulfilmentPlan = Node & Orchestrateable & {
   /**  Type of the `FulfilmentPlan`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/> */
   type: string;
   /**  Time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
   /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
   workflowRef: string;
   /**  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/> */
@@ -5015,7 +5017,7 @@ export type GroupProduct = Extendable & Node & Orchestrateable & Product & Refer
   /**  A connection to the associated Categories of this Product */
   categories?: CategoryConnection;
   /**  Time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  ID of the object. For internal use, should not be used externally or by any business logic */
   id: string;
   /**  The name of the Product */
@@ -5033,7 +5035,7 @@ export type GroupProduct = Extendable & Node & Orchestrateable & Product & Refer
   /**  Type of the `GroupProduct`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/> */
   type: string;
   /**  Time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
   /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
   workflowRef: string;
   /**  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/> */
@@ -5095,7 +5097,7 @@ export type InventoryCatalogue = Extendable & Node & Orchestrateable & Reference
   /**  A list of attributes associated with this Inventory Catalogue. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
   attributes?: Attribute[];
   /**  Time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  A short description of the Inventory Catalogue */
   description?: string;
   /**  ID of the object. For internal use, should not be used externally or by any business logic */
@@ -5113,7 +5115,7 @@ export type InventoryCatalogue = Extendable & Node & Orchestrateable & Reference
   /**  Type of the `InventoryCatalogue`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/> */
   type: string;
   /**  Time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
   /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
   workflowRef: string;
   /**  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/> */
@@ -5187,7 +5189,7 @@ export type InventoryPosition = Extendable & Node & Orchestrateable & Referencea
   /**  The Inventory Catalogue in which this Position is managed */
   catalogue?: InventoryCatalogue;
   /**  Time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  ID of the object. For internal use, should not be used externally or by any business logic */
   id: string;
   /**  A reference identifying the Location where this inventory exists. This is a loosely coupled association. */
@@ -5205,7 +5207,7 @@ export type InventoryPosition = Extendable & Node & Orchestrateable & Referencea
   /**  Type of the `InventoryPosition`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/> */
   type: string;
   /**  Time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
   /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
   workflowRef: string;
   /**  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/> */
@@ -5273,9 +5275,9 @@ export type InventoryQuantity = Extendable & Node & Orchestrateable & Referencea
   /**  The condition of the Inventory Quantity value. The platform does not enforce any values here. Examples could include `NEW`, `USED`, or `DAMAGED` */
   condition?: string;
   /**  Time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  The date and time the quantity is expected to arrive */
-  expectedOn?: Date;
+  expectedOn?: string;
   /**  ID of the object. For internal use, should not be used externally or by any business logic */
   id: string;
   /**  The associated parent Inventory Position of which this Quantity applies */
@@ -5294,7 +5296,7 @@ export type InventoryQuantity = Extendable & Node & Orchestrateable & Referencea
    */
   type: string;
   /**  Time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
   /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
   workflowRef: string;
   /**  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/> */
@@ -5358,7 +5360,7 @@ export type User = Node & {
   /**  Country */
   country?: string;
   /**  Time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  Department */
   department?: string;
   /**  User's first name */
@@ -5378,7 +5380,7 @@ export type User = Node & {
   /**  User's retailer context */
   primaryRetailer?: Retailer;
   /**  Determines if the user has opted to receive promotions */
-  promotionOptIn?: Scalars['Boolean'];
+  promotionOptIn?: boolean;
   /**  External reference of the object. Recommended to be unique. */
   ref: string;
   /**  Roles assigned to the user */
@@ -5392,7 +5394,7 @@ export type User = Node & {
   /**  Type of the user */
   type: string;
   /**  Time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
   /**  Unique name for the user used for identification and logging purposes. */
   username: string;
 };
@@ -5401,7 +5403,7 @@ export type User = Node & {
 export type App = {
   __typename?: 'App';
   /**  The `App` creation time */
-  createdOn?: Date;
+  createdOn?: string;
   /**  UUID */
   id: string;
   /**  The name of the `App` */
@@ -5409,7 +5411,7 @@ export type App = {
   /**  The `App` type enum. Accepted Values: REFERENCE, CUSTOM */
   type: AppType;
   /**  The `App` modification time */
-  updatedOn?: Date;
+  updatedOn?: string;
   /**  Specifies the version of the `App` */
   version: AppVersion;
 };
@@ -5581,7 +5583,7 @@ export type ReturnFulfilment = Node & Referenceable & {
   /**  List of attributes associated with the return fulfilment */
   attributes?: Attribute[];
   /**  Date and time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  The destination of the return order items. */
   destinationLocation?: LocationLink;
   /**  ID of the object */
@@ -5601,7 +5603,7 @@ export type ReturnFulfilment = Node & Referenceable & {
   /**  Type of the return fulfilment */
   type: string;
   /**  Date and time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
   /**  Workflow associated with the return fulfilment */
   workflow?: WorkflowLink;
   /**
@@ -5651,7 +5653,7 @@ export type ReturnFulfilmentItem = Node & Referenceable & {
   /**  List of attributes */
   attributes?: Attribute[];
   /**  Date and time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  ID of the object */
   id: string;
   /** Product associated with the fulfilment item */
@@ -5665,7 +5667,7 @@ export type ReturnFulfilmentItem = Node & Referenceable & {
   /**  Quantity of return fulfilment item */
   unitQuantity?: QuantityType;
   /**  Date and time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
 };
 
 export type ReturnOrderItem = Node & Referenceable & {
@@ -5673,7 +5675,7 @@ export type ReturnOrderItem = Node & Referenceable & {
   /**  List of attributes associated with the return order */
   attributes?: Attribute[];
   /**  Date and time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  ID of the object */
   id: string;
   /**  Item TaxAmount */
@@ -5709,7 +5711,7 @@ export type ReturnOrderItem = Node & Referenceable & {
   /**  Unit TaxType */
   unitTaxType?: TaxType;
   /**  Date and time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
 };
 
 export type ReturnOrder = Node & Referenceable & {
@@ -5717,7 +5719,7 @@ export type ReturnOrder = Node & Referenceable & {
   /**  List of attributes. */
   attributes?: Attribute[];
   /**  Date and time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  The associated credit memo for this return order. */
   creditMemo?: CreditMemoLink;
   /**  Reference to the currency type. Generally, the standard ISO-4217 is used. */
@@ -5747,7 +5749,7 @@ export type ReturnOrder = Node & Referenceable & {
   /**  The generated key representing an authorised return order which the customer can use to progress through the return order process. */
   returnAuthorisationKey?: string;
   /**  The time at which the return authorisation expires. */
-  returnAuthorisationKeyExpiry?: Date;
+  returnAuthorisationKeyExpiry?: string;
   /**  The list of associated return fulfilments. */
   returnOrderFulfilments?: ReturnFulfilmentConnection;
   /**  The list of associated return order items. */
@@ -5765,7 +5767,7 @@ export type ReturnOrder = Node & Referenceable & {
   /**  Type of the return order */
   type: string;
   /**  Date and time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
   /**  Workflow version of the return order */
   workflow?: WorkflowLink;
   /**
@@ -5889,7 +5891,7 @@ export type ReturnVerificationEdge = {
 export type ReturnVerification = Node & Referenceable & {
   __typename?: 'ReturnVerification';
   /**  Date and time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  ID of the object */
   id: string;
   /**  External reference for `Return Order`. Must be unique. */
@@ -5898,7 +5900,7 @@ export type ReturnVerification = Node & Referenceable & {
   returnOrder?: ReturnOrder;
   type: string;
   /**  Date and time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
   /** verification details */
   verificationDetails?: string;
 };
@@ -6017,7 +6019,7 @@ export type VirtualPosition = Extendable & Node & Orchestrateable & Referenceabl
   /**  Catalogue */
   catalogue?: VirtualCatalogue;
   /**  Time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  Group - reference to Location or Category */
   groupRef?: string;
   /**  ID of the object. For internal use, should not be used externally or by any business logic */
@@ -6033,7 +6035,7 @@ export type VirtualPosition = Extendable & Node & Orchestrateable & Referenceabl
   /**  Type of the `VirtualPosition`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/> */
   type: string;
   /**  Time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
   /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
   workflowRef: string;
   /**  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/> */
@@ -6047,7 +6049,7 @@ export type VirtualCatalogue = Extendable & Node & Orchestrateable & Referenceab
   /**  Control group Ref */
   controlGroupRef?: string;
   /**  Time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  Description */
   description?: string;
   /**  ID of the object. For internal use, should not be used externally or by any business logic */
@@ -6069,7 +6071,7 @@ export type VirtualCatalogue = Extendable & Node & Orchestrateable & Referenceab
   /**  Type of the `VirtualCatalogue`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/> */
   type: string;
   /**  Time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
   /**  Virtual positions */
   virtualPositions?: VirtualPositionConnection;
   /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
@@ -6134,7 +6136,7 @@ export type Setting = {
   /**  ID of the object */
   id: string;
   /**  Value of the setting. Use this if the value is a JSON. */
-  lobValue?: Scalars['Json'];
+  lobValue?: any;
   /**  Name of the setting. */
   name?: string;
   /**  Value of the setting. Use this if the value is NOT a JSON. */
@@ -6177,7 +6179,7 @@ export type StandardProduct = Extendable & Node & Orchestrateable & Product & Re
   /**  A connection to the associated Categories of this Product */
   categories?: CategoryConnection;
   /**  Time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  The Global Trade Item Number (GTIN) for this Product */
   gtin: string;
   /**  ID of the object. For internal use, should not be used externally or by any business logic */
@@ -6197,7 +6199,7 @@ export type StandardProduct = Extendable & Node & Orchestrateable & Product & Re
   /**  Type of the `StandardProduct`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/> */
   type: string;
   /**  Time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
   /**  A connection to the associated Variant Products for this Product. This is useful if you use the Standard Product as a base record for all Variants, which helps ensure a consistent relationship between them */
   variants?: VariantProductConnection;
   /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
@@ -6291,7 +6293,7 @@ export type VariantProduct = Extendable & Node & Orchestrateable & Product & Ref
   /**  A connection to the associated Categories of this Product */
   categories?: CategoryConnection;
   /**  Time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  The Global Trade Item Number (GTIN) for this Product */
   gtin: string;
   /**  ID of the object. For internal use, should not be used externally or by any business logic */
@@ -6313,7 +6315,7 @@ export type VariantProduct = Extendable & Node & Orchestrateable & Product & Ref
   /**  Type of the `VariantProduct`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/> */
   type: string;
   /**  Time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
   /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
   workflowRef: string;
   /**  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/> */
@@ -6373,7 +6375,7 @@ export type StoreAddress = Address & {
   /**  Country */
   country?: string;
   /**  Time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  Directions to store location (may be used for landmarks) */
   directions?: string;
   /**  ID of the object */
@@ -6401,7 +6403,7 @@ export type StoreAddress = Address & {
   /**  Type of Address, to support legacy address, the value can be AGENT and ORDER */
   type?: string;
   /**  Time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
 };
 
 /**  A list of results that matched against a StoreAddress search query */
@@ -6474,7 +6476,7 @@ export type VirtualViewInput = {
 export type VirtualView = Node & Referenceable & {
   __typename?: 'VirtualView';
   /**  Time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  Description */
   description?: string;
   /**  ID of the object. */
@@ -6494,7 +6496,7 @@ export type VirtualView = Node & Referenceable & {
   /**  Represents the current status of the Virtual View. Please see user guide to learn about the status lifecycle of a Virtual View. */
   status?: VirtualViewStatus;
   /**  Time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
   /**  A list of `VirtualProducts` within this Virtual View. A Virtual View returns `VirtualProducts` only when it is in the 'ACTIVE' status. */
   virtualProducts?: VirtualProductConnection;
 };
@@ -6711,7 +6713,7 @@ export type Wave = Extendable & Node & Orchestrateable & Referenceable & {
   /**  A list of attributes associated with this `Wave`. Attributes can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
   attributes?: Attribute[];
   /**  Time of creation */
-  createdOn?: Date;
+  createdOn?: string;
   /**  Fulfilments associated with this `Wave` */
   fulfilments?: FulfilmentConnection;
   /**  ID of the `Wave` */
@@ -6733,7 +6735,7 @@ export type Wave = Extendable & Node & Orchestrateable & Referenceable & {
   /**  Type of the `Wave`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/> */
   type: string;
   /**  Time of last update */
-  updatedOn?: Date;
+  updatedOn?: string;
   /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
   workflowRef: string;
   /**  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/> */
@@ -7524,7 +7526,7 @@ export type CreateArticleInput = {
   barcodeArticleNumber?: string;
   /**  Max character limit: 256. */
   description?: string;
-  expiryDate?: Date;
+  expiryDate?: string;
   fulfilments: FulfilmentId[];
   height: number;
   items?: CreateArticleItemWithArticleInput[];
@@ -7549,7 +7551,7 @@ export type CreateArticleInput = {
 export type AttributeInput = {
   name: string;
   type: string;
-  value: Scalars['Json'];
+  value: any;
 };
 
 export type FulfilmentId = {
@@ -7878,7 +7880,7 @@ export type CreateCreditMemoInput = {
   /**  `Invoice` associated with this `CreditMemo`. */
   invoice?: InvoiceKey;
   /**  Issue date */
-  issueDate: Date;
+  issueDate: string;
   /**  The `CreditMemoItem`s associated with this `CreditMemo`. */
   items?: CreateCreditMemoItemWithCreditMemoInput[];
   /**  Reference to an `Order` associated with the `CreditMemo`. */
@@ -8060,7 +8062,7 @@ export type CreateCustomerInput = {
   primaryEmail: string;
   /**  Max character limit: 20. */
   primaryPhone?: string;
-  promotionOptIn: Scalars['Boolean'];
+  promotionOptIn: boolean;
   retailer: RetailerId;
   /**  Max character limit: 32. */
   timezone: string;
@@ -8208,7 +8210,7 @@ export type CreateFulfilmentInput = {
   /**  Estimated time of completing this fulfilment */
   eta?: string;
   /**  Expiry time of the fulfilment */
-  expiryTime?: Date;
+  expiryTime?: string;
   /**  Represents `Address` fulfilling this fulfilment */
   fromAddress?: AddressId;
   /**  List of `FulfilmentItem`s */
@@ -8543,7 +8545,7 @@ export type CreateInventoryQuantityInput = {
   /**  The condition of the Inventory Quantity value. The platform does not enforce any values here. Examples could include `NEW`, `USED`, or `DAMAGED` */
   condition?: string;
   /**  The date and time the quantity is expected to arrive */
-  expectedOn?: Date;
+  expectedOn?: string;
   /**  The associated parent Inventory Position of which this Quantity applies */
   position: InventoryPositionKey;
   /**  The actual amount of this specific Quantity record */
@@ -8579,11 +8581,11 @@ export type CreateInvoiceInput = {
   /**  Default tax type */
   defaultTaxType: TaxTypeInput;
   /**  Due date of the `Invoice` */
-  dueDate?: Date;
+  dueDate?: string;
   /**  Reference to the `Fulfilment` associated with this `Invoice`. */
   fulfilment?: FulfilmentLinkInput;
   /**  Issue date of the `Invoice` */
-  issueDate: Date;
+  issueDate: string;
   /**  The `InvoiceItem`s associated with this `Invoice`. */
   items?: CreateInvoiceItemWithInvoiceInput[];
   /**  Reference to the `Order` associated with this `Invoice`. */
@@ -8692,7 +8694,7 @@ export type NetworkId = {
 
 /** OpeningSchedule */
 export type CreateOpeningScheduleInput = {
-  allHours: Scalars['Boolean'];
+  allHours: boolean;
   friEnd: number;
   friStart: number;
   monEnd: number;
@@ -9262,7 +9264,7 @@ export type CreateReturnOrderInput = {
   /**  The generated key representing an authorised return order which the customer can use to progress through the return order proces */
   returnAuthorisationKey?: string;
   /**  The time at which the return authorisation expires */
-  returnAuthorisationKeyExpiry?: Date;
+  returnAuthorisationKeyExpiry?: string;
   /**  The list of associated return order items */
   returnOrderItems: CreateReturnOrderItemWithReturnOrderInput[];
   /**  List of return verifications associated with the return order */
@@ -9409,7 +9411,7 @@ export type CreateSettingInput = {
   /**  `ID` of the context type. For instance, use a retailer's ID when using _RETAILER_ context. */
   contextId: number;
   /**  Value of the setting. Use this if the value is a JSON. */
-  lobValue?: Scalars['Json'];
+  lobValue?: any;
   /**  Name of the setting */
   name: string;
   /**  Value of the setting. Use this if the value is NOT a JSON. */
@@ -9529,7 +9531,7 @@ export type CreateUserInput = {
   /**  User's retailer context */
   primaryRetailer?: RetailerId;
   /**  Determines if the user has opted to receive promotions */
-  promotionOptIn?: Scalars['Boolean'];
+  promotionOptIn?: boolean;
   /**
    *  External reference of the object. Recommended to be unique. <br/>
    *  Max character limit: 100.
@@ -9942,7 +9944,7 @@ export type UpdateArticleInput = {
   barcodeArticleNumber?: string;
   /**  Max character limit: 256. */
   description?: string;
-  expiryDate?: Date;
+  expiryDate?: string;
   height?: number;
   /**  ID of the object */
   id: string;
@@ -10188,7 +10190,7 @@ export type UpdateCreditMemoInput = {
   /**  The default Tax Type for this credit memo. Individual credit memo items can override. */
   defaultTaxType?: TaxTypeInput;
   /**  Issue date */
-  issueDate?: Date;
+  issueDate?: string;
   /**  The `CreditMemoItem`s associated with this `CreditMemo`. */
   items?: UpdateCreditMemoItemWithCreditMemoInput[];
   /**  Reference to an `Order` associated with the `CreditMemo`. */
@@ -10275,7 +10277,7 @@ export type UpdateCustomerInput = {
    */
   primaryPhone?: string;
   /**  Specifies whether the customer has opted-in to receive promotions */
-  promotionOptIn?: Scalars['Boolean'];
+  promotionOptIn?: boolean;
   /**
    *  Customer's timezone
    *  Max character limit: 32.
@@ -10326,7 +10328,7 @@ export type UpdateFulfilmentInput = {
   /**  Estimated time of completing this fulfilment */
   eta?: string;
   /**  Expiry time of the fulfilment */
-  expiryTime?: Date;
+  expiryTime?: string;
   /**  ID of the object */
   id: string;
   /**  List of `FulfilmentItem`s */
@@ -10556,7 +10558,7 @@ export type UpdateInventoryQuantityInput = {
   /**  The condition of the Inventory Quantity value. The platform does not enforce any values here. Examples could include `NEW`, `USED`, or `DAMAGED` */
   condition?: string;
   /**  The date and time the quantity is expected to arrive */
-  expectedOn?: Date;
+  expectedOn?: string;
   /**  The actual amount of this specific Quantity record */
   quantity?: number;
   /**
@@ -10590,11 +10592,11 @@ export type UpdateInvoiceInput = {
   /**  The default Tax Type for this invoice. Individual invoice items can override. */
   defaultTaxType?: TaxTypeInput;
   /**  Due date of the `Invoice` */
-  dueDate?: Date;
+  dueDate?: string;
   /**  Reference to the `Fulfilment` associated with this `Invoice`. */
   fulfilment?: FulfilmentLinkInput;
   /**  Issue date of the `Invoice` */
-  issueDate?: Date;
+  issueDate?: string;
   /**  The `InvoiceItem`s associated with this `Invoice`. */
   items?: UpdateInvoiceItemWithInvoiceInput[];
   /**  Reference to the `Order` associated with this `Invoice`. */
@@ -10664,7 +10666,7 @@ export type UpdateLocationInput = {
 };
 
 export type UpdateOpeningScheduleInput = {
-  allHours?: Scalars['Boolean'];
+  allHours?: boolean;
   friEnd?: number;
   friStart?: number;
   /**  ID of the object */
@@ -11015,7 +11017,7 @@ export type UpdateReturnOrderInput = {
   /**  The generated key representing an authorised return order which the customer can use to progress through the return order process */
   returnAuthorisationKey?: string;
   /**  The time at which the return authorisation expires */
-  returnAuthorisationKeyExpiry?: Date;
+  returnAuthorisationKeyExpiry?: string;
   /**  The destination of the return order items */
   returnOrderItems?: UpdateReturnOrderItemWithReturnOrderInput[];
   /**  List of return verifications associated with the return order */
@@ -11111,7 +11113,7 @@ export type UpdateSettingInput = {
   /**  ID of the object */
   id: string;
   /**  Value of the setting. Use this if the value is a JSON. */
-  lobValue?: Scalars['Json'];
+  lobValue?: any;
   /**  Name of the setting */
   name?: string;
   /**  Value of the setting. Use this if the value is NOT a JSON. */
@@ -11227,7 +11229,7 @@ export type UpdateUserInput = {
   /**  User's retailer context */
   primaryRetailer?: RetailerId;
   /**  Determines if the user has opted to receive promotions */
-  promotionOptIn?: Scalars['Boolean'];
+  promotionOptIn?: boolean;
   /**
    *  External reference of the object. Recommended to be unique. <br/>
    *  Max character limit: 100.
@@ -11519,3 +11521,6 @@ export type WaveId = {
   /**  ID of the object */
   id: string;
 };
+
+
+}
