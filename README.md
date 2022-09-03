@@ -24,11 +24,11 @@ let mutationresult: fluent.Mutation;
 
 Screenshot of vscode autocomplete:
 
-![autocomplete support](resources/autocomplete.png)
+![autocomplete support](https://raw.githubusercontent.com/openmindlab/fluent-dts/master/resources/autocomplete.png)
 
 Screenshot of vscode documentation on hover:
 
-![documentation](resources/doc.png)
+![documentation](https://raw.githubusercontent.com/openmindlab/fluent-dts/master/resources/doc.png)
 
 
 ## License
