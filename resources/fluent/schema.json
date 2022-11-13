@@ -14423,7 +14423,7 @@
             },
             {
               "kind": "OBJECT",
-              "name": "Fulfilment",
+              "name": "OrderItem",
               "ofType": null
             },
             {
@@ -14438,7 +14438,7 @@
             },
             {
               "kind": "OBJECT",
-              "name": "OrderItem",
+              "name": "Fulfilment",
               "ofType": null
             },
             {
@@ -14873,12 +14873,12 @@
             },
             {
               "kind": "OBJECT",
-              "name": "Fulfilment",
+              "name": "Order",
               "ofType": null
             },
             {
               "kind": "OBJECT",
-              "name": "Order",
+              "name": "Fulfilment",
               "ofType": null
             },
             {
@@ -20576,6 +20576,18 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "orderItem",
+              "description": " The associated `OrderItem`",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "OrderItem",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
@@ -20591,82 +20603,8 @@
         },
         {
           "kind": "OBJECT",
-          "name": "FulfilmentConnection",
-          "description": " A list of results that matched against a Fulfilment search query",
-          "fields": [
-            {
-              "name": "edges",
-              "description": " A list of edges that links to Fulfilment type node",
-              "args": [],
-              "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "FulfilmentEdge",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "pageInfo",
-              "description": " Information to aid in pagination",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "PageInfo",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "FulfilmentEdge",
-          "description": " The edge in a Fulfilment connection to the Fulfilment type",
-          "fields": [
-            {
-              "name": "node",
-              "description": " The item at the end of the Fulfilment edge",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "Fulfilment",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "cursor",
-              "description": " A cursor for use in pagination",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "Fulfilment",
-          "description": " A `Fulfilment` represents one or more items in an order that need to be picked & packed for the customer. <br/>\n A fulfilment is assigned to a location based on the retailer's fulfilment rules and available inventory.\n A fulfilment will have an origin (from) and destination (to) associated with it.",
+          "name": "OrderItem",
+          "description": " An `OrderItem` generally represents a SKU purchased by the customer. There can be one or more `OrderItem`s within an `Order`",
           "fields": [
             {
               "name": "id",
@@ -20697,27 +20635,15 @@
               "deprecationReason": null
             },
             {
-              "name": "status",
-              "description": " The current status of the `Fulfilment`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href=\"https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/\" target=\"_blank\">Orchestration</a><br/>",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "workflowRef",
-              "description": " The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef \"ORDER::CC\".<br/>",
+              "name": "product",
+              "description": " Represents the `Product` corresponding to this object",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
                 "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
+                  "kind": "INTERFACE",
+                  "name": "Product",
                   "ofType": null
                 }
               },
@@ -20725,15 +20651,15 @@
               "deprecationReason": null
             },
             {
-              "name": "workflowVersion",
-              "description": " The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/>",
+              "name": "status",
+              "description": " Status of the OrderItem. Currently supported values are limited to _CREATED_, _NEW_, _COMPLETE_.",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Int",
+                  "name": "String",
                   "ofType": null
                 }
               },
@@ -20765,43 +20691,15 @@
               "deprecationReason": null
             },
             {
-              "name": "attributes",
-              "description": " Attributes of fulfilment",
-              "args": [],
-              "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "Attribute",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "deliveryType",
-              "description": " Type of delivery. Supported values are _STANDARD_, _OVERNIGHT_ and _EXPRESS_.",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "type",
-              "description": " Type of the `Fulfilment`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>\n Type of fulfilment. Supported types are <br/>\n - *CC_PFS* for Click & Collect - Pick from Store\n - *CC_PFDC* for Click & Collect - Pick from DC\n - *HD_PFS* for Home Delivery - Pick from Store\n - *HD_PFDC* for Home Delivery - Pick from DC",
+              "name": "quantity",
+              "description": " Quantity ordered",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "String",
+                  "name": "Int",
                   "ofType": null
                 }
               },
@@ -20809,8 +20707,20 @@
               "deprecationReason": null
             },
             {
-              "name": "eta",
-              "description": " The estimated time of completing the fulfilment.",
+              "name": "paidPrice",
+              "description": " Price paid. Excludes tax.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "currency",
+              "description": " Currency. Should ideally be a 3 letter ISO currency code. For instance _AUD_.",
               "args": [],
               "type": {
                 "kind": "SCALAR",
@@ -20821,12 +20731,60 @@
               "deprecationReason": null
             },
             {
-              "name": "expiryTime",
-              "description": " Expiry time for the fulfilment",
+              "name": "price",
+              "description": " Price",
               "args": [],
               "type": {
                 "kind": "SCALAR",
-                "name": "DateTime",
+                "name": "Float",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "taxPrice",
+              "description": " Tax price",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "taxType",
+              "description": " Tax type. Supported values are _GST_, _VAT_, _EXCLTAX_",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "totalPrice",
+              "description": " Total price",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "totalTaxPrice",
+              "description": " Total tax price",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -20845,453 +20803,17 @@
               "deprecationReason": null
             },
             {
-              "name": "fromAddress",
-              "description": " `Address` of the fulfilment location",
+              "name": "attributes",
+              "description": " List of `OrderItem` `attribute`s.",
               "args": [],
               "type": {
-                "kind": "INTERFACE",
-                "name": "Address",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "toAddress",
-              "description": " `Address` of the delivery location",
-              "args": [],
-              "type": {
-                "kind": "INTERFACE",
-                "name": "Address",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "user",
-              "description": " The associated `Customer`",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "Customer",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "articles",
-              "description": " Connection representing a list of `Article`s",
-              "args": [
-                {
-                  "name": "ref",
-                  "description": " The unique article reference provided by the retailer",
-                  "type": {
-                    "kind": "LIST",
-                    "name": null,
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "String",
-                      "ofType": null
-                    }
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "type",
-                  "description": null,
-                  "type": {
-                    "kind": "LIST",
-                    "name": null,
-                    "ofType": {
-                      "kind": "NON_NULL",
-                      "name": null,
-                      "ofType": {
-                        "kind": "SCALAR",
-                        "name": "String",
-                        "ofType": null
-                      }
-                    }
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "status",
-                  "description": null,
-                  "type": {
-                    "kind": "LIST",
-                    "name": null,
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "String",
-                      "ofType": null
-                    }
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "workflowRef",
-                  "description": null,
-                  "type": {
-                    "kind": "LIST",
-                    "name": null,
-                    "ofType": {
-                      "kind": "NON_NULL",
-                      "name": null,
-                      "ofType": {
-                        "kind": "SCALAR",
-                        "name": "String",
-                        "ofType": null
-                      }
-                    }
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "workflowVersion",
-                  "description": null,
-                  "type": {
-                    "kind": "LIST",
-                    "name": null,
-                    "ofType": {
-                      "kind": "NON_NULL",
-                      "name": null,
-                      "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Int",
-                        "ofType": null
-                      }
-                    }
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "createdOn",
-                  "description": null,
-                  "type": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "DateRange",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "updatedOn",
-                  "description": null,
-                  "type": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "DateRange",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "description",
-                  "description": " Description",
-                  "type": {
-                    "kind": "LIST",
-                    "name": null,
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "String",
-                      "ofType": null
-                    }
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "height",
-                  "description": " Height",
-                  "type": {
-                    "kind": "LIST",
-                    "name": null,
-                    "ofType": {
-                      "kind": "NON_NULL",
-                      "name": null,
-                      "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Float",
-                        "ofType": null
-                      }
-                    }
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "length",
-                  "description": " Length",
-                  "type": {
-                    "kind": "LIST",
-                    "name": null,
-                    "ofType": {
-                      "kind": "NON_NULL",
-                      "name": null,
-                      "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Float",
-                        "ofType": null
-                      }
-                    }
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "name",
-                  "description": " Name",
-                  "type": {
-                    "kind": "LIST",
-                    "name": null,
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "String",
-                      "ofType": null
-                    }
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "weight",
-                  "description": " Weight",
-                  "type": {
-                    "kind": "LIST",
-                    "name": null,
-                    "ofType": {
-                      "kind": "NON_NULL",
-                      "name": null,
-                      "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Float",
-                        "ofType": null
-                      }
-                    }
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "width",
-                  "description": " Width",
-                  "type": {
-                    "kind": "LIST",
-                    "name": null,
-                    "ofType": {
-                      "kind": "NON_NULL",
-                      "name": null,
-                      "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Float",
-                        "ofType": null
-                      }
-                    }
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "quantity",
-                  "description": " Quantity",
-                  "type": {
-                    "kind": "LIST",
-                    "name": null,
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Int",
-                      "ofType": null
-                    }
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "first",
-                  "description": " Returns the first n elements from the list",
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Int",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "last",
-                  "description": " Returns the last n elements from the list",
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Int",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "before",
-                  "description": " Returns the elements in the list that come before the specified global ID",
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "String",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "after",
-                  "description": " Returns the elements in the list that come after the specified global ID",
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "String",
-                    "ofType": null
-                  },
-                  "defaultValue": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Attribute",
+                  "ofType": null
                 }
-              ],
-              "type": {
-                "kind": "OBJECT",
-                "name": "ArticleConnection",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "items",
-              "description": " Connection representing a list of `FulfilmentItem`s",
-              "args": [
-                {
-                  "name": "ref",
-                  "description": " External reference of the object. Recommended to be unique.",
-                  "type": {
-                    "kind": "LIST",
-                    "name": null,
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "String",
-                      "ofType": null
-                    }
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "status",
-                  "description": " Status",
-                  "type": {
-                    "kind": "LIST",
-                    "name": null,
-                    "ofType": {
-                      "kind": "NON_NULL",
-                      "name": null,
-                      "ofType": {
-                        "kind": "SCALAR",
-                        "name": "String",
-                        "ofType": null
-                      }
-                    }
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "requestedQuantity",
-                  "description": " Number of `OrderItem`s assigned to the fulfilment",
-                  "type": {
-                    "kind": "LIST",
-                    "name": null,
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Int",
-                      "ofType": null
-                    }
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "filledQuantity",
-                  "description": " Number of `OrderItem`s confirmed",
-                  "type": {
-                    "kind": "LIST",
-                    "name": null,
-                    "ofType": {
-                      "kind": "NON_NULL",
-                      "name": null,
-                      "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Int",
-                        "ofType": null
-                      }
-                    }
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "rejectedQuantity",
-                  "description": " Number of `OrderItem`s rejected",
-                  "type": {
-                    "kind": "LIST",
-                    "name": null,
-                    "ofType": {
-                      "kind": "NON_NULL",
-                      "name": null,
-                      "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Int",
-                        "ofType": null
-                      }
-                    }
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "first",
-                  "description": " Returns the first n elements from the list",
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Int",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "last",
-                  "description": " Returns the last n elements from the list",
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Int",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "before",
-                  "description": " Returns the elements in the list that come before the specified global ID",
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "String",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "after",
-                  "description": " Returns the elements in the list that come after the specified global ID",
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "String",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "OBJECT",
-                "name": "FulfilmentItemConnection",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "fromLocation",
-              "description": " The `Location` responsible for processing outbound `Fulfilment`s",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "LocationLink",
-                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -21302,11 +20824,6 @@
             {
               "kind": "INTERFACE",
               "name": "Node",
-              "ofType": null
-            },
-            {
-              "kind": "INTERFACE",
-              "name": "Orchestrateable",
               "ofType": null
             }
           ],
@@ -22711,8 +22228,82 @@
         },
         {
           "kind": "OBJECT",
-          "name": "OrderItem",
-          "description": " An `OrderItem` generally represents a SKU purchased by the customer. There can be one or more `OrderItem`s within an `Order`",
+          "name": "FulfilmentConnection",
+          "description": " A list of results that matched against a Fulfilment search query",
+          "fields": [
+            {
+              "name": "edges",
+              "description": " A list of edges that links to Fulfilment type node",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "FulfilmentEdge",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "pageInfo",
+              "description": " Information to aid in pagination",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "PageInfo",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "FulfilmentEdge",
+          "description": " The edge in a Fulfilment connection to the Fulfilment type",
+          "fields": [
+            {
+              "name": "node",
+              "description": " The item at the end of the Fulfilment edge",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Fulfilment",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "cursor",
+              "description": " A cursor for use in pagination",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "Fulfilment",
+          "description": " A `Fulfilment` represents one or more items in an order that need to be picked & packed for the customer. <br/>\n A fulfilment is assigned to a location based on the retailer's fulfilment rules and available inventory.\n A fulfilment will have an origin (from) and destination (to) associated with it.",
           "fields": [
             {
               "name": "id",
@@ -22743,24 +22334,20 @@
               "deprecationReason": null
             },
             {
-              "name": "product",
-              "description": " Represents the `Product` corresponding to this object",
+              "name": "status",
+              "description": " The current status of the `Fulfilment`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href=\"https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/\" target=\"_blank\">Orchestration</a><br/>",
               "args": [],
               "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "INTERFACE",
-                  "name": "Product",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "status",
-              "description": " Status of the OrderItem. Currently supported values are limited to _CREATED_, _NEW_, _COMPLETE_.",
+              "name": "workflowRef",
+              "description": " The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef \"ORDER::CC\".<br/>",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -22768,6 +22355,22 @@
                 "ofType": {
                   "kind": "SCALAR",
                   "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "workflowVersion",
+              "description": " The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/>",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
                   "ofType": null
                 }
               },
@@ -22799,15 +22402,15 @@
               "deprecationReason": null
             },
             {
-              "name": "quantity",
-              "description": " Quantity ordered",
+              "name": "attributes",
+              "description": " Attributes of fulfilment",
               "args": [],
               "type": {
-                "kind": "NON_NULL",
+                "kind": "LIST",
                 "name": null,
                 "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Int",
+                  "kind": "OBJECT",
+                  "name": "Attribute",
                   "ofType": null
                 }
               },
@@ -22815,20 +22418,8 @@
               "deprecationReason": null
             },
             {
-              "name": "paidPrice",
-              "description": " Price paid. Excludes tax.",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "Float",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "currency",
-              "description": " Currency. Should ideally be a 3 letter ISO currency code. For instance _AUD_.",
+              "name": "deliveryType",
+              "description": " Type of delivery. Supported values are _STANDARD_, _OVERNIGHT_ and _EXPRESS_.",
               "args": [],
               "type": {
                 "kind": "SCALAR",
@@ -22839,32 +22430,24 @@
               "deprecationReason": null
             },
             {
-              "name": "price",
-              "description": " Price",
+              "name": "type",
+              "description": " Type of the `Fulfilment`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>\n Type of fulfilment. Supported types are <br/>\n - *CC_PFS* for Click & Collect - Pick from Store\n - *CC_PFDC* for Click & Collect - Pick from DC\n - *HD_PFS* for Home Delivery - Pick from Store\n - *HD_PFDC* for Home Delivery - Pick from DC",
               "args": [],
               "type": {
-                "kind": "SCALAR",
-                "name": "Float",
-                "ofType": null
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "taxPrice",
-              "description": " Tax price",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "Float",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "taxType",
-              "description": " Tax type. Supported values are _GST_, _VAT_, _EXCLTAX_",
+              "name": "eta",
+              "description": " The estimated time of completing the fulfilment.",
               "args": [],
               "type": {
                 "kind": "SCALAR",
@@ -22875,24 +22458,12 @@
               "deprecationReason": null
             },
             {
-              "name": "totalPrice",
-              "description": " Total price",
+              "name": "expiryTime",
+              "description": " Expiry time for the fulfilment",
               "args": [],
               "type": {
                 "kind": "SCALAR",
-                "name": "Float",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "totalTaxPrice",
-              "description": " Total tax price",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "Float",
+                "name": "DateTime",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -22911,17 +22482,453 @@
               "deprecationReason": null
             },
             {
-              "name": "attributes",
-              "description": " List of `OrderItem` `attribute`s.",
+              "name": "fromAddress",
+              "description": " `Address` of the fulfilment location",
               "args": [],
               "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "Attribute",
-                  "ofType": null
+                "kind": "INTERFACE",
+                "name": "Address",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "toAddress",
+              "description": " `Address` of the delivery location",
+              "args": [],
+              "type": {
+                "kind": "INTERFACE",
+                "name": "Address",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "user",
+              "description": " The associated `Customer`",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Customer",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "articles",
+              "description": " Connection representing a list of `Article`s",
+              "args": [
+                {
+                  "name": "ref",
+                  "description": " The unique article reference provided by the retailer",
+                  "type": {
+                    "kind": "LIST",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "type",
+                  "description": null,
+                  "type": {
+                    "kind": "LIST",
+                    "name": null,
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "name": null,
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "String",
+                        "ofType": null
+                      }
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "status",
+                  "description": null,
+                  "type": {
+                    "kind": "LIST",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "workflowRef",
+                  "description": null,
+                  "type": {
+                    "kind": "LIST",
+                    "name": null,
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "name": null,
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "String",
+                        "ofType": null
+                      }
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "workflowVersion",
+                  "description": null,
+                  "type": {
+                    "kind": "LIST",
+                    "name": null,
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "name": null,
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Int",
+                        "ofType": null
+                      }
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "createdOn",
+                  "description": null,
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "DateRange",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "updatedOn",
+                  "description": null,
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "DateRange",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "description",
+                  "description": " Description",
+                  "type": {
+                    "kind": "LIST",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "height",
+                  "description": " Height",
+                  "type": {
+                    "kind": "LIST",
+                    "name": null,
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "name": null,
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Float",
+                        "ofType": null
+                      }
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "length",
+                  "description": " Length",
+                  "type": {
+                    "kind": "LIST",
+                    "name": null,
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "name": null,
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Float",
+                        "ofType": null
+                      }
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "name",
+                  "description": " Name",
+                  "type": {
+                    "kind": "LIST",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "weight",
+                  "description": " Weight",
+                  "type": {
+                    "kind": "LIST",
+                    "name": null,
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "name": null,
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Float",
+                        "ofType": null
+                      }
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "width",
+                  "description": " Width",
+                  "type": {
+                    "kind": "LIST",
+                    "name": null,
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "name": null,
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Float",
+                        "ofType": null
+                      }
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "quantity",
+                  "description": " Quantity",
+                  "type": {
+                    "kind": "LIST",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Int",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "first",
+                  "description": " Returns the first n elements from the list",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "last",
+                  "description": " Returns the last n elements from the list",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "before",
+                  "description": " Returns the elements in the list that come before the specified global ID",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "after",
+                  "description": " Returns the elements in the list that come after the specified global ID",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  },
+                  "defaultValue": null
                 }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ArticleConnection",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "items",
+              "description": " Connection representing a list of `FulfilmentItem`s",
+              "args": [
+                {
+                  "name": "ref",
+                  "description": " External reference of the object. Recommended to be unique.",
+                  "type": {
+                    "kind": "LIST",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "status",
+                  "description": " Status",
+                  "type": {
+                    "kind": "LIST",
+                    "name": null,
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "name": null,
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "String",
+                        "ofType": null
+                      }
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "requestedQuantity",
+                  "description": " Number of `OrderItem`s assigned to the fulfilment",
+                  "type": {
+                    "kind": "LIST",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Int",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "filledQuantity",
+                  "description": " Number of `OrderItem`s confirmed",
+                  "type": {
+                    "kind": "LIST",
+                    "name": null,
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "name": null,
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Int",
+                        "ofType": null
+                      }
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "rejectedQuantity",
+                  "description": " Number of `OrderItem`s rejected",
+                  "type": {
+                    "kind": "LIST",
+                    "name": null,
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "name": null,
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Int",
+                        "ofType": null
+                      }
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "first",
+                  "description": " Returns the first n elements from the list",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "last",
+                  "description": " Returns the last n elements from the list",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "before",
+                  "description": " Returns the elements in the list that come before the specified global ID",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "after",
+                  "description": " Returns the elements in the list that come after the specified global ID",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "FulfilmentItemConnection",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "fromLocation",
+              "description": " The `Location` responsible for processing outbound `Fulfilment`s",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "LocationLink",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -22933,8 +22940,233 @@
               "kind": "INTERFACE",
               "name": "Node",
               "ofType": null
+            },
+            {
+              "kind": "INTERFACE",
+              "name": "Orchestrateable",
+              "ofType": null
             }
           ],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "FulfilmentItemConnection",
+          "description": " A list of results that matched against a FulfilmentItem search query",
+          "fields": [
+            {
+              "name": "edges",
+              "description": " A list of edges that links to FulfilmentItem type node",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "FulfilmentItemEdge",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "pageInfo",
+              "description": " Information to aid in pagination",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "PageInfo",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "FulfilmentItemEdge",
+          "description": " The edge in a FulfilmentItem connection to the FulfilmentItem type",
+          "fields": [
+            {
+              "name": "node",
+              "description": " The item at the end of the FulfilmentItem edge",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "FulfilmentItem",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "cursor",
+              "description": " A cursor for use in pagination",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "FulfilmentItem",
+          "description": " Represents fulfilment details corresponding to an `OrderItem`.",
+          "fields": [
+            {
+              "name": "id",
+              "description": " ID of the object",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ref",
+              "description": " External reference of the object. Recommended to be unique.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "status",
+              "description": " Status",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "requestedQuantity",
+              "description": " Number of `OrderItem`s assigned to the fulfilment",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "filledQuantity",
+              "description": " Number of `OrderItem`s confirmed",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "rejectedQuantity",
+              "description": " Number of `OrderItem`s rejected",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "fulfilment",
+              "description": " The associated `Fulfilment`",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Fulfilment",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "orderItem",
+              "description": " The associated `OrderItem`",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "OrderItem",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "LocationLink",
+          "description": null,
+          "fields": [
+            {
+              "name": "ref",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
           "enumValues": null,
           "possibleTypes": null
         },
@@ -23278,226 +23510,6 @@
         {
           "kind": "OBJECT",
           "name": "PaymentLink",
-          "description": null,
-          "fields": [
-            {
-              "name": "ref",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "FulfilmentItemConnection",
-          "description": " A list of results that matched against a FulfilmentItem search query",
-          "fields": [
-            {
-              "name": "edges",
-              "description": " A list of edges that links to FulfilmentItem type node",
-              "args": [],
-              "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "FulfilmentItemEdge",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "pageInfo",
-              "description": " Information to aid in pagination",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "PageInfo",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "FulfilmentItemEdge",
-          "description": " The edge in a FulfilmentItem connection to the FulfilmentItem type",
-          "fields": [
-            {
-              "name": "node",
-              "description": " The item at the end of the FulfilmentItem edge",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "FulfilmentItem",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "cursor",
-              "description": " A cursor for use in pagination",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "FulfilmentItem",
-          "description": " Represents fulfilment details corresponding to an `OrderItem`.",
-          "fields": [
-            {
-              "name": "id",
-              "description": " ID of the object",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "ref",
-              "description": " External reference of the object. Recommended to be unique.",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "status",
-              "description": " Status",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "requestedQuantity",
-              "description": " Number of `OrderItem`s assigned to the fulfilment",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "filledQuantity",
-              "description": " Number of `OrderItem`s confirmed",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "rejectedQuantity",
-              "description": " Number of `OrderItem`s rejected",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "fulfilment",
-              "description": " The associated `Fulfilment`",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "Fulfilment",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "orderItem",
-              "description": " The associated `OrderItem`",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "OrderItem",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "LocationLink",
           "description": null,
           "fields": [
             {
@@ -48856,6 +48868,16 @@
                 "ofType": null
               },
               "defaultValue": null
+            },
+            {
+              "name": "orderItem",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "OrderItemId",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -49072,6 +49094,75 @@
               "type": {
                 "kind": "SCALAR",
                 "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "items",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "UpdateArticleItemWithArticleInput",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UpdateArticleItemWithArticleInput",
+          "description": "ArticleItem",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "id",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "quantity",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "barcode",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "orderItem",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "OrderItemId",
                 "ofType": null
               },
               "defaultValue": null
@@ -61096,67 +61187,19 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "UpdateReturnFulfilmentItemInput",
+          "name": "StoreAddressId",
           "description": null,
           "fields": null,
           "inputFields": [
             {
-              "name": "ref",
-              "description": " External reference. Must be unique. <br/>\n Max character limit: 100.",
+              "name": "id",
+              "description": " ID of the object",
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "returnOrderFulfilment",
-              "description": null,
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "ReturnFulfilmentKey",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "unitQuantity",
-              "description": " Unit quantity of return fulfilment item",
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "QuantityTypeInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "product",
-              "description": null,
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "ProductLinkInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "attributes",
-              "description": " A list of attributes. Attributes can be used to extend the existing data structure with additional data for use in orchestration rules, etc.",
-              "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "AttributeInput",
+                  "name": "ID",
                   "ofType": null
                 }
               },
@@ -61169,88 +61212,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "InvoiceItemKey",
-          "description": " Input type to uniquely identify an `InvoiceItem` object. We use all the fields present in the request to look for this object.",
-          "fields": null,
-          "inputFields": [
-            {
-              "name": "ref",
-              "description": " The client's reference identifier for the object",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "CreditMemoItemKey",
-          "description": " Input type to uniquely identify a `CreditMemoItem` object. We use all the fields present in the request to look for this object.",
-          "fields": null,
-          "inputFields": [
-            {
-              "name": "ref",
-              "description": " The client's reference identifier for the object",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "ConsignmentArticleId",
-          "description": "ConsignmentArticle",
-          "fields": null,
-          "inputFields": [
-            {
-              "name": "article",
-              "description": null,
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "ArticleId",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "consignment",
-              "description": null,
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "ConsignmentId",
-                "ofType": null
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "WaveId",
+          "name": "FulfilmentPlanId",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -61314,7 +61276,32 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "StoreAddressId",
+          "name": "InvoiceItemKey",
+          "description": " Input type to uniquely identify an `InvoiceItem` object. We use all the fields present in the request to look for this object.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "ref",
+              "description": " The client's reference identifier for the object",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "CustomerAddressId",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -61327,140 +61314,6 @@
                 "ofType": {
                   "kind": "SCALAR",
                   "name": "ID",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "CarrierConsignmentArticleId",
-          "description": "CarrierConsignmentArticle",
-          "fields": null,
-          "inputFields": [
-            {
-              "name": "article",
-              "description": null,
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "ArticleId",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "carrierConsignment",
-              "description": null,
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "CarrierConsignmentKey",
-                "ofType": null
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "ControlKey",
-          "description": " The `ControlKey` input is the parameter for identifying a specific Catalogue Control",
-          "fields": null,
-          "inputFields": [
-            {
-              "name": "ref",
-              "description": " Control reference identifier. <br/>\n Max character limit: 100.",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "controlGroup",
-              "description": " Control Group",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "ControlGroupKey",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "FulfilmentPlanId",
-          "description": null,
-          "fields": null,
-          "inputFields": [
-            {
-              "name": "id",
-              "description": " ID of the object",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "VirtualPositionKey",
-          "description": " The `VirtualPositionKey` input is the parameter for identifying a specific Virtual Position",
-          "fields": null,
-          "inputFields": [
-            {
-              "name": "ref",
-              "description": " Virtual Position reference identifier. <br/>\n Max character limit: 100.",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "catalogue",
-              "description": " Catalogue",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "VirtualCatalogueKey",
                   "ofType": null
                 }
               },
@@ -61540,21 +61393,125 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "CustomerAddressId",
-          "description": null,
+          "name": "CreditMemoItemKey",
+          "description": " Input type to uniquely identify a `CreditMemoItem` object. We use all the fields present in the request to look for this object.",
           "fields": null,
           "inputFields": [
             {
-              "name": "id",
-              "description": " ID of the object",
+              "name": "ref",
+              "description": " The client's reference identifier for the object",
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "ID",
+                  "name": "String",
                   "ofType": null
                 }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UpdateReturnFulfilmentItemInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "ref",
+              "description": " External reference. Must be unique. <br/>\n Max character limit: 100.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "returnOrderFulfilment",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "ReturnFulfilmentKey",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "unitQuantity",
+              "description": " Unit quantity of return fulfilment item",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "QuantityTypeInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "product",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ProductLinkInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "attributes",
+              "description": " A list of attributes. Attributes can be used to extend the existing data structure with additional data for use in orchestration rules, etc.",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "AttributeInput",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "ConsignmentArticleId",
+          "description": "ConsignmentArticle",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "article",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ArticleId",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "consignment",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ConsignmentId",
+                "ofType": null
               },
               "defaultValue": null
             }
@@ -61580,6 +61537,140 @@
                   "name": "String",
                   "ofType": null
                 }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "VirtualPositionKey",
+          "description": " The `VirtualPositionKey` input is the parameter for identifying a specific Virtual Position",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "ref",
+              "description": " Virtual Position reference identifier. <br/>\n Max character limit: 100.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "catalogue",
+              "description": " Catalogue",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "VirtualCatalogueKey",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "WaveId",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "id",
+              "description": " ID of the object",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "ControlKey",
+          "description": " The `ControlKey` input is the parameter for identifying a specific Catalogue Control",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "ref",
+              "description": " Control reference identifier. <br/>\n Max character limit: 100.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "controlGroup",
+              "description": " Control Group",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "ControlGroupKey",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "CarrierConsignmentArticleId",
+          "description": "CarrierConsignmentArticle",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "article",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ArticleId",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "carrierConsignment",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "CarrierConsignmentKey",
+                "ofType": null
               },
               "defaultValue": null
             }

@@ -3212,6 +3212,8 @@ export type ArticleItem = Node & {
   createdOn?: string;
   /**  ID of the object */
   id: string;
+  /**  The associated `OrderItem` */
+  orderItem?: OrderItem;
   /**  Quantity of article item */
   quantity: number;
   /**  Time of last update */
@@ -7562,8 +7564,14 @@ export type FulfilmentId = {
 /** ArticleItem */
 export type CreateArticleItemWithArticleInput = {
   barcode?: string;
+  orderItem?: OrderItemId;
   /**  Max quantity of an Article item allowed is "32767" */
   quantity: number;
+};
+
+export type OrderItemId = {
+  /**  ID of the object */
+  id: string;
 };
 
 export type StorageAreaId = {
@@ -8254,11 +8262,6 @@ export type CreateFulfilmentItemWithFulfilmentInput = {
   rejectedQuantity: number;
   /**  Number of `OrderItem`s assigned to the fulfilment */
   requestedQuantity?: number;
-};
-
-export type OrderItemId = {
-  /**  ID of the object */
-  id: string;
 };
 
 export enum ExecutionMode {
@@ -9948,6 +9951,7 @@ export type UpdateArticleInput = {
   height?: number;
   /**  ID of the object */
   id: string;
+  items?: UpdateArticleItemWithArticleInput[];
   length?: number;
   /**  Max character limit: 256. */
   name?: string;
@@ -9966,6 +9970,14 @@ export type UpdateArticleInput = {
   type?: string;
   weight?: number;
   width?: number;
+};
+
+/** ArticleItem */
+export type UpdateArticleItemWithArticleInput = {
+  barcode?: string;
+  id: string;
+  orderItem?: OrderItemId;
+  quantity?: number;
 };
 
 export type UpdateBillingAccountInput = {
