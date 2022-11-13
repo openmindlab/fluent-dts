@@ -21,6 +21,7 @@
   },
   "files": [
     "dist/**/*",
+    "resources/fluent/schema.json",
     "@types/**/*",
     "README.md",
     "LICENSE"
