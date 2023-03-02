@@ -99,6 +99,10 @@ export type Query = {
   financialTransactions?: FinancialTransactionConnection;
   /**  Find a Fulfilment entity */
   fulfilmentById?: Fulfilment;
+  /**  Find a FulfilmentChoice entity */
+  fulfilmentChoice?: FulfilmentChoice;
+  /**  Find a FulfilmentChoice entity */
+  fulfilmentChoiceById?: FulfilmentChoice;
   /**  Search for FulfilmentChoice entities */
   fulfilmentChoices?: FulfilmentChoiceConnection;
   /**  Search for FulfilmentItem entities */
@@ -305,6 +309,7 @@ export type QueryArticlesArgs = {
   name?: string[];
   quantity?: number[];
   ref?: string[];
+  retailerId?: number[];
   status?: string[];
   type?: string[];
   updatedOn?: DateRange;
@@ -331,6 +336,7 @@ export type QueryArticlesByLocationArgs = {
   last?: number;
   orderRef?: string[];
   orderType?: string[];
+  retailerId?: number[];
   status?: string[];
   toLocation?: LocationKey[];
 };
@@ -687,6 +693,7 @@ export type QueryCustomerAddressesArgs = {
   companyName?: string[];
   country?: string[];
   createdOn?: DateRange;
+  email?: string[];
   first?: number;
   last?: number;
   latitude?: number[];
@@ -697,6 +704,7 @@ export type QueryCustomerAddressesArgs = {
   region?: string[];
   state?: string[];
   street?: string[];
+  street2?: string[];
   timeZone?: string[];
   type?: string[];
   updatedOn?: DateRange;
@@ -768,20 +776,45 @@ export type QueryFulfilmentByIdArgs = {
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
+export type QueryFulfilmentChoiceArgs = {
+  id?: string;
+  ref?: string;
+};
+
+
+/**  Query type defines the GraphQL operations that fetch data from the server */
+export type QueryFulfilmentChoiceByIdArgs = {
+  id: string;
+};
+
+
+/**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryFulfilmentChoicesArgs = {
   after?: string;
   before?: string;
   createdOn?: DateRange;
   currency?: string[];
+  deliverAfter?: DateRange;
+  deliverBefore?: DateRange;
+  deliveryContact?: string[];
+  deliveryEmail?: string[];
+  deliveryFirstName?: string[];
   deliveryInstruction?: string[];
+  deliveryLastName?: string[];
   deliveryType?: string[];
+  dispatchOn?: DateRange;
   first?: number;
   fulfilmentPrice?: number[];
   fulfilmentTaxPrice?: number[];
   fulfilmentType?: string[];
   last?: number;
   pickupLocationRef?: string[];
+  ref?: string[];
+  status?: string[];
+  type?: string[];
   updatedOn?: DateRange;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 
@@ -860,8 +893,10 @@ export type QueryFulfilmentsArgs = {
   expiryTime?: DateRange;
   first?: number;
   fromLocation?: LocationLinkInput;
+  fulfilmentChoiceRef?: string[];
   last?: number;
   ref?: string[];
+  retailerId?: number[];
   status?: string[];
   type?: string[];
   updatedOn?: DateRange;
@@ -882,6 +917,7 @@ export type QueryGroupProductsArgs = {
   after?: string;
   before?: string;
   catalogue?: ProductCatalogueKey;
+  category?: CategoryKey;
   createdOn?: DateRange;
   first?: number;
   last?: number;
@@ -1539,6 +1575,7 @@ export type QueryStandardProductsArgs = {
   after?: string;
   before?: string;
   catalogue?: ProductCatalogueKey;
+  category?: CategoryKey;
   createdOn?: DateRange;
   first?: number;
   gtin?: string[];
@@ -1589,6 +1626,7 @@ export type QueryStoreAddressesArgs = {
   country?: string[];
   createdOn?: DateRange;
   directions?: string[];
+  email?: string[];
   first?: number;
   last?: number;
   latitude?: number[];
@@ -1599,6 +1637,7 @@ export type QueryStoreAddressesArgs = {
   region?: string[];
   state?: string[];
   street?: string[];
+  street2?: string[];
   timeZone?: string[];
   type?: string[];
   updatedOn?: DateRange;
@@ -1654,6 +1693,7 @@ export type QueryVariantProductsArgs = {
   after?: string;
   before?: string;
   catalogue?: ProductCatalogueKey;
+  category?: CategoryKey;
   createdOn?: DateRange;
   first?: number;
   gtin?: string[];
@@ -1764,6 +1804,7 @@ export type QueryWavesArgs = {
   name?: string[];
   processingLocation?: LocationLinkInput;
   ref?: string[];
+  retailerId?: number[];
   status?: string[];
   type?: string[];
   updatedOn?: DateRange;
@@ -1847,8 +1888,10 @@ export type ArticleFulfilmentsArgs = {
   expiryTime?: DateRange;
   first?: number;
   fromLocation?: LocationLinkInput;
+  fulfilmentChoiceRef?: string[];
   last?: number;
   ref?: string[];
+  retailerId?: number[];
   status?: string[];
   type?: string[];
   updatedOn?: DateRange;
@@ -2500,6 +2543,8 @@ export type Address = {
   country?: string;
   /**  Time of creation */
   createdOn?: string;
+  /**  Email */
+  email?: string;
   /**  ID of the object */
   id: string;
   /**  Latitude */
@@ -2518,6 +2563,8 @@ export type Address = {
   state?: string;
   /**  Street */
   street?: string;
+  /**  Street 2 */
+  street2?: string;
   /**  Timezone */
   timeZone?: string;
   /**  Type of Address, to support legacy address, the value can be AGENT and ORDER */
@@ -2579,6 +2626,7 @@ export type StorageAreaArticlesArgs = {
   name?: string[];
   quantity?: number[];
   ref?: string[];
+  retailerId?: number[];
   status?: string[];
   type?: string[];
   updatedOn?: DateRange;
@@ -2721,6 +2769,8 @@ export type Fulfilment = Node & Orchestrateable & {
   fromAddress?: Address;
   /**  The `Location` responsible for processing outbound `Fulfilment`s */
   fromLocation?: LocationLink;
+  /**  Represents the `FulfilmentChoice` corresponding to this object */
+  fulfilmentChoiceRef?: string;
   /**  ID of the object */
   id: string;
   /**  Connection representing a list of `FulfilmentItem`s */
@@ -2735,11 +2785,7 @@ export type Fulfilment = Node & Orchestrateable & {
   toAddress?: Address;
   /**
    *  Type of the `Fulfilment`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
-   *  Type of fulfilment. Supported types are <br/>
-   *  - *CC_PFS* for Click & Collect - Pick from Store
-   *  - *CC_PFDC* for Click & Collect - Pick from DC
-   *  - *HD_PFS* for Home Delivery - Pick from Store
-   *  - *HD_PFDC* for Home Delivery - Pick from DC
+   *  Type of the Fulfilment. Supports all values.
    */
   type: string;
   /**  Time of last update */
@@ -2770,6 +2816,7 @@ export type FulfilmentArticlesArgs = {
   name?: string[];
   quantity?: number[];
   ref?: string[];
+  retailerId?: number[];
   status?: string[];
   type?: string[];
   updatedOn?: DateRange;
@@ -2850,6 +2897,8 @@ export type OrderItem = Node & {
   createdOn?: string;
   /**  Currency. Should ideally be a 3 letter ISO currency code. For instance _AUD_. */
   currency?: string;
+  /**  Represents the `FulfilmentChoice` corresponding to this object */
+  fulfilmentChoice?: FulfilmentChoice;
   /**  ID of the object */
   id: string;
   /**  The associated `Order` */
@@ -2878,6 +2927,136 @@ export type OrderItem = Node & {
   updatedOn?: string;
 };
 
+/**  A `Fulfilment choice` represents a set of order items with the same delivery method, delivery date and delivery address. <br/>The fulfilment choice specified when booking the order */
+export type FulfilmentChoice = Node & Orchestrateable & {
+  __typename?: 'FulfilmentChoice';
+  /**  List of Attribute containing meta data information for an entity. */
+  attributes?: Attribute[];
+  /**  Time of creation. */
+  createdOn?: string;
+  /**  The type of currency, 3 letter ISO currency code. */
+  currency?: string;
+  /**  Time of delivery selected by the customer at the time of order creation, specifies Deliver On date/time the customer will receive the order (package). */
+  deliverAfter?: string;
+  /**  Time of delivery selected by the customer at the time of order creation, specifies Deliver Till date/time the customer will receive the order (package). */
+  deliverBefore?: string;
+  /**  Delivery address. Required if it is a home delivery. */
+  deliveryAddress?: Address;
+  /**  Mobile number of delivery recipient. */
+  deliveryContact?: string;
+  /**  Email address to which e-delivery is made. */
+  deliveryEmail?: string;
+  /**  First Name of delivery recipient. */
+  deliveryFirstName?: string;
+  /**  Instruction provided by the customer (250 character limit). */
+  deliveryInstruction?: string;
+  /**  Last Name of delivery recipient. */
+  deliveryLastName?: string;
+  /**  The type of delivery determined by retailers' shipping options. Example values are STANDARD, EXPRESS, OVERNIGHT, 3HOURS */
+  deliveryType: string;
+  /**  Time that indicates date of dispatch */
+  dispatchOn?: string;
+  /**  FulfilmentPrice refers to shipping and C&C fees. */
+  fulfilmentPrice?: number;
+  /**  Fulfilments associated with the fulfilmentChoice. */
+  fulfilments?: FulfilmentConnection;
+  /**  This refers to the tax cost associated with the fulfilment price. */
+  fulfilmentTaxPrice?: number;
+  /**  Indicates the type of fulfilment. */
+  fulfilmentType?: string;
+  /**  ID of the object */
+  id: string;
+  /**  Order items associated with the fulfilmentChoice. */
+  items?: OrderItemConnection;
+  /**  Pickup location. Required if it is a click & collect. */
+  pickupLocationRef?: string;
+  /**  External reference of the object. Recommended to be unique. */
+  ref?: string;
+  /**
+   *  The current status of the `FulfilmentChoice`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/>
+   *  The current status of the Fulfilment choice.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see Orchestration.
+   */
+  status?: string;
+  /**
+   *  Type of the `FulfilmentChoice`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
+   *  Type of the Fulfilment choice. Supports all values.
+   */
+  type: string;
+  /**  Time of last update. */
+  updatedOn?: string;
+  /**
+   *  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/>
+   *  The workflow's reference
+   */
+  workflowRef: string;
+  /**
+   *  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/>
+   *  The version of the workflow
+   */
+  workflowVersion: number;
+};
+
+
+/**  A `Fulfilment choice` represents a set of order items with the same delivery method, delivery date and delivery address. <br/>The fulfilment choice specified when booking the order */
+export type FulfilmentChoiceFulfilmentsArgs = {
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  deliveryType?: string[];
+  eta?: string[];
+  expiryTime?: DateRange;
+  first?: number;
+  fromLocation?: LocationLinkInput;
+  fulfilmentChoiceRef?: string[];
+  last?: number;
+  ref?: string[];
+  retailerId?: number[];
+  status?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflowRef?: string[];
+  workflowVersion?: number[];
+};
+
+
+/**  A `Fulfilment choice` represents a set of order items with the same delivery method, delivery date and delivery address. <br/>The fulfilment choice specified when booking the order */
+export type FulfilmentChoiceItemsArgs = {
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  currency?: string[];
+  first?: number;
+  last?: number;
+  paidPrice?: number[];
+  price?: number[];
+  quantity?: number[];
+  ref?: string[];
+  status?: string[];
+  taxPrice?: number[];
+  taxType?: string[];
+  totalPrice?: number[];
+  totalTaxPrice?: number[];
+  updatedOn?: DateRange;
+};
+
+/**  A list of results that matched against a OrderItem search query */
+export type OrderItemConnection = {
+  __typename?: 'OrderItemConnection';
+  /**  A list of edges that links to OrderItem type node */
+  edges?: OrderItemEdge[];
+  /**  Information to aid in pagination */
+  pageInfo?: PageInfo;
+};
+
+/**  The edge in a OrderItem connection to the OrderItem type */
+export type OrderItemEdge = {
+  __typename?: 'OrderItemEdge';
+  /**  A cursor for use in pagination */
+  cursor?: string;
+  /**  The item at the end of the OrderItem edge */
+  node?: OrderItem;
+};
+
 /**  A customer's order. */
 export type Order = Node & Orchestrateable & {
   __typename?: 'Order';
@@ -2893,6 +3072,8 @@ export type Order = Node & Orchestrateable & {
   financialTransactions?: FinancialTransactionConnection;
   /**  The `FulfilmentChoice` specified when booking the order */
   fulfilmentChoice?: FulfilmentChoice;
+  /**  The `FulfilmentChoices` specified when booking the order */
+  fulfilmentChoices?: FulfilmentChoiceConnection;
   /**  Connection representing a list of `Fulfilment`s */
   fulfilments?: FulfilmentConnection;
   /**  ID of the object */
@@ -2905,7 +3086,10 @@ export type Order = Node & Orchestrateable & {
   ref?: string;
   /**  `Retailer` of the order */
   retailer?: Retailer;
-  /**  The current status of the `Order`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/> */
+  /**
+   *  The current status of the `Order`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/>
+   *  The current status of the Order.
+   */
   status?: string;
   /**  Total price */
   totalPrice?: number;
@@ -2913,14 +3097,21 @@ export type Order = Node & Orchestrateable & {
   totalTaxPrice?: number;
   /**
    *  Type of the `Order`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
-   *  Currently supports values _CC_, _SFS_, _HD_ for _Click and Collect_, _Ship from Store_ and _Home Delivery_ type orders respectively
+   *  Type of the Order, typically used by the Orchestration Engine to determine the workflow
+   *  that should be applied. Unless stated otherwise, no values are enforced by the platform. Currently supports all values.
    */
   type: string;
   /**  Time of last update */
   updatedOn?: string;
-  /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
+  /**
+   *  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/>
+   *  The workflow's reference
+   */
   workflowRef: string;
-  /**  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/> */
+  /**
+   *  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/>
+   *  The version of the workflow
+   */
   workflowVersion: number;
 };
 
@@ -2949,6 +3140,36 @@ export type OrderFinancialTransactionsArgs = {
 
 
 /**  A customer's order. */
+export type OrderFulfilmentChoicesArgs = {
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  currency?: string[];
+  deliverAfter?: DateRange;
+  deliverBefore?: DateRange;
+  deliveryContact?: string[];
+  deliveryEmail?: string[];
+  deliveryFirstName?: string[];
+  deliveryInstruction?: string[];
+  deliveryLastName?: string[];
+  deliveryType?: string[];
+  dispatchOn?: DateRange;
+  first?: number;
+  fulfilmentPrice?: number[];
+  fulfilmentTaxPrice?: number[];
+  fulfilmentType?: string[];
+  last?: number;
+  pickupLocationRef?: string[];
+  ref?: string[];
+  status?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflowRef?: string[];
+  workflowVersion?: number[];
+};
+
+
+/**  A customer's order. */
 export type OrderFulfilmentsArgs = {
   after?: string;
   before?: string;
@@ -2958,8 +3179,10 @@ export type OrderFulfilmentsArgs = {
   expiryTime?: DateRange;
   first?: number;
   fromLocation?: LocationLinkInput;
+  fulfilmentChoiceRef?: string[];
   last?: number;
   ref?: string[];
+  retailerId?: number[];
   status?: string[];
   type?: string[];
   updatedOn?: DateRange;
@@ -3090,52 +3313,22 @@ export type FinancialTransaction = Node & Orchestrateable & {
   workflowVersion: number;
 };
 
-/**  The fulfilment choice specified when booking the order */
-export type FulfilmentChoice = {
-  __typename?: 'FulfilmentChoice';
-  /**  Time of creation */
-  createdOn?: string;
-  /**  The type of currency, 3 letter ISO currency code */
-  currency?: string;
-  /**  Location of fulfilment choice */
-  deliveryAddress?: Address;
-  /**  Instruction provided by the customer (250 character limit) */
-  deliveryInstruction?: string;
-  /**  The type of delivey determined by retailers' shipping options. Example values are STANDARD, EXPRESS, OVERNIGHT, 3HOURS */
-  deliveryType: string;
-  /**  FulfilmentPrice refers to shipping fees if order type is Home Delivery HD and C&C fees for Click & Collect orders */
-  fulfilmentPrice?: number;
-  /**  This refers to the tax cost associated with the fulfilment price */
-  fulfilmentTaxPrice?: number;
-  /**
-   *  Indicates the type of fulfilment. Possible values are CC_PFS ( Click & Collect - Pick from Store), CC_PFDC ( Click & Collect - Pick from DC), HD_PFS (Home Delivery - Pick
-   *  from Store), HD_PFDC ( Home Delivery - Pick from DC)
-   */
-  fulfilmentType?: string;
-  /**  ID of the object */
-  id: string;
-  /**  Pickup location. This is required for click & collect orders */
-  pickupLocationRef?: string;
-  /**  Time of last update */
-  updatedOn?: string;
-};
-
-/**  A list of results that matched against a OrderItem search query */
-export type OrderItemConnection = {
-  __typename?: 'OrderItemConnection';
-  /**  A list of edges that links to OrderItem type node */
-  edges?: OrderItemEdge[];
+/**  A list of results that matched against a FulfilmentChoice search query */
+export type FulfilmentChoiceConnection = {
+  __typename?: 'FulfilmentChoiceConnection';
+  /**  A list of edges that links to FulfilmentChoice type node */
+  edges?: FulfilmentChoiceEdge[];
   /**  Information to aid in pagination */
   pageInfo?: PageInfo;
 };
 
-/**  The edge in a OrderItem connection to the OrderItem type */
-export type OrderItemEdge = {
-  __typename?: 'OrderItemEdge';
+/**  The edge in a FulfilmentChoice connection to the FulfilmentChoice type */
+export type FulfilmentChoiceEdge = {
+  __typename?: 'FulfilmentChoiceEdge';
   /**  A cursor for use in pagination */
   cursor?: string;
-  /**  The item at the end of the OrderItem edge */
-  node?: OrderItem;
+  /**  The item at the end of the FulfilmentChoice edge */
+  node?: FulfilmentChoice;
 };
 
 export type PaymentLink = {
@@ -4534,6 +4727,8 @@ export type CustomerAddress = Address & {
   country?: string;
   /**  Time of creation */
   createdOn?: string;
+  /**  Email */
+  email?: string;
   /**  ID of the object */
   id: string;
   /**  Latitude */
@@ -4552,6 +4747,8 @@ export type CustomerAddress = Address & {
   state?: string;
   /**  Street */
   street?: string;
+  /**  Street 2 */
+  street2?: string;
   /**  Timezone */
   timeZone?: string;
   /**  Type of Address, to support legacy address, the value can be AGENT and ORDER */
@@ -4775,24 +4972,6 @@ export enum DecisionRuleOutputAction {
   /**  This action applies a quantity buffer by directly subtracting the corresponding buffer quantity from on-hand quantity. The resulting 'available' values are a direct result of the subtraction (on-hand - buffer) and, thus, can be negative when buffer > on-hand. In case when an 'available' quantity becomes negative, this action resets it to 0 so that negative available quantities do not eat into the aggregate available values. For the calculation algorithm, please refer to the User Guide. */
   ApplyQuantityBufferResetNegativeAvailableToZero = 'APPLY_QUANTITY_BUFFER_RESET_NEGATIVE_AVAILABLE_TO_ZERO'
 }
-
-/**  A list of results that matched against a FulfilmentChoice search query */
-export type FulfilmentChoiceConnection = {
-  __typename?: 'FulfilmentChoiceConnection';
-  /**  A list of edges that links to FulfilmentChoice type node */
-  edges?: FulfilmentChoiceEdge[];
-  /**  Information to aid in pagination */
-  pageInfo?: PageInfo;
-};
-
-/**  The edge in a FulfilmentChoice connection to the FulfilmentChoice type */
-export type FulfilmentChoiceEdge = {
-  __typename?: 'FulfilmentChoiceEdge';
-  /**  A cursor for use in pagination */
-  cursor?: string;
-  /**  The item at the end of the FulfilmentChoice edge */
-  node?: FulfilmentChoice;
-};
 
 /**
  *  `FulfilmentOption` provides a singular and accurate view of what products are available to purchase, order, pick-up or reserve. This information can be used
@@ -5067,6 +5246,17 @@ export type GroupProductCategoriesArgs = {
   updatedOn?: DateRange;
   workflowRef?: string[];
   workflowVersion?: number[];
+};
+
+/**  The `CategoryKey` input is the parameter for identifying a specific Category. */
+export type CategoryKey = {
+  /**  The Product Catalogue in which this Category resides */
+  catalogue: ProductCatalogueKey;
+  /**
+   *  Category reference identifier. <br/>
+   *  Max character limit: 100.
+   */
+  ref: string;
 };
 
 /**  A list of results that matched against a GroupProduct search query */
@@ -6380,6 +6570,8 @@ export type StoreAddress = Address & {
   createdOn?: string;
   /**  Directions to store location (may be used for landmarks) */
   directions?: string;
+  /**  Email */
+  email?: string;
   /**  ID of the object */
   id: string;
   /**  Latitude */
@@ -6400,6 +6592,8 @@ export type StoreAddress = Address & {
   state?: string;
   /**  Street */
   street?: string;
+  /**  Street 2 */
+  street2?: string;
   /**  Timezone */
   timeZone?: string;
   /**  Type of Address, to support legacy address, the value can be AGENT and ORDER */
@@ -6755,8 +6949,10 @@ export type WaveFulfilmentsArgs = {
   expiryTime?: DateRange;
   first?: number;
   fromLocation?: LocationLinkInput;
+  fulfilmentChoiceRef?: string[];
   last?: number;
   ref?: string[];
+  retailerId?: number[];
   status?: string[];
   type?: string[];
   updatedOn?: DateRange;
@@ -6853,6 +7049,8 @@ export type Mutation = {
   createFinancialTransaction?: FinancialTransaction;
   /**  This mutation creates a `Fulfilment`, an orchestratable entity inside the Fluent ecosystem. If the `Fulfilment` is successfully created, a CREATE event will be generate associated with the mutation.<br/>A sample of the event generated:<br/>{<br/>&nbsp;&nbsp;&nbsp;&nbsp;"name": "CREATE",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"type": "NORMAL",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityRef": "FULFILMENT-001",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityType": "FULFILMENT",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"retailerId": "1",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"accountId": "ACCOUNT_ID"<br/>}<br/> */
   createFulfilment?: Fulfilment;
+  /**  This mutation creates a `FulfilmentChoice`, an orchestratable entity inside the Fluent ecosystem. If the `FulfilmentChoice` is successfully created, a CREATE event will be generate associated with the mutation.<br/>A sample of the event generated:<br/>{<br/>&nbsp;&nbsp;&nbsp;&nbsp;"name": "CREATE",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"type": "NORMAL",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityRef": "FULFILMENTCHOICE-001",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityType": "FULFILMENTCHOICE",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"retailerId": "1",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"accountId": "ACCOUNT_ID"<br/>}<br/> */
+  createFulfilmentChoice?: FulfilmentChoice;
   /**  This mutation creates a `FulfilmentOption`, an orchestratable entity inside the Fluent ecosystem. If the `FulfilmentOption` is successfully created, a CREATE event will be generate associated with the mutation.<br/>A sample of the event generated:<br/>{<br/>&nbsp;&nbsp;&nbsp;&nbsp;"name": "CREATE",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"type": "NORMAL",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityRef": "FULFILMENTOPTION-001",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityType": "FULFILMENTOPTION",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"retailerId": "1",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"accountId": "ACCOUNT_ID"<br/>}<br/> */
   createFulfilmentOption?: FulfilmentOption;
   /**  This mutation creates a `FulfilmentPlan`, an orchestratable entity inside the Fluent ecosystem. If the `FulfilmentPlan` is successfully created, a CREATE event will be generate associated with the mutation.<br/>A sample of the event generated:<br/>{<br/>&nbsp;&nbsp;&nbsp;&nbsp;"name": "CREATE",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"type": "NORMAL",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityRef": "FULFILMENTPLAN-001",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityType": "FULFILMENTPLAN",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"retailerId": "1",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"accountId": "ACCOUNT_ID"<br/>}<br/> */
@@ -6960,6 +7158,7 @@ export type Mutation = {
   updateCustomer?: Customer;
   updateCustomerAddress?: CustomerAddress;
   updateFulfilment?: Fulfilment;
+  updateFulfilmentChoice?: FulfilmentChoice;
   updateFulfilmentOption?: FulfilmentOption;
   updateFulfilmentPlan?: FulfilmentPlan;
   updateGroupProduct?: GroupProduct;
@@ -6973,6 +7172,7 @@ export type Mutation = {
   /** Updates an 'Invoice' */
   updateInvoice?: Invoice;
   updateLocation?: Location;
+  updateLocationPrimaryAddress?: Location;
   /**  Updates a `Manifest` */
   updateManifest?: Manifest;
   updateNetwork?: Network;
@@ -7083,6 +7283,11 @@ export type MutationCreateFinancialTransactionArgs = {
 
 export type MutationCreateFulfilmentArgs = {
   input?: CreateFulfilmentInput;
+};
+
+
+export type MutationCreateFulfilmentChoiceArgs = {
+  input?: CreateFulfilmentChoiceInput;
 };
 
 
@@ -7362,6 +7567,11 @@ export type MutationUpdateFulfilmentArgs = {
 };
 
 
+export type MutationUpdateFulfilmentChoiceArgs = {
+  input?: UpdateFulfilmentChoiceInput;
+};
+
+
 export type MutationUpdateFulfilmentOptionArgs = {
   input?: UpdateFulfilmentOptionInput;
 };
@@ -7411,6 +7621,11 @@ export type MutationUpdateInvoiceArgs = {
 
 export type MutationUpdateLocationArgs = {
   input?: UpdateLocationInput;
+};
+
+
+export type MutationUpdateLocationPrimaryAddressArgs = {
+  input?: UpdateLocationPrimaryAddressInput;
 };
 
 
@@ -7761,17 +7976,6 @@ export type CreateCategoryInput = {
   type: string;
 };
 
-/**  The `CategoryKey` input is the parameter for identifying a specific Category. */
-export type CategoryKey = {
-  /**  The Product Catalogue in which this Category resides */
-  catalogue: ProductCatalogueKey;
-  /**
-   *  Category reference identifier. <br/>
-   *  Max character limit: 100.
-   */
-  ref: string;
-};
-
 /**  Input for creating a `comment` against a known entity */
 export type CreateCommentInput = {
   /**
@@ -8082,12 +8286,14 @@ export type CreateCustomerInput = {
 
 /** CustomerAddress */
 export type CreateCustomerAddressInput = {
-  /**  Max character limit: 45. */
+  /**  Max character limit: 255. */
   city?: string;
-  /**  Max character limit: 45. */
+  /**  Max character limit: 255. */
   companyName?: string;
   /**  Max character limit: 100. */
   country?: string;
+  /**  Max character limit: 255. */
+  email?: string;
   latitude?: number;
   longitude?: number;
   name?: string;
@@ -8098,8 +8304,10 @@ export type CreateCustomerAddressInput = {
   region?: string;
   /**  Max character limit: 200. */
   state?: string;
-  /**  Max character limit: 100. */
+  /**  Max character limit: 255. */
   street?: string;
+  /**  Max character limit: 255. */
+  street2?: string;
   /**  Max character limit: 32. */
   timeZone?: string;
 };
@@ -8221,6 +8429,8 @@ export type CreateFulfilmentInput = {
   expiryTime?: string;
   /**  Represents `Address` fulfilling this fulfilment */
   fromAddress?: AddressId;
+  /**  Represents the associated `FulfilmentChoice` */
+  fulfilmentChoiceRef?: string;
   /**  List of `FulfilmentItem`s */
   items?: CreateFulfilmentItemWithFulfilmentInput[];
   /**  Represents the associated `Order` */
@@ -8231,11 +8441,7 @@ export type CreateFulfilmentInput = {
   toAddress?: AddressId;
   /**
    *  Type of the `Fulfilment`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
-   *  Type of fulfilment. Supported types are <br/>
-   *  - *CC_PFS* for Click & Collect - Pick from Store
-   *  - *CC_PFDC* for Click & Collect - Pick from DC
-   *  - *HD_PFS* for Home Delivery - Pick from Store
-   *  - *HD_PFDC* for Home Delivery - Pick from DC
+   *  Type of the Fulfilment. Supports all values.
    */
   type: string;
 };
@@ -8262,6 +8468,51 @@ export type CreateFulfilmentItemWithFulfilmentInput = {
   rejectedQuantity: number;
   /**  Number of `OrderItem`s assigned to the fulfilment */
   requestedQuantity?: number;
+};
+
+/**  Input type to create an `FulfilmentChoice`. Adding FulfilmentChoice to existing order. */
+export type CreateFulfilmentChoiceInput = {
+  /**  List of Attribute containing meta data information for an entity. */
+  attributes?: AttributeInput[];
+  /**  The type of currency, 3 letter ISO currency code. */
+  currency?: string;
+  /**  Time of delivery selected by the customer at the time of order creation, specifies Deliver On date/time the customer will receive the order (package). */
+  deliverAfter?: string;
+  /**  Time of delivery selected by the customer at the time of order creation, specifies Deliver Till date/time the customer will receive the order (package). */
+  deliverBefore?: string;
+  /**  Delivery address. Required if it is a home delivery. */
+  deliveryAddress?: CreateCustomerAddressInput;
+  /**  Mobile number of delivery recipient. */
+  deliveryContact?: string;
+  /**  Email address to which e-delivery is made. */
+  deliveryEmail?: string;
+  /**  First Name of delivery recipient. */
+  deliveryFirstName?: string;
+  /**  Instruction provided by the customer (250 character limit). */
+  deliveryInstruction?: string;
+  /**  Last Name of delivery recipient. */
+  deliveryLastName?: string;
+  /**  The type of delivery determined by retailers' shipping options. Example values are STANDARD, EXPRESS, OVERNIGHT, 3HOURS */
+  deliveryType: string;
+  /**  Time that indicates date of dispatch */
+  dispatchOn?: string;
+  /**  FulfilmentPrice refers to shipping and C&C fees. */
+  fulfilmentPrice?: number;
+  /**  This refers to the tax cost associated with the fulfilment price. */
+  fulfilmentTaxPrice?: number;
+  /**  Indicates the type of fulfilment. */
+  fulfilmentType?: string;
+  /**  Associated `Order` */
+  order: OrderId;
+  /**  Pickup location. Required if it is a click & collect. */
+  pickupLocationRef?: string;
+  /**  External reference of the object. Recommended to be unique. */
+  ref?: string;
+  /**
+   *  Type of the `FulfilmentChoice`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
+   *  Type of the Fulfilment choice. Currently supports all values.
+   */
+  type?: string;
 };
 
 export enum ExecutionMode {
@@ -8715,12 +8966,14 @@ export type CreateOpeningScheduleInput = {
 };
 
 export type CreateStoreAddressInput = {
-  /**  Max character limit: 45. */
+  /**  Max character limit: 255. */
   city?: string;
-  /**  Max character limit: 45. */
+  /**  Max character limit: 255. */
   companyName?: string;
   /**  Max character limit: 100. */
   country?: string;
+  /**  Max character limit: 255. */
+  email?: string;
   latitude: number;
   longitude: number;
   name?: string;
@@ -8731,8 +8984,10 @@ export type CreateStoreAddressInput = {
   region?: string;
   /**  Max character limit: 200. */
   state?: string;
-  /**  Max character limit: 100. */
+  /**  Max character limit: 255. */
   street?: string;
+  /**  Max character limit: 255. */
+  street2?: string;
   /**  Max character limit: 32. */
   timeZone?: string;
 };
@@ -8816,6 +9071,8 @@ export type CreateOrderInput = {
   customer: CustomerId;
   /**  `FulfilmentChoice` for the order */
   fulfilmentChoice?: CreateFulfilmentChoiceWithOrderInput;
+  /**  `FulfilmentChoices` for the order */
+  fulfilmentChoices?: CreateFulfilmentChoiceWithOrderInput[];
   /**  A list of `OrderItem`s for this order */
   items: CreateOrderItemWithOrderInput[];
   /**  The 'Payment' associated with this `Order` */
@@ -8830,21 +9087,50 @@ export type CreateOrderInput = {
   totalTaxPrice?: number;
   /**
    *  Type of the `Order`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
-   *  Type. Currently supports values _CC_, _SFS_, _HD_ for _Click and Collect_, _Ship from Store_ and _Home Delivery_ type orders respectively.
+   *  Type of the Order, typically used by the Orchestration Engine to determine the workflow
+   *  that should be applied. Unless stated otherwise, no values are enforced by the platform. Currently supports all values.
    */
   type: string;
 };
 
-/** FulfilmentChoice */
+/**  Input type to create an `FulfilmentChoice` with an `Order`. Intended to be used as an inline input in the _createOrder_ mutation. */
 export type CreateFulfilmentChoiceWithOrderInput = {
+  /**  List of Attribute containing meta data information for an entity. */
+  attributes?: AttributeInput[];
+  /**  The type of currency, 3 letter ISO currency code. */
   currency?: string;
+  /**  Time of delivery selected by the customer at the time of order creation, specifies Deliver On date/time the customer will receive the order (package). */
+  deliverAfter?: string;
+  /**  Time of delivery selected by the customer at the time of order creation, specifies Deliver Till date/time the customer will receive the order (package). */
+  deliverBefore?: string;
+  /**  Delivery address. Required if it is a home delivery. */
   deliveryAddress?: CreateCustomerAddressInput;
+  /**  Mobile number of delivery recipient. */
+  deliveryContact?: string;
+  /**  Email address to which e-delivery is made. */
+  deliveryEmail?: string;
+  /**  First Name of delivery recipient. */
+  deliveryFirstName?: string;
+  /**  Instruction provided by the customer (250 character limit). */
   deliveryInstruction?: string;
+  /**  Last Name of delivery recipient. */
+  deliveryLastName?: string;
+  /**  The type of delivery determined by retailers' shipping options. Example values are STANDARD, EXPRESS, OVERNIGHT, 3HOURS */
   deliveryType: string;
+  /**  Time that indicates date of dispatch */
+  dispatchOn?: string;
+  /**  FulfilmentPrice refers to shipping and C&C fees. */
   fulfilmentPrice?: number;
+  /**  This refers to the tax cost associated with the fulfilment price. */
   fulfilmentTaxPrice?: number;
+  /**  Indicates the type of fulfilment. */
   fulfilmentType?: string;
+  /**  Pickup location. Required if it is a click & collect. */
   pickupLocationRef?: string;
+  /**  External reference of the object. Recommended to be unique. */
+  ref?: string;
+  /**  Type of the Fulfilment choice. Currently supports all values. */
+  type?: string;
 };
 
 /**  Input type to create an `OrderItem` with an `Order`. Intended to be used as an inline input in the _createOrder_ mutation. */
@@ -8853,6 +9139,8 @@ export type CreateOrderItemWithOrderInput = {
   attributes?: AttributeInput[];
   /**  Currency. Should ideally be a 3 letter ISO currency code. For instance _AUD_. */
   currency?: string;
+  /**  Represents the `FulfilmentChoice` corresponding to this object */
+  fulfilmentChoiceRef?: string;
   /**  Price paid. Excludes tax. */
   paidPrice?: number;
   /**  Price */
@@ -8893,6 +9181,8 @@ export type CreateOrderAndCustomerInput = {
   customer: CreateCustomerInput;
   /**  `FulfilmentChoice` for the order */
   fulfilmentChoice?: CreateFulfilmentChoiceWithOrderInput;
+  /**  `FulfilmentChoices` for the order */
+  fulfilmentChoices?: CreateFulfilmentChoiceWithOrderInput[];
   /**  A list of `OrderItem`s for this order */
   items: CreateOrderItemWithOrderInput[];
   /**  The 'Payment' associated with this `Order` */
@@ -8907,7 +9197,8 @@ export type CreateOrderAndCustomerInput = {
   totalTaxPrice?: number;
   /**
    *  Type of the `Order`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
-   *  Type. Currently supports values _CC_, _SFS_, _HD_ for _Click and Collect_, _Ship from Store_ and _Home Delivery_ type orders respectively
+   *  Type of the Order, typically used by the Orchestration Engine to determine the workflow
+   *  that should be applied. Unless stated otherwise, no values are enforced by the platform. Currently supports all values.
    */
   type: string;
 };
@@ -8921,6 +9212,8 @@ export type CreateOrderItemInput = {
   attributes?: AttributeInput[];
   /**  Currency. Should ideally be a 3 letter ISO currency code. For instance _AUD_. */
   currency?: string;
+  /**  Represents the `FulfilmentChoice` corresponding to this object */
+  fulfilmentChoiceRef?: string;
   /**  Contains the reference to the `Order` this item will be added to. */
   order: OrderKey;
   /**  Price paid. Excludes tax. */
@@ -10308,12 +10601,14 @@ export type UpdateCustomerInput = {
 };
 
 export type UpdateCustomerAddressInput = {
-  /**  Max character limit: 45. */
+  /**  Max character limit: 255. */
   city?: string;
-  /**  Max character limit: 45. */
+  /**  Max character limit: 255. */
   companyName?: string;
   /**  Max character limit: 100. */
   country?: string;
+  /**  Max character limit: 255. */
+  email?: string;
   /**  ID of the object */
   id: string;
   latitude?: number;
@@ -10325,8 +10620,10 @@ export type UpdateCustomerAddressInput = {
   region?: string;
   /**  Max character limit: 200. */
   state?: string;
-  /**  Max character limit: 100. */
+  /**  Max character limit: 255. */
   street?: string;
+  /**  Max character limit: 255. */
+  street2?: string;
   /**  Max character limit: 32. */
   timeZone?: string;
 };
@@ -10349,11 +10646,7 @@ export type UpdateFulfilmentInput = {
   status?: string;
   /**
    *  Type of the `Fulfilment`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
-   *  Type of fulfilment. Supported types are <br/>
-   *  - *CC_PFS* for Click & Collect - Pick from Store
-   *  - *CC_PFDC* for Click & Collect - Pick from DC
-   *  - *HD_PFS* for Home Delivery - Pick from Store
-   *  - *HD_PFDC* for Home Delivery - Pick from DC
+   *  Type of the Fulfilment. Supports all values.
    */
   type?: string;
 };
@@ -10370,6 +10663,55 @@ export type UpdateFulfilmentItemWithFulfilmentInput = {
   requestedQuantity?: number;
   /**  Status. Supported value is _DELETED_. */
   status?: string;
+};
+
+export type UpdateFulfilmentChoiceInput = {
+  /**  List of Attribute containing meta data information for an entity. */
+  attributes?: AttributeInput[];
+  /**  The type of currency, 3 letter ISO currency code. */
+  currency?: string;
+  /**  Time of delivery selected by the customer at the time of order creation, specifies Deliver On date/time the customer will receive the order (package). */
+  deliverAfter?: string;
+  /**  Time of delivery selected by the customer at the time of order creation, specifies Deliver Till date/time the customer will receive the order (package). */
+  deliverBefore?: string;
+  /**  Delivery address. Required if it is a home delivery. */
+  deliveryAddress?: AddressId;
+  /**  Mobile number of delivery recipient. */
+  deliveryContact?: string;
+  /**  Email address to which e-delivery is made. */
+  deliveryEmail?: string;
+  /**  First Name of delivery recipient. */
+  deliveryFirstName?: string;
+  /**  Instruction provided by the customer (250 character limit). */
+  deliveryInstruction?: string;
+  /**  Last Name of delivery recipient. */
+  deliveryLastName?: string;
+  /**  The type of delivery determined by retailers' shipping options. Example values are STANDARD, EXPRESS, OVERNIGHT, 3HOURS */
+  deliveryType?: string;
+  /**  Time that indicates date of dispatch */
+  dispatchOn?: string;
+  /**  FulfilmentPrice refers to shipping and C&C fees. */
+  fulfilmentPrice?: number;
+  /**  This refers to the tax cost associated with the fulfilment price. */
+  fulfilmentTaxPrice?: number;
+  /**  Indicates the type of fulfilment. */
+  fulfilmentType?: string;
+  /**  ID of the object */
+  id: string;
+  /**  Pickup location. Required if it is a click & collect. */
+  pickupLocationRef?: string;
+  /**  External reference of the object. Recommended to be unique. */
+  ref?: string;
+  /**
+   *  The current status of the `FulfilmentChoice`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/>
+   *  The current status of the Fulfilment choice.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see Orchestration.
+   */
+  status?: string;
+  /**
+   *  Type of the `FulfilmentChoice`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
+   *  Type of the Fulfilment choice. Currently supports all values.
+   */
+  type?: string;
 };
 
 /**  Input type to update a `FulfilmentOption` object. */
@@ -10698,14 +11040,16 @@ export type UpdateOpeningScheduleInput = {
 };
 
 export type UpdateStoreAddressInput = {
-  /**  Max character limit: 45. */
+  /**  Max character limit: 255. */
   city?: string;
-  /**  Max character limit: 45. */
+  /**  Max character limit: 255. */
   companyName?: string;
   /**  Max character limit: 100. */
   country?: string;
   /**  Max character limit: 4096. */
   directions?: string;
+  /**  Max character limit: 255. */
+  email?: string;
   /**  ID of the object */
   id: string;
   latitude?: number;
@@ -10717,8 +11061,10 @@ export type UpdateStoreAddressInput = {
   region?: string;
   /**  Max character limit: 200. */
   state?: string;
-  /**  Max character limit: 100. */
+  /**  Max character limit: 255. */
   street?: string;
+  /**  Max character limit: 255. */
+  street2?: string;
   /**  Max character limit: 32. */
   timeZone?: string;
 };
@@ -10730,6 +11076,18 @@ export type UpdateStorageAreaWithLocationInput = {
   status?: string;
   /**  Max character limit: 50. */
   type?: string;
+};
+
+export type UpdateLocationPrimaryAddressInput = {
+  /**  ID of the object */
+  id: string;
+  /**  The ID of the StoreAddress */
+  primaryAddress: BaseLocationInput;
+};
+
+export type BaseLocationInput = {
+  /**  The ID of the StoreAddress */
+  id: string;
 };
 
 /**  Input for the `updateManifest` mutation. */
@@ -10816,6 +11174,8 @@ export type UpdateOrderItemWithOrderInput = {
   attributes?: AttributeInput[];
   /**  Currency. Should ideally be a 3 letter ISO currency code. For instance _AUD_. */
   currency?: string;
+  /**  Represents the `FulfilmentChoice` corresponding to this object */
+  fulfilmentChoiceRef?: string;
   /**  ID of the `OrderItem` */
   id: string;
   /**  Price paid. Excludes tax. */
@@ -11470,6 +11830,19 @@ export type CreditMemoItemKey = {
 export type CustomerAddressId = {
   /**  ID of the object */
   id: string;
+};
+
+export type FulfilmentChoiceId = {
+  /**  ID of the object */
+  id: string;
+};
+
+/**  The `FulfilmentChoiceKey` input identify the `FulfilmentChoice` using either the id or the external reference to the object */
+export type FulfilmentChoiceKey = {
+  /**  ID of the `FulfilmentChoice` */
+  id?: string;
+  /**  External reference of the `FulfilmentChoice`. */
+  ref?: string;
 };
 
 export type FulfilmentPlanId = {
