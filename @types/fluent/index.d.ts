@@ -183,6 +183,8 @@ export type Query = {
   paymentServiceProvider?: PaymentServiceProvider;
   /**  Search for PaymentServiceProvider entities */
   paymentServiceProviders?: PaymentServiceProviderConnection;
+  /**  Find a PaymentTransaction entity */
+  paymentTransaction?: PaymentTransaction;
   /**  Search for PaymentTransaction entities */
   paymentTransactions?: PaymentTransactionConnection;
   /**  Find a Permission entity */
@@ -1294,6 +1296,12 @@ export type QueryPaymentServiceProvidersArgs = {
   retailer?: RetailerLinkInput;
   serviceAuthToken?: string[];
   updatedOn?: DateRange;
+};
+
+
+/**  Query type defines the GraphQL operations that fetch data from the server */
+export type QueryPaymentTransactionArgs = {
+  ref: string;
 };
 
 
@@ -11862,6 +11870,12 @@ export type ManifestKey = {
    *  external reference of the object. <br/>
    *  Max character limit: 100.
    */
+  ref: string;
+};
+
+/**  Input type to uniquely identify a `PaymentTransaction` object. We use all the fields present in the request to look for this object. */
+export type PaymentTransactionKey = {
+  /**  The client's reference identifier for the object */
   ref: string;
 };
 
