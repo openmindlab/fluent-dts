@@ -95,8 +95,12 @@ export type Query = {
    *  Find a `DecisionTable` entity
    */
   decisionTable?: DecisionTable;
+  /**  Find a FinancialTransaction entity */
+  financialTransaction?: FinancialTransaction;
   /**  Search for FinancialTransaction entities */
   financialTransactions?: FinancialTransactionConnection;
+  /**  Find a Fulfilment entity */
+  fulfilment?: Fulfilment;
   /**  Find a Fulfilment entity */
   fulfilmentById?: Fulfilment;
   /**  Find a FulfilmentChoice entity */
@@ -167,6 +171,8 @@ export type Query = {
   openingSchedules?: OpeningScheduleConnection;
   /**  Find a Order entity */
   order?: Order;
+  /**  Search for OrderBillingAddress entities */
+  orderBillingAddresses?: OrderBillingAddressConnection;
   /**  Find a Order entity */
   orderById?: Order;
   /**  Find a OrderItem entity */
@@ -749,6 +755,12 @@ export type QueryDecisionTableArgs = {
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
+export type QueryFinancialTransactionArgs = {
+  id: number;
+};
+
+
+/**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryFinancialTransactionsArgs = {
   after?: string;
   before?: string;
@@ -762,12 +774,20 @@ export type QueryFinancialTransactionsArgs = {
   paymentMethod?: string[];
   paymentProviderName?: string[];
   ref?: string[];
+  scale?: number[];
   status?: string[];
   total?: number[];
   type?: string[];
+  unscaledValue?: number[];
   updatedOn?: DateRange;
   workflowRef?: string[];
   workflowVersion?: number[];
+};
+
+
+/**  Query type defines the GraphQL operations that fetch data from the server */
+export type QueryFulfilmentArgs = {
+  id: number;
 };
 
 
@@ -1194,6 +1214,30 @@ export type QueryOpeningSchedulesArgs = {
 export type QueryOrderArgs = {
   id?: string;
   ref?: string;
+};
+
+
+/**  Query type defines the GraphQL operations that fetch data from the server */
+export type QueryOrderBillingAddressesArgs = {
+  after?: string;
+  before?: string;
+  city?: string[];
+  companyName?: string[];
+  country?: string[];
+  createdOn?: DateRange;
+  email?: string[];
+  first?: number;
+  last?: number;
+  latitude?: number[];
+  longitude?: number[];
+  name?: string[];
+  postcode?: string[];
+  region?: string[];
+  state?: string[];
+  street?: string[];
+  street2?: string[];
+  timeZone?: string[];
+  updatedOn?: DateRange;
 };
 
 
@@ -2785,6 +2829,8 @@ export type Fulfilment = Node & Orchestrateable & {
   items?: FulfilmentItemConnection;
   /**  The associated `Order` */
   order?: Order;
+  /**  The Payments associated with the Fulfilment */
+  payments?: PaymentConnection;
   /**  External reference of the object. Recommended to be unique. */
   ref?: string;
   /**  The current status of the `Fulfilment`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/> */
@@ -2850,6 +2896,28 @@ export type FulfilmentItemsArgs = {
   rejectedQuantity?: number[];
   requestedQuantity?: number[];
   status?: string[];
+};
+
+
+/**
+ *  A `Fulfilment` represents one or more items in an order that need to be picked & packed for the customer. <br/>
+ *  A fulfilment is assigned to a location based on the retailer's fulfilment rules and available inventory.
+ *  A fulfilment will have an origin (from) and destination (to) associated with it.
+ */
+export type FulfilmentPaymentsArgs = {
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  first?: number;
+  last?: number;
+  ref?: string[];
+  retailer?: RetailerLinkInput;
+  status?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflow?: WorkflowLinkInput;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 export type LocationLink = {
@@ -3070,6 +3138,8 @@ export type Order = Node & Orchestrateable & {
   __typename?: 'Order';
   /**  List of order `attribute`s */
   attributes?: Attribute[];
+  /**  Order billing address */
+  billingAddress?: OrderBillingAddress;
   /**  Time of creation */
   createdOn?: string;
   /**  `Customer` of the order */
@@ -3138,9 +3208,11 @@ export type OrderFinancialTransactionsArgs = {
   paymentMethod?: string[];
   paymentProviderName?: string[];
   ref?: string[];
+  scale?: number[];
   status?: string[];
   total?: number[];
   type?: string[];
+  unscaledValue?: number[];
   updatedOn?: DateRange;
   workflowRef?: string[];
   workflowVersion?: number[];
@@ -3219,6 +3291,43 @@ export type OrderItemsArgs = {
   updatedOn?: DateRange;
 };
 
+/**  Order Billing address */
+export type OrderBillingAddress = {
+  __typename?: 'OrderBillingAddress';
+  /**  City */
+  city?: string;
+  /**  Company name */
+  companyName?: string;
+  /**  Country */
+  country?: string;
+  /**  Time of creation */
+  createdOn?: string;
+  /**  Email */
+  email?: string;
+  /**  ID of the object */
+  id: string;
+  /**  Latitude */
+  latitude?: number;
+  /**  Longitude */
+  longitude?: number;
+  /**  Name */
+  name?: string;
+  /**  Postcode */
+  postcode?: string;
+  /**  Region */
+  region?: string;
+  /**  State */
+  state?: string;
+  /**  Street */
+  street?: string;
+  /**  Street 2 */
+  street2?: string;
+  /**  Timezone */
+  timeZone?: string;
+  /**  Time of last update */
+  updatedOn?: string;
+};
+
 /**  Represents the customer who places an order */
 export type Customer = Node & {
   __typename?: 'Customer';
@@ -3284,6 +3393,7 @@ export type FinancialTransactionEdge = {
 /**  An order transaction defines the payment or refund details associated with an order. */
 export type FinancialTransaction = Node & Orchestrateable & {
   __typename?: 'FinancialTransaction';
+  attributes?: Attribute[];
   /**  The card type used for the payment. Possible values are 'MASTERCARD', 'VISA', 'AMEX', 'DINERS', 'SPAN', 'DISCOVER', 'UNIONPAY', 'JCB', 'MAESTRO', 'INTERAC'. */
   cardType?: string;
   /**  Time of creation */
@@ -3305,14 +3415,20 @@ export type FinancialTransaction = Node & Orchestrateable & {
   paymentMethod?: string;
   /**  The name of the payment gateway. Platform provided values are 'CYBERSOURCE', 'GIVEX', 'PAYPAL', 'BRAINTREE', 'AFTERPAY'. However, these can be overridden/configured per client as settings using 'PAYMENT.PROVIDER' */
   paymentProviderName?: string;
+  /**  The Payments associated with this FinancialTransaction */
+  payments?: PaymentConnection;
   /**  The unique transaction reference provided by the Retailer to the payment gateway */
   ref?: string;
+  /**  The number of digits to scale down to */
+  scale?: number;
   /**  The current status of the `FinancialTransaction`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/> */
   status?: string;
   /**  The total transaction amount */
   total: number;
   /**  Type of the `FinancialTransaction`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/> */
   type: string;
+  /**  The unscaled value */
+  unscaledValue?: number;
   /**  Time of last update */
   updatedOn?: string;
   /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
@@ -3321,115 +3437,154 @@ export type FinancialTransaction = Node & Orchestrateable & {
   workflowVersion: number;
 };
 
-/**  A list of results that matched against a FulfilmentChoice search query */
-export type FulfilmentChoiceConnection = {
-  __typename?: 'FulfilmentChoiceConnection';
-  /**  A list of edges that links to FulfilmentChoice type node */
-  edges?: FulfilmentChoiceEdge[];
+
+/**  An order transaction defines the payment or refund details associated with an order. */
+export type FinancialTransactionPaymentsArgs = {
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  first?: number;
+  last?: number;
+  ref?: string[];
+  retailer?: RetailerLinkInput;
+  status?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflow?: WorkflowLinkInput;
+  workflowRef?: string[];
+  workflowVersion?: number[];
+};
+
+export type RetailerLinkInput = {
+  id: string;
+};
+
+export type WorkflowLinkInput = {
+  /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
+  ref: string;
+  /**  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/> */
+  version: number;
+};
+
+/**  A list of results that matched against a Payment search query */
+export type PaymentConnection = {
+  __typename?: 'PaymentConnection';
+  /**  A list of edges that links to Payment type node */
+  edges?: PaymentEdge[];
   /**  Information to aid in pagination */
   pageInfo?: PageInfo;
 };
 
-/**  The edge in a FulfilmentChoice connection to the FulfilmentChoice type */
-export type FulfilmentChoiceEdge = {
-  __typename?: 'FulfilmentChoiceEdge';
+/**  The edge in a Payment connection to the Payment type */
+export type PaymentEdge = {
+  __typename?: 'PaymentEdge';
   /**  A cursor for use in pagination */
   cursor?: string;
-  /**  The item at the end of the FulfilmentChoice edge */
-  node?: FulfilmentChoice;
+  /**  The item at the end of the Payment edge */
+  node?: Payment;
 };
 
-export type PaymentLink = {
-  __typename?: 'PaymentLink';
-  ref?: string;
-};
-
-/**
- *  The `Product` interface identifies a type that is, and is treated like, a Product. <br /><br />
- *  There are currently 3 Product implementations available that represent the most common product type abstractions within the Product domain: <br />
- *  * `StandardProduct` - An ordinary Product structure.
- *  * `VariantProduct` - A variation based Product structure which can have a Standard Product as a base. Variation examples include 'Size', 'Color', 'Volume', 'Flavour', etc. and can be managed with the `attributes` field.
- *  * `GroupProduct` - A group Product structure. A Group Product can contain multiple other products, of any Product type.
- */
-export type Product = {
-  /**  The name of the product */
-  name: string;
-  /**  A list of prices for the product */
-  prices?: Price[];
-  /**  A short description of the product (max 255 chars) */
-  summary?: string;
-  /**  Tax information for the product */
-  tax?: TaxType;
-};
-
-/**  The `Price` type is a structure to hold a Price value for Products. It is considered more like a complex value type, rather than an object. All fields are required, and the `type` and `currency` fields make up the unique key for the `value`. */
-export type Price = {
-  __typename?: 'Price';
-  /**  The currency of the Price, for example 'USD', 'GBP', 'AUD', etc. */
-  currency: string;
-  /**  The type field is used to identify different types of prices, for example 'RRP', 'SALE', etc. No Price type values are enforced by the platform. */
-  type: string;
-  /**  The price value itself */
-  value: number;
-};
-
-/**  The `TaxType` type is a structure to hold Tax information for Products. It is considered more like a complex value type, rather than an object. All fields are required, and the `country` and `group` fields make up the unique key identifying the `tariff`. */
-export type TaxType = {
-  __typename?: 'TaxType';
-  /**  The country in which this Tax Type applies */
-  country: string;
-  /**  A group field which can be used to further identify the Tax Tariff applicable */
-  group: string;
-  /**  The tariff of the Tax Type */
-  tariff?: string;
-};
-
-/**  A list of results that matched against a ArticleItem search query */
-export type ArticleItemConnection = {
-  __typename?: 'ArticleItemConnection';
-  /**  A list of edges that links to ArticleItem type node */
-  edges?: ArticleItemEdge[];
-  /**  Information to aid in pagination */
-  pageInfo?: PageInfo;
-};
-
-/**  The edge in a ArticleItem connection to the ArticleItem type */
-export type ArticleItemEdge = {
-  __typename?: 'ArticleItemEdge';
-  /**  A cursor for use in pagination */
-  cursor?: string;
-  /**  The item at the end of the ArticleItem edge */
-  node?: ArticleItem;
-};
-
-/**  The item within an article */
-export type ArticleItem = Node & {
-  __typename?: 'ArticleItem';
-  /**  Article associated with this item */
-  article?: Article;
-  /**  Barcode of article item */
-  barcode?: string;
+/**  The Payment information */
+export type Payment = Extendable & Node & Orchestrateable & Referenceable & {
+  __typename?: 'Payment';
+  /**  The amount of the `Payment`. Usually for a Payment this will equal to the `Order`s' total amount that this Payment was created against. */
+  amount: AmountType;
+  /**  A list of attributes associated with the `Payment`. This can be used to extend the existing data structure with additional data. */
+  attributes?: Attribute[];
+  /**  Billing Account associated to the `Payment`. */
+  billingAccount?: BillingAccount;
   /**  Time of creation */
   createdOn?: string;
+  /**  The CreditMemo associated with the `Payment` */
+  creditMemo?: CreditMemo;
+  /**  The FinancialTransaction associated with the `Payment` */
+  financialTransaction?: FinancialTransaction;
+  /**  The Fulfilment associated with the `Payment` */
+  fulfilment?: Fulfilment;
   /**  ID of the object */
   id: string;
-  /**  The associated `OrderItem` */
-  orderItem?: OrderItem;
-  /**  Quantity of article item */
-  quantity: number;
+  /**  Orders associated with the `Payment`. */
+  orders?: OrderConnection;
+  /**  Payment Transactions associated with the `Payment`. */
+  paymentTransactions?: PaymentTransactionConnection;
+  /**  External reference of the object. Must be unique. */
+  ref: string;
+  /**  Retailer associated to the `Payment`. */
+  retailer?: RetailerLink;
+  /**
+   *  The current status of the `Payment`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/>
+   *  Status of the `Payment`
+   */
+  status: string;
+  /**
+   *  Type of the `Payment`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
+   *  Type of the `Payment`, typically used by the Orchestration Engine to determine the workflow that should be applied. For Payment a sample value for this is `DEFAULT`.
+   */
+  type: string;
   /**  Time of last update */
   updatedOn?: string;
+  /**  The reference to the `workflow` associated. */
+  workflow?: WorkflowLink;
+  /**
+   *  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/>
+   *  DEPRECATED, please use the field `workflow` instead - The reference of the workflow.
+   * @deprecated No longer supported
+   */
+  workflowRef: string;
+  /**
+   *  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/>
+   *  DEPRECATED, please use the field `workflow` instead - The version of the workflow.
+   * @deprecated No longer supported
+   */
+  workflowVersion: number;
 };
 
-/**  Input type to uniquely identify a `Location` object. We use all the fields present in the request to look for this object. */
-export type LocationKey = {
-  /**  ID of the object */
-  id?: string;
-  /**
-   *  The client's reference identifier for the object. <br/>
-   *  Max character limit: 100.
-   */
-  ref?: string;
+
+/**  The Payment information */
+export type PaymentOrdersArgs = {
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  customerLink?: CustomerLinkInput;
+  first?: number;
+  last?: number;
+  payment?: PaymentLinkInput;
+  ref?: string[];
+  status?: string[];
+  totalPrice?: number[];
+  totalTaxPrice?: number[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflowRef?: string[];
+  workflowVersion?: number[];
+};
+
+
+/**  The Payment information */
+export type PaymentPaymentTransactionsArgs = {
+  after?: string;
+  authorizationKey?: string[];
+  before?: string;
+  cardType?: string[];
+  createdOn?: DateRange;
+  currency?: CurrencyLinkInput;
+  first?: number;
+  last?: number;
+  paymentMethod?: string[];
+  ref?: string[];
+  status?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflow?: WorkflowLinkInput;
+  workflowRef?: string[];
+  workflowVersion?: number[];
+};
+
+export type AmountType = {
+  __typename?: 'AmountType';
+  amount?: number;
+  scale?: number;
+  unscaledValue?: number;
 };
 
 export type BillingAccount = Extendable & Node & Referenceable & {
@@ -3581,17 +3736,6 @@ export type ReturnOrderLinkInput = {
   retailer: RetailerLinkInput;
 };
 
-export type RetailerLinkInput = {
-  id: string;
-};
-
-export type WorkflowLinkInput = {
-  /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
-  ref: string;
-  /**  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/> */
-  version: number;
-};
-
 /**  A list of results that matched against a CreditMemo search query */
 export type CreditMemoConnection = {
   __typename?: 'CreditMemoConnection';
@@ -3632,6 +3776,8 @@ export type CreditMemo = Extendable & Node & Referenceable & {
   items?: CreditMemoItemConnection;
   /**  Reference to an `Order` associated with the `CreditMemo`. */
   order?: OrderLink;
+  /**  The Payments associated with this `CreditMemo`. */
+  payments?: PaymentConnection;
   /**  External reference to the `CreditMemo`. Must be unique. */
   ref: string;
   /**  Reference to a `ReturnOrder` associated with the `CreditMemo`. */
@@ -3680,9 +3826,37 @@ export type CreditMemoItemsArgs = {
   updatedOn?: DateRange;
 };
 
+
+export type CreditMemoPaymentsArgs = {
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  first?: number;
+  last?: number;
+  ref?: string[];
+  retailer?: RetailerLinkInput;
+  status?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflow?: WorkflowLinkInput;
+  workflowRef?: string[];
+  workflowVersion?: number[];
+};
+
 export type CurrencyLink = {
   __typename?: 'CurrencyLink';
   alphabeticCode?: string;
+};
+
+/**  The `TaxType` type is a structure to hold Tax information for Products. It is considered more like a complex value type, rather than an object. All fields are required, and the `country` and `group` fields make up the unique key identifying the `tariff`. */
+export type TaxType = {
+  __typename?: 'TaxType';
+  /**  The country in which this Tax Type applies */
+  country: string;
+  /**  A group field which can be used to further identify the Tax Tariff applicable */
+  group: string;
+  /**  The tariff of the Tax Type */
+  tariff?: string;
 };
 
 export type Invoice = Extendable & Node & Referenceable & {
@@ -3817,13 +3991,6 @@ export type InvoiceItem = Node & Referenceable & {
   unitTaxType?: TaxType;
   /**  Date and time of last update */
   updatedOn?: string;
-};
-
-export type AmountType = {
-  __typename?: 'AmountType';
-  amount?: number;
-  scale?: number;
-  unscaledValue?: number;
 };
 
 export type ProductLink = {
@@ -3978,114 +4145,6 @@ export type InvoiceEdge = {
   node?: Invoice;
 };
 
-/**  A list of results that matched against a Payment search query */
-export type PaymentConnection = {
-  __typename?: 'PaymentConnection';
-  /**  A list of edges that links to Payment type node */
-  edges?: PaymentEdge[];
-  /**  Information to aid in pagination */
-  pageInfo?: PageInfo;
-};
-
-/**  The edge in a Payment connection to the Payment type */
-export type PaymentEdge = {
-  __typename?: 'PaymentEdge';
-  /**  A cursor for use in pagination */
-  cursor?: string;
-  /**  The item at the end of the Payment edge */
-  node?: Payment;
-};
-
-/**  The Payment information */
-export type Payment = Extendable & Node & Orchestrateable & Referenceable & {
-  __typename?: 'Payment';
-  /**  The amount of the `Payment`. Usually for a Payment this will equal to the `Order`s' total amount that this Payment was created against. */
-  amount: AmountType;
-  /**  A list of attributes associated with the `Payment`. This can be used to extend the existing data structure with additional data. */
-  attributes?: Attribute[];
-  /**  Billing Account associated to the `Payment`. */
-  billingAccount?: BillingAccount;
-  /**  Time of creation */
-  createdOn?: string;
-  /**  ID of the object */
-  id: string;
-  /**  Orders associated with the `Payment`. */
-  orders?: OrderConnection;
-  /**  Payment Transactions associated with the `Payment`. */
-  paymentTransactions?: PaymentTransactionConnection;
-  /**  External reference of the object. Must be unique. */
-  ref: string;
-  /**  Retailer associated to the `Payment`. */
-  retailer?: RetailerLink;
-  /**
-   *  The current status of the `Payment`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/>
-   *  Status of the `Payment`
-   */
-  status: string;
-  /**
-   *  Type of the `Payment`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
-   *  Type of the `Payment`, typically used by the Orchestration Engine to determine the workflow that should be applied. For Payment a sample value for this is `DEFAULT`.
-   */
-  type: string;
-  /**  Time of last update */
-  updatedOn?: string;
-  /**  The reference to the `workflow` associated. */
-  workflow?: WorkflowLink;
-  /**
-   *  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/>
-   *  DEPRECATED, please use the field `workflow` instead - The reference of the workflow.
-   * @deprecated No longer supported
-   */
-  workflowRef: string;
-  /**
-   *  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/>
-   *  DEPRECATED, please use the field `workflow` instead - The version of the workflow.
-   * @deprecated No longer supported
-   */
-  workflowVersion: number;
-};
-
-
-/**  The Payment information */
-export type PaymentOrdersArgs = {
-  after?: string;
-  before?: string;
-  createdOn?: DateRange;
-  customerLink?: CustomerLinkInput;
-  first?: number;
-  last?: number;
-  payment?: PaymentLinkInput;
-  ref?: string[];
-  status?: string[];
-  totalPrice?: number[];
-  totalTaxPrice?: number[];
-  type?: string[];
-  updatedOn?: DateRange;
-  workflowRef?: string[];
-  workflowVersion?: number[];
-};
-
-
-/**  The Payment information */
-export type PaymentPaymentTransactionsArgs = {
-  after?: string;
-  authorizationKey?: string[];
-  before?: string;
-  cardType?: string[];
-  createdOn?: DateRange;
-  currency?: CurrencyLinkInput;
-  first?: number;
-  last?: number;
-  paymentMethod?: string[];
-  ref?: string[];
-  status?: string[];
-  type?: string[];
-  updatedOn?: DateRange;
-  workflow?: WorkflowLinkInput;
-  workflowRef?: string[];
-  workflowVersion?: number[];
-};
-
 export type CustomerLinkInput = {
   ref: string;
 };
@@ -4212,6 +4271,106 @@ export type PaymentServiceProvider = Extendable & Referenceable & {
   serviceAuthToken: string;
   /**  Time of last update */
   updatedOn?: string;
+};
+
+/**  A list of results that matched against a FulfilmentChoice search query */
+export type FulfilmentChoiceConnection = {
+  __typename?: 'FulfilmentChoiceConnection';
+  /**  A list of edges that links to FulfilmentChoice type node */
+  edges?: FulfilmentChoiceEdge[];
+  /**  Information to aid in pagination */
+  pageInfo?: PageInfo;
+};
+
+/**  The edge in a FulfilmentChoice connection to the FulfilmentChoice type */
+export type FulfilmentChoiceEdge = {
+  __typename?: 'FulfilmentChoiceEdge';
+  /**  A cursor for use in pagination */
+  cursor?: string;
+  /**  The item at the end of the FulfilmentChoice edge */
+  node?: FulfilmentChoice;
+};
+
+export type PaymentLink = {
+  __typename?: 'PaymentLink';
+  ref?: string;
+};
+
+/**
+ *  The `Product` interface identifies a type that is, and is treated like, a Product. <br /><br />
+ *  There are currently 3 Product implementations available that represent the most common product type abstractions within the Product domain: <br />
+ *  * `StandardProduct` - An ordinary Product structure.
+ *  * `VariantProduct` - A variation based Product structure which can have a Standard Product as a base. Variation examples include 'Size', 'Color', 'Volume', 'Flavour', etc. and can be managed with the `attributes` field.
+ *  * `GroupProduct` - A group Product structure. A Group Product can contain multiple other products, of any Product type.
+ */
+export type Product = {
+  /**  The name of the product */
+  name: string;
+  /**  A list of prices for the product */
+  prices?: Price[];
+  /**  A short description of the product (max 255 chars) */
+  summary?: string;
+  /**  Tax information for the product */
+  tax?: TaxType;
+};
+
+/**  The `Price` type is a structure to hold a Price value for Products. It is considered more like a complex value type, rather than an object. All fields are required, and the `type` and `currency` fields make up the unique key for the `value`. */
+export type Price = {
+  __typename?: 'Price';
+  /**  The currency of the Price, for example 'USD', 'GBP', 'AUD', etc. */
+  currency: string;
+  /**  The type field is used to identify different types of prices, for example 'RRP', 'SALE', etc. No Price type values are enforced by the platform. */
+  type: string;
+  /**  The price value itself */
+  value: number;
+};
+
+/**  A list of results that matched against a ArticleItem search query */
+export type ArticleItemConnection = {
+  __typename?: 'ArticleItemConnection';
+  /**  A list of edges that links to ArticleItem type node */
+  edges?: ArticleItemEdge[];
+  /**  Information to aid in pagination */
+  pageInfo?: PageInfo;
+};
+
+/**  The edge in a ArticleItem connection to the ArticleItem type */
+export type ArticleItemEdge = {
+  __typename?: 'ArticleItemEdge';
+  /**  A cursor for use in pagination */
+  cursor?: string;
+  /**  The item at the end of the ArticleItem edge */
+  node?: ArticleItem;
+};
+
+/**  The item within an article */
+export type ArticleItem = Node & {
+  __typename?: 'ArticleItem';
+  /**  Article associated with this item */
+  article?: Article;
+  /**  Barcode of article item */
+  barcode?: string;
+  /**  Time of creation */
+  createdOn?: string;
+  /**  ID of the object */
+  id: string;
+  /**  The associated `OrderItem` */
+  orderItem?: OrderItem;
+  /**  Quantity of article item */
+  quantity: number;
+  /**  Time of last update */
+  updatedOn?: string;
+};
+
+/**  Input type to uniquely identify a `Location` object. We use all the fields present in the request to look for this object. */
+export type LocationKey = {
+  /**  ID of the object */
+  id?: string;
+  /**
+   *  The client's reference identifier for the object. <br/>
+   *  Max character limit: 100.
+   */
+  ref?: string;
 };
 
 /**  A list of results that matched against a BillingAccount search query */
@@ -5698,6 +5857,24 @@ export type OpeningScheduleEdge = {
   node?: OpeningSchedule;
 };
 
+/**  A list of results that matched against a OrderBillingAddress search query */
+export type OrderBillingAddressConnection = {
+  __typename?: 'OrderBillingAddressConnection';
+  /**  A list of edges that links to OrderBillingAddress type node */
+  edges?: OrderBillingAddressEdge[];
+  /**  Information to aid in pagination */
+  pageInfo?: PageInfo;
+};
+
+/**  The edge in a OrderBillingAddress connection to the OrderBillingAddress type */
+export type OrderBillingAddressEdge = {
+  __typename?: 'OrderBillingAddressEdge';
+  /**  A cursor for use in pagination */
+  cursor?: string;
+  /**  The item at the end of the OrderBillingAddress edge */
+  node?: OrderBillingAddress;
+};
+
 /**  A list of results that matched against a PaymentServiceProvider search query */
 export type PaymentServiceProviderConnection = {
   __typename?: 'PaymentServiceProviderConnection';
@@ -7053,7 +7230,10 @@ export type Mutation = {
    *  Mutation to create a decision rule and associate it with a decision table
    */
   createDecisionRule?: DecisionRule;
-  /**  This mutation creates a `FinancialTransaction`, an orchestratable entity inside the Fluent ecosystem. If the `FinancialTransaction` is successfully created, a CREATE event will be generate associated with the mutation.<br/>A sample of the event generated:<br/>{<br/>&nbsp;&nbsp;&nbsp;&nbsp;"name": "CREATE",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"type": "NORMAL",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityRef": "FINANCIALTRANSACTION-001",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityType": "FINANCIALTRANSACTION",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"retailerId": "1",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"accountId": "ACCOUNT_ID"<br/>}<br/> */
+  /**
+   *  This mutation creates a `FinancialTransaction`, an orchestratable entity inside the Fluent ecosystem. If the `FinancialTransaction` is successfully created, a CREATE event will be generate associated with the mutation.<br/>A sample of the event generated:<br/>{<br/>&nbsp;&nbsp;&nbsp;&nbsp;"name": "CREATE",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"type": "NORMAL",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityRef": "FINANCIALTRANSACTION-001",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityType": "FINANCIALTRANSACTION",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"retailerId": "1",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"accountId": "ACCOUNT_ID"<br/>}<br/>
+   *  Creates a 'Financial Transaction'
+   */
   createFinancialTransaction?: FinancialTransaction;
   /**  This mutation creates a `Fulfilment`, an orchestratable entity inside the Fluent ecosystem. If the `Fulfilment` is successfully created, a CREATE event will be generate associated with the mutation.<br/>A sample of the event generated:<br/>{<br/>&nbsp;&nbsp;&nbsp;&nbsp;"name": "CREATE",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"type": "NORMAL",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityRef": "FULFILMENT-001",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityType": "FULFILMENT",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"retailerId": "1",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"accountId": "ACCOUNT_ID"<br/>}<br/> */
   createFulfilment?: Fulfilment;
@@ -7165,6 +7345,8 @@ export type Mutation = {
   updateCreditMemo?: CreditMemo;
   updateCustomer?: Customer;
   updateCustomerAddress?: CustomerAddress;
+  /**  Updates a 'Financial Transaction'. Due to the fact that this is an immutable object, only the status can be updated. */
+  updateFinancialTransaction?: FinancialTransaction;
   updateFulfilment?: Fulfilment;
   updateFulfilmentChoice?: FulfilmentChoice;
   updateFulfilmentOption?: FulfilmentOption;
@@ -7567,6 +7749,11 @@ export type MutationUpdateCustomerArgs = {
 
 export type MutationUpdateCustomerAddressArgs = {
   input?: UpdateCustomerAddressInput;
+};
+
+
+export type MutationUpdateFinancialTransactionArgs = {
+  input?: UpdateFinancialTransactionInput;
 };
 
 
@@ -8401,6 +8588,7 @@ export type CreateDecisionRuleOutputExpressionInput = {
 /** Financial Transaction */
 export type CreateFinancialTransactionInput = {
   amount: number;
+  attributes?: AttributeInput[];
   /**  The card type used for the payment. Possible values are 'MASTERCARD', 'VISA', 'AMEX', 'DINERS', 'SPAN', 'DISCOVER', 'UNIONPAY', 'JCB', 'MAESTRO', 'INTERAC'. */
   cardType?: string;
   /**  Max character limit: 3. */
@@ -8411,11 +8599,15 @@ export type CreateFinancialTransactionInput = {
   paymentMethod: string;
   paymentProvider?: string;
   ref: string;
+  /**  The number of digits to scale down to */
+  scale?: number;
   /**
    *  Type of the `FinancialTransaction`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/>
    *  Max character limit: 25.
    */
   type: string;
+  /**  The unscaled value */
+  unscaledValue?: number;
 };
 
 export type OrderId = {
@@ -9075,8 +9267,12 @@ export type LocationId = {
 export type CreateOrderInput = {
   /**  List of order `attribute`s */
   attributes?: AttributeInput[];
+  /**  Order Billing address */
+  billingAddress?: CreateOrderBillingAddressInput;
   /**  `ID` of the `Customer` for the order */
   customer: CustomerId;
+  /**  A list of financial transactions for this order */
+  financialTransactions?: CreateFinancialTransactionWithOrderInput[];
   /**  `FulfilmentChoice` for the order */
   fulfilmentChoice?: CreateFulfilmentChoiceWithOrderInput;
   /**  `FulfilmentChoices` for the order */
@@ -9099,6 +9295,62 @@ export type CreateOrderInput = {
    *  that should be applied. Unless stated otherwise, no values are enforced by the platform. Currently supports all values.
    */
   type: string;
+};
+
+export type CreateOrderBillingAddressInput = {
+  /**  City */
+  city?: string;
+  /**  Company name */
+  companyName?: string;
+  /**  Country */
+  country?: string;
+  /**  Email */
+  email?: string;
+  /**  Latitude */
+  latitude?: number;
+  /**  Longitude */
+  longitude?: number;
+  /**  Name */
+  name?: string;
+  /**  Postcode */
+  postcode?: string;
+  /**  Region */
+  region?: string;
+  /**  State */
+  state?: string;
+  /**  Street */
+  street?: string;
+  /**  Street 2 */
+  street2?: string;
+  /**  Timezone */
+  timeZone?: string;
+};
+
+export type CreateFinancialTransactionWithOrderInput = {
+  /**  The amount of money transacted. */
+  amount: number;
+  attributes?: AttributeInput[];
+  /**  The card type used for the payment. Possible values are 'MASTERCARD', 'VISA', 'AMEX', 'DINERS', 'SPAN', 'DISCOVER', 'UNIONPAY', 'JCB', 'MAESTRO', 'INTERAC'. */
+  cardType?: string;
+  /**  Max character limit: 3. */
+  currency: string;
+  externalTransactionCode?: string;
+  externalTransactionId?: string;
+  paymentMethod: string;
+  paymentProvider?: string;
+  ref: string;
+  /**
+   *  The scale of the financial transaction amount.
+   *  This is equal to the number of digits that needs to be shifted left to get to the amount from the unscaled value.
+   */
+  scale?: number;
+  /**  Max character limit: 25. */
+  type: string;
+  /**
+   *  The amount of money transacted, but unscaled to an value that doesn't have decimal places.
+   *  This value, along with scale, is recommended for more accurate calculations over using the float amount.
+   */
+  unscaledValue?: number;
 };
 
 /**  Input type to create an `FulfilmentChoice` with an `Order`. Intended to be used as an inline input in the _createOrder_ mutation. */
@@ -9266,6 +9518,12 @@ export type CreatePaymentInput = {
   attributes?: AttributeInput[];
   /**  The `BillingAccount` associated with this `Payment`. */
   billingAccount?: BillingAccountKey;
+  /**  The CreditMemo associated with this Payment */
+  creditMemo?: CreditMemoKey;
+  /**  The FinancialTransaction associated with this Payment */
+  financialTransaction?: FinancialTransactionKey;
+  /**  The Fulfilment associated with this Payment */
+  fulfilment?: FulfilmentKey;
   /**  The `PaymentTransaction`s associated with this `Payment`. */
   paymentTransactions?: CreatePaymentTransactionWithPaymentInput[];
   /**
@@ -9287,6 +9545,18 @@ export type CreatePaymentInput = {
    *  Max character limit: 25.
    */
   type: string;
+};
+
+/**  Unique identifier for an existing FinancialTransaction */
+export type FinancialTransactionKey = {
+  /**  The id of the FinancialTransaction */
+  id: number;
+};
+
+/**  Unique identifier for an existing Fulfilment */
+export type FulfilmentKey = {
+  /**  The id of the Fulfilment */
+  id: number;
 };
 
 /**  Input type to create one or more `PaymentTransaction` when a `Payment` is created. */
@@ -10636,6 +10906,16 @@ export type UpdateCustomerAddressInput = {
   timeZone?: string;
 };
 
+export type UpdateFinancialTransactionInput = {
+  /** The ID of the financial transaction */
+  id: string;
+  /**
+   *  The current status of the `FinancialTransaction`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/>
+   * The status to update the financial transaction to
+   */
+  status?: string;
+};
+
 /**  Input type to update a `Fulfilment` */
 export type UpdateFulfilmentInput = {
   /**  List of fulfilment `attribute`s */
@@ -11159,6 +11439,8 @@ export type UpdateNetworkInput = {
 export type UpdateOrderInput = {
   /**  List of order's `attribute`s */
   attributes?: AttributeInput[];
+  /**  Order Billing address */
+  billingAddress?: UpdateOrderBillingAddressInput;
   /**  ID of the `Order` */
   id: string;
   /**  List of `OrderItem`s to be updated */
@@ -11169,6 +11451,36 @@ export type UpdateOrderInput = {
   totalPrice?: number;
   /**  Total tax price */
   totalTaxPrice?: number;
+};
+
+export type UpdateOrderBillingAddressInput = {
+  /**  City */
+  city?: string;
+  /**  Company name */
+  companyName?: string;
+  /**  Country */
+  country?: string;
+  /**  Email */
+  email?: string;
+  id: string;
+  /**  Latitude */
+  latitude?: number;
+  /**  Longitude */
+  longitude?: number;
+  /**  Name */
+  name?: string;
+  /**  Postcode */
+  postcode?: string;
+  /**  Region */
+  region?: string;
+  /**  State */
+  state?: string;
+  /**  Street */
+  street?: string;
+  /**  Street 2 */
+  street2?: string;
+  /**  Timezone */
+  timeZone?: string;
 };
 
 /**
