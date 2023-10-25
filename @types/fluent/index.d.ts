@@ -90,11 +90,6 @@ export type Query = {
   customerById?: Customer;
   /**  Search for Customer entities */
   customers?: CustomerConnection;
-  /**
-   *  _Disclaimer:  This query is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/>
-   *  Find a `DecisionTable` entity
-   */
-  decisionTable?: DecisionTable;
   /**  Find a FinancialTransaction entity */
   financialTransaction?: FinancialTransaction;
   /**  Search for FinancialTransaction entities */
@@ -199,6 +194,8 @@ export type Query = {
   permissions?: PermissionConnection;
   /**  Search for Price entities */
   prices?: PriceConnection;
+  /**  Return the product matching the given input. Note that it only works for standard GI product. */
+  product?: Product;
   /**  Find a ProductCatalogue entity */
   productCatalogue?: ProductCatalogue;
   /**  Search for ProductCatalogue entities */
@@ -265,17 +262,8 @@ export type Query = {
   virtualPosition?: VirtualPosition;
   /**  Search for VirtualPosition entities */
   virtualPositions?: VirtualPositionConnection;
-  /**
-   *  _Disclaimer:  This query is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/>
-   *  Find a `VirtualView` entity
-   */
-  virtualView?: VirtualView;
-  /**
-   *  _Disclaimer:  This query is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/>
-   *  This query searches a Virtual View to find locations that contain the required stock of products and provide that data as available
-   * inventory levels. The query looks into the buffered inventory of the locations. The maximum number of locations returned by this query is 100.
-   */
-  virtualViewInventoryLevels?: VirtualViewInventoryLevelsOutput;
+  /**  Find a Wave entity */
+  wave?: Wave;
   /**  Find a Wave entity */
   waveById?: Wave;
   /**  Search for WaveItem entities */
@@ -347,6 +335,7 @@ export type QueryArticlesByLocationArgs = {
   retailerId?: number[];
   status?: string[];
   toLocation?: LocationKey[];
+  updatedOn?: DateRange;
 };
 
 
@@ -511,6 +500,7 @@ export type QueryCommentsArgs = {
   before?: string;
   createdOn?: DateRange;
   entityId?: string[];
+  entityRef?: string[];
   entityType?: string[];
   first?: number;
   last?: number;
@@ -749,14 +739,8 @@ export type QueryCustomersArgs = {
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
-export type QueryDecisionTableArgs = {
-  id: string;
-};
-
-
-/**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryFinancialTransactionArgs = {
-  id: number;
+  id: string;
 };
 
 
@@ -787,7 +771,7 @@ export type QueryFinancialTransactionsArgs = {
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
 export type QueryFulfilmentArgs = {
-  id: number;
+  id?: string;
 };
 
 
@@ -1284,6 +1268,7 @@ export type QueryOrdersArgs = {
   last?: number;
   payment?: PaymentLinkInput;
   ref?: string[];
+  retailerId?: number[];
   status?: string[];
   totalPrice?: number[];
   totalTaxPrice?: number[];
@@ -1395,6 +1380,13 @@ export type QueryPricesArgs = {
   last?: number;
   type?: string[];
   value?: number[];
+};
+
+
+/**  Query type defines the GraphQL operations that fetch data from the server */
+export type QueryProductArgs = {
+  catalogue: ProductCatalogueKey;
+  ref: string;
 };
 
 
@@ -1543,6 +1535,7 @@ export type QueryReturnOrdersArgs = {
   order?: OrderLinkInput;
   ref?: string[];
   retailer?: RetailerLinkInput;
+  retailerId?: number[];
   returnAuthorisationKey?: string[];
   returnAuthorisationKeyExpiry?: DateRange;
   status?: string[];
@@ -1818,15 +1811,8 @@ export type QueryVirtualPositionsArgs = {
 
 
 /**  Query type defines the GraphQL operations that fetch data from the server */
-export type QueryVirtualViewArgs = {
-  input: VirtualViewInput;
-};
-
-
-/**  Query type defines the GraphQL operations that fetch data from the server */
-export type QueryVirtualViewInventoryLevelsArgs = {
-  first?: number;
-  input: VirtualViewInventoryLevelsInput;
+export type QueryWaveArgs = {
+  id?: string;
 };
 
 
@@ -2846,6 +2832,8 @@ export type Fulfilment = Node & Orchestrateable & {
   updatedOn?: string;
   /**  The associated `Customer` */
   user?: Customer;
+  /**  Connection representing a list of `Wave`s */
+  waves?: WaveConnection;
   /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
   workflowRef: string;
   /**  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/> */
@@ -2916,6 +2904,29 @@ export type FulfilmentPaymentsArgs = {
   type?: string[];
   updatedOn?: DateRange;
   workflow?: WorkflowLinkInput;
+  workflowRef?: string[];
+  workflowVersion?: number[];
+};
+
+
+/**
+ *  A `Fulfilment` represents one or more items in an order that need to be picked & packed for the customer. <br/>
+ *  A fulfilment is assigned to a location based on the retailer's fulfilment rules and available inventory.
+ *  A fulfilment will have an origin (from) and destination (to) associated with it.
+ */
+export type FulfilmentWavesArgs = {
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  first?: number;
+  last?: number;
+  name?: string[];
+  processingLocation?: LocationLinkInput;
+  ref?: string[];
+  retailerId?: number[];
+  status?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
   workflowRef?: string[];
   workflowVersion?: number[];
 };
@@ -3550,6 +3561,7 @@ export type PaymentOrdersArgs = {
   last?: number;
   payment?: PaymentLinkInput;
   ref?: string[];
+  retailerId?: number[];
   status?: string[];
   totalPrice?: number[];
   totalTaxPrice?: number[];
@@ -4304,14 +4316,187 @@ export type PaymentLink = {
  *  * `GroupProduct` - A group Product structure. A Group Product can contain multiple other products, of any Product type.
  */
 export type Product = {
+  /**  A list of attributes associated with this Product. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
+  attributes?: Attribute[];
+  /**  The Product Catalogue in which this Product is managed */
+  catalogue: ProductCatalogue;
+  /**  Time of creation */
+  createdOn?: string;
+  /**  ID of the object. */
+  id: string;
   /**  The name of the product */
   name: string;
   /**  A list of prices for the product */
   prices?: Price[];
+  /**  The unique reference identifier for the Product */
+  ref: string;
+  /**  The current status of the Product. */
+  status?: string;
   /**  A short description of the product (max 255 chars) */
   summary?: string;
   /**  Tax information for the product */
   tax?: TaxType;
+  /**  Type of the Product */
+  type: string;
+  /**  Time of last update */
+  updatedOn?: string;
+  /**  The reference of the workflow */
+  workflowRef: string;
+  /**  The version of the workflow */
+  workflowVersion: number;
+};
+
+/**
+ *  The `ProductCatalogue` is a structure that supports a grouping of product and category data. The `ref` field will be the unique identifier for this catalogue. <br /><br />
+ *  The `ProductCatalogue` is an orchestrateable entity, and the parent type for all `Product` and `Category` orchestration events. <br /><br />
+ *  **Backward Compatibility Note** <br /><br />
+ *  With the introduction of <a href="https://lingo.fluentretail.com/display/LIN/Global+Inventory" target="_blank">Global Inventory</a>, we have introduced new data structures to support this functionality. Existing orchestration enabled clients will have access to their existing product based data via the `COMPATIBILITY:<retailerId>` catalogue. <br /><br />
+ *  For more information, please refer to the <a href="https://lingo.fluentretail.com/display/LIN/Compatibility" target="_blank">Backward Compatibility Guide on Lingo</a>
+ */
+export type ProductCatalogue = Extendable & Node & Orchestrateable & Referenceable & {
+  __typename?: 'ProductCatalogue';
+  /**  A list of attributes associated with this Product Catalogue. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
+  attributes?: Attribute[];
+  /**  A connection to associated Categories */
+  categories?: CategoryConnection;
+  /**  Time of creation */
+  createdOn?: string;
+  /**  A short description of the Product Catalogue */
+  description?: string;
+  /**  ID of the object. For internal use, should not be used externally or by any business logic */
+  id: string;
+  /**  The name of the Product Catalogue */
+  name: string;
+  /**  The unique reference identifier for the Product Catalogue */
+  ref: string;
+  /**  A list of Retailer references associated with this Product Catalogue */
+  retailerRefs?: string[];
+  /**  The current status of the `ProductCatalogue`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/> */
+  status?: string;
+  /**  Type of the `ProductCatalogue`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/> */
+  type: string;
+  /**  Time of last update */
+  updatedOn?: string;
+  /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
+  workflowRef: string;
+  /**  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/> */
+  workflowVersion: number;
+};
+
+
+/**
+ *  The `ProductCatalogue` is a structure that supports a grouping of product and category data. The `ref` field will be the unique identifier for this catalogue. <br /><br />
+ *  The `ProductCatalogue` is an orchestrateable entity, and the parent type for all `Product` and `Category` orchestration events. <br /><br />
+ *  **Backward Compatibility Note** <br /><br />
+ *  With the introduction of <a href="https://lingo.fluentretail.com/display/LIN/Global+Inventory" target="_blank">Global Inventory</a>, we have introduced new data structures to support this functionality. Existing orchestration enabled clients will have access to their existing product based data via the `COMPATIBILITY:<retailerId>` catalogue. <br /><br />
+ *  For more information, please refer to the <a href="https://lingo.fluentretail.com/display/LIN/Compatibility" target="_blank">Backward Compatibility Guide on Lingo</a>
+ */
+export type ProductCatalogueCategoriesArgs = {
+  after?: string;
+  before?: string;
+  catalogue?: ProductCatalogueKey;
+  createdOn?: DateRange;
+  first?: number;
+  last?: number;
+  name?: string[];
+  ref?: string[];
+  status?: string[];
+  summary?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflowRef?: string[];
+  workflowVersion?: number[];
+};
+
+/**  The `ProductCatalogueKey` input is the parameter for identifying a specific Product Catalogue. */
+export type ProductCatalogueKey = {
+  /**
+   *  Product Catalogue reference identifier. <br/>
+   *  Max character limit: 100.
+   */
+  ref: string;
+};
+
+/**  A list of results that matched against a Category search query */
+export type CategoryConnection = {
+  __typename?: 'CategoryConnection';
+  /**  A list of edges that links to Category type node */
+  edges?: CategoryEdge[];
+  /**  Information to aid in pagination */
+  pageInfo?: PageInfo;
+};
+
+/**  The edge in a Category connection to the Category type */
+export type CategoryEdge = {
+  __typename?: 'CategoryEdge';
+  /**  A cursor for use in pagination */
+  cursor?: string;
+  /**  The item at the end of the Category edge */
+  node?: Category;
+};
+
+/**
+ *  A `Category` can be associated with Product Catalogues and Products. It has a tree-like structure, where each Category may contain a parent category, and / or one or more child categories. This new Category structure allows support for more advanced category hierarchies. The `ref` field will be the unique identifier for this Category within the specified Product Catalogue, as identified by the `catalogue` field. <br /><br />
+ *  The `Category` is an orchestrateable entity. Events for these should specify a parent entity of Product Catalogue. <br /><br />
+ *  **Backward Compatibility Note** <br /><br />
+ *  With the introduction of <a href="https://lingo.fluentretail.com/display/LIN/Global+Inventory" target="_blank">Global Inventory</a>, we have introduced new data structures to support this functionality. Existing orchestration enabled clients will have access to their existing product based data via the `COMPATIBILITY:<retailerId>` catalogue. <br /><br />
+ *  For more information, please refer to the <a href="https://lingo.fluentretail.com/display/LIN/Compatibility" target="_blank">Backward Compatibility Guide on Lingo</a>
+ */
+export type Category = Extendable & Node & Orchestrateable & Referenceable & {
+  __typename?: 'Category';
+  /**  A list of attributes associated with this Category. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
+  attributes?: Attribute[];
+  /**  The Product Catalogue in which this Category is managed */
+  catalogue: ProductCatalogue;
+  /**  A connection to the immediate child Categories (NOTE: This currently does not traverse the entire tree) */
+  childCategories?: CategoryConnection;
+  /**  Time of creation */
+  createdOn?: string;
+  /**  ID of the object. For internal use, should not be used externally or by any business logic */
+  id: string;
+  /**  The name of the Category */
+  name: string;
+  /**  This Category's immediate parent Category */
+  parentCategory?: Category;
+  /**  The unique reference identifier for the Category */
+  ref: string;
+  /**  The current status of the `Category`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/> */
+  status?: string;
+  /**  A short description of the Category */
+  summary?: string;
+  /**  Type of the `Category`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/> */
+  type: string;
+  /**  Time of last update */
+  updatedOn?: string;
+  /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
+  workflowRef: string;
+  /**  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/> */
+  workflowVersion: number;
+};
+
+
+/**
+ *  A `Category` can be associated with Product Catalogues and Products. It has a tree-like structure, where each Category may contain a parent category, and / or one or more child categories. This new Category structure allows support for more advanced category hierarchies. The `ref` field will be the unique identifier for this Category within the specified Product Catalogue, as identified by the `catalogue` field. <br /><br />
+ *  The `Category` is an orchestrateable entity. Events for these should specify a parent entity of Product Catalogue. <br /><br />
+ *  **Backward Compatibility Note** <br /><br />
+ *  With the introduction of <a href="https://lingo.fluentretail.com/display/LIN/Global+Inventory" target="_blank">Global Inventory</a>, we have introduced new data structures to support this functionality. Existing orchestration enabled clients will have access to their existing product based data via the `COMPATIBILITY:<retailerId>` catalogue. <br /><br />
+ *  For more information, please refer to the <a href="https://lingo.fluentretail.com/display/LIN/Compatibility" target="_blank">Backward Compatibility Guide on Lingo</a>
+ */
+export type CategoryChildCategoriesArgs = {
+  after?: string;
+  before?: string;
+  catalogue?: ProductCatalogueKey;
+  createdOn?: DateRange;
+  first?: number;
+  last?: number;
+  name?: string[];
+  ref?: string[];
+  status?: string[];
+  summary?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflowRef?: string[];
+  workflowVersion?: number[];
 };
 
 /**  The `Price` type is a structure to hold a Price value for Products. It is considered more like a complex value type, rather than an object. All fields are required, and the `type` and `currency` fields make up the unique key for the `value`. */
@@ -4323,6 +4508,250 @@ export type Price = {
   type: string;
   /**  The price value itself */
   value: number;
+};
+
+/**  A list of results that matched against a Wave search query */
+export type WaveConnection = {
+  __typename?: 'WaveConnection';
+  /**  A list of edges that links to Wave type node */
+  edges?: WaveEdge[];
+  /**  Information to aid in pagination */
+  pageInfo?: PageInfo;
+};
+
+/**  The edge in a Wave connection to the Wave type */
+export type WaveEdge = {
+  __typename?: 'WaveEdge';
+  /**  A cursor for use in pagination */
+  cursor?: string;
+  /**  The item at the end of the Wave edge */
+  node?: Wave;
+};
+
+/**  `Wave` represents the pick and pack process that gets carried out in a store or a warehouse. */
+export type Wave = Extendable & Node & Orchestrateable & Referenceable & {
+  __typename?: 'Wave';
+  /**  `User` who the wave is assigned to */
+  allocatedTo?: User;
+  /**  A list of attributes associated with this `Wave`. Attributes can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
+  attributes?: Attribute[];
+  /**  Time of creation */
+  createdOn?: string;
+  /**  Fulfilments associated with this `Wave` */
+  fulfilments?: FulfilmentConnection;
+  /**  ID of the `Wave` */
+  id: string;
+  /**  Items associated with this `Wave` */
+  items: WaveItemConnection;
+  /**  Location of the `Wave` operation */
+  location: Location;
+  /**  Name of the `Wave` */
+  name?: string;
+  /**  The `Location` where the `Wave` is processed */
+  processingLocation?: LocationLink;
+  /**  External reference of the `Wave`. Must be unique. */
+  ref: string;
+  /**  The associated retailer */
+  retailer: Retailer;
+  /**  The current status of the `Wave`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/> */
+  status?: string;
+  /**  Type of the `Wave`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/> */
+  type: string;
+  /**  Time of last update */
+  updatedOn?: string;
+  /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
+  workflowRef: string;
+  /**  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/> */
+  workflowVersion: number;
+};
+
+
+/**  `Wave` represents the pick and pack process that gets carried out in a store or a warehouse. */
+export type WaveFulfilmentsArgs = {
+  after?: string;
+  before?: string;
+  createdOn?: DateRange;
+  deliveryType?: string[];
+  eta?: string[];
+  expiryTime?: DateRange;
+  first?: number;
+  fromLocation?: LocationLinkInput;
+  fulfilmentChoiceRef?: string[];
+  last?: number;
+  ref?: string[];
+  retailerId?: number[];
+  status?: string[];
+  type?: string[];
+  updatedOn?: DateRange;
+  workflowRef?: string[];
+  workflowVersion?: number[];
+};
+
+
+/**  `Wave` represents the pick and pack process that gets carried out in a store or a warehouse. */
+export type WaveItemsArgs = {
+  after?: string;
+  before?: string;
+  first?: number;
+  last?: number;
+  quantity?: number[];
+};
+
+/**  Represents a `User` */
+export type User = Node & {
+  __typename?: 'User';
+  /**  Active apps for the Fluent Account to which the User belongs */
+  apps?: App[];
+  /**  A list of attributes associated with this object. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
+  attributes?: Attribute[];
+  /**  Country */
+  country?: string;
+  /**  Time of creation */
+  createdOn?: string;
+  /**  Department */
+  department?: string;
+  /**  User's first name */
+  firstName?: string;
+  /**  ID of the object */
+  id: string;
+  /**  User language (leave null to allow users to self-select their language preference) */
+  language?: SettingValueType;
+  /**  User's last name */
+  lastName?: string;
+  /**  User's primary email */
+  primaryEmail?: string;
+  /**  User's location context */
+  primaryLocation?: Location;
+  /**  User's primary phone number */
+  primaryPhone?: string;
+  /**  User's retailer context */
+  primaryRetailer?: Retailer;
+  /**  Determines if the user has opted to receive promotions */
+  promotionOptIn?: boolean;
+  /**  External reference of the object. Recommended to be unique. */
+  ref: string;
+  /**  Roles assigned to the user */
+  roles?: UserRole[];
+  /**  Status */
+  status?: string;
+  /**  Timezone */
+  timezone?: string;
+  /**  The user's title. For example _Mr._, _Miss_, _Dr._, _Ms._ etc */
+  title?: string;
+  /**  Type of the user */
+  type: string;
+  /**  Time of last update */
+  updatedOn?: string;
+  /**  Unique name for the user used for identification and logging purposes. */
+  username: string;
+};
+
+/**  Represents packaged set of functionality within the Fluent Platform */
+export type App = {
+  __typename?: 'App';
+  /**  The `App` creation time */
+  createdOn?: string;
+  /**  UUID */
+  id: string;
+  /**  The name of the `App` */
+  name: string;
+  /**  The `App` type enum. Accepted Values: REFERENCE, CUSTOM */
+  type: AppType;
+  /**  The `App` modification time */
+  updatedOn?: string;
+  /**  Specifies the version of the `App` */
+  version: AppVersion;
+};
+
+/**  Enum representing the `App` type */
+export enum AppType {
+  /**  Represents a custom `App` created by clients. */
+  Custom = 'CUSTOM',
+  /**  Represents a reference `App` created by Fluent Commerce. These are immutable `App`'s which can be deployed by clients */
+  Reference = 'REFERENCE'
+}
+
+/**  Represents a version of an `App`. Based on semver.org standard without the support for labels. */
+export type AppVersion = {
+  __typename?: 'AppVersion';
+  /**  Major version */
+  major: number;
+  /**  Minor version */
+  minor: number;
+  /**  Patch version */
+  patch: number;
+};
+
+/**
+ *  An object to represent a user's role with the contexts.
+ *  <br/>Note: A role is always assigned to a user with a certain context.
+ */
+export type UserRole = {
+  __typename?: 'UserRole';
+  /**  A list of `RoleContext` objects. It represents the boundaries of the user's role validity. */
+  contexts: RoleContext[];
+  /**  Represents the `Role` */
+  role: Role;
+};
+
+/**
+ *  A type to define a role and the boundaries within which that role is valid. For instance, a store associate can only be authorised to view particulars of their own store
+ *  whereas a store manager can be authorised to view particulars of multiple stores.
+ */
+export type RoleContext = {
+  __typename?: 'RoleContext';
+  /**  Represents the identity of the context object. */
+  contextId: string;
+  /**  Represents the type of context. For more information on contexts and how they relate to user and roles, please visit <a href="https://lingo.fluentretail.com/display/LIN/Flex+Academy+Users" target="_blank">User's section on Lingo</a>. */
+  contextType: string;
+};
+
+/**
+ *  Represents a `Role`. A `Role` is a singular entity that represents one or more `Permissions`. It could correlate for a job type for example, Fulfilment Manager. Roles make it
+ *  easier for clients to manage access to various functions within the system.
+ */
+export type Role = {
+  __typename?: 'Role';
+  /**  ID of the object */
+  id: string;
+  /**  Name of the role. Must be unique. */
+  name: string;
+  /**  A list of permissions within the role */
+  permissions?: Permission[];
+};
+
+/**  A `permission` represents a single access right. It implies the authorization to carry out a certain function within the system. */
+export type Permission = {
+  __typename?: 'Permission';
+  /**  Name of the permission. Must be unique. */
+  name: string;
+};
+
+/**  A list of results that matched against a WaveItem search query */
+export type WaveItemConnection = {
+  __typename?: 'WaveItemConnection';
+  /**  A list of edges that links to WaveItem type node */
+  edges?: WaveItemEdge[];
+  /**  Information to aid in pagination */
+  pageInfo?: PageInfo;
+};
+
+/**  The edge in a WaveItem connection to the WaveItem type */
+export type WaveItemEdge = {
+  __typename?: 'WaveItemEdge';
+  /**  A cursor for use in pagination */
+  cursor?: string;
+  /**  The item at the end of the WaveItem edge */
+  node?: WaveItem;
+};
+
+/**  `WaveItem` represents an item of the `Wave`. */
+export type WaveItem = {
+  __typename?: 'WaveItem';
+  /**  Represents the `Product` corresponding to this `WaveItem` */
+  product: Product;
+  /**  Aggregated quantity of a product in the `Wave` */
+  quantity: number;
 };
 
 /**  A list of results that matched against a ArticleItem search query */
@@ -4502,159 +4931,6 @@ export type CarrierEdge = {
   node?: Carrier;
 };
 
-/**  The `ProductCatalogueKey` input is the parameter for identifying a specific Product Catalogue. */
-export type ProductCatalogueKey = {
-  /**
-   *  Product Catalogue reference identifier. <br/>
-   *  Max character limit: 100.
-   */
-  ref: string;
-};
-
-/**  A list of results that matched against a Category search query */
-export type CategoryConnection = {
-  __typename?: 'CategoryConnection';
-  /**  A list of edges that links to Category type node */
-  edges?: CategoryEdge[];
-  /**  Information to aid in pagination */
-  pageInfo?: PageInfo;
-};
-
-/**  The edge in a Category connection to the Category type */
-export type CategoryEdge = {
-  __typename?: 'CategoryEdge';
-  /**  A cursor for use in pagination */
-  cursor?: string;
-  /**  The item at the end of the Category edge */
-  node?: Category;
-};
-
-/**
- *  A `Category` can be associated with Product Catalogues and Products. It has a tree-like structure, where each Category may contain a parent category, and / or one or more child categories. This new Category structure allows support for more advanced category hierarchies. The `ref` field will be the unique identifier for this Category within the specified Product Catalogue, as identified by the `catalogue` field. <br /><br />
- *  The `Category` is an orchestrateable entity. Events for these should specify a parent entity of Product Catalogue. <br /><br />
- *  **Backward Compatibility Note** <br /><br />
- *  With the introduction of <a href="https://lingo.fluentretail.com/display/LIN/Global+Inventory" target="_blank">Global Inventory</a>, we have introduced new data structures to support this functionality. Existing orchestration enabled clients will have access to their existing product based data via the `COMPATIBILITY:<retailerId>` catalogue. <br /><br />
- *  For more information, please refer to the <a href="https://lingo.fluentretail.com/display/LIN/Compatibility" target="_blank">Backward Compatibility Guide on Lingo</a>
- */
-export type Category = Extendable & Node & Orchestrateable & Referenceable & {
-  __typename?: 'Category';
-  /**  A list of attributes associated with this Category. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: Attribute[];
-  /**  The Product Catalogue in which this Category is managed */
-  catalogue: ProductCatalogue;
-  /**  A connection to the immediate child Categories (NOTE: This currently does not traverse the entire tree) */
-  childCategories?: CategoryConnection;
-  /**  Time of creation */
-  createdOn?: string;
-  /**  ID of the object. For internal use, should not be used externally or by any business logic */
-  id: string;
-  /**  The name of the Category */
-  name: string;
-  /**  This Category's immediate parent Category */
-  parentCategory?: Category;
-  /**  The unique reference identifier for the Category */
-  ref: string;
-  /**  The current status of the `Category`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/> */
-  status?: string;
-  /**  A short description of the Category */
-  summary?: string;
-  /**  Type of the `Category`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/> */
-  type: string;
-  /**  Time of last update */
-  updatedOn?: string;
-  /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
-  workflowRef: string;
-  /**  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/> */
-  workflowVersion: number;
-};
-
-
-/**
- *  A `Category` can be associated with Product Catalogues and Products. It has a tree-like structure, where each Category may contain a parent category, and / or one or more child categories. This new Category structure allows support for more advanced category hierarchies. The `ref` field will be the unique identifier for this Category within the specified Product Catalogue, as identified by the `catalogue` field. <br /><br />
- *  The `Category` is an orchestrateable entity. Events for these should specify a parent entity of Product Catalogue. <br /><br />
- *  **Backward Compatibility Note** <br /><br />
- *  With the introduction of <a href="https://lingo.fluentretail.com/display/LIN/Global+Inventory" target="_blank">Global Inventory</a>, we have introduced new data structures to support this functionality. Existing orchestration enabled clients will have access to their existing product based data via the `COMPATIBILITY:<retailerId>` catalogue. <br /><br />
- *  For more information, please refer to the <a href="https://lingo.fluentretail.com/display/LIN/Compatibility" target="_blank">Backward Compatibility Guide on Lingo</a>
- */
-export type CategoryChildCategoriesArgs = {
-  after?: string;
-  before?: string;
-  catalogue?: ProductCatalogueKey;
-  createdOn?: DateRange;
-  first?: number;
-  last?: number;
-  name?: string[];
-  ref?: string[];
-  status?: string[];
-  summary?: string[];
-  type?: string[];
-  updatedOn?: DateRange;
-  workflowRef?: string[];
-  workflowVersion?: number[];
-};
-
-/**
- *  The `ProductCatalogue` is a structure that supports a grouping of product and category data. The `ref` field will be the unique identifier for this catalogue. <br /><br />
- *  The `ProductCatalogue` is an orchestrateable entity, and the parent type for all `Product` and `Category` orchestration events. <br /><br />
- *  **Backward Compatibility Note** <br /><br />
- *  With the introduction of <a href="https://lingo.fluentretail.com/display/LIN/Global+Inventory" target="_blank">Global Inventory</a>, we have introduced new data structures to support this functionality. Existing orchestration enabled clients will have access to their existing product based data via the `COMPATIBILITY:<retailerId>` catalogue. <br /><br />
- *  For more information, please refer to the <a href="https://lingo.fluentretail.com/display/LIN/Compatibility" target="_blank">Backward Compatibility Guide on Lingo</a>
- */
-export type ProductCatalogue = Extendable & Node & Orchestrateable & Referenceable & {
-  __typename?: 'ProductCatalogue';
-  /**  A list of attributes associated with this Product Catalogue. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: Attribute[];
-  /**  A connection to associated Categories */
-  categories?: CategoryConnection;
-  /**  Time of creation */
-  createdOn?: string;
-  /**  A short description of the Product Catalogue */
-  description?: string;
-  /**  ID of the object. For internal use, should not be used externally or by any business logic */
-  id: string;
-  /**  The name of the Product Catalogue */
-  name: string;
-  /**  The unique reference identifier for the Product Catalogue */
-  ref: string;
-  /**  A list of Retailer references associated with this Product Catalogue */
-  retailerRefs?: string[];
-  /**  The current status of the `ProductCatalogue`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/> */
-  status?: string;
-  /**  Type of the `ProductCatalogue`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/> */
-  type: string;
-  /**  Time of last update */
-  updatedOn?: string;
-  /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
-  workflowRef: string;
-  /**  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/> */
-  workflowVersion: number;
-};
-
-
-/**
- *  The `ProductCatalogue` is a structure that supports a grouping of product and category data. The `ref` field will be the unique identifier for this catalogue. <br /><br />
- *  The `ProductCatalogue` is an orchestrateable entity, and the parent type for all `Product` and `Category` orchestration events. <br /><br />
- *  **Backward Compatibility Note** <br /><br />
- *  With the introduction of <a href="https://lingo.fluentretail.com/display/LIN/Global+Inventory" target="_blank">Global Inventory</a>, we have introduced new data structures to support this functionality. Existing orchestration enabled clients will have access to their existing product based data via the `COMPATIBILITY:<retailerId>` catalogue. <br /><br />
- *  For more information, please refer to the <a href="https://lingo.fluentretail.com/display/LIN/Compatibility" target="_blank">Backward Compatibility Guide on Lingo</a>
- */
-export type ProductCatalogueCategoriesArgs = {
-  after?: string;
-  before?: string;
-  catalogue?: ProductCatalogueKey;
-  createdOn?: DateRange;
-  first?: number;
-  last?: number;
-  name?: string[];
-  ref?: string[];
-  status?: string[];
-  summary?: string[];
-  type?: string[];
-  updatedOn?: DateRange;
-  workflowRef?: string[];
-  workflowVersion?: number[];
-};
-
 /**
  *  Represents a text based comment. A `comment` can be added against an existing entity object. <br /> <br />
  *  **Usage**<br /><br/>
@@ -4665,7 +4941,9 @@ export type Comment = Node & {
   /**  Time of creation */
   createdOn?: string;
   /**  ID of the entity */
-  entityId: string;
+  entityId?: string;
+  /**  Entity reference */
+  entityRef?: string;
   /**  Type of the entity. For example `ORDER`, `FULFILMENT`, `ORDERITEM`, `PRODUCTCATALOGUE` etc. */
   entityType: string;
   /**  ID of the object */
@@ -4674,6 +4952,8 @@ export type Comment = Node & {
   text: string;
   /**  Time of last update */
   updatedOn?: string;
+  /**  The author of the comment */
+  user?: User;
 };
 
 /**  A list of results that matched against a Comment search query */
@@ -4959,186 +5239,6 @@ export type CustomerEdge = {
   /**  The item at the end of the Customer edge */
   node?: Customer;
 };
-
-/**
- *  _Disclaimer:  This type is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/>
- *  A DecisionTable is a structure that defines which actions to perform for a given set of conditions.
- */
-export type DecisionTable = {
-  __typename?: 'DecisionTable';
-  /**  Description of the decision table */
-  description?: string;
-  /**  Id of the object */
-  id: string;
-  /**  Name of the table */
-  name: string;
-  /**  A connection of `Rule`s. A decision rule is a set of conditions with corresponding actions that must be performed if the conditions evaluate to true. */
-  rules?: DecisionRuleConnection;
-};
-
-
-/**
- *  _Disclaimer:  This type is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/>
- *  A DecisionTable is a structure that defines which actions to perform for a given set of conditions.
- */
-export type DecisionTableRulesArgs = {
-  after?: string;
-  before?: string;
-  first?: number;
-  last?: number;
-};
-
-/**  A list of results that matched against a DecisionRule search query */
-export type DecisionRuleConnection = {
-  __typename?: 'DecisionRuleConnection';
-  /**  A list of edges that link to DecisionRule type node */
-  edges?: DecisionRuleEdge[];
-  /**  An object containing information to aid in pagination */
-  pageInfo?: PageInfo;
-};
-
-/**  The edge in a DecisionRule connection to the DecisionRule type */
-export type DecisionRuleEdge = {
-  __typename?: 'DecisionRuleEdge';
-  /**  A cursor for use in pagination */
-  cursor?: string;
-  /**  The item at the end of the DecisionRule edge */
-  node?: DecisionRule;
-};
-
-/**
- *  _Disclaimer:  This type is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/>
- *  A DecisionRule is a set of conditions along with actions that must be performed if the conditions evaluate to true.
- */
-export type DecisionRule = {
-  __typename?: 'DecisionRule';
-  /**  A short description of the rule. Helpful to understand the behaviour when the rule itself is complicated. */
-  description?: string;
-  /**  Id of the object */
-  id: string;
-  /**  A set of conditions that ALL need to be true for the input to evaluate to true. */
-  inputs: DecisionRuleInput[];
-  /**  A set of actions to be taken when the input evaluates to true. <br/> Note: Currently we support only one action. The type is list for future support. */
-  outputs: DecisionRuleOutput[];
-  /**  The priority decides which rule to execute in case of conflict between multiple rules. The rule with the highest priority (represented by lowest number) will be selected. If no priority is provided, each rule will get a priority of 100 by default. */
-  priority?: number;
-};
-
-/**
- *  _Disclaimer:  This type is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/>
- *  Represents the input conditions for a `DecisionRule`.
- */
-export type DecisionRuleInput = {
-  __typename?: 'DecisionRuleInput';
-  /**  Id of the object */
-  id: string;
-  /**  This represents the right hand side of the condition equation. It includes the input values. */
-  inputEntries?: DecisionRuleInputEntries;
-  /**  The left hand side of a condition equation. At the moment, the actions are executed only when the `inputExpression` evaluates to true. So, it should be designed such that the true value should lead to the execution of the action. */
-  inputExpression?: DecisionRuleInputExpression;
-};
-
-/**
- *  _Disclaimer:  This type is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/>
- *  This represents the values that the input expression will be compared to. Think of these as the right hand side of the condition equation.
- */
-export type DecisionRuleInputEntries = {
-  __typename?: 'DecisionRuleInputEntries';
-  /**  Values that the input expression will be compared to. This field should be used when values of the corresponding fields are strings. For example, value of Product.Ref will be string or a value that can be parsed or converted into a string. */
-  stringEntries?: string[];
-};
-
-/**
- *  _Disclaimer:  This type is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/>
- *  The input expression. At the moment, output actions are executed when DecisionRuleInputExpression evaluates to true. So, this should be designed such that it evaluates to true for the corresponding action to be performed.
- *  Note: A rule can have multiple input expressions chained together with logical operators. Currently the api uses the "AND" operator to chain multiple input expressions within a rule.
- */
-export type DecisionRuleInputExpression = {
-  __typename?: 'DecisionRuleInputExpression';
-  /**  The `fieldName` for this input expression */
-  fieldName?: DecisionRuleInputFieldName;
-  /**  The comparison operator */
-  operator?: DecisionRuleComparisionOperator;
-};
-
-/**
- *  _Disclaimer:  This type is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/>
- *  Enumerates the supported fields for use in input expressions.
- */
-export enum DecisionRuleInputFieldName {
-  /**  Enum value for category ref. To be used when decision rule input is based on the ref/s of the product's category. */
-  CategoryRef = 'CATEGORY_REF',
-  /**  Enum value for location ref. To be used when decision rule input is based on the ref/s of the location. */
-  LocationRef = 'LOCATION_REF',
-  /**  Enum value for location status. To be used when decision rule input is based on the status/es of the product's location. */
-  LocationStatus = 'LOCATION_STATUS',
-  /**  Search by attribute. Corresponding stringEntires should be of the format <<attributename>>:<<attributevalue>>. Where value of the attribute doesn't matter, <<attributevalue>> should be replaced by the asterix character `*`. */
-  ProductAttribute = 'PRODUCT_ATTRIBUTE',
-  /**  Enum value for product status. To be used when decision rule input is based on the status/es of the product. The type of the product i.e. STANDARD or VARIANT doesn't matter. */
-  ProductStatus = 'PRODUCT_STATUS',
-  /**  Enum value for standard product ref. To be used when decision rule input is based on the ref/s of the standard products. */
-  StandardproductRef = 'STANDARDPRODUCT_REF',
-  /**  Enum value for variant product ref. To be used when decision rule input is based on the ref/s of the variant products. */
-  VariantproductRef = 'VARIANTPRODUCT_REF'
-}
-
-/**
- *  _Disclaimer:  This type is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/>
- *  Enumerates the supported operators for use in input expressions.
- */
-export enum DecisionRuleComparisionOperator {
-  /**  Determines whether the value of an expression is equal to any of the several values in a specified list. */
-  In = 'IN',
-  /**  Determines whether the value of an expression is not equal to any of the several values in a specified list. */
-  NotIn = 'NOT_IN'
-}
-
-/**
- *  _Disclaimer:  This type is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/>
- *  Represents a single action to be performed when input conditions as configured via `DecisionRuleInput` are evaluated to true. A single DecisionRule can have multiple DecisionRuleOutput associated with it, each corresponding to a single action.
- */
-export type DecisionRuleOutput = {
-  __typename?: 'DecisionRuleOutput';
-  /**  Id of the object */
-  id: string;
-  /**  This represents the values that the output expression will be compared to. */
-  outputEntries?: DecisionRuleOutputEntries;
-  /**  The output expression. At the moment, we execute actions/outputs when DecisionRuleInputExpression evaluates to true. So, this should be designed such that this will always be executed when the input evaluates to true. Also note that even though we don't support logical expressions as outputs at the moment, the schema type is designed this way to be future proof. */
-  outputExpression?: DecisionRuleOutputExpression;
-};
-
-/**
- *  _Disclaimer:  This type is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/>
- *  This represents the values of the output expressions.
- */
-export type DecisionRuleOutputEntries = {
-  __typename?: 'DecisionRuleOutputEntries';
-  /**  Values that the output expression will be compared to. To be used when the values are a single Int. For example, for the Output "Apply a quantity buffer of 10, this is the `10` part.” */
-  intEntry?: number;
-};
-
-/**
- *  _Disclaimer:  This type is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/>
- *  The output expression. At the moment, we execute actions/outputs when DecisionRuleInputExpression evaluates to true. So, this should be designed such that this will always be executed when the input evaluates to true. Also note that at the moment, we don't support logical expressions as outputs. The schema naming is designed this way to be future proof.
- */
-export type DecisionRuleOutputExpression = {
-  __typename?: 'DecisionRuleOutputExpression';
-  /**  The action to be executed */
-  action?: DecisionRuleOutputAction;
-};
-
-/**
- *  _Disclaimer:  This type is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/>
- *  Supported actions for output in the decision table.
- */
-export enum DecisionRuleOutputAction {
-  /**  This action applies an exclusion buffer. This buffer is meant to exclude items by setting the available quantity to 0. Please note that exclusion buffers do not need a corresponding `DecisionRuleOutputEntries`. If an entry is provided, they will be ignored in the buffer calculation. */
-  ApplyExclusionBuffer = 'APPLY_EXCLUSION_BUFFER',
-  /**  This action applies a quantity buffer. It directly subtracts the corresponding buffer quantity from on-hand quantity. The resulting 'available' values are a direct result of the subtraction (on-hand - buffer) and, thus, can be negative when buffer > on-hand. This impacts the aggregate "available" values accordingly. For the calculation algorithm, please refer to the User Guide. */
-  ApplyQuantityBufferAllowNegativeAvailable = 'APPLY_QUANTITY_BUFFER_ALLOW_NEGATIVE_AVAILABLE',
-  /**  This action applies a quantity buffer by directly subtracting the corresponding buffer quantity from on-hand quantity. The resulting 'available' values are a direct result of the subtraction (on-hand - buffer) and, thus, can be negative when buffer > on-hand. In case when an 'available' quantity becomes negative, this action resets it to 0 so that negative available quantities do not eat into the aggregate available values. For the calculation algorithm, please refer to the User Guide. */
-  ApplyQuantityBufferResetNegativeAvailableToZero = 'APPLY_QUANTITY_BUFFER_RESET_NEGATIVE_AVAILABLE_TO_ZERO'
-}
 
 /**
  *  `FulfilmentOption` provides a singular and accurate view of what products are available to purchase, order, pick-up or reserve. This information can be used
@@ -5551,10 +5651,20 @@ export type InventoryPosition = Extendable & Node & Orchestrateable & Referencea
   createdOn?: string;
   /**  ID of the object. For internal use, should not be used externally or by any business logic */
   id: string;
+  /**  The Location where this inventory exists. */
+  location?: StoreAddress;
   /**  A reference identifying the Location where this inventory exists. This is a loosely coupled association. */
   locationRef?: string;
   /**  The calculated on hand quantity based on the associated quantities, and rules in the orchestration workflow */
   onHand?: number;
+  /**
+   *  The Product (Standard, Variant or Group) the current inventory position refers to.
+   *  - Only products in the same product catalogue are considered in this association
+   *  - The caller must have permission to access the underlying product - PRODUCT_VIEW for all products, plus STANDARDPRODUCT_VIEW for StandardProduct, VARIANTPRODUCT_VIEW for VariantProduct, GROUPPRODUCT_VIEW for GroupProduct.
+   *  If any required permission is absent, the result will be empty.  E.G if the product ref is for a GroupProduct but GROUPPRODUCT_VIEW is not granted, then no product will be returned
+   *  - If there are several products with the same ref in the corresponding product catalogue, the product returned will be selected by priority: GroupProduct -> VariantProduct -> StandardProduct
+   */
+  product?: Product;
   /**  A reference identifying a Product. The referenced product may or may not exist within one or more Product Catalogues. This is a loosely coupled association, since Product and Inventory are separate domains. */
   productRef: string;
   /**  A connection to the Inventory Quantities associated with this Position */
@@ -5571,6 +5681,18 @@ export type InventoryPosition = Extendable & Node & Orchestrateable & Referencea
   workflowRef: string;
   /**  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/> */
   workflowVersion: number;
+};
+
+
+/**
+ *  An `InventoryPosition` provides an "on hand" calculation of available inventory, based on it's associated Inventory Quantities and Location. The `ref` field will be the unique identifier for this position within the specified Inventory Catalogue, as identified by the `catalogue` field. <br /><br />
+ *  The `InventoryPosition` is an orchestrateable entity. Events for these should specify a parent entity of Inventory Catalogue. <br /><br />
+ *  **Backward Compatibility Note** <br /><br />
+ *  With the introduction of <a href="https://lingo.fluentretail.com/display/LIN/Global+Inventory" target="_blank">Global Inventory</a>, we have introduced new data structures to support this functionality. Existing orchestration enabled clients will have access to their existing product based data via the `COMPATIBILITY:<retailerId>` catalogue. <br /><br />
+ *  For more information, please refer to the <a href="https://lingo.fluentretail.com/display/LIN/Compatibility" target="_blank">Backward Compatibility Guide on Lingo</a>
+ */
+export type InventoryPositionProductArgs = {
+  catalogue?: ProductCatalogueKey;
 };
 
 
@@ -5598,6 +5720,51 @@ export type InventoryPositionQuantitiesArgs = {
   updatedOn?: DateRange;
   workflowRef?: string[];
   workflowVersion?: number[];
+};
+
+/**  Store location information */
+export type StoreAddress = Address & {
+  __typename?: 'StoreAddress';
+  /**  City */
+  city?: string;
+  /**  Company name */
+  companyName?: string;
+  /**  Country */
+  country?: string;
+  /**  Time of creation */
+  createdOn?: string;
+  /**  Directions to store location (may be used for landmarks) */
+  directions?: string;
+  /**  Email */
+  email?: string;
+  /**  ID of the object */
+  id: string;
+  /**  Latitude */
+  latitude?: number;
+  /**  Location */
+  location?: Location;
+  /**  Longitude */
+  longitude?: number;
+  /**  Name */
+  name?: string;
+  /**  Postcode */
+  postcode?: string;
+  /**  Location reference */
+  ref?: string;
+  /**  Region */
+  region?: string;
+  /**  State */
+  state?: string;
+  /**  Street */
+  street?: string;
+  /**  Street 2 */
+  street2?: string;
+  /**  Timezone */
+  timeZone?: string;
+  /**  Type of Address, to support legacy address, the value can be AGENT and ORDER */
+  type?: string;
+  /**  Time of last update */
+  updatedOn?: string;
 };
 
 /**  A list of results that matched against a InventoryQuantity search query */
@@ -5707,136 +5874,6 @@ export type InventoryQuantityAggregateOutput = {
   count?: number;
   /**  the sum of inventory position entries */
   sum?: number;
-};
-
-/**  Represents a `User` */
-export type User = Node & {
-  __typename?: 'User';
-  /**  Active apps for the Fluent Account to which the User belongs */
-  apps?: App[];
-  /**  A list of attributes associated with this object. This can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: Attribute[];
-  /**  Country */
-  country?: string;
-  /**  Time of creation */
-  createdOn?: string;
-  /**  Department */
-  department?: string;
-  /**  User's first name */
-  firstName?: string;
-  /**  ID of the object */
-  id: string;
-  /**  User language (leave null to allow users to self-select their language preference) */
-  language?: SettingValueType;
-  /**  User's last name */
-  lastName?: string;
-  /**  User's primary email */
-  primaryEmail?: string;
-  /**  User's location context */
-  primaryLocation?: Location;
-  /**  User's primary phone number */
-  primaryPhone?: string;
-  /**  User's retailer context */
-  primaryRetailer?: Retailer;
-  /**  Determines if the user has opted to receive promotions */
-  promotionOptIn?: boolean;
-  /**  External reference of the object. Recommended to be unique. */
-  ref: string;
-  /**  Roles assigned to the user */
-  roles?: UserRole[];
-  /**  Status */
-  status?: string;
-  /**  Timezone */
-  timezone?: string;
-  /**  The user's title. For example _Mr._, _Miss_, _Dr._, _Ms._ etc */
-  title?: string;
-  /**  Type of the user */
-  type: string;
-  /**  Time of last update */
-  updatedOn?: string;
-  /**  Unique name for the user used for identification and logging purposes. */
-  username: string;
-};
-
-/**  Represents packaged set of functionality within the Fluent Platform */
-export type App = {
-  __typename?: 'App';
-  /**  The `App` creation time */
-  createdOn?: string;
-  /**  UUID */
-  id: string;
-  /**  The name of the `App` */
-  name: string;
-  /**  The `App` type enum. Accepted Values: REFERENCE, CUSTOM */
-  type: AppType;
-  /**  The `App` modification time */
-  updatedOn?: string;
-  /**  Specifies the version of the `App` */
-  version: AppVersion;
-};
-
-/**  Enum representing the `App` type */
-export enum AppType {
-  /**  Represents a custom `App` created by clients. */
-  Custom = 'CUSTOM',
-  /**  Represents a reference `App` created by Fluent Commerce. These are immutable `App`'s which can be deployed by clients */
-  Reference = 'REFERENCE'
-}
-
-/**  Represents a version of an `App`. Based on semver.org standard without the support for labels. */
-export type AppVersion = {
-  __typename?: 'AppVersion';
-  /**  Major version */
-  major: number;
-  /**  Minor version */
-  minor: number;
-  /**  Patch version */
-  patch: number;
-};
-
-/**
- *  An object to represent a user's role with the contexts.
- *  <br/>Note: A role is always assigned to a user with a certain context.
- */
-export type UserRole = {
-  __typename?: 'UserRole';
-  /**  A list of `RoleContext` objects. It represents the boundaries of the user's role validity. */
-  contexts: RoleContext[];
-  /**  Represents the `Role` */
-  role: Role;
-};
-
-/**
- *  A type to define a role and the boundaries within which that role is valid. For instance, a store associate can only be authorised to view particulars of their own store
- *  whereas a store manager can be authorised to view particulars of multiple stores.
- */
-export type RoleContext = {
-  __typename?: 'RoleContext';
-  /**  Represents the identity of the context object. */
-  contextId: string;
-  /**  Represents the type of context. For more information on contexts and how they relate to user and roles, please visit <a href="https://lingo.fluentretail.com/display/LIN/Flex+Academy+Users" target="_blank">User's section on Lingo</a>. */
-  contextType: string;
-};
-
-/**
- *  Represents a `Role`. A `Role` is a singular entity that represents one or more `Permissions`. It could correlate for a job type for example, Fulfilment Manager. Roles make it
- *  easier for clients to manage access to various functions within the system.
- */
-export type Role = {
-  __typename?: 'Role';
-  /**  ID of the object */
-  id: string;
-  /**  Name of the role. Must be unique. */
-  name: string;
-  /**  A list of permissions within the role */
-  permissions?: Permission[];
-};
-
-/**  A `permission` represents a single access right. It implies the authorization to carry out a certain function within the system. */
-export type Permission = {
-  __typename?: 'Permission';
-  /**  Name of the permission. Must be unique. */
-  name: string;
 };
 
 /**  A list of results that matched against a OpeningSchedule search query */
@@ -6680,7 +6717,7 @@ export type VariantProduct = Extendable & Node & Orchestrateable & Product & Ref
   /**  A list of Prices for this Product */
   prices?: Price[];
   /**  The associated Standard Product for this Variant Product */
-  product: StandardProduct;
+  product?: StandardProduct;
   /**  The unique reference identifier for the Product */
   ref: string;
   /**  The current status of the `VariantProduct`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/> */
@@ -6742,51 +6779,6 @@ export type StandardProductEdge = {
   node?: StandardProduct;
 };
 
-/**  Store location information */
-export type StoreAddress = Address & {
-  __typename?: 'StoreAddress';
-  /**  City */
-  city?: string;
-  /**  Company name */
-  companyName?: string;
-  /**  Country */
-  country?: string;
-  /**  Time of creation */
-  createdOn?: string;
-  /**  Directions to store location (may be used for landmarks) */
-  directions?: string;
-  /**  Email */
-  email?: string;
-  /**  ID of the object */
-  id: string;
-  /**  Latitude */
-  latitude?: number;
-  /**  Location */
-  location?: Location;
-  /**  Longitude */
-  longitude?: number;
-  /**  Name */
-  name?: string;
-  /**  Postcode */
-  postcode?: string;
-  /**  Location reference */
-  ref?: string;
-  /**  Region */
-  region?: string;
-  /**  State */
-  state?: string;
-  /**  Street */
-  street?: string;
-  /**  Street 2 */
-  street2?: string;
-  /**  Timezone */
-  timeZone?: string;
-  /**  Type of Address, to support legacy address, the value can be AGENT and ORDER */
-  type?: string;
-  /**  Time of last update */
-  updatedOn?: string;
-};
-
 /**  A list of results that matched against a StoreAddress search query */
 export type StoreAddressConnection = {
   __typename?: 'StoreAddressConnection';
@@ -6841,365 +6833,6 @@ export type VirtualCatalogueEdge = {
   node?: VirtualCatalogue;
 };
 
-/**
- *  _Disclaimer:  This type is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/>
- *  Input type for `virtualView` query.
- */
-export type VirtualViewInput = {
-  /**  Unique reference of the Virtual View */
-  ref: string;
-};
-
-/**
- *  _Disclaimer:  This type is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/>
- *  A `VirtualView` object provides on-hand and buffered view of the inventory. The buffers are calculated based on a specific set of inventory controls which are associated with the Virtual View at the time of creation.
- */
-export type VirtualView = Node & Referenceable & {
-  __typename?: 'VirtualView';
-  /**  Time of creation */
-  createdOn?: string;
-  /**  Description */
-  description?: string;
-  /**  ID of the object. */
-  id: string;
-  /**  `InventoryCatalogue` associated with the Virtual View. */
-  inventoryCatalogueRef: string;
-  /**  The identifier for the DecisionTable that contains the inventory controls for this VirtualView. */
-  inventoryControlsId: string;
-  /**  Name of the VirtualView. */
-  name: string;
-  /**  `Network` associated with the Virtual View. */
-  networkRef: string;
-  /**  `ProductCatalogue` associated with the Virtual View. */
-  productCatalogueRef: string;
-  /**  A unique reference. Note: Virtual View refs do not support the hash (#) character. */
-  ref: string;
-  /**  Represents the current status of the Virtual View. Please see user guide to learn about the status lifecycle of a Virtual View. */
-  status?: VirtualViewStatus;
-  /**  Time of last update */
-  updatedOn?: string;
-  /**  A list of `VirtualProducts` within this Virtual View. A Virtual View returns `VirtualProducts` only when it is in the 'ACTIVE' status. */
-  virtualProducts?: VirtualProductConnection;
-};
-
-
-/**
- *  _Disclaimer:  This type is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/>
- *  A `VirtualView` object provides on-hand and buffered view of the inventory. The buffers are calculated based on a specific set of inventory controls which are associated with the Virtual View at the time of creation.
- */
-export type VirtualViewVirtualProductsArgs = {
-  after?: string;
-  before?: string;
-  first?: number;
-  last?: number;
-  ref?: string[];
-  type?: ProductType[];
-};
-
-/**
- *  _Disclaimer:  This type is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/>
- *  Represents the status of a Virtual View. A Virtual View can be in one of the three statuses in its lifecycle. Each of them is described below.
- */
-export enum VirtualViewStatus {
-  /**  Represents that the Virtual View is ready to be queried for virtual products. A Virtual View is expected to remain in this status for its lifespan. */
-  Active = 'ACTIVE',
-  /**  Status for a newly created Virtual View. This status represents that the Virtual View has been created but it has not started loading the inventory yet. */
-  Created = 'CREATED',
-  /**  Represents that the Virtual View was created but there was error in loading the inventory. This is usually due to a server issue. We recommend creating a new virtual view when this happens. If the problem persists, please call Fluent support. */
-  Failed = 'FAILED',
-  /**  Represents that a newly created Virtual View is loading inventory in the background. */
-  Loading = 'LOADING'
-}
-
-/**
- *  _Disclaimer:  This type is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/>
- *  Types of the product.
- */
-export enum ProductType {
-  /**  Represents a `StandardProduct` */
-  Standard = 'STANDARD',
-  /**  Represents a `VariantProduct` */
-  Variant = 'VARIANT'
-}
-
-/**  A list of results that matched against a VirtualProduct search query */
-export type VirtualProductConnection = {
-  __typename?: 'VirtualProductConnection';
-  /**  A list of edges that links to VirtualProduct type node */
-  edges?: VirtualProductEdge[];
-  /**  Information to aid in pagination */
-  pageInfo?: PageInfo;
-};
-
-/**  The edge in a VirtualProduct connection to the VirtualProduct type */
-export type VirtualProductEdge = {
-  __typename?: 'VirtualProductEdge';
-  /**  A cursor for use in pagination */
-  cursor?: string;
-  /**  The item at the end of the VirtualProduct edge */
-  node?: VirtualProduct;
-};
-
-/**
- *  _Disclaimer:  This type is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/>
- *  A `VirtualProduct` object provides aggregated as well as location based `onHand` and `available` inventory for a given product.
- */
-export type VirtualProduct = {
-  __typename?: 'VirtualProduct';
-  /**  Represents number of items in the inventory with the buffers applied */
-  available: number;
-  /**  Represents the total buffer calculated as per the inventory controls. Please note that buffers are always subtracted from the on-hand quantities. So a negative buffer will result in addition. */
-  buffer: number;
-  /**
-   *  Global trade item number: Globally unique 14 digit number to uniquely identify an item. We allow 20 characters as support for legacy clients. If you are not a legacy client, we recommend not exceeding the standard 14 digits. </br>
-   *  Max character limit: 20.
-   */
-  gtin?: string;
-  /**  ID of the object */
-  id: string;
-  /**  Represents number of items in the inventory without the buffer applied */
-  onHand: number;
-  /**  Reference of the product */
-  ref: string;
-  /**  Type of the product */
-  type?: ProductType;
-  /**  A list of `VirtualInventoryPosition` for this product. */
-  virtualInventoryPositions?: VirtualInventoryPositionConnection;
-  /**  Child products of this VirtualProduct. This field is applicable for products that have children. For instance, if this product is a StandardProduct with variants, this field represents the variants. */
-  virtualProducts?: VirtualProductConnection;
-};
-
-
-/**
- *  _Disclaimer:  This type is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/>
- *  A `VirtualProduct` object provides aggregated as well as location based `onHand` and `available` inventory for a given product.
- */
-export type VirtualProductVirtualInventoryPositionsArgs = {
-  after?: string;
-  before?: string;
-  first?: number;
-  last?: number;
-  locationRef?: string[];
-};
-
-
-/**
- *  _Disclaimer:  This type is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/>
- *  A `VirtualProduct` object provides aggregated as well as location based `onHand` and `available` inventory for a given product.
- */
-export type VirtualProductVirtualProductsArgs = {
-  after?: string;
-  before?: string;
-  first?: number;
-  last?: number;
-  ref?: string[];
-  type?: ProductType[];
-};
-
-/**  A list of results that matched against a VirtualInventoryPosition search query */
-export type VirtualInventoryPositionConnection = {
-  __typename?: 'VirtualInventoryPositionConnection';
-  /**  A list of edges that links to VirtualInventoryPosition type node */
-  edges?: VirtualInventoryPositionEdge[];
-  /**  Information to aid in pagination */
-  pageInfo?: PageInfo;
-};
-
-/**  The edge in a VirtualInventoryPosition connection to the VirtualInventoryPosition type */
-export type VirtualInventoryPositionEdge = {
-  __typename?: 'VirtualInventoryPositionEdge';
-  /**  A cursor for use in pagination */
-  cursor?: string;
-  /**  The item at the end of the VirtualInventoryPosition edge */
-  node?: VirtualInventoryPosition;
-};
-
-/**
- *  _Disclaimer:  This type is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/>
- *  A `VirtualInventoryPosition` object provides the `onHand` and `available` inventory for the corresponding `VirtualProduct` at a specific location.
- */
-export type VirtualInventoryPosition = {
-  __typename?: 'VirtualInventoryPosition';
-  /**  Represents number of items in the inventory with the buffer applied */
-  available: number;
-  /**  Represents the buffer, calculated as per the inventory controls. Please note that buffers are always subtracted from the on-hand quantities. So a negative buffer will result in addition. */
-  buffer: number;
-  /**  Reference for the location */
-  locationRef: string;
-  /**  Represents number of items in the inventory without the buffer applied */
-  onHand: number;
-};
-
-/**
- *  _Disclaimer:  This type is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/>
- * Input type for the `virtualViewInventoryLevels` query.
- */
-export type VirtualViewInventoryLevelsInput = {
-  /**  A list of locations within the Virtual View's network. The search will be confined to these locations. */
-  includedLocationRefs?: string[];
-  /**
-   *  GeoCoordinates to order results by. Closest locations are returned first. If this parameter is not passed, results will be in no specific order.
-   *  Please note that we use the great-circle distance for this sorting and these distances are calculated based on an implementation of the Haversine formula.
-   */
-  orderByProximity?: GeoCoordinateInput;
-  /**  An object containing requested products along with the quantities required. */
-  productQuantities: ProductQuantityInput[];
-  /**  Reference of the Virtual View that will be searched. */
-  virtualViewRef: string;
-};
-
-/**
- *  _Disclaimer:  This type is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/>
- *  Response type for the `VirtualViewInventoryLevels` query.
- */
-export type VirtualViewInventoryLevelsOutput = {
-  __typename?: 'VirtualViewInventoryLevelsOutput';
-  /**  List of `VirtualViewInventoryLevels` objects. The number of objects in this array is currently capped at 100. This limit is subject to incremental change. */
-  virtualViewInventoryLevels?: VirtualViewInventoryLevels[];
-};
-
-/**
- *  _Disclaimer:  This type is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/>
- *  Pair of location with products in this location.
- */
-export type VirtualViewInventoryLevels = {
-  __typename?: 'VirtualViewInventoryLevels';
-  /**  Location that can fulfil the requested stock */
-  locationRef: string;
-  /**  Products along with their inventory levels */
-  productInventoryLevels: VirtualViewProductInventoryLevels[];
-};
-
-/**
- *  _Disclaimer:  This type is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/>
- *  An object containing a product’s inventory levels as requested via the `virtualViewInventoryLevels` query.
- */
-export type VirtualViewProductInventoryLevels = {
-  __typename?: 'VirtualViewProductInventoryLevels';
-  /**  Represents a count of this product with the buffers applied */
-  available: number;
-  /**  Represents the total buffer applied to this product as per the inventory controls. Please note that buffers are always subtracted from the on-hand quantities. So a negative buffer will result in addition. */
-  buffer: number;
-  /**  Represents a count of this product without the buffer applied */
-  onHand: number;
-  /**  Reference of the product */
-  productRef: string;
-};
-
-/**  `Wave` represents the pick and pack process that gets carried out in a store or a warehouse. */
-export type Wave = Extendable & Node & Orchestrateable & Referenceable & {
-  __typename?: 'Wave';
-  /**  `User` who the wave is assigned to */
-  allocatedTo?: User;
-  /**  A list of attributes associated with this `Wave`. Attributes can be used to extend the existing data structure with additional data for use in orchestration rules, etc. */
-  attributes?: Attribute[];
-  /**  Time of creation */
-  createdOn?: string;
-  /**  Fulfilments associated with this `Wave` */
-  fulfilments?: FulfilmentConnection;
-  /**  ID of the `Wave` */
-  id: string;
-  /**  Items associated with this `Wave` */
-  items: WaveItemConnection;
-  /**  Location of the `Wave` operation */
-  location: Location;
-  /**  Name of the `Wave` */
-  name?: string;
-  /**  The `Location` where the `Wave` is processed */
-  processingLocation?: LocationLink;
-  /**  External reference of the `Wave`. Must be unique. */
-  ref: string;
-  /**  The associated retailer */
-  retailer: Retailer;
-  /**  The current status of the `Wave`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/> */
-  status?: string;
-  /**  Type of the `Wave`, typically used by the Orchestration Engine to determine the workflow that should be applied. Unless stated otherwise, no values are enforced by the platform.<br/> */
-  type: string;
-  /**  Time of last update */
-  updatedOn?: string;
-  /**  The reference used for workflow identification. This is defined by a combination of the entity name and the type, in the format [EntityName]::[Type]. For example, an Order of type CC will have the workflowRef "ORDER::CC".<br/> */
-  workflowRef: string;
-  /**  The version of the workflow assigned to the entity and used for workflow identification. It comprises a major version and minor version number.<br/> */
-  workflowVersion: number;
-};
-
-
-/**  `Wave` represents the pick and pack process that gets carried out in a store or a warehouse. */
-export type WaveFulfilmentsArgs = {
-  after?: string;
-  before?: string;
-  createdOn?: DateRange;
-  deliveryType?: string[];
-  eta?: string[];
-  expiryTime?: DateRange;
-  first?: number;
-  fromLocation?: LocationLinkInput;
-  fulfilmentChoiceRef?: string[];
-  last?: number;
-  ref?: string[];
-  retailerId?: number[];
-  status?: string[];
-  type?: string[];
-  updatedOn?: DateRange;
-  workflowRef?: string[];
-  workflowVersion?: number[];
-};
-
-
-/**  `Wave` represents the pick and pack process that gets carried out in a store or a warehouse. */
-export type WaveItemsArgs = {
-  after?: string;
-  before?: string;
-  first?: number;
-  last?: number;
-  quantity?: number[];
-};
-
-/**  A list of results that matched against a WaveItem search query */
-export type WaveItemConnection = {
-  __typename?: 'WaveItemConnection';
-  /**  A list of edges that links to WaveItem type node */
-  edges?: WaveItemEdge[];
-  /**  Information to aid in pagination */
-  pageInfo?: PageInfo;
-};
-
-/**  The edge in a WaveItem connection to the WaveItem type */
-export type WaveItemEdge = {
-  __typename?: 'WaveItemEdge';
-  /**  A cursor for use in pagination */
-  cursor?: string;
-  /**  The item at the end of the WaveItem edge */
-  node?: WaveItem;
-};
-
-/**  `WaveItem` represents an item of the `Wave`. */
-export type WaveItem = {
-  __typename?: 'WaveItem';
-  /**  Represents the `Product` corresponding to this `WaveItem` */
-  product: Product;
-  /**  Aggregated quantity of a product in the `Wave` */
-  quantity: number;
-};
-
-/**  A list of results that matched against a Wave search query */
-export type WaveConnection = {
-  __typename?: 'WaveConnection';
-  /**  A list of edges that links to Wave type node */
-  edges?: WaveEdge[];
-  /**  Information to aid in pagination */
-  pageInfo?: PageInfo;
-};
-
-/**  The edge in a Wave connection to the Wave type */
-export type WaveEdge = {
-  __typename?: 'WaveEdge';
-  /**  A cursor for use in pagination */
-  cursor?: string;
-  /**  The item at the end of the Wave edge */
-  node?: Wave;
-};
-
 export type Mutation = {
   __typename?: 'Mutation';
   /**  This mutation creates an `Article`, an orchestratable entity inside the Fluent ecosystem. If the `Article` is successfully created, a CREATE event will be generate associated with the mutation.<br/>A sample of the event generated:<br/>{<br/>&nbsp;&nbsp;&nbsp;&nbsp;"name": "CREATE",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"type": "NORMAL",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityRef": "ARTICLE-001",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityType": "ARTICLE",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"retailerId": "1",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"accountId": "ACCOUNT_ID"<br/>}<br/> */
@@ -7225,11 +6858,6 @@ export type Mutation = {
   createCreditMemoItem?: CreditMemoItem;
   createCustomer?: Customer;
   createCustomerAddress?: CustomerAddress;
-  /**
-   *  _Disclaimer:  This mutation is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/>
-   *  Mutation to create a decision rule and associate it with a decision table
-   */
-  createDecisionRule?: DecisionRule;
   /**
    *  This mutation creates a `FinancialTransaction`, an orchestratable entity inside the Fluent ecosystem. If the `FinancialTransaction` is successfully created, a CREATE event will be generate associated with the mutation.<br/>A sample of the event generated:<br/>{<br/>&nbsp;&nbsp;&nbsp;&nbsp;"name": "CREATE",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"type": "NORMAL",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityRef": "FINANCIALTRANSACTION-001",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityType": "FINANCIALTRANSACTION",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"retailerId": "1",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"accountId": "ACCOUNT_ID"<br/>}<br/>
    *  Creates a 'Financial Transaction'
@@ -7303,11 +6931,6 @@ export type Mutation = {
   createVirtualCatalogue?: VirtualCatalogue;
   /**  This mutation creates a `VirtualPosition`, an orchestratable entity inside the Fluent ecosystem. If the `VirtualPosition` is successfully created, a CREATE event will be generate associated with the mutation.<br/>A sample of the event generated:<br/>{<br/>&nbsp;&nbsp;&nbsp;&nbsp;"name": "CREATE",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"type": "NORMAL",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityRef": "VIRTUALPOSITION-001",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityType": "VIRTUALPOSITION",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"retailerId": "1",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"accountId": "ACCOUNT_ID"<br/>}<br/> */
   createVirtualPosition?: VirtualPosition;
-  /**
-   *  _Disclaimer:  This mutation is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/>
-   *  Creates a new `Virtual View`
-   */
-  createVirtualView?: CreateVirtualViewOutput;
   /**  This mutation creates a `Wave`, an orchestratable entity inside the Fluent ecosystem. If the `Wave` is successfully created, a CREATE event will be generate associated with the mutation.<br/>A sample of the event generated:<br/>{<br/>&nbsp;&nbsp;&nbsp;&nbsp;"name": "CREATE",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"type": "NORMAL",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityRef": "WAVE-001",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"entityType": "WAVE",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"retailerId": "1",<br/>&nbsp;&nbsp;&nbsp;&nbsp;"accountId": "ACCOUNT_ID"<br/>}<br/> */
   createWave?: Wave;
   /**  Removes one or more `Category`s from a `GroupProduct` */
@@ -7316,11 +6939,8 @@ export type Mutation = {
   removeCategoriesFromStandardProduct?: RemoveCategoriesFromStandardProductOutput;
   /**  Removes one or more `Category`s from a `VariantProduct` */
   removeCategoriesFromVariantProduct?: RemoveCategoriesFromVariantProductOutput;
-  /**
-   *  _Disclaimer:  This mutation is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/>
-   *  Mutation to remove a decision rule.
-   */
-  removeDecisionRule?: RemoveDecisionRuleOutput;
+  /**  Removes one or more `Fulfilment`s from a `Wave` */
+  removeFulfilmentsFromWave?: RemoveFulfilmentsFromWaveOutput;
   /**  Removes one or more `Location`s from a `Network` */
   removeLocationsFromNetwork?: RemoveLocationsFromNetworkOutput;
   /**  Removes one or more `Network`s from a `Location` */
@@ -7458,11 +7078,6 @@ export type MutationCreateCustomerArgs = {
 
 export type MutationCreateCustomerAddressArgs = {
   input?: CreateCustomerAddressInput;
-};
-
-
-export type MutationCreateDecisionRuleArgs = {
-  input: CreateDecisionRuleInput;
 };
 
 
@@ -7642,11 +7257,6 @@ export type MutationCreateVirtualPositionArgs = {
 };
 
 
-export type MutationCreateVirtualViewArgs = {
-  input?: CreateVirtualViewInput;
-};
-
-
 export type MutationCreateWaveArgs = {
   input?: CreateWaveInput;
 };
@@ -7667,8 +7277,8 @@ export type MutationRemoveCategoriesFromVariantProductArgs = {
 };
 
 
-export type MutationRemoveDecisionRuleArgs = {
-  input: RemoveDecisionRuleInput;
+export type MutationRemoveFulfilmentsFromWaveArgs = {
+  input?: RemoveFulfilmentsFromWaveInput;
 };
 
 
@@ -8177,7 +7787,9 @@ export type CreateCommentInput = {
    *  ID of the entity <br/>
    *  Note: Please note that while the type of this field is `ID`, currently it only supports _Integer_ values.
    */
-  entityId: string;
+  entityId?: string;
+  /**  Reference of the entity */
+  entityRef?: string;
   /**  Type of the entity. For example `ORDER`, `FULFILMENT`, `ORDERITEM`, `PRODUCTCATALOGUE` etc. */
   entityType: string;
   /**
@@ -8462,7 +8074,7 @@ export type CreateCustomerInput = {
   country?: string;
   department?: string;
   /**  Max character limit: 50. */
-  firstName: string;
+  firstName?: string;
   /**  Max character limit: 50. */
   lastName?: string;
   /**  Max character limit: 250. */
@@ -8505,84 +8117,6 @@ export type CreateCustomerAddressInput = {
   street2?: string;
   /**  Max character limit: 32. */
   timeZone?: string;
-};
-
-/**
- *  _Disclaimer:  This type is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/>
- *  Input type for creating a new decision rule
- */
-export type CreateDecisionRuleInput = {
-  /**  Input for the new decision rule being created */
-  decisionRule: CreateDecisionRuleWithDecisionTableInput;
-  /**  Id of the decision table that this rule is being added to */
-  decisionTableId: string;
-};
-
-/**
- *  _Disclaimer:  This type is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/>
- *  Input type for creating a new decision rule with a decision table
- */
-export type CreateDecisionRuleWithDecisionTableInput = {
-  /**  A short description of the rule. Helpful to understand the behaviour when the rule itself is complicated. */
-  description?: string;
-  /**  A set of conditions that all need to be true for the input to evaluate to true. */
-  inputs: CreateDecisionRuleInputInput[];
-  /**  A set of actions to be taken when the input evaluates to true. <br/> Note: The type is list for future support. Currently we support only one action. If user configures more than one output, the first one in the array will be executed and the rest will be ignored. */
-  outputs: CreateDecisionRuleOutputInput[];
-  /**  The priority decides which rule to execute in case of a conflict between multiple rules. The rule with the highest priority (represented by lowest number) will be selected. If no priority is provided, each rule will get a priority of 100 by default. */
-  priority?: number;
-};
-
-/**
- *  _Disclaimer:  This type is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/>
- *  Input type for `DecisionRuleInput`. Sorry about the awkward naming in this case but that's the naming convention.
- */
-export type CreateDecisionRuleInputInput = {
-  /**  This represents the right hand side of the condition equation. It includes the input values. */
-  inputEntries?: CreateDecisionRuleInputEntriesInput;
-  /**  The left hand side of a condition equation. At the moment, the actions are executed only when the inputExpression evaluates to true. So, it should be designed such that the true value should lead to the execution of the action. */
-  inputExpression?: CreateDecisionRuleInputExpressionInput;
-};
-
-/**  _Disclaimer:  This type is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/> */
-export type CreateDecisionRuleInputEntriesInput = {
-  /**  Values that the input expression will be compared to. To be used when values of the corresponding fields are strings. For example, value of Product.Ref will be string or a value that can be passed and converted into a string. */
-  stringEntries?: string[];
-};
-
-/**
- *  _Disclaimer:  This type is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/>
- *  The input expression. At the moment, output actions are executed when DecisionRuleInputExpression evaluates to true. So, this should be designed such that it evaluates to true for the corresponding action to be performed.
- *  Note: A rule can have multiple input expressions chained together with logical operators. Currently the api uses the "AND" operator to chain multiple input expressions within a rule.
- */
-export type CreateDecisionRuleInputExpressionInput = {
-  /**  The fieldName from the GraphQL type */
-  fieldName?: DecisionRuleInputFieldName;
-  /**  The comparison operator */
-  operator?: DecisionRuleComparisionOperator;
-};
-
-/**
- *  _Disclaimer:  This type is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/>
- *  Type to configure a set of actions which are executed when the decision rule input evaluates to true
- */
-export type CreateDecisionRuleOutputInput = {
-  /**  This represents the values that the output expression will be compared to. */
-  outputEntries: CreateDecisionRuleOutputEntriesInput;
-  /**  The output expression. At the moment, we execute actions/outputs when DecisionRuleInputExpression evaluates to true. So, this should be designed such that this will always be executed when the input evaluates to true. Also note that even though we don't support multiple outputs at the moment, the schema type is designed this way to be future proof. */
-  outputExpression: CreateDecisionRuleOutputExpressionInput;
-};
-
-/**  _Disclaimer:  This type is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/> */
-export type CreateDecisionRuleOutputEntriesInput = {
-  /**  Values that the output expression will be compared to. To be used when the values are a single Int. For example, for the Output "Apply a quantity buffer of 10, this is the `10` part. */
-  intEntry?: number;
-};
-
-/**  _Disclaimer:  This type is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/> */
-export type CreateDecisionRuleOutputExpressionInput = {
-  /**  The action to be executed */
-  action?: DecisionRuleOutputAction;
 };
 
 /** Financial Transaction */
@@ -9550,13 +9084,13 @@ export type CreatePaymentInput = {
 /**  Unique identifier for an existing FinancialTransaction */
 export type FinancialTransactionKey = {
   /**  The id of the FinancialTransaction */
-  id: number;
+  id: string;
 };
 
-/**  Unique identifier for an existing Fulfilment */
+/**  Input type to uniquely identify a `Fulfilment` object. We use all the fields present in the request to look for this object. */
 export type FulfilmentKey = {
-  /**  The id of the Fulfilment */
-  id: number;
+  /**  ID of the object */
+  id?: string;
 };
 
 /**  Input type to create one or more `PaymentTransaction` when a `Payment` is created. */
@@ -10075,7 +9609,7 @@ export type CreateUserInput = {
    *  User's first name. <br/>
    *  Max character limit: 50.
    */
-  firstName: string;
+  firstName?: string;
   /**  User language (leave null to allow users to self-select their language preference) */
   language?: SettingValueTypeInput;
   /**
@@ -10269,58 +9803,6 @@ export type CreateVirtualPositionInput = {
   type: string;
 };
 
-/**
- *  _Disclaimer:  This type is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/>
- *  Input type to create a `VirtualView`
- */
-export type CreateVirtualViewInput = {
-  /**  Description */
-  description?: string;
-  /**  `InventoryCatalogue` associated with the Virtual View. */
-  inventoryCatalogueKey: InventoryCatalogueKey;
-  /**  Creates inventory controls as a decision table and associate it with this Virtual View. */
-  inventoryControls: CreateDecisionTableInput;
-  /**  Name */
-  name: string;
-  /**  `Network` associated with the Virtual View. */
-  networkKey: NetworkKey;
-  /**  `ProductCatalogue` associated with the Virtual View. */
-  productCatalogueKey: ProductCatalogueKey;
-  /**  A unique reference for the Virtual View. Note: Virtual View refs do not support the hash (#) character. */
-  ref: string;
-};
-
-/**
- *  _Disclaimer:  This type is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/>
- *  Input type for creating a new decision table
- */
-export type CreateDecisionTableInput = {
-  /**  Description of the decision table. */
-  description?: string;
-  /**  Name of the table. Please provide a name that will help in identifying the decision table. */
-  name: string;
-  /**  A connection of `DecisionRule`s. A decision rule is a set of conditions with the corresponding actions. The actions are performed if the conditions evaluate to true.So rules can be created in a single mutation while creating the table. But they can be added later too. */
-  rules?: CreateDecisionRuleWithDecisionTableInput[];
-};
-
-/**  Input type to uniquely identify a `Network` object. We use all the fields present in the request to look for this object. */
-export type NetworkKey = {
-  /**  ID of the object */
-  id?: string;
-  /**  The client's reference identifier for the object */
-  ref?: string;
-};
-
-/**
- *  _Disclaimer:  This type is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/>
- *  Output for create Virtual View mutation
- */
-export type CreateVirtualViewOutput = {
-  __typename?: 'CreateVirtualViewOutput';
-  /**  Current status of the Virtual View */
-  status?: VirtualViewStatus;
-};
-
 /**  Input type to create a `Wave` */
 export type CreateWaveInput = {
   /**  `User` who this wave is assigned to */
@@ -10407,21 +9889,23 @@ export type RemoveCategoriesFromVariantProductOutput = {
   status?: string;
 };
 
-/**
- *  _Disclaimer:  This type is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/>
- *  Input type to remove the decision rule
- */
-export type RemoveDecisionRuleInput = {
-  /**  ID of the rule that is to be removed */
-  decisionRuleId: string;
+/**  Input type to remove one or more `Fulfilment`s from a `Wave` */
+export type RemoveFulfilmentsFromWaveInput = {
+  /**  Key to identify the `Fulfilment` objects to remove */
+  fulfilments: FulfilmentKey[];
+  /**  Key to identify the `Wave` object from which to remove the `Fulfilment`s */
+  wave: WaveKey;
 };
 
-/**
- *  _Disclaimer:  This type is in closed Beta and relates to an upcoming feature Virtual Views which will be released later this year. Should you wish to get early access, please contact your account manager_<br/><br/>
- *  Output type of the `removeDecisionRule` mutation
- */
-export type RemoveDecisionRuleOutput = {
-  __typename?: 'RemoveDecisionRuleOutput';
+/**  Input type to uniquely identify a `Wave` object. We use all the fields present in the request to look for this object. */
+export type WaveKey = {
+  /**  ID of the object */
+  id?: string;
+};
+
+/**  Output type for removing `Fulfilment`s from a `Wave` */
+export type RemoveFulfilmentsFromWaveOutput = {
+  __typename?: 'RemoveFulfilmentsFromWaveOutput';
   /**  Status of the mutation operation */
   status?: string;
 };
@@ -10432,6 +9916,14 @@ export type RemoveLocationsFromNetworkInput = {
   locations: LocationKey[];
   /**  Key to identify the `Network` object from which to remove the `Location`s */
   network: NetworkKey;
+};
+
+/**  Input type to uniquely identify a `Network` object. We use all the fields present in the request to look for this object. */
+export type NetworkKey = {
+  /**  ID of the object */
+  id?: string;
+  /**  The client's reference identifier for the object */
+  ref?: string;
 };
 
 /**  Output type for removing `Location`s from a `Network` */
@@ -10661,6 +10153,8 @@ export type UpdateCategoryInput = {
 
 /**  Input for updating an existing `comment` object */
 export type UpdateCommentInput = {
+  /**  Reference of the entity */
+  entityRef?: string;
   /**  ID of the object */
   id: string;
   /**
@@ -11298,7 +10792,7 @@ export type UpdateLocationInput = {
   openingSchedule?: UpdateOpeningScheduleInput;
   primaryAddress?: UpdateStoreAddressInput;
   retailer?: RetailerId;
-  /**  Max character limit: 15. */
+  /**  Max character limit: 15. Possible values are 'ACTIVE', 'INACTIVE'. */
   status?: string;
   storageAreas?: UpdateStorageAreaWithLocationInput[];
   /**  Max character limit: 20. */
@@ -11445,7 +10939,10 @@ export type UpdateOrderInput = {
   id: string;
   /**  List of `OrderItem`s to be updated */
   items?: UpdateOrderItemWithOrderInput[];
-  /**  The current status of the `Order`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/> */
+  /**
+   *  The current status of the `Order`.<br/>By default, the initial value will be CREATED, however no other status values are enforced by the platform.<br/>The status field is also used within ruleset selection during orchestration. For more info, see <a href="https://lingo.fluentcommerce.com/ORCHESTRATION-PLATFORM/" target="_blank">Orchestration</a><br/>
+   *  Order's status
+   */
   status?: string;
   /**  Tax price */
   totalPrice?: number;
